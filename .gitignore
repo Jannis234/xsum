@@ -1,0 +1,8 @@
+*.o
+*.d
+*.a
+*.exe
+depend.mak
+src/include/config_generated.h
+xsum
+xsum.1
