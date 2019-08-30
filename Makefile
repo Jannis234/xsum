@@ -17,7 +17,9 @@ include config_system.mak
 
 CFLAGS += $(CCFLAGS) -Wall -std=c99 -Isrc/include
 
-SRC = src/main.c
+SRC = src/main.c \
+	src/argparse.c \
+	src/help.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall
 
@@ -54,7 +56,7 @@ xsum$(EXEEXT): $(SRC:.c=.o)
 	$(CCLD) $(LDFLAGS) -o xsum$(EXEEXT) $(SRC:.c=.o) $(LIBS)
 
 xsum.1: xsum$(EXEEXT)
-	$(HELP2MAN) -N ./xsumk$(EXEEXT) -o xsum.1
+	$(HELP2MAN) -N ./xsum$(EXEEXT) -o xsum.1
 
 depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
