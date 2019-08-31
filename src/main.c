@@ -55,7 +55,8 @@ int main(int argc, char **argv) {
 		{ "check", 'c', false, false, NULL },
 		{ "quiet", 'q', false, false, NULL },
 		{ "algo", 'a', true, false, NULL },
-		{ "ignore-unknown", 0, false, false, NULL }
+		{ "ignore-unknown", 0, false, false, NULL },
+		{ "list-algos", 0, false, false, NULL }
 	};
 	size_t options_count = sizeof(options) / sizeof(xsum_argparse_t);
 	bool *argv_filenames = malloc(sizeof(bool) * (argc + 1));
@@ -67,18 +68,25 @@ int main(int argc, char **argv) {
 		return RETURN_ERROR;
 	}
 	
+	int algos_count = 0;
+	while (xsum_algos[algos_count] != NULL) {
+		algos_count++;
+	}
+	
 	if (options[xsum_find_option(options, options_count, false, "h")].found) {
 		xsum_print_help();
 		return RETURN_OK;
 	} else if (options[xsum_find_option(options, options_count, false, "v")].found) {
 		xsum_print_version();
 		return RETURN_OK;
+	} else if (options[xsum_find_option(options, options_count, true, "list-algos")].found) {
+		printf("Supported algorithms:\n");
+		for (int i = 0; i < algos_count; i++) {
+			printf("  %s\n", xsum_algos[i]->name);
+		}
+		return RETURN_OK;
 	}
 	
-	int algos_count = 0;
-	while (xsum_algos[algos_count] != NULL) {
-		algos_count++;
-	}
 	xsum_algo_result_t *results = malloc(sizeof(xsum_algo_result_t) * algos_count);
 	if (results == NULL) {
 		free(argv_filenames);
