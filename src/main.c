@@ -19,7 +19,11 @@
 #include <stdlib.h>
 #include "algos.h"
 #include "cli.h"
+#include "config.h"
 #include "xsum.h"
+#ifdef XSUM_WITH_LIBGCRYPT
+#include <gcrypt.h>
+#endif
 
 int print_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 	
@@ -48,6 +52,12 @@ int print_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 }
 
 int main(int argc, char **argv) {
+	
+#ifdef XSUM_WITH_LIBGCRYPT
+	if (!gcry_check_version("1.8.0")) {
+		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version 1.8.0 or re-compile xsum without libgcrypt support.\n");
+	}
+#endif
 	
 	xsum_argparse_t options[] = {
 		{ "help", 'h', false, false, NULL },

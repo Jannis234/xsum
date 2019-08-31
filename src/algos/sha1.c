@@ -18,9 +18,10 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <string.h>
 #include "algos.h"
 
-#ifdef XSUM_WITH_NETTLE
+#if defined(XSUM_WITH_NETTLE)
 
 #include <nettle/sha1.h>
 
@@ -53,6 +54,46 @@ uint8_t* xsum_sha1_final(void *state) {
 	sha1_digest(ctx, 20, out);
 	free(ctx);
 	return out;
+	
+}
+
+#elif defined(XSUM_WITH_LIBGCRYPT)
+
+#include <gcrypt.h>
+
+void* xsum_sha1_init() {
+	
+	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
+	if (hd == NULL) {
+		return NULL;
+	}
+	gcry_md_open(hd, GCRY_MD_SHA1, 0);
+	if (*hd == NULL) {
+		free(hd);
+	}
+	return hd;
+	
+}
+
+void xsum_sha1_update(void *state, uint8_t *buf, size_t len) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	gcry_md_write(*hd, buf, len);
+	
+}
+
+uint8_t* xsum_sha1_final(void *state) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	unsigned char *out = gcry_md_read(*hd, 0);
+	uint8_t *out2 = malloc(20);
+	if (out2 == NULL) {
+		free(hd);
+		return NULL;
+	}
+	memcpy(out2, out, 20);
+	free(hd);
+	return out2;
 	
 }
 

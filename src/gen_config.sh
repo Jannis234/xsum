@@ -21,5 +21,6 @@ echo
 echo "#define XSUM_VERSION_STRING \"$1\""
 echo
 echo "#define XSUM_CONFIG_NETTLE $2"
+echo "#define XSUM_CONFIG_LIBGCRYPT $3"
 echo
 echo "#endif"
