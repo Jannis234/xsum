@@ -22,7 +22,22 @@ SRC = src/main.c \
 	src/help.c \
 	src/process.c \
 	src/algos.c \
-	src/algos/md5.c
+	src/algos/gost94.c \
+	src/algos/md2.c \
+	src/algos/md4.c \
+	src/algos/md5.c \
+	src/algos/ripemd160.c \
+	src/algos/sha1.c \
+	src/algos/sha224.c \
+	src/algos/sha256.c \
+	src/algos/sha384.c \
+	src/algos/sha512.c \
+	src/algos/sha512_224.c \
+	src/algos/sha512_256.c \
+	src/algos/sha3_224.c \
+	src/algos/sha3_256.c \
+	src/algos/sha3_384.c \
+	src/algos/sha3_512.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall
 

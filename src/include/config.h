@@ -20,10 +20,74 @@
 
 #if (XSUM_CONFIG_NETTLE == 1)
 #define XSUM_WITH_NETTLE
+#include <nettle/sha3.h>
+#ifdef NETTLE_SHA3_FIPS202
+#define XSUM_WITH_NETTLE_SHA3
+#endif
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_GOST94
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_MD2
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_MD4
 #endif
 
 #ifdef XSUM_WITH_NETTLE
 #define XSUM_HAS_MD5
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_RIPEMD160
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA1
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA224
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA256
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA384
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA512
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA512_224
+#endif
+
+#ifdef XSUM_WITH_NETTLE
+#define XSUM_HAS_SHA512_256
+#endif
+
+#ifdef XSUM_WITH_NETTLE_SHA3
+#define XSUM_HAS_SHA3_224
+#endif
+
+#ifdef XSUM_WITH_NETTLE_SHA3
+#define XSUM_HAS_SHA3_256
+#endif
+
+#ifdef XSUM_WITH_NETTLE_SHA3
+#define XSUM_HAS_SHA3_384
+#endif
+
+#ifdef XSUM_WITH_NETTLE_SHA3
+#define XSUM_HAS_SHA3_512
 #endif
 
 #endif

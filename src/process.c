@@ -29,7 +29,10 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count) {
 	if (filename == NULL) {
 		filename = "-";
 	} else {
-		fd = fopen(filename, "rb+");
+		fd = fopen(filename, "rb+"); // Request writing to check if filename points to a directory
+		if (fd == NULL && errno != EISDIR) { // Not a directory, retry without write access (in case the file is read only)
+			fd = fopen(filename, "rb");
+		}
 	}
 	if (fd == NULL) {
 		fprintf(stderr, "%s: Unable to open file", filename);
