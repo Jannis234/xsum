@@ -13,17 +13,13 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef __XSUM_CONFIG_H__
-#define __XSUM_CONFIG_H__
+#include <stddef.h>
+#include "algos.h"
+#include "config.h"
 
-#include "config_generated.h"
-
-#if (XSUM_CONFIG_NETTLE == 1)
-#define XSUM_WITH_NETTLE
+xsum_algo_t *xsum_algos[] = {
+#ifdef XSUM_HAS_MD5
+	&xsum_algo_md5,
 #endif
-
-#ifdef XSUM_WITH_NETTLE
-#define XSUM_HAS_MD5
-#endif
-
-#endif
+	NULL // End of array indicator
+};

@@ -20,4 +20,6 @@ echo "#define __XSUM_CONFIG_GENERATED_H__"
 echo
 echo "#define XSUM_VERSION_STRING \"$1\""
 echo
+echo "#define XSUM_CONFIG_NETTLE $2"
+echo
 echo "#endif"

@@ -14,3 +14,5 @@
 # along with xsum. If not, see <http://www.gnu.org/licenses/>.
 
 XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
+
+WITH_NETTLE = 1

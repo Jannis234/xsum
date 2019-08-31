@@ -21,7 +21,7 @@
 #include <string.h>
 #include "cli.h"
 
-bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc) {
+bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc, bool *filenames) {
 	
 	for (int i = 1; i < argc; i++) {
 		if (strlen(argv[i]) > 2 && argv[i][0] == '-' && argv[i][1] == '-') {
@@ -47,6 +47,7 @@ bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, 
 				fprintf(stderr, "Unknown argument: %s\n", argv[i]);
 				return false;
 			}
+			filenames[i] = false;
 		} else if (strlen(argv[i]) > 1 && argv[i][0] == '-') {
 			for (int j = 1; j < strlen(argv[i]); j++) {
 				bool valid = false;
@@ -72,9 +73,9 @@ bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, 
 					break;
 				}
 			}
+			filenames[i] = false;
 		} else {
-			fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-			return false;
+			filenames[i] = true;
 		}
 	}
 	return true;

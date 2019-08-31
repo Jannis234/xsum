@@ -13,17 +13,21 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef __XSUM_CONFIG_H__
-#define __XSUM_CONFIG_H__
+#ifndef __XSUM_H__
+#define __XSUM_H__
 
-#include "config_generated.h"
+#include <stdbool.h>
+#include <stdint.h>
 
-#if (XSUM_CONFIG_NETTLE == 1)
-#define XSUM_WITH_NETTLE
-#endif
+typedef struct {
+	void *state;
+	uint8_t *hash;
+	bool enabled;
+	bool check_ok;
+} xsum_algo_result_t;
 
-#ifdef XSUM_WITH_NETTLE
-#define XSUM_HAS_MD5
-#endif
+// Calculate hashes for a file (for all algos with results.enabled = true)
+// Will store a pointer if results.hash == NULL or compare the hashes if results.hash != NULL
+int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count);
 
 #endif

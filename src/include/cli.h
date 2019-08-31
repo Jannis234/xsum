@@ -20,9 +20,10 @@
 
 typedef enum {
 	RETURN_OK = 0,
-	RETURN_CHECK_INVALID = 1, // File has a different checksum
-	RETURN_CHECK_ERROR = 2, // Error during check
-	RETURN_ERROR = 3 // Other errors (incorrect CLI args, etc.)
+	RETURN_CHECK_UNKNOWN = 1, // At least one hash is not supported by this build of xsum
+	RETURN_CHECK_INVALID = 2, // File has a different checksum
+	RETURN_FILE_ERROR = 3, // Error while calculating hashes (I/O, etc.)
+	RETURN_ERROR = 4 // Other errors (incorrect CLI args, etc.)
 } xsum_return_t;
 
 typedef struct {
@@ -33,8 +34,8 @@ typedef struct {
 	char *arg_out; // If this option takes an argument, xsum_argparse sets this to that argument (pointer into argv)
 } xsum_argparse_t;
 
-// Somewhat similar to getopt_long
-bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc);
+// Somewhat similar to getopt_long; remebers which arguments are input filenames
+bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc, bool *filenames);
 // Find an option by name and return its index
 int xsum_find_option(xsum_argparse_t options[], size_t options_count, bool name_long, char *name);
 

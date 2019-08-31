@@ -19,7 +19,10 @@ CFLAGS += $(CCFLAGS) -Wall -std=c99 -Isrc/include
 
 SRC = src/main.c \
 	src/argparse.c \
-	src/help.c
+	src/help.c \
+	src/process.c \
+	src/algos.c \
+	src/algos/md5.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall
 
@@ -62,7 +65,7 @@ depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
-	sh src/gen_config.sh $(XSUM_VERSION) > src/include/config_generated.h
+	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_NETTLE) > src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<

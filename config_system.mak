@@ -36,3 +36,8 @@ CCFLAGS = -O2 -pipe -ggdb
 LDFLAGS = 
 LIBS = 
 EXEEXT = 
+
+ifeq ($(WITH_NETTLE), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags nettle)
+LIBS += $(shell $(PKG_CONFIG) --libs nettle)
+endif
