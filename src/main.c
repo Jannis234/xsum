@@ -54,7 +54,7 @@ int print_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 	
 }
 
-int check_file(char *filename, xsum_algo_result_t *results, int algos_count) {
+int check_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_unknown) {
 	
 	FILE *fd = stdin;
 	if (filename == NULL) {
@@ -108,7 +108,7 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 	}
 	fclose(fd);
 	
-	int ret = xsum_parse(filename, buf, pos, results, algos_count);
+	int ret = xsum_parse(filename, buf, pos, results, algos_count, ignore_unknown);
 	free(buf);
 	return ret;
 	
@@ -185,12 +185,13 @@ int main(int argc, char **argv) {
 	}
 	int ret = RETURN_OK;
 	if (options[xsum_find_option(options, options_count, false, "c")].found) {
+		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		if (files_count == 0) {
-			ret = check_file(NULL, results, algos_count);
+			ret = check_file(NULL, results, algos_count, ignore_unknown);
 		} else {
 			for (int i = 1; i < argc; i++) {
 				if (argv_filenames[i]) {
-					int ret2 = check_file(argv[i], results, algos_count);
+					int ret2 = check_file(argv[i], results, algos_count, ignore_unknown);
 					if (ret2 > ret) {
 						ret = ret2;
 					}
