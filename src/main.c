@@ -116,6 +116,28 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count, boo
 	
 }
 
+bool compare_case(char *buf1, char *buf2, size_t len) {
+	
+	while (len > 0) {
+		char c1 = *buf1;
+		char c2 = *buf2;
+		if (c1 >= 'a') {
+			c1 -= ('a' - 'A');
+		}
+		if (c2 >= 'a') {
+			c2 -= ('a' - 'A');
+		}
+		if (c1 != c2) {
+			return false;
+		}
+		buf1++;
+		buf2++;
+		len--;
+	}
+	return true;
+	
+}
+
 int main(int argc, char **argv) {
 	
 #ifdef XSUM_WITH_LIBGCRYPT
@@ -169,11 +191,43 @@ int main(int argc, char **argv) {
 		return RETURN_ERROR;
 	}
 	
-	if (options[xsum_find_option(options, options_count, false, "a")].found) {
+	int option_algos = xsum_find_option(options, options_count, false, "a");
+	if (options[option_algos].found) {
+		if (options[xsum_find_option(options, options_count, false, "c")].found) {
+			fprintf(stderr, "Can not use --check and --algo at the same time\n");
+			return RETURN_ERROR;
+		}
 		for (int i = 0; i < algos_count; i++) {
 			results[i].enabled = false;
 		}
-		// TODO
+		char *arg_out = options[option_algos].arg_out;
+		size_t arg_len = strlen(arg_out);
+		size_t item_start = 0;
+		size_t item_end = 0;
+		while (item_end < arg_len) {
+			while (item_end < arg_len && arg_out[item_end] != ',') {
+				item_end++;
+			}
+			size_t item_len = item_end - item_start;
+			int algo_index = -1;
+			for (int i = 0; i < algos_count; i++) {
+				if (compare_case(arg_out + item_start, xsum_algos[i]->name, item_len)) {
+					algo_index = i;
+					break;
+				}
+			}
+			if (algo_index == -1) {
+				fprintf(stderr, "Unknown algorithm \"");
+				for (size_t i = item_start; i < item_end; i++) {
+					fputc(arg_out[i], stderr);
+				}
+				fprintf(stderr, "\"\n");
+				return RETURN_ERROR;
+			}
+			results[algo_index].enabled = true;
+			item_end++;
+			item_start = item_end;
+		}
 	} else {
 		for (int i = 0; i < algos_count; i++) {
 			results[i].enabled = true;
