@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "algos.h"
 
-#ifdef XSUM_WITH_NETTLE
+#if defined(XSUM_WITH_NETTLE)
 
 #include <nettle/gosthash94.h>
 
@@ -53,6 +53,48 @@ uint8_t* xsum_gost94_final(void *state) {
 	gosthash94_digest(ctx, 32, out);
 	free(ctx);
 	return out;
+	
+}
+
+#elif defined(XSUM_WITH_LIBGCRYPT)
+
+#include <gcrypt.h>
+
+void* xsum_gost94_init() {
+	
+	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
+	if (hd == NULL) {
+		return NULL;
+	}
+	gcry_md_open(hd, GCRY_MD_GOSTR3411_94, 0);
+	if (*hd == NULL) {
+		free(hd);
+		return NULL;
+	}
+	return hd;
+	
+}
+
+void xsum_gost94_update(void *state, uint8_t *buf, size_t len) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	gcry_md_write(*hd, buf, len);
+	
+}
+
+uint8_t* xsum_gost94_final(void *state) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	unsigned char *out = gcry_md_read(*hd, 0);
+	uint8_t *out2 = malloc(32);
+	if (out2 == NULL) {
+		free(hd);
+		return NULL;
+	}
+	memcpy(out2, out, 32);
+	gcry_md_close(*hd);
+	free(hd);
+	return out2;
 	
 }
 

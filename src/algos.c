@@ -18,6 +18,30 @@
 #include "config.h"
 
 xsum_algo_t *xsum_algos[] = {
+#ifdef XSUM_HAS_BLAKE2S_128
+	&xsum_algo_blake2s_128,
+#endif
+#ifdef XSUM_HAS_BLAKE2S_160
+	&xsum_algo_blake2s_160,
+#endif
+#ifdef XSUM_HAS_BLAKE2S_224
+	&xsum_algo_blake2s_224,
+#endif
+#ifdef XSUM_HAS_BLAKE2S_256
+	&xsum_algo_blake2s_256,
+#endif
+#ifdef XSUM_HAS_BLAKE2B_160
+	&xsum_algo_blake2b_160,
+#endif
+#ifdef XSUM_HAS_BLAKE2B_256
+	&xsum_algo_blake2b_256,
+#endif
+#ifdef XSUM_HAS_BLAKE2B_384
+	&xsum_algo_blake2b_384,
+#endif
+#ifdef XSUM_HAS_BLAKE2B_512
+	&xsum_algo_blake2b_512,
+#endif
 #ifdef XSUM_HAS_GOST94
 	&xsum_algo_gost94,
 #endif
@@ -65,6 +89,21 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_SHA3_512
 	&xsum_algo_sha3_512,
+#endif
+#ifdef XSUM_HAS_STREEBOG_256
+	&xsum_algo_streebog_256,
+#endif
+#ifdef XSUM_HAS_STREEBOG_512
+	&xsum_algo_streebog_512,
+#endif
+#ifdef XSUM_HAS_TIGER
+	&xsum_algo_tiger,
+#endif
+#ifdef XSUM_HAS_TIGER2
+	&xsum_algo_tiger2,
+#endif
+#ifdef XSUM_HAS_WHIRLPOOL
+	&xsum_algo_whirlpool,
 #endif
 	NULL // End of array indicator
 };

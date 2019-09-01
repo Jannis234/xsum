@@ -35,6 +35,30 @@ typedef struct {
 
 extern xsum_algo_t *xsum_algos[];
 
+#ifdef XSUM_HAS_BLAKE2S_128
+extern xsum_algo_t xsum_algo_blake2s_128;
+#endif
+#ifdef XSUM_HAS_BLAKE2S_160
+extern xsum_algo_t xsum_algo_blake2s_160;
+#endif
+#ifdef XSUM_HAS_BLAKE2S_224
+extern xsum_algo_t xsum_algo_blake2s_224;
+#endif
+#ifdef XSUM_HAS_BLAKE2S_256
+extern xsum_algo_t xsum_algo_blake2s_256;
+#endif
+#ifdef XSUM_HAS_BLAKE2B_160
+extern xsum_algo_t xsum_algo_blake2b_160;
+#endif
+#ifdef XSUM_HAS_BLAKE2B_256
+extern xsum_algo_t xsum_algo_blake2b_256;
+#endif
+#ifdef XSUM_HAS_BLAKE2B_384
+extern xsum_algo_t xsum_algo_blake2b_384;
+#endif
+#ifdef XSUM_HAS_BLAKE2B_512
+extern xsum_algo_t xsum_algo_blake2b_512;
+#endif
 #ifdef XSUM_HAS_GOST94
 extern xsum_algo_t xsum_algo_gost94;
 #endif
@@ -82,6 +106,21 @@ extern xsum_algo_t xsum_algo_sha3_384;
 #endif
 #ifdef XSUM_HAS_SHA3_512
 extern xsum_algo_t xsum_algo_sha3_512;
+#endif
+#ifdef XSUM_HAS_STREEBOG_256
+extern xsum_algo_t xsum_algo_streebog_256;
+#endif
+#ifdef XSUM_HAS_STREEBOG_512
+extern xsum_algo_t xsum_algo_streebog_512;
+#endif
+#ifdef XSUM_HAS_TIGER
+extern xsum_algo_t xsum_algo_tiger;
+#endif
+#ifdef XSUM_HAS_TIGER2
+extern xsum_algo_t xsum_algo_tiger2;
+#endif
+#ifdef XSUM_HAS_WHIRLPOOL
+extern xsum_algo_t xsum_algo_whirlpool;
 #endif
 
 #endif

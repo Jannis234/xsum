@@ -70,6 +70,7 @@ void* xsum_sha1_init() {
 	gcry_md_open(hd, GCRY_MD_SHA1, 0);
 	if (*hd == NULL) {
 		free(hd);
+		return NULL;
 	}
 	return hd;
 	

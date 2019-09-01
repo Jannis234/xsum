@@ -22,6 +22,14 @@ SRC = src/main.c \
 	src/help.c \
 	src/process.c \
 	src/algos.c \
+	src/algos/blake2s_128.c \
+	src/algos/blake2s_160.c \
+	src/algos/blake2s_224.c \
+	src/algos/blake2s_256.c \
+	src/algos/blake2b_160.c \
+	src/algos/blake2b_256.c \
+	src/algos/blake2b_384.c \
+	src/algos/blake2b_512.c \
 	src/algos/gost94.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
@@ -37,7 +45,12 @@ SRC = src/main.c \
 	src/algos/sha3_224.c \
 	src/algos/sha3_256.c \
 	src/algos/sha3_384.c \
-	src/algos/sha3_512.c
+	src/algos/sha3_512.c \
+	src/algos/streebog_256.c \
+	src/algos/streebog_512.c \
+	src/algos/tiger.c \
+	src/algos/tiger2.c \
+	src/algos/whirlpool.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall
 

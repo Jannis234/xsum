@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "algos.h"
 
-#ifdef XSUM_WITH_NETTLE
+#if defined(XSUM_WITH_NETTLE)
 
 #include <nettle/md4.h>
 
@@ -53,6 +53,47 @@ uint8_t* xsum_md4_final(void *state) {
 	md4_digest(ctx, 16, out);
 	free(ctx);
 	return out;
+	
+}
+
+#elif defined(XSUM_WITH_LIBGCRYPT)
+
+#include <gcrypt.h>
+
+void* xsum_md4_init() {
+	
+	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
+	if (hd == NULL) {
+		return NULL;
+	}
+	gcry_md_open(hd, GCRY_MD_MD4, 0);
+	if (*hd == NULL) {
+		free(hd);
+		return NULL;
+	}
+	return hd;
+	
+}
+
+void xsum_md4_update(void *state, uint8_t *buf, size_t len) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	gcry_md_write(*hd, buf, len);
+	
+}
+
+uint8_t* xsum_md4_final(void *state) {
+	
+	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
+	unsigned char *out = gcry_md_read(*hd, 0);
+	uint8_t *out2 = malloc(16);
+	if (out2 == NULL) {
+		free(hd);
+		return NULL;
+	}
+	memcpy(out2, out, 16);
+	free(hd);
+	return out2;
 	
 }
 

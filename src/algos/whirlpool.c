@@ -14,59 +14,23 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_MD5
+#ifdef XSUM_HAS_WHIRLPOOL
 
 #include <stddef.h>
 #include <stdlib.h>
 #include "algos.h"
 
-#if defined(XSUM_WITH_NETTLE)
-
-#include <nettle/md5.h>
-
-void* xsum_md5_init() {
-	
-	struct md5_ctx *state = malloc(sizeof(struct md5_ctx));
-	if (state == NULL) {
-		return NULL;
-	}
-	md5_init(state);
-	return state;
-	
-}
-
-void xsum_md5_update(void *state, uint8_t *buf, size_t len) {
-	
-	struct md5_ctx *ctx = (struct md5_ctx*) state;
-	md5_update(ctx, len, buf);
-	
-}
-
-uint8_t* xsum_md5_final(void *state) {
-	
-	struct md5_ctx *ctx = (struct md5_ctx*) state;
-	uint8_t *out = malloc(16);
-	if (out == NULL) {
-		free(ctx);
-		return NULL;
-	}
-	md5_digest(ctx, 16, out);
-	free(ctx);
-	return out;
-	
-}
-
-#elif defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT)
 
 #include <gcrypt.h>
 
-void* xsum_md5_init() {
+void* xsum_whirlpool_init() {
 	
 	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
 	if (hd == NULL) {
 		return NULL;
 	}
-	gcry_md_open(hd, GCRY_MD_MD5, 0);
+	gcry_md_open(hd, GCRY_MD_WHIRLPOOL, 0);
 	if (*hd == NULL) {
 		free(hd);
 		return NULL;
@@ -75,23 +39,23 @@ void* xsum_md5_init() {
 	
 }
 
-void xsum_md5_update(void *state, uint8_t *buf, size_t len) {
+void xsum_whirlpool_update(void *state, uint8_t *buf, size_t len) {
 	
 	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
 	gcry_md_write(*hd, buf, len);
 	
 }
 
-uint8_t* xsum_md5_final(void *state) {
+uint8_t* xsum_whirlpool_final(void *state) {
 	
 	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
 	unsigned char *out = gcry_md_read(*hd, 0);
-	uint8_t *out2 = malloc(16);
+	uint8_t *out2 = malloc(64);
 	if (out2 == NULL) {
 		free(hd);
 		return NULL;
 	}
-	memcpy(out2, out, 16);
+	memcpy(out2, out, 64);
 	free(hd);
 	return out2;
 	
@@ -99,6 +63,6 @@ uint8_t* xsum_md5_final(void *state) {
 
 #endif
 
-xsum_algo_t xsum_algo_md5 = { "MD5", 16, &xsum_md5_init, &xsum_md5_update, &xsum_md5_final };
+xsum_algo_t xsum_algo_whirlpool = { "WHIRLPOOL", 64, &xsum_whirlpool_init, &xsum_whirlpool_update, &xsum_whirlpool_final };
 
 #endif

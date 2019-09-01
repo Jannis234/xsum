@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include "algos.h"
 
-#ifdef XSUM_WITH_NETTLE
+#if defined(XSUM_WITH_NETTLE)
 
 #include <nettle/md2.h>
 
