@@ -24,7 +24,7 @@
 
 #define BUFSIZE (1024 * 1024)
 
-int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count) {
+int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing) {
 	
 	FILE *fd = stdin;
 	if (filename == NULL) {
@@ -36,6 +36,9 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count) {
 		}
 	}
 	if (fd == NULL) {
+		if (ignore_missing && errno == ENOENT) {
+			return -1;
+		}
 		fprintf(stderr, "%s: Unable to open file", filename);
 		if (errno == ENOENT) {
 			fprintf(stderr, ": No such file or directory");

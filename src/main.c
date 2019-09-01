@@ -28,10 +28,12 @@
 
 #define BUFSIZE (1024 * 100)
 
-int print_file(char *filename, xsum_algo_result_t *results, int algos_count) {
+int print_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing) {
 	
-	int ret = xsum_process(filename, results, algos_count);
-	if (ret != RETURN_OK) {
+	int ret = xsum_process(filename, results, algos_count, ignore_missing);
+	if (ret == -1) { // File not found with ignore_missing = true
+		return RETURN_OK;
+	} else if (ret != RETURN_OK) {
 		return ret;
 	}
 	for (int i = 0; i < algos_count; i++) {
@@ -54,7 +56,7 @@ int print_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 	
 }
 
-int check_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool quiet) {
+int check_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool ignore_missing, bool quiet) {
 	
 	FILE *fd = stdin;
 	if (filename == NULL) {
@@ -108,7 +110,7 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count, boo
 	}
 	fclose(fd);
 	
-	int ret = xsum_parse(filename, buf, pos, results, algos_count, ignore_unknown, quiet);
+	int ret = xsum_parse(filename, buf, pos, results, algos_count, ignore_unknown, ignore_missing, quiet);
 	free(buf);
 	return ret;
 	
@@ -129,6 +131,7 @@ int main(int argc, char **argv) {
 		{ "quiet", 'q', false, false, NULL },
 		{ "algo", 'a', true, false, NULL },
 		{ "ignore-unknown", 0, false, false, NULL },
+		{ "ignore-missing", 0, false, false, NULL },
 		{ "list-algos", 0, false, false, NULL }
 	};
 	size_t options_count = sizeof(options) / sizeof(xsum_argparse_t);
@@ -183,16 +186,17 @@ int main(int argc, char **argv) {
 			files_count++;
 		}
 	}
+	bool ignore_missing = options[xsum_find_option(options, options_count, true, "ignore-missing")].found;
 	int ret = RETURN_OK;
 	if (options[xsum_find_option(options, options_count, false, "c")].found) {
 		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		bool quiet = options[xsum_find_option(options, options_count, false, "q")].found;
 		if (files_count == 0) {
-			ret = check_file(NULL, results, algos_count, ignore_unknown, quiet);
+			ret = check_file(NULL, results, algos_count, ignore_unknown, ignore_missing, quiet);
 		} else {
 			for (int i = 1; i < argc; i++) {
 				if (argv_filenames[i]) {
-					int ret2 = check_file(argv[i], results, algos_count, ignore_unknown, quiet);
+					int ret2 = check_file(argv[i], results, algos_count, ignore_unknown, ignore_missing, quiet);
 					if (ret2 > ret) {
 						ret = ret2;
 					}
@@ -204,11 +208,11 @@ int main(int argc, char **argv) {
 			results[i].hash = NULL;
 		}
 		if (files_count == 0) {
-			ret = print_file(NULL, results, algos_count);
+			ret = print_file(NULL, results, algos_count, ignore_missing);
 		} else {
 			for (int i = 1; i < argc; i++) {
 				if (argv_filenames[i]) {
-					int ret2 = print_file(argv[i], results, algos_count);
+					int ret2 = print_file(argv[i], results, algos_count, ignore_missing);
 					if (ret2 > ret) {
 						ret = ret2;
 					}

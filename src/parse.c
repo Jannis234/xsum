@@ -57,7 +57,7 @@ bool parse_hex_char(char c, int *out) {
 	
 }
 
-int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool quiet) {
+int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool ignore_missing, bool quiet) {
 	
 	uint64_t filename_end = len - 1;
 	while (filename_end > 0 && buf[filename_end] == ' ') {
@@ -180,9 +180,9 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 	}
 	int ret;
 	if (strcmp(filename_buf, "-") == 0) {
-		ret = xsum_process(NULL, results, algos_count);
+		ret = xsum_process(NULL, results, algos_count, ignore_missing);
 	} else {
-		ret = xsum_process(filename_buf, results, algos_count);
+		ret = xsum_process(filename_buf, results, algos_count, ignore_missing);
 	}
 	results_cleanup(results, algos_count);
 	if (ret == RETURN_OK) {
@@ -194,13 +194,15 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 		}
 	} else if (ret == RETURN_CHECK_INVALID && !quiet) {
 		printf("%s: FAILED\n", filename_buf);
+	} else if (ret == -1) { // File not found with ignore_missing = true
+		ret = RETURN_OK;
 	}
 	free(filename_buf);
 	return ret;
 	
 }
 
-int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool quiet) {
+int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool ignore_missing, bool quiet) {
 	
 	uint64_t line_start = 0;
 	uint64_t line_end = 0;
@@ -210,7 +212,7 @@ int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t
 		while (line_end < buflen && buf[line_end] != '\n' && buf[line_end] != '\r') {
 			line_end++;
 		}
-		int ret2 = parse_line(filename, buf + line_start, line_end - line_start, results, algos_count, ignore_unknown, quiet);
+		int ret2 = parse_line(filename, buf + line_start, line_end - line_start, results, algos_count, ignore_unknown, ignore_missing, quiet);
 		if (ret2 != -1) {
 			if (ret2 > ret) {
 				ret = ret2;
