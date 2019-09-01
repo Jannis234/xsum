@@ -117,8 +117,8 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count) {
 int main(int argc, char **argv) {
 	
 #ifdef XSUM_WITH_LIBGCRYPT
-	if (!gcry_check_version("1.8.0")) {
-		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version 1.8.0 or re-compile xsum without libgcrypt support.\n");
+	if (!gcry_check_version(XSUM_LIBGCRYPT_MIN_VERSION)) {
+		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version %s or re-compile xsum without libgcrypt support.\n", XSUM_LIBGCRYPT_MIN_VERSION);
 	}
 #endif
 	

@@ -28,37 +28,44 @@
 
 #if (XSUM_CONFIG_LIBGCRYPT == 1)
 #define XSUM_WITH_LIBGCRYPT
+#include <gcrypt.h>
+#if (GCRYPT_VERSION_NUMBER >= 0x010800)
+#define XSUM_WITH_LIBGCRYPT_BLAKE2
+#define XSUM_LIBGCRYPT_MIN_VERSION "1.8.0"
+#else
+#define XSUM_LIBGCRYPT_MIN_VERSION "1.7.0"
+#endif
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_128
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_160
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_224
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2B_160
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2B_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2B_384
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2B_512
 #endif
 
