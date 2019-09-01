@@ -20,6 +20,7 @@ CFLAGS += $(CCFLAGS) -Wall -std=c99 -Isrc/include
 SRC = src/main.c \
 	src/argparse.c \
 	src/help.c \
+	src/parse.c \
 	src/process.c \
 	src/algos.c \
 	src/algos/blake2s_128.c \

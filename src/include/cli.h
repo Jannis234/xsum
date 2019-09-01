@@ -22,8 +22,9 @@ typedef enum {
 	RETURN_OK = 0,
 	RETURN_CHECK_UNKNOWN = 1, // At least one hash is not supported by this build of xsum
 	RETURN_CHECK_INVALID = 2, // File has a different checksum
-	RETURN_FILE_ERROR = 3, // Error while calculating hashes (I/O, etc.)
-	RETURN_ERROR = 4 // Other errors (incorrect CLI args, etc.)
+	RETURN_CHECK_MALFORMED = 3, // Invalid format while reading hashes from file
+	RETURN_FILE_ERROR = 4, // Error while calculating hashes (I/O, etc.)
+	RETURN_ERROR = 5 // Other errors (incorrect CLI args, etc.)
 } xsum_return_t;
 
 typedef struct {

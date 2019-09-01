@@ -17,6 +17,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "algos.h"
 #include "cli.h"
 #include "xsum.h"
@@ -92,24 +93,36 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count) {
 	}
 	fclose(fd);
 	
-	bool error = false;
+	bool error_memory = false;
+	bool error_compare = false;
 	for (int i = 0; i < algos_count; i++) {
 		if (results[i].enabled) {
 			uint8_t *hash = xsum_algos[i]->func_final(results[i].state);
-			results[i].hash = hash;
 			if (hash == NULL) {
-				error = true;
+				error_memory = true;
+			}
+			if (results[i].hash == NULL) {
+				results[i].hash = hash;
+			} else if (hash != NULL) {
+				if (memcmp(results[i].hash, hash, xsum_algos[i]->length) != 0) {
+					error_compare = true;
+				}
+				free(hash);
 			}
 		}
 	}
-	if (error) {
+	if (error_memory) {
 		fprintf(stderr, "%s: Out of memory\n", filename);
 		for (int i = 0; i < algos_count; i++) {
 			if (results[i].enabled && results[i].hash != NULL) {
 				free(results[i].hash);
+				results[i].hash = NULL;
 			}
 		}
 		return RETURN_FILE_ERROR;
+	}
+	if (error_compare) {
+		return RETURN_CHECK_INVALID;
 	}
 	return RETURN_OK;
 	

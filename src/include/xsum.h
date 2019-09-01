@@ -29,5 +29,7 @@ typedef struct {
 // Calculate hashes for a file (for all algos with results.enabled = true)
 // Will store a pointer if results.hash == NULL or compare the hashes if results.hash != NULL
 int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count);
+// Parse a file containing hashes and run xsum_process on every line
+int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t *results, int algos_count);
 
 #endif
