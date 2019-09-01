@@ -57,7 +57,7 @@ bool parse_hex_char(char c, int *out) {
 	
 }
 
-int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *results, int algos_count, bool ignore_unknown) {
+int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool quiet) {
 	
 	uint64_t filename_end = len - 1;
 	while (filename_end > 0 && buf[filename_end] == ' ') {
@@ -186,11 +186,13 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 	}
 	results_cleanup(results, algos_count);
 	if (ret == RETURN_OK) {
-		printf("%s: OK\n", filename_buf);
+		if (!quiet) {
+			printf("%s: OK\n", filename_buf);
+		}
 		if (found_unknown && !ignore_unknown) {
 			ret = RETURN_CHECK_UNKNOWN;
 		}
-	} else if (ret == RETURN_CHECK_INVALID) {
+	} else if (ret == RETURN_CHECK_INVALID && !quiet) {
 		printf("%s: FAILED\n", filename_buf);
 	}
 	free(filename_buf);
@@ -198,7 +200,7 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 	
 }
 
-int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t *results, int algos_count, bool ignore_unknown) {
+int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool quiet) {
 	
 	uint64_t line_start = 0;
 	uint64_t line_end = 0;
@@ -208,7 +210,7 @@ int xsum_parse(char *filename, uint8_t *buf, uint64_t buflen, xsum_algo_result_t
 		while (line_end < buflen && buf[line_end] != '\n' && buf[line_end] != '\r') {
 			line_end++;
 		}
-		int ret2 = parse_line(filename, buf + line_start, line_end - line_start, results, algos_count, ignore_unknown);
+		int ret2 = parse_line(filename, buf + line_start, line_end - line_start, results, algos_count, ignore_unknown, quiet);
 		if (ret2 != -1) {
 			if (ret2 > ret) {
 				ret = ret2;
