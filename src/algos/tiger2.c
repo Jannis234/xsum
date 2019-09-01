@@ -16,53 +16,15 @@
 #include "config.h"
 #ifdef XSUM_HAS_TIGER2
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "algos.h"
+#include "algo_template.h"
 
 #if defined(XSUM_WITH_LIBGCRYPT)
 
 #include <gcrypt.h>
-
-void* xsum_tiger2_init() {
-	
-	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
-	if (hd == NULL) {
-		return NULL;
-	}
-	gcry_md_open(hd, GCRY_MD_TIGER2, 0);
-	if (*hd == NULL) {
-		free(hd);
-		return NULL;
-	}
-	return hd;
-	
-}
-
-void xsum_tiger2_update(void *state, uint8_t *buf, size_t len) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	gcry_md_write(*hd, buf, len);
-	
-}
-
-uint8_t* xsum_tiger2_final(void *state) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	unsigned char *out = gcry_md_read(*hd, 0);
-	uint8_t *out2 = malloc(24);
-	if (out2 == NULL) {
-		free(hd);
-		return NULL;
-	}
-	memcpy(out2, out, 24);
-	free(hd);
-	return out2;
-	
-}
+XSUM_TEMPLATE_LIBGCRYPT(tiger2, GCRY_MD_TIGER2, 24)
 
 #endif
 
-xsum_algo_t xsum_algo_tiger2 = { "Tiger2", 24, &xsum_tiger2_init, &xsum_tiger2_update, &xsum_tiger2_final };
+XSUM_TEMPLATE_ALGO(tiger2, "Tiger2", 24)
 
 #endif

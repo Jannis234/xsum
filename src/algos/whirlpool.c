@@ -16,53 +16,15 @@
 #include "config.h"
 #ifdef XSUM_HAS_WHIRLPOOL
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "algos.h"
+#include "algo_template.h"
 
 #if defined(XSUM_WITH_LIBGCRYPT)
 
 #include <gcrypt.h>
-
-void* xsum_whirlpool_init() {
-	
-	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
-	if (hd == NULL) {
-		return NULL;
-	}
-	gcry_md_open(hd, GCRY_MD_WHIRLPOOL, 0);
-	if (*hd == NULL) {
-		free(hd);
-		return NULL;
-	}
-	return hd;
-	
-}
-
-void xsum_whirlpool_update(void *state, uint8_t *buf, size_t len) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	gcry_md_write(*hd, buf, len);
-	
-}
-
-uint8_t* xsum_whirlpool_final(void *state) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	unsigned char *out = gcry_md_read(*hd, 0);
-	uint8_t *out2 = malloc(64);
-	if (out2 == NULL) {
-		free(hd);
-		return NULL;
-	}
-	memcpy(out2, out, 64);
-	free(hd);
-	return out2;
-	
-}
+XSUM_TEMPLATE_LIBGCRYPT(whirlpool, GCRY_MD_WHIRLPOOL, 64)
 
 #endif
 
-xsum_algo_t xsum_algo_whirlpool = { "WHIRLPOOL", 64, &xsum_whirlpool_init, &xsum_whirlpool_update, &xsum_whirlpool_final };
+XSUM_TEMPLATE_ALGO(whirlpool, "WHIRLPOOL", 64)
 
 #endif

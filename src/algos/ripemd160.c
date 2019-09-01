@@ -16,89 +16,20 @@
 #include "config.h"
 #ifdef XSUM_HAS_RIPEMD160
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "algos.h"
+#include "algo_template.h"
 
 #if defined(XSUM_WITH_NETTLE)
 
 #include <nettle/ripemd160.h>
-
-void* xsum_ripemd160_init() {
-	
-	struct ripemd160_ctx *state = malloc(sizeof(struct ripemd160_ctx));
-	if (state == NULL) {
-		return NULL;
-	}
-	ripemd160_init(state);
-	return state;
-	
-}
-
-void xsum_ripemd160_update(void *state, uint8_t *buf, size_t len) {
-	
-	struct ripemd160_ctx *ctx = (struct ripemd160_ctx*) state;
-	ripemd160_update(ctx, len, buf);
-	
-}
-
-uint8_t* xsum_ripemd160_final(void *state) {
-	
-	struct ripemd160_ctx *ctx = (struct ripemd160_ctx*) state;
-	uint8_t *out = malloc(20);
-	if (out == NULL) {
-		free(ctx);
-		return NULL;
-	}
-	ripemd160_digest(ctx, 20, out);
-	free(ctx);
-	return out;
-	
-}
+XSUM_TEMPLATE_NETTLE(ripemd160, ripemd160, 20)
 
 #elif defined(XSUM_WITH_LIBGCRYPT)
 
 #include <gcrypt.h>
-
-void* xsum_ripemd160_init() {
-	
-	gcry_md_hd_t *hd = malloc(sizeof(gcry_md_hd_t));
-	if (hd == NULL) {
-		return NULL;
-	}
-	gcry_md_open(hd, GCRY_MD_RMD160, 0);
-	if (*hd == NULL) {
-		free(hd);
-		return NULL;
-	}
-	return hd;
-	
-}
-
-void xsum_ripemd160_update(void *state, uint8_t *buf, size_t len) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	gcry_md_write(*hd, buf, len);
-	
-}
-
-uint8_t* xsum_ripemd160_final(void *state) {
-	
-	gcry_md_hd_t *hd = (gcry_md_hd_t*) state;
-	unsigned char *out = gcry_md_read(*hd, 0);
-	uint8_t *out2 = malloc(20);
-	if (out2 == NULL) {
-		free(hd);
-		return NULL;
-	}
-	memcpy(out2, out, 20);
-	free(hd);
-	return out2;
-	
-}
+XSUM_TEMPLATE_LIBGCRYPT(ripemd160, GCRY_MD_RMD160, 20)
 
 #endif
 
-xsum_algo_t xsum_algo_ripemd160 = { "RIPEMD160", 20, &xsum_ripemd160_init, &xsum_ripemd160_update, &xsum_ripemd160_final };
+XSUM_TEMPLATE_ALGO(ripemd160, "RIPEMD160", 20)
 
 #endif
