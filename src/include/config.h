@@ -63,6 +63,10 @@
 #endif
 #endif
 
+#if (XSUM_CONFIG_LIBLZMA == 1)
+#define XSUM_WITH_LIBLZMA
+#endif
+
 #if (XSUM_CONFIG_LIBSODIUM == 1)
 #define XSUM_WITH_LIBSODIUM
 #endif
@@ -291,8 +295,12 @@
 #define XSUM_HAS_BLAKE2B_512
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_ZLIB)
+#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_ZLIB) || defined(XSUM_WITH_LIBLZMA)
 #define XSUM_HAS_CRC32
+#endif
+
+#if defined(XSUM_WITH_LIBLZMA)
+#define XSUM_HAS_CRC64
 #endif
 
 #if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT)

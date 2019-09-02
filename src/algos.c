@@ -183,6 +183,9 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_CRC32
 	&xsum_algo_crc32,
 #endif
+#ifdef XSUM_HAS_CRC64
+	&xsum_algo_crc64,
+#endif
 #ifdef XSUM_HAS_GOST94
 	&xsum_algo_gost94,
 #endif

@@ -126,6 +126,27 @@
 		return out2; \
 	}
 
+// Common template for CRC with liblzma
+// Parameters: CRC size (bits)
+#define XSUM_TEMPLATE_LIBLZMA_CRC(p_size) \
+	void* xsum_crc##p_size##_init() { \
+		uint##p_size##_t *crc = malloc(p_size / 8); \
+		if (crc == NULL) { \
+			return NULL; \
+		} \
+		*crc = 0; \
+		return crc; \
+	} \
+	void xsum_crc##p_size##_update(void *state, uint8_t *buf, size_t len) { \
+		uint##p_size##_t *crc = (uint##p_size##_t*) state; \
+		*crc = lzma_crc##p_size(buf, len, *crc); \
+	} \
+	uint8_t* xsum_crc##p_size##_final(void *state) { \
+		uint##p_size##_t *crc = (uint##p_size##_t*) state; \
+		*crc = xsum_endian##p_size(*crc); \
+		return (uint8_t*) crc; \
+	}
+
 // Common template for BLAKE2B with libsodium
 // Parameters: hash name; hash size
 #define XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(p_name, p_size) \

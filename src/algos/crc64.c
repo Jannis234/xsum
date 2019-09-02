@@ -14,53 +14,18 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_CRC32
+#ifdef XSUM_HAS_CRC64
 
 #include "algo_template.h"
 #include "byteswap.h"
 
-#if defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(crc32, GCRY_MD_CRC32, 4)
-
-#elif defined(XSUM_WITH_ZLIB)
-
-#include <zlib.h>
-
-void* xsum_crc32_init() {
-	
-	uint32_t *crc = malloc(4);
-	if (crc == NULL) {
-		return NULL;
-	}
-	*crc = crc32_z(0, NULL, 0);
-	return crc;
-	
-}
-
-void xsum_crc32_update(void *state, uint8_t *buf, size_t len) {
-	
-	uint32_t *crc = (uint32_t*) state;
-	*crc = crc32_z(*crc, buf, len);
-	
-}
-
-uint8_t* xsum_crc32_final(void *state) {
-	
-	uint32_t *crc = (uint32_t*) state;
-	*crc = xsum_endian32(*crc);
-	return (uint8_t*) crc;
-	
-}
-
-#elif defined(XSUM_WITH_LIBLZMA)
+#if defined(XSUM_WITH_LIBLZMA)
 
 #include <lzma.h>
-XSUM_TEMPLATE_LIBLZMA_CRC(32)
+XSUM_TEMPLATE_LIBLZMA_CRC(64)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)
+XSUM_TEMPLATE_ALGO(crc64, "CRC64", 8)
 
 #endif

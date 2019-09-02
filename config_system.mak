@@ -51,6 +51,11 @@ CFLAGS += $(shell $(BUILD)libgcrypt-config --cflags)
 LIBS += $(shell $(BUILD)libgcrypt-config --libs)
 endif
 
+ifeq ($(WITH_LIBLZMA), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags liblzma)
+LIBS += $(shell $(PKG_CONFIG) --libs liblzma)
+endif
+
 ifeq ($(WITH_LIBSODIUM), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
 LIBS += $(shell $(PKG_CONFIG) --libs libsodium)

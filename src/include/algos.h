@@ -200,6 +200,9 @@ extern xsum_algo_t xsum_algo_blake2b_512;
 #ifdef XSUM_HAS_CRC32
 extern xsum_algo_t xsum_algo_crc32;
 #endif
+#ifdef XSUM_HAS_CRC64
+extern xsum_algo_t xsum_algo_crc64;
+#endif
 #ifdef XSUM_HAS_GOST94
 extern xsum_algo_t xsum_algo_gost94;
 #endif

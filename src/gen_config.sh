@@ -23,7 +23,8 @@ echo
 echo "#define XSUM_CONFIG_MBEDTLS $2"
 echo "#define XSUM_CONFIG_NETTLE $3"
 echo "#define XSUM_CONFIG_LIBGCRYPT $4"
-echo "#define XSUM_CONFIG_LIBSODIUM $5"
-echo "#define XSUM_CONFIG_ZLIB $6"
+echo "#define XSUM_CONFIG_LIBLZMA $5"
+echo "#define XSUM_CONFIG_LIBSODIUM $6"
+echo "#define XSUM_CONFIG_ZLIB $7"
 echo
 echo "#endif"
