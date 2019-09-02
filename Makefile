@@ -27,9 +27,54 @@ SRC = src/main.c \
 	src/algos/blake2s_160.c \
 	src/algos/blake2s_224.c \
 	src/algos/blake2s_256.c \
+	src/algos/blake2b_128.c \
+	src/algos/blake2b_136.c \
+	src/algos/blake2b_144.c \
+	src/algos/blake2b_152.c \
 	src/algos/blake2b_160.c \
+	src/algos/blake2b_168.c \
+	src/algos/blake2b_176.c \
+	src/algos/blake2b_184.c \
+	src/algos/blake2b_192.c \
+	src/algos/blake2b_200.c \
+	src/algos/blake2b_208.c \
+	src/algos/blake2b_216.c \
+	src/algos/blake2b_224.c \
+	src/algos/blake2b_232.c \
+	src/algos/blake2b_240.c \
+	src/algos/blake2b_248.c \
 	src/algos/blake2b_256.c \
+	src/algos/blake2b_264.c \
+	src/algos/blake2b_272.c \
+	src/algos/blake2b_280.c \
+	src/algos/blake2b_288.c \
+	src/algos/blake2b_296.c \
+	src/algos/blake2b_304.c \
+	src/algos/blake2b_312.c \
+	src/algos/blake2b_320.c \
+	src/algos/blake2b_328.c \
+	src/algos/blake2b_336.c \
+	src/algos/blake2b_344.c \
+	src/algos/blake2b_352.c \
+	src/algos/blake2b_360.c \
+	src/algos/blake2b_368.c \
+	src/algos/blake2b_376.c \
 	src/algos/blake2b_384.c \
+	src/algos/blake2b_392.c \
+	src/algos/blake2b_400.c \
+	src/algos/blake2b_408.c \
+	src/algos/blake2b_416.c \
+	src/algos/blake2b_424.c \
+	src/algos/blake2b_432.c \
+	src/algos/blake2b_440.c \
+	src/algos/blake2b_448.c \
+	src/algos/blake2b_456.c \
+	src/algos/blake2b_464.c \
+	src/algos/blake2b_472.c \
+	src/algos/blake2b_480.c \
+	src/algos/blake2b_488.c \
+	src/algos/blake2b_496.c \
+	src/algos/blake2b_504.c \
 	src/algos/blake2b_512.c \
 	src/algos/crc32.c \
 	src/algos/gost94.c \
@@ -95,7 +140,7 @@ depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
-	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) > src/include/config_generated.h
+	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBSODIUM) > src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<

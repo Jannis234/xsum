@@ -14,22 +14,17 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_BLAKE2B_512
+#ifdef XSUM_HAS_BLAKE2B_240
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(blake2b_512, GCRY_MD_BLAKE2B_512, 64)
-
-#elif defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBSODIUM)
 
 #include <sodium.h>
-XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(blake2b_512, 64)
+XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(blake2b_240, 30)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(blake2b_512, "BLAKE2b-512", 64)
+XSUM_TEMPLATE_ALGO(blake2b_240, "BLAKE2b-240", 30)
 
 #endif

@@ -63,6 +63,10 @@
 #endif
 #endif
 
+#if (XSUM_CONFIG_LIBSODIUM == 1)
+#define XSUM_WITH_LIBSODIUM
+#endif
+
 #if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_128
 #endif
@@ -79,19 +83,199 @@
 #define XSUM_HAS_BLAKE2S_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_128
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_136
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_144
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_152
+#endif
+
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_BLAKE2B_160
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_168
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_176
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_184
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_192
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_200
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_208
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_216
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_224
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_232
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_240
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_248
+#endif
+
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_BLAKE2B_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_264
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_272
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_280
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_288
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_296
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_304
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_312
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_320
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_328
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_336
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_344
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_352
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_360
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_368
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_376
+#endif
+
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)  || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_BLAKE2B_384
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_392
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_400
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_408
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_416
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_424
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_432
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_440
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_448
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_456
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_464
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_472
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_480
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_488
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_496
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM)
+#define XSUM_HAS_BLAKE2B_504
+#endif
+
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)  || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_BLAKE2B_512
 #endif
 
@@ -127,7 +311,7 @@
 #define XSUM_HAS_SHA224
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_SHA256
 #endif
 
@@ -135,7 +319,7 @@
 #define XSUM_HAS_SHA384
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_LIBSODIUM)
 #define XSUM_HAS_SHA512
 #endif
 

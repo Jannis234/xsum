@@ -50,3 +50,8 @@ ifeq ($(WITH_LIBGCRYPT), 1)
 CFLAGS += $(shell $(BUILD)libgcrypt-config --cflags)
 LIBS += $(shell $(BUILD)libgcrypt-config --libs)
 endif
+
+ifeq ($(WITH_LIBSODIUM), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
+LIBS += $(shell $(PKG_CONFIG) --libs libsodium)
+endif

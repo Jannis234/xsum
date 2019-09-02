@@ -18,3 +18,4 @@ XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 WITH_MBEDTLS = 1
 WITH_NETTLE = 1
 WITH_LIBGCRYPT = 1
+WITH_LIBSODIUM = 1

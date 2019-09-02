@@ -126,4 +126,58 @@
 		return out2; \
 	}
 
+// Common template for BLAKE2B with libsodium
+// Parameters: hash name; hash size
+#define XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(p_name, p_size) \
+	void* xsum_##p_name##_init() { \
+		crypto_generichash_blake2b_state *s = malloc(sizeof(crypto_generichash_blake2b_state)); \
+		if (s == NULL) { \
+			return NULL; \
+		} \
+		crypto_generichash_blake2b_init(s, NULL, 0, p_size); \
+		return s; \
+	} \
+	void xsum_##p_name##_update(void *state, uint8_t *buf, size_t len) { \
+		crypto_generichash_blake2b_state *s = (crypto_generichash_blake2b_state*) state; \
+		crypto_generichash_blake2b_update(s, buf, len); \
+	} \
+	uint8_t* xsum_##p_name##_final(void *state) { \
+		crypto_generichash_blake2b_state *s = (crypto_generichash_blake2b_state*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			free(s); \
+			return NULL; \
+		} \
+		crypto_generichash_blake2b_final(s, out, p_size); \
+		free(s); \
+		return out; \
+	}
+
+// Common template for SHA256/SHA512 with libsodium
+// Parameters: hash name; hash size
+#define XSUM_TEMPLATE_LIBSODIUM_SHA(p_name, p_size) \
+	void* xsum_##p_name##_init() { \
+		crypto_hash_##p_name##_state *s = malloc(sizeof(crypto_hash_##p_name##_state)); \
+		if (s == NULL) { \
+			return NULL; \
+		} \
+		crypto_hash_##p_name##_init(s); \
+		return s; \
+	} \
+	void xsum_##p_name##_update(void *state, uint8_t *buf, size_t len) { \
+		crypto_hash_##p_name##_state *s = (crypto_hash_##p_name##_state*) state; \
+		crypto_hash_##p_name##_update(s, buf, len); \
+	} \
+	uint8_t* xsum_##p_name##_final(void *state) { \
+		crypto_hash_##p_name##_state *s = (crypto_hash_##p_name##_state*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			free(s); \
+			return NULL; \
+		} \
+		crypto_hash_##p_name##_final(s, out); \
+		free(s); \
+		return out; \
+	}
+
 #endif
