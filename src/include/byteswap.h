@@ -13,42 +13,12 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#include "config.h"
-#ifdef XSUM_HAS_SUM
+#ifndef __XSUM_BYTESWAP_H__
+#define __XSUM_BYTESWAP_H__
 
-#include "algo_template.h"
-#include "byteswap.h"
+#include <stdint.h>
 
-void* xsum_sum_init() {
-	
-	uint64_t *sum = malloc(8);
-	if (sum == NULL) {
-		return NULL;
-	}
-	*sum = 0;
-	return sum;
-	
-}
-
-void xsum_sum_update(void *state, uint8_t *buf, size_t len) {
-	
-	uint64_t *sum = (uint64_t*) state;
-	while (len > 0) {
-		*sum += *buf;
-		buf++;
-		len--;
-	}
-	
-}
-
-uint8_t* xsum_sum_final(void *state) {
-	
-	uint64_t *sum = (uint64_t*) state;
-	*sum = xsum_endian64(*sum);
-	return (uint8_t*) sum;
-	
-}
-
-XSUM_TEMPLATE_ALGO(sum, "Sum", 8)
+uint64_t xsum_endian64(uint64_t val);
+uint32_t xsum_endian32(uint32_t val);
 
 #endif

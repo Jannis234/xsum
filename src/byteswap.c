@@ -13,42 +13,45 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#include "config.h"
-#ifdef XSUM_HAS_SUM
+#include <stdbool.h>
+#include <stdint.h>
 
-#include "algo_template.h"
-#include "byteswap.h"
-
-void* xsum_sum_init() {
+bool host_big_endian() {
 	
-	uint64_t *sum = malloc(8);
-	if (sum == NULL) {
-		return NULL;
-	}
-	*sum = 0;
-	return sum;
+	uint32_t test = 1;
+	uint8_t *test2 = (uint8_t*) &test;
+	return (test2[0] == 0);
 	
 }
 
-void xsum_sum_update(void *state, uint8_t *buf, size_t len) {
+void swap(uint8_t *src, uint8_t *dst, int len) {
 	
-	uint64_t *sum = (uint64_t*) state;
-	while (len > 0) {
-		*sum += *buf;
-		buf++;
-		len--;
+	for (int i = 0; i < len; i++) {
+		dst[i] = src[len - 1 - i];
 	}
 	
 }
 
-uint8_t* xsum_sum_final(void *state) {
+uint64_t xsum_endian64(uint64_t val) {
 	
-	uint64_t *sum = (uint64_t*) state;
-	*sum = xsum_endian64(*sum);
-	return (uint8_t*) sum;
+	if (host_big_endian()) {
+		return val;
+	} else {
+		uint64_t res = 0;
+		swap((uint8_t*) &val, (uint8_t*) &res, 8);
+		return res;
+	}
 	
 }
 
-XSUM_TEMPLATE_ALGO(sum, "Sum", 8)
-
-#endif
+uint32_t xsum_endian32(uint32_t val) {
+	
+	if (host_big_endian()) {
+		return val;
+	} else {
+		uint32_t res = 0;
+		swap((uint8_t*) &val, (uint8_t*) &res, 4);
+		return res;
+	}
+	
+}

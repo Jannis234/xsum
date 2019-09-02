@@ -14,48 +14,43 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_CRC32
+#ifdef XSUM_HAS_ADLER_32
 
 #include "algo_template.h"
 #include "byteswap.h"
 
-#if defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(crc32, GCRY_MD_CRC32, 4)
-
-#elif defined(XSUM_WITH_ZLIB)
+#ifdef XSUM_WITH_ZLIB
 
 #include <zlib.h>
 
-void* xsum_crc32_init() {
+void* xsum_adler_32_init() {
 	
-	uint32_t *crc = malloc(4);
-	if (crc == NULL) {
+	uint32_t *adler = malloc(4);
+	if (adler == NULL) {
 		return NULL;
 	}
-	*crc = crc32_z(0, NULL, 0);
-	return crc;
+	*adler = adler32_z(0, NULL, 0);
+	return adler;
 	
 }
 
-void xsum_crc32_update(void *state, uint8_t *buf, size_t len) {
+void xsum_adler_32_update(void *state, uint8_t *buf, size_t len) {
 	
-	uint32_t *crc = (uint32_t*) state;
-	*crc = crc32_z(*crc, buf, len);
+	uint32_t *adler = (uint32_t*) state;
+	*adler = adler32_z(*adler, buf, len);
 	
 }
 
-uint8_t* xsum_crc32_final(void *state) {
+uint8_t* xsum_adler_32_final(void *state) {
 	
-	uint32_t *crc = (uint32_t*) state;
-	*crc = xsum_endian32(*crc);
-	return (uint8_t*) crc;
+	uint32_t *adler = (uint32_t*) state;
+	*adler = xsum_endian32(*adler);
+	return (uint8_t*) adler;
 	
 }
 
 #endif
 
-XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)
+XSUM_TEMPLATE_ALGO(adler_32, "Adler-32", 4)
 
 #endif

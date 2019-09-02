@@ -19,10 +19,12 @@ CFLAGS += $(CCFLAGS) -Wall -std=c99 -Isrc/include
 
 SRC = src/main.c \
 	src/argparse.c \
+	src/byteswap.c \
 	src/help.c \
 	src/parse.c \
 	src/process.c \
 	src/algos.c \
+	src/algos/adler_32.c \
 	src/algos/blake2s_128.c \
 	src/algos/blake2s_160.c \
 	src/algos/blake2s_224.c \
@@ -142,7 +144,7 @@ depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
-	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBSODIUM) > src/include/config_generated.h
+	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBSODIUM) $(WITH_ZLIB) > src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<

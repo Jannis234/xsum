@@ -18,6 +18,9 @@
 #include "config.h"
 
 xsum_algo_t *xsum_algos[] = {
+#ifdef XSUM_HAS_ADLER_32
+	&xsum_algo_adler_32,
+#endif
 #ifdef XSUM_HAS_BLAKE2S_128
 	&xsum_algo_blake2s_128,
 #endif

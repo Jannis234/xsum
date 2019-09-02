@@ -55,3 +55,8 @@ ifeq ($(WITH_LIBSODIUM), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
 LIBS += $(shell $(PKG_CONFIG) --libs libsodium)
 endif
+
+ifeq ($(WITH_ZLIB), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags zlib)
+LIBS += $(shell $(PKG_CONFIG) --libs zlib)
+endif
