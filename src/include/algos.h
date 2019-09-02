@@ -251,6 +251,9 @@ extern xsum_algo_t xsum_algo_streebog_256;
 #ifdef XSUM_HAS_STREEBOG_512
 extern xsum_algo_t xsum_algo_streebog_512;
 #endif
+#ifdef XSUM_HAS_SUM
+extern xsum_algo_t xsum_algo_sum;
+#endif
 #ifdef XSUM_HAS_TIGER
 extern xsum_algo_t xsum_algo_tiger;
 #endif
@@ -259,6 +262,9 @@ extern xsum_algo_t xsum_algo_tiger2;
 #endif
 #ifdef XSUM_HAS_WHIRLPOOL
 extern xsum_algo_t xsum_algo_whirlpool;
+#endif
+#ifdef XSUM_HAS_XOR
+extern xsum_algo_t xsum_algo_xor;
 #endif
 
 #endif

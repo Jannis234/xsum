@@ -234,6 +234,9 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_STREEBOG_512
 	&xsum_algo_streebog_512,
 #endif
+#ifdef XSUM_HAS_SUM
+	&xsum_algo_sum,
+#endif
 #ifdef XSUM_HAS_TIGER
 	&xsum_algo_tiger,
 #endif
@@ -242,6 +245,9 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_WHIRLPOOL
 	&xsum_algo_whirlpool,
+#endif
+#ifdef XSUM_HAS_XOR
+	&xsum_algo_xor,
 #endif
 	NULL // End of array indicator
 };

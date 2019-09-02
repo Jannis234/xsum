@@ -95,9 +95,11 @@ SRC = src/main.c \
 	src/algos/sha3_512.c \
 	src/algos/streebog_256.c \
 	src/algos/streebog_512.c \
+	src/algos/sum.c \
 	src/algos/tiger.c \
 	src/algos/tiger2.c \
-	src/algos/whirlpool.c
+	src/algos/whirlpool.c \
+	src/algos/xor.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall
 

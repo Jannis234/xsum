@@ -67,6 +67,10 @@
 #define XSUM_WITH_LIBSODIUM
 #endif
 
+// Simple built-in algorithms
+#define XSUM_HAS_SUM
+#define XSUM_HAS_XOR
+
 #if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
 #define XSUM_HAS_BLAKE2S_128
 #endif
