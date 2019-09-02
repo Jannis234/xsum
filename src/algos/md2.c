@@ -23,6 +23,11 @@
 #include <nettle/md2.h>
 XSUM_TEMPLATE_NETTLE(md2, md2, 16)
 
+#elif defined(XSUM_WITH_MBEDTLS)
+
+#include <mbedtls/md.h>
+XSUM_TEMPLATE_MBEDTLS(md2, MBEDTLS_MD_MD2, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md2, "MD2", 16)

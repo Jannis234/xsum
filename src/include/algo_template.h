@@ -26,6 +26,45 @@
 #define XSUM_TEMPLATE_ALGO(p_name, p_name_string, p_size) \
 	xsum_algo_t xsum_algo_##p_name = { p_name_string, p_size, &xsum_##p_name##_init, &xsum_##p_name##_update, &xsum_##p_name##_final };
 
+// Common template for mbedtls hashes
+// Parameters: xsum-internal name; mbedtls constant; hash size
+#define XSUM_TEMPLATE_MBEDTLS(p_name_xsum, p_name_mbedtls, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		mbedtls_md_context_t *ctx = malloc(sizeof(mbedtls_md_context_t)); \
+		if (ctx == NULL) { \
+			return NULL; \
+		} \
+		mbedtls_md_init(ctx); \
+		const mbedtls_md_info_t *info = mbedtls_md_info_from_type(p_name_mbedtls); \
+		if (info == NULL) { \
+			free(ctx); \
+			return NULL; \
+		} \
+		if (mbedtls_md_setup(ctx, info, 0) != 0) { \
+			free(ctx); \
+			return NULL; \
+		} \
+		mbedtls_md_starts(ctx); \
+		return ctx; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		mbedtls_md_context_t *ctx = (mbedtls_md_context_t*) state; \
+		mbedtls_md_update(ctx, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		mbedtls_md_context_t *ctx = (mbedtls_md_context_t*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			mbedtls_md_free(ctx); \
+			free(ctx); \
+			return NULL; \
+		} \
+		mbedtls_md_finish(ctx, out); \
+		mbedtls_md_free(ctx); \
+		free(ctx); \
+		return out; \
+	}
+
 // Common template for nettle hashes
 // Parameters: xsum-internal name; nettle-internal name; hash size
 #define XSUM_TEMPLATE_NETTLE(p_name_xsum, p_name_nettle, p_size) \

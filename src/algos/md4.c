@@ -28,6 +28,11 @@ XSUM_TEMPLATE_NETTLE(md4, md4, 16)
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(md4, GCRY_MD_MD4, 16)
 
+#elif defined(XSUM_WITH_MBEDTLS)
+
+#include <mbedtls/md.h>
+XSUM_TEMPLATE_MBEDTLS(md4, MBEDTLS_MD_MD4, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md4, "MD4", 16)

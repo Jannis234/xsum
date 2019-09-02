@@ -28,6 +28,11 @@ XSUM_TEMPLATE_NETTLE(sha384, sha384, 48)
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(sha384, GCRY_MD_SHA384, 48)
 
+#elif defined(XSUM_WITH_MBEDTLS)
+
+#include <mbedtls/md.h>
+XSUM_TEMPLATE_MBEDTLS(sha384, MBEDTLS_MD_SHA384, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha384, "SHA384", 48)

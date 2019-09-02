@@ -28,6 +28,11 @@ XSUM_TEMPLATE_NETTLE(ripemd160, ripemd160, 20)
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(ripemd160, GCRY_MD_RMD160, 20)
 
+#elif defined(XSUM_WITH_MBEDTLS)
+
+#include <mbedtls/md.h>
+XSUM_TEMPLATE_MBEDTLS(ripemd160, MBEDTLS_MD_RIPEMD160, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(ripemd160, "RIPEMD160", 20)

@@ -37,6 +37,10 @@ LDFLAGS =
 LIBS = 
 EXEEXT = 
 
+ifeq ($(WITH_MBEDTLS), 1)
+LIBS += -lmbedcrypto
+endif
+
 ifeq ($(WITH_NETTLE), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags nettle)
 LIBS += $(shell $(PKG_CONFIG) --libs nettle)
