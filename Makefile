@@ -31,6 +31,7 @@ SRC = src/main.c \
 	src/algos/blake2b_256.c \
 	src/algos/blake2b_384.c \
 	src/algos/blake2b_512.c \
+	src/algos/crc32.c \
 	src/algos/gost94.c \
 	src/algos/md2.c \
 	src/algos/md4.c \

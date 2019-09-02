@@ -15,5 +15,5 @@
 
 XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
-WITH_NETTLE = 0
+WITH_NETTLE = 1
 WITH_LIBGCRYPT = 1

@@ -69,6 +69,10 @@
 #define XSUM_HAS_BLAKE2B_512
 #endif
 
+#if defined(XSUM_WITH_LIBGCRYPT)
+#define XSUM_HAS_CRC32
+#endif
+
 #if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT)
 #define XSUM_HAS_GOST94
 #endif
