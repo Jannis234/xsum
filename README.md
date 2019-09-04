@@ -61,7 +61,9 @@ WHIRLPOOL | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhas
 XOR | (Built in) | XOR of all input bytes
 
 ¹) libgcrypt 1.8.0 or higher required for BLAKE2
+
 ²) Nettle 3.2 or higher required for SHA-3
+
 ³) mbedtls might not have all possible algorithms compiled in, this is auto-detected at build time
 
 ## Usage examples
