@@ -201,4 +201,30 @@
 		return out; \
 	}
 
+// Common template for rhash hashes
+// Parameters: xsum-internal name; rhash constant; hash size
+#define XSUM_TEMPLATE_RHASH(p_name_xsum, p_name_rhash, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		rhash ctx = rhash_init(p_name_rhash); \
+		if (ctx == NULL) { \
+			return NULL; \
+		} \
+		return ctx; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		rhash ctx = (rhash) state; \
+		rhash_update(ctx, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		rhash ctx = (rhash) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			rhash_free(ctx); \
+			return NULL; \
+		} \
+		rhash_final(ctx, out); \
+		rhash_free(ctx); \
+		return out; \
+	}
+
 #endif

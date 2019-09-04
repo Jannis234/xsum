@@ -203,8 +203,20 @@ extern xsum_algo_t xsum_algo_crc32;
 #ifdef XSUM_HAS_CRC64
 extern xsum_algo_t xsum_algo_crc64;
 #endif
+#ifdef XSUM_HAS_EDON_R_256
+extern xsum_algo_t xsum_algo_edon_r_128;
+#endif
+#ifdef XSUM_HAS_EDON_R_256
+extern xsum_algo_t xsum_algo_edon_r_256;
+#endif
 #ifdef XSUM_HAS_GOST94
 extern xsum_algo_t xsum_algo_gost94;
+#endif
+#ifdef XSUM_HAS_GOST94_CRYPTOPRO
+extern xsum_algo_t xsum_algo_gost94_cryptopro;
+#endif
+#ifdef XSUM_HAS_HAS160
+extern xsum_algo_t xsum_algo_has160;
 #endif
 #ifdef XSUM_HAS_MD2
 extern xsum_algo_t xsum_algo_md2;
@@ -250,6 +262,12 @@ extern xsum_algo_t xsum_algo_sha3_384;
 #endif
 #ifdef XSUM_HAS_SHA3_512
 extern xsum_algo_t xsum_algo_sha3_512;
+#endif
+#ifdef XSUM_HAS_SNEFRU_128
+extern xsum_algo_t xsum_algo_snefru_128;
+#endif
+#ifdef XSUM_HAS_SNEFRU_256
+extern xsum_algo_t xsum_algo_snefru_256;
 #endif
 #ifdef XSUM_HAS_STREEBOG_256
 extern xsum_algo_t xsum_algo_streebog_256;

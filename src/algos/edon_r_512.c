@@ -14,27 +14,17 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_SHA3_256
+#ifdef XSUM_HAS_EDON_R_512
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_NETTLE_SHA3)
-
-#include <nettle/sha3.h>
-XSUM_TEMPLATE_NETTLE(sha3_256, sha3_256, 32)
-
-#elif defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(sha3_256, GCRY_MD_SHA3_256, 32)
-
-#elif defined(XSUM_WITH_RHASH)
+#if defined(XSUM_WITH_RHASH)
 
 #include <rhash.h>
-XSUM_TEMPLATE_RHASH(sha3_256, RHASH_SHA3_256, 32)
+XSUM_TEMPLATE_RHASH(edon_r_512, RHASH_EDONR512, 64)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(sha3_256, "SHA3-256", 32)
+XSUM_TEMPLATE_ALGO(edon_r_512, "EDON-R-512", 64)
 
 #endif

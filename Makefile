@@ -80,7 +80,11 @@ SRC = src/main.c \
 	src/algos/blake2b_512.c \
 	src/algos/crc32.c \
 	src/algos/crc64.c \
+	src/algos/edon_r_256.c \
+	src/algos/edon_r_512.c \
 	src/algos/gost94.c \
+	src/algos/gost94_cryptopro.c \
+	src/algos/has160.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \
@@ -96,6 +100,8 @@ SRC = src/main.c \
 	src/algos/sha3_256.c \
 	src/algos/sha3_384.c \
 	src/algos/sha3_512.c \
+	src/algos/snefru_128.c \
+	src/algos/snefru_256.c \
 	src/algos/streebog_256.c \
 	src/algos/streebog_512.c \
 	src/algos/sum.c \
@@ -145,7 +151,7 @@ depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
-	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBLZMA) $(WITH_LIBSODIUM) $(WITH_ZLIB) > src/include/config_generated.h
+	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBLZMA) $(WITH_LIBSODIUM) $(WITH_RHASH) $(WITH_ZLIB) > src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<

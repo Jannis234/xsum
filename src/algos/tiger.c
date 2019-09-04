@@ -23,6 +23,11 @@
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(tiger, GCRY_MD_TIGER1, 24)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(tiger, RHASH_TIGER, 24)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(tiger, "Tiger", 24)

@@ -59,6 +59,11 @@ uint8_t* xsum_crc32_final(void *state) {
 #include <lzma.h>
 XSUM_TEMPLATE_LIBLZMA_CRC(32)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(crc32, RHASH_CRC32, 4)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)

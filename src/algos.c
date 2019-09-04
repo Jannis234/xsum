@@ -189,6 +189,9 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_GOST94
 	&xsum_algo_gost94,
 #endif
+#ifdef XSUM_HAS_GOST94_CRYPTOPRO
+	&xsum_algo_gost94_cryptopro,
+#endif
 #ifdef XSUM_HAS_MD2
 	&xsum_algo_md2,
 #endif

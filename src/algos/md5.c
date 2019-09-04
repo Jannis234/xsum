@@ -33,6 +33,11 @@ XSUM_TEMPLATE_LIBGCRYPT(md5, GCRY_MD_MD5, 16)
 #include <mbedtls/md.h>
 XSUM_TEMPLATE_MBEDTLS(md5, MBEDTLS_MD_MD5, 16)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(md5, RHASH_MD5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

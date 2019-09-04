@@ -26,6 +26,9 @@
 #ifdef XSUM_WITH_LIBGCRYPT
 #include <gcrypt.h>
 #endif
+#ifdef XSUM_WITH_RHASH
+#include <rhash.h>
+#endif
 
 #define BUFSIZE (1024 * 100)
 
@@ -145,6 +148,9 @@ int main(int argc, char **argv) {
 	if (!gcry_check_version(XSUM_LIBGCRYPT_MIN_VERSION)) {
 		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version %s or re-compile xsum without libgcrypt support.\n", XSUM_LIBGCRYPT_MIN_VERSION);
 	}
+#endif
+#ifdef XSUM_WITH_RHASH
+	rhash_library_init();
 #endif
 	
 	xsum_argparse_t options[] = {

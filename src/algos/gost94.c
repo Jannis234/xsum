@@ -28,6 +28,11 @@ XSUM_TEMPLATE_NETTLE(gost94, gosthash94, 32)
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(gost94, GCRY_MD_GOSTR3411_94, 32)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(gost94, RHASH_GOST, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(gost94, "GOST94", 32)
