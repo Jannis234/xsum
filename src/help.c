@@ -18,7 +18,19 @@
 
 void xsum_print_help() {
 	 
-	printf("TODO\n"); 
+	printf("Usage: xsum [OPTION(S)] [FILE(S)]\n");
+	printf("\n");
+	printf("If no file is specified, data is read from standard input\n");
+	printf("\n");
+	printf("  -h, --help:       Show this message and exit\n");
+	printf("  -v, --version:    Show xsum's version number and exit\n");
+	printf("  -c, --check:      Read checksums from FILE(S) and verify them\n");
+	printf("  -q, --quiet:      Don't print status information while checking\n");
+	printf("  --ignore-unknown: Don't report an error after encountering unknown checksums\n");
+	printf("                    while checking\n");
+	printf("  --ignore-missing: Ignore missing files while checking\n");
+	printf("  -a, --algo:       Select checksums to calculate (comma-separated)\n");
+	printf("  --list-algos:     List all supported checksums and exit\n");
 	 
 }
 
