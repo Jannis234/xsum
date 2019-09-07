@@ -23,12 +23,6 @@
 #include "cli.h"
 #include "config.h"
 #include "xsum.h"
-#ifdef XSUM_WITH_LIBGCRYPT
-#include <gcrypt.h>
-#endif
-#ifdef XSUM_WITH_RHASH
-#include <rhash.h>
-#endif
 
 #define BUFSIZE (1024 * 100)
 
@@ -144,14 +138,10 @@ bool compare_case(char *buf1, char *buf2, size_t len) {
 
 int main(int argc, char **argv) {
 	
-#ifdef XSUM_WITH_LIBGCRYPT
-	if (!gcry_check_version(XSUM_LIBGCRYPT_MIN_VERSION)) {
-		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version %s or re-compile xsum without libgcrypt support.\n", XSUM_LIBGCRYPT_MIN_VERSION);
+	int ret = xsum_lib_init();
+	if (ret != RETURN_OK) {
+		return ret;
 	}
-#endif
-#ifdef XSUM_WITH_RHASH
-	rhash_library_init();
-#endif
 	
 	xsum_argparse_t options[] = {
 		{ "help", 'h', false, false, NULL },
@@ -248,7 +238,7 @@ int main(int argc, char **argv) {
 		}
 	}
 	bool ignore_missing = options[xsum_find_option(options, options_count, true, "ignore-missing")].found;
-	int ret = RETURN_OK;
+	ret = RETURN_OK;
 	if (options[xsum_find_option(options, options_count, false, "c")].found) {
 		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		bool quiet = options[xsum_find_option(options, options_count, false, "q")].found;

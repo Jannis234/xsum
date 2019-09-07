@@ -21,6 +21,7 @@ SRC = src/main.c \
 	src/argparse.c \
 	src/byteswap.c \
 	src/help.c \
+	src/lib_init.c \
 	src/parse.c \
 	src/process.c \
 	src/algos.c \

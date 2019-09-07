@@ -16,6 +16,7 @@
 #ifndef __XSUM_CLI_H__
 #define __XSUM_CLI_H__
 
+#include <stdbool.h>
 #include <stddef.h>
 
 typedef enum {
@@ -39,6 +40,8 @@ typedef struct {
 bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc, bool *filenames);
 // Find an option by name and return its index
 int xsum_find_option(xsum_argparse_t options[], size_t options_count, bool name_long, char *name);
+
+int xsum_lib_init();
 
 void xsum_print_help();
 void xsum_print_version();
