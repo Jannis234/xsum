@@ -20,13 +20,12 @@ echo "#define __XSUM_CONFIG_GENERATED_H__"
 echo
 echo "#define XSUM_VERSION_STRING \"$1\""
 echo
-echo "#define XSUM_CONFIG_GNUTLS $2"
-echo "#define XSUM_CONFIG_MBEDTLS $3"
-echo "#define XSUM_CONFIG_NETTLE $4"
-echo "#define XSUM_CONFIG_LIBGCRYPT $5"
-echo "#define XSUM_CONFIG_LIBLZMA $6"
-echo "#define XSUM_CONFIG_LIBSODIUM $7"
-echo "#define XSUM_CONFIG_RHASH $8"
-echo "#define XSUM_CONFIG_ZLIB $9"
+
+shift
+while [ "$1" ]; do
+	echo "#define XSUM_CONFIG_$1 $2"
+	shift 2
+done
+
 echo
 echo "#endif"

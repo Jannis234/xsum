@@ -152,7 +152,16 @@ depend.mak: $(SRC:.c=.d)
 	cat $(SRC:.c=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
-	sh src/gen_config.sh $(XSUM_VERSION) $(WITH_GNUTLS) $(WITH_MBEDTLS) $(WITH_NETTLE) $(WITH_LIBGCRYPT) $(WITH_LIBLZMA) $(WITH_LIBSODIUM) $(WITH_RHASH) $(WITH_ZLIB) > src/include/config_generated.h
+	sh src/gen_config.sh $(XSUM_VERSION) \
+		GNUTLS $(WITH_GNUTLS) \
+		MBEDTLS $(WITH_MBEDTLS) \
+		NETTLE $(WITH_NETTLE) \
+		LIBGCRYPT $(WITH_LIBGCRYPT) \
+		LIBLZMA $(WITH_LIBLZMA) \
+		LIBSODIUM $(WITH_LIBSODIUM) \
+		RHASH $(WITH_RHASH) \
+		ZLIB $(WITH_ZLIB) \
+		> src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<
