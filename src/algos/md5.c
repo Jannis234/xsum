@@ -38,6 +38,12 @@ XSUM_TEMPLATE_MBEDTLS(md5, MBEDTLS_MD_MD5, 16)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(md5, RHASH_MD5, 16)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(md5, GNUTLS_DIG_MD5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

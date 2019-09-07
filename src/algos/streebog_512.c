@@ -23,6 +23,12 @@
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(streebog_512, GCRY_MD_STRIBOG512, 64)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(streebog_512, GNUTLS_DIG_STREEBOG_512, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(streebog_512, "Streebog-512", 64)

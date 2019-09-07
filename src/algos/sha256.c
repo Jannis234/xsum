@@ -43,6 +43,12 @@ XSUM_TEMPLATE_LIBSODIUM_SHA(sha256, 32)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(sha256, RHASH_SHA256, 32)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(sha256, GNUTLS_DIG_SHA256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha256, "SHA256", 32)

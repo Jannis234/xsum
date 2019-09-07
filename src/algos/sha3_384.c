@@ -33,6 +33,12 @@ XSUM_TEMPLATE_LIBGCRYPT(sha3_384, GCRY_MD_SHA3_384, 48)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(sha3_384, RHASH_SHA3_384, 48)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(sha3_384, GNUTLS_DIG_SHA3_384, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha3_384, "SHA3-384", 48)

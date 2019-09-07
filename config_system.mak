@@ -37,6 +37,11 @@ LDFLAGS =
 LIBS = 
 EXEEXT = 
 
+ifeq ($(WITH_GNUTLS), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags gnutls)
+LIBS += $(shell $(PKG_CONFIG) --libs gnutls)
+endif
+
 ifeq ($(WITH_MBEDTLS), 1)
 LIBS += -lmbedcrypto
 endif

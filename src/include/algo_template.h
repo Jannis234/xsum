@@ -26,6 +26,31 @@
 #define XSUM_TEMPLATE_ALGO(p_name, p_name_string, p_size) \
 	xsum_algo_t xsum_algo_##p_name = { p_name_string, p_size, &xsum_##p_name##_init, &xsum_##p_name##_update, &xsum_##p_name##_final };
 
+// Common template for gnutls hashes
+// Parameters: xsum-internal name; gnutls constant; hash size
+#define XSUM_TEMPLATE_GNUTLS(p_name_xsum, p_name_gnutls, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		gnutls_hash_hd_t hd; \
+		if (gnutls_hash_init(&hd, p_name_gnutls) != 0) { \
+			return NULL; \
+		} \
+		return hd; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		gnutls_hash_hd_t hd = (gnutls_hash_hd_t) state; \
+		gnutls_hash(hd, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		gnutls_hash_hd_t hd = (gnutls_hash_hd_t) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			gnutls_hash_deinit(hd, NULL); \
+			return NULL; \
+		} \
+		gnutls_hash_deinit(hd, out); \
+		return out; \
+	}
+
 // Common template for mbedtls hashes
 // Parameters: xsum-internal name; mbedtls constant; hash size
 #define XSUM_TEMPLATE_MBEDTLS(p_name_xsum, p_name_mbedtls, p_size) \

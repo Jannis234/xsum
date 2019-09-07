@@ -38,6 +38,12 @@ XSUM_TEMPLATE_MBEDTLS(sha384, MBEDTLS_MD_SHA384, 48)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(sha384, RHASH_SHA384, 48)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(sha384, GNUTLS_DIG_SHA384, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha384, "SHA384", 48)

@@ -32,28 +32,28 @@ CRC32 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma]
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
 EDON-R-512 | [rhash](http://rhash.sourceforge.net/) |
-GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
+GOST94 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
 GOST94-CryptoPro | [rhash](http://rhash.sourceforge.net/) | GOST94 with CryptoPro S-box
 HAS160 | [rhash](http://rhash.sourceforge.net/) |
 MD2 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) |
 MD4 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-MD5 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+MD5 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
 RIPEMD160 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) |
-SHA1 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA224 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA256 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [libsodium](https://download.libsodium.org/doc/) [rhash](http://rhash.sourceforge.net/) |
-SHA384 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA512 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [libsodium](https://download.libsodium.org/doc/) [rhash](http://rhash.sourceforge.net/) |
+SHA1 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA224 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA256 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [libsodium](https://download.libsodium.org/doc/) [rhash](http://rhash.sourceforge.net/) |
+SHA384 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA512 | [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [libsodium](https://download.libsodium.org/doc/) [rhash](http://rhash.sourceforge.net/) |
 SHA512-224 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) |
 SHA512-256 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) |
-SHA3-224 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA3-256 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA3-384 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
-SHA3-512 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA3-224 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA3-256 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA3-384 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
+SHA3-512 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html)² [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
 Snefru-128 | [rhash](http://rhash.sourceforge.net/) |
 Snefru-256 | [rhash](http://rhash.sourceforge.net/) |
-Streebog-256 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
-Streebog-512 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
+Streebog-256 | [gnutls](https://www.gnutls.org/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
+Streebog-512 | [gnutls](https://www.gnutls.org/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
 Sum | (Built in) | 64-bit sum of all input bytes
 Tiger | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
 Tiger2 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) |
