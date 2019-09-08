@@ -1,9 +1,9 @@
-XOR:00 MD5:e2c865db4162bed963bfaa9ef6ac18f0  input/binary1
-XOR:00 MD5:c73a756d7c65cb6991030bff87439016  input/binary2
-XOR:00 MD5:d41d8cd98f00b204e9800998ecf8427e  input/empty
-XOR:00 MD5:e56e104794a18df5f41f6d2d87b4cc67  input/large1
-XOR:00 MD5:34461231816b5db55cc2d6cef577a226  input/large2
-XOR:1c MD5:9d6f05a4cc7173c1fdd6289e9acf85ff  input/random1
-XOR:55 MD5:63260e172c0a35f7e7bddc58e5d21991  input/random2
-XOR:60 MD5:900150983cd24fb0d6963f7d28e17f72  input/string1
-XOR:01 MD5:76658de2ac7d406f93dfbe8bb6d9f549  input/string2
+MD5:e2c865db4162bed963bfaa9ef6ac18f0  input/binary1
+MD5:c73a756d7c65cb6991030bff87439016  input/binary2
+MD5:d41d8cd98f00b204e9800998ecf8427e  input/empty
+MD5:e56e104794a18df5f41f6d2d87b4cc67  input/large1
+MD5:34461231816b5db55cc2d6cef577a226  input/large2
+MD5:9d6f05a4cc7173c1fdd6289e9acf85ff  input/random1
+MD5:63260e172c0a35f7e7bddc58e5d21991  input/random2
+MD5:900150983cd24fb0d6963f7d28e17f72  input/string1
+MD5:76658de2ac7d406f93dfbe8bb6d9f549  input/string2

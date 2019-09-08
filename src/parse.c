@@ -172,7 +172,7 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 			break;
 		}
 	}
-	if (!found) {
+	if (!found && (found_unknown && !ignore_unknown)) {
 		fprintf(stderr, "%s: No hashes found\n", filename_buf);
 		free(filename_buf);
 		results_cleanup(results, algos_count);
