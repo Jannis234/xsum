@@ -18,6 +18,11 @@
 # Requires all supported libraries to be installed
 # You likely won't need to run this, "make check" is enough to test your current build configuration
 
+if [ ! -e src/include/xsum.h ]; then
+	echo "This script needs to run from the top level directory"
+	exit 1
+fi
+
 WITH_GNUTLS=0
 WITH_MBEDTLS=0
 WITH_NETTLE=0
