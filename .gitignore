@@ -6,3 +6,5 @@ depend.mak
 src/include/config_generated.h
 xsum
 xsum.1
+test/make_input
+test/input

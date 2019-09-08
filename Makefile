@@ -111,7 +111,7 @@ SRC = src/main.c \
 	src/algos/whirlpool.c \
 	src/algos/xor.c
 
-.PHONY: all depend clean cli man install install-cli install-man uninstall
+.PHONY: all depend clean cli man install install-cli install-man uninstall check
 
 all: cli man
 
@@ -141,6 +141,10 @@ clean:
 	rm -f xsum.1
 	rm -f depend.mak
 	rm -f src/include/config_generated.h
+	+make -C test clean
+
+check: xsum$(EXEEXT)
+	+make -C test check CC="$(CC)" EXEEXT="$(EXEEXT)" CCFLAGS="$(CCFLAGS)"
 
 xsum$(EXEEXT): $(SRC:.c=.o)
 	$(CCLD) $(LDFLAGS) -o xsum$(EXEEXT) $(SRC:.c=.o) $(LIBS)
