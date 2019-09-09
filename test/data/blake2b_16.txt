@@ -1,0 +1,9 @@
+BLAKE2b-16:8c4d  input/binary1
+BLAKE2b-16:2f32  input/binary2
+BLAKE2b-16:b1fe  input/empty
+BLAKE2b-16:1b11  input/large1
+BLAKE2b-16:7f55  input/large2
+BLAKE2b-16:084e  input/random1
+BLAKE2b-16:f709  input/random2
+BLAKE2b-16:ae1e  input/string1
+BLAKE2b-16:936e  input/string2

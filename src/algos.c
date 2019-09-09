@@ -33,149 +33,76 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_BLAKE2S_256
 	&xsum_algo_blake2s_256,
 #endif
-#ifdef XSUM_HAS_BLAKE2B_128
+#ifdef XSUM_HAS_BLAKE2B_FULL
+	&xsum_algo_blake2b_8,
+	&xsum_algo_blake2b_16,
+	&xsum_algo_blake2b_24,
+	&xsum_algo_blake2b_32,
+	&xsum_algo_blake2b_40,
+	&xsum_algo_blake2b_48,
+	&xsum_algo_blake2b_56,
+	&xsum_algo_blake2b_64,
+	&xsum_algo_blake2b_72,
+	&xsum_algo_blake2b_80,
+	&xsum_algo_blake2b_88,
+	&xsum_algo_blake2b_96,
+	&xsum_algo_blake2b_104,
+	&xsum_algo_blake2b_112,
+	&xsum_algo_blake2b_120,
 	&xsum_algo_blake2b_128,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_136
 	&xsum_algo_blake2b_136,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_144
 	&xsum_algo_blake2b_144,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_152
 	&xsum_algo_blake2b_152,
+	&xsum_algo_blake2b_168,
+	&xsum_algo_blake2b_176,
+	&xsum_algo_blake2b_184,
+	&xsum_algo_blake2b_192,
+	&xsum_algo_blake2b_200,
+	&xsum_algo_blake2b_208,
+	&xsum_algo_blake2b_216,
+	&xsum_algo_blake2b_224,
+	&xsum_algo_blake2b_232,
+	&xsum_algo_blake2b_240,
+	&xsum_algo_blake2b_248,
+	&xsum_algo_blake2b_264,
+	&xsum_algo_blake2b_272,
+	&xsum_algo_blake2b_280,
+	&xsum_algo_blake2b_288,
+	&xsum_algo_blake2b_296,
+	&xsum_algo_blake2b_304,
+	&xsum_algo_blake2b_312,
+	&xsum_algo_blake2b_320,
+	&xsum_algo_blake2b_328,
+	&xsum_algo_blake2b_336,
+	&xsum_algo_blake2b_344,
+	&xsum_algo_blake2b_352,
+	&xsum_algo_blake2b_360,
+	&xsum_algo_blake2b_368,
+	&xsum_algo_blake2b_376,
+	&xsum_algo_blake2b_392,
+	&xsum_algo_blake2b_400,
+	&xsum_algo_blake2b_408,
+	&xsum_algo_blake2b_416,
+	&xsum_algo_blake2b_424,
+	&xsum_algo_blake2b_432,
+	&xsum_algo_blake2b_440,
+	&xsum_algo_blake2b_448,
+	&xsum_algo_blake2b_456,
+	&xsum_algo_blake2b_464,
+	&xsum_algo_blake2b_472,
+	&xsum_algo_blake2b_480,
+	&xsum_algo_blake2b_488,
+	&xsum_algo_blake2b_496,
+	&xsum_algo_blake2b_504,
 #endif
 #ifdef XSUM_HAS_BLAKE2B_160
 	&xsum_algo_blake2b_160,
 #endif
-#ifdef XSUM_HAS_BLAKE2B_168
-	&xsum_algo_blake2b_168,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_176
-	&xsum_algo_blake2b_176,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_184
-	&xsum_algo_blake2b_184,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_192
-	&xsum_algo_blake2b_192,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_200
-	&xsum_algo_blake2b_200,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_208
-	&xsum_algo_blake2b_208,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_216
-	&xsum_algo_blake2b_216,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_224
-	&xsum_algo_blake2b_224,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_232
-	&xsum_algo_blake2b_232,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_240
-	&xsum_algo_blake2b_240,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_248
-	&xsum_algo_blake2b_248,
-#endif
 #ifdef XSUM_HAS_BLAKE2B_256
 	&xsum_algo_blake2b_256,
 #endif
-#ifdef XSUM_HAS_BLAKE2B_264
-	&xsum_algo_blake2b_264,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_272
-	&xsum_algo_blake2b_272,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_280
-	&xsum_algo_blake2b_280,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_288
-	&xsum_algo_blake2b_288,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_296
-	&xsum_algo_blake2b_296,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_304
-	&xsum_algo_blake2b_304,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_312
-	&xsum_algo_blake2b_312,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_320
-	&xsum_algo_blake2b_320,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_328
-	&xsum_algo_blake2b_328,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_336
-	&xsum_algo_blake2b_336,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_344
-	&xsum_algo_blake2b_344,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_352
-	&xsum_algo_blake2b_352,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_360
-	&xsum_algo_blake2b_360,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_368
-	&xsum_algo_blake2b_368,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_376
-	&xsum_algo_blake2b_376,
-#endif
 #ifdef XSUM_HAS_BLAKE2B_384
 	&xsum_algo_blake2b_384,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_392
-	&xsum_algo_blake2b_392,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_400
-	&xsum_algo_blake2b_400,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_408
-	&xsum_algo_blake2b_408,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_416
-	&xsum_algo_blake2b_416,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_424
-	&xsum_algo_blake2b_424,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_432
-	&xsum_algo_blake2b_432,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_440
-	&xsum_algo_blake2b_440,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_448
-	&xsum_algo_blake2b_448,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_456
-	&xsum_algo_blake2b_456,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_464
-	&xsum_algo_blake2b_464,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_472
-	&xsum_algo_blake2b_472,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_480
-	&xsum_algo_blake2b_480,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_488
-	&xsum_algo_blake2b_488,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_496
-	&xsum_algo_blake2b_496,
-#endif
-#ifdef XSUM_HAS_BLAKE2B_504
-	&xsum_algo_blake2b_504,
 #endif
 #ifdef XSUM_HAS_BLAKE2B_512
 	&xsum_algo_blake2b_512,

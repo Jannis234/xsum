@@ -25,6 +25,21 @@ CHECKS = check_adler_32 \
 	check_blake2s_160 \
 	check_blake2s_224 \
 	check_blake2s_256 \
+	check_blake2b_8 \
+	check_blake2b_16 \
+	check_blake2b_24 \
+	check_blake2b_32 \
+	check_blake2b_40 \
+	check_blake2b_48 \
+	check_blake2b_56 \
+	check_blake2b_64 \
+	check_blake2b_72 \
+	check_blake2b_80 \
+	check_blake2b_88 \
+	check_blake2b_96 \
+	check_blake2b_104 \
+	check_blake2b_112 \
+	check_blake2b_120 \
 	check_blake2b_128 \
 	check_blake2b_136 \
 	check_blake2b_144 \
@@ -130,6 +145,51 @@ check_blake2s_224: $(INPUT_DEPEND) data/blake2s_224.txt
 
 check_blake2s_256: $(INPUT_DEPEND) data/blake2s_256.txt
 	$(XSUM) -c data/blake2s_256.txt
+
+check_blake2b_8: $(INPUT_DEPEND) data/blake2b_8.txt
+	$(XSUM) -c data/blake2b_8.txt
+
+check_blake2b_16: $(INPUT_DEPEND) data/blake2b_16.txt
+	$(XSUM) -c data/blake2b_16.txt
+
+check_blake2b_24: $(INPUT_DEPEND) data/blake2b_24.txt
+	$(XSUM) -c data/blake2b_24.txt
+
+check_blake2b_32: $(INPUT_DEPEND) data/blake2b_32.txt
+	$(XSUM) -c data/blake2b_32.txt
+
+check_blake2b_40: $(INPUT_DEPEND) data/blake2b_40.txt
+	$(XSUM) -c data/blake2b_40.txt
+
+check_blake2b_48: $(INPUT_DEPEND) data/blake2b_48.txt
+	$(XSUM) -c data/blake2b_48.txt
+
+check_blake2b_56: $(INPUT_DEPEND) data/blake2b_56.txt
+	$(XSUM) -c data/blake2b_56.txt
+
+check_blake2b_64: $(INPUT_DEPEND) data/blake2b_64.txt
+	$(XSUM) -c data/blake2b_64.txt
+
+check_blake2b_72: $(INPUT_DEPEND) data/blake2b_72.txt
+	$(XSUM) -c data/blake2b_72.txt
+
+check_blake2b_80: $(INPUT_DEPEND) data/blake2b_80.txt
+	$(XSUM) -c data/blake2b_80.txt
+
+check_blake2b_88: $(INPUT_DEPEND) data/blake2b_88.txt
+	$(XSUM) -c data/blake2b_88.txt
+
+check_blake2b_96: $(INPUT_DEPEND) data/blake2b_96.txt
+	$(XSUM) -c data/blake2b_96.txt
+
+check_blake2b_104: $(INPUT_DEPEND) data/blake2b_104.txt
+	$(XSUM) -c data/blake2b_104.txt
+
+check_blake2b_112: $(INPUT_DEPEND) data/blake2b_112.txt
+	$(XSUM) -c data/blake2b_112.txt
+
+check_blake2b_120: $(INPUT_DEPEND) data/blake2b_120.txt
+	$(XSUM) -c data/blake2b_120.txt
 
 check_blake2b_128: $(INPUT_DEPEND) data/blake2b_128.txt
 	$(XSUM) -c data/blake2b_128.txt
