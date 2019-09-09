@@ -23,6 +23,11 @@
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(blake2s_256, GCRY_MD_BLAKE2S_256, 32)
 
+#elif defined(XSUM_WITH_LIBB2)
+
+#include <blake2.h>
+XSUM_TEMPLATE_LIBB2(blake2s_256, blake2s, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2s_256, "BLAKE2s-256", 32)

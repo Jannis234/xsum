@@ -51,6 +51,11 @@ CFLAGS += $(shell $(PKG_CONFIG) --cflags nettle)
 LIBS += $(shell $(PKG_CONFIG) --libs nettle)
 endif
 
+ifeq ($(WITH_LIBB2), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags libb2)
+LIBS += $(shell $(PKG_CONFIG) --libs libb2)
+endif
+
 ifeq ($(WITH_LIBGCRYPT), 1)
 CFLAGS += $(shell $(BUILD)libgcrypt-config --cflags)
 LIBS += $(shell $(BUILD)libgcrypt-config --libs)

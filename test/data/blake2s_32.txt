@@ -1,0 +1,9 @@
+BLAKE2s-32:d399b638  input/binary1
+BLAKE2s-32:0732600c  input/binary2
+BLAKE2s-32:36e9d246  input/empty
+BLAKE2s-32:d85533be  input/large1
+BLAKE2s-32:9bb2f085  input/large2
+BLAKE2s-32:f718853d  input/random1
+BLAKE2s-32:59e62228  input/random2
+BLAKE2s-32:df7101d3  input/string1
+BLAKE2s-32:eb91de91  input/string2

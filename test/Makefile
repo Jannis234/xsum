@@ -21,74 +21,10 @@ XSUM = ../xsum --ignore-unknown
 INPUT_DEPEND = input/empty
 
 CHECKS = check_adler_32 \
-	check_blake2s_128 \
-	check_blake2s_160 \
-	check_blake2s_224 \
-	check_blake2s_256 \
-	check_blake2b_8 \
-	check_blake2b_16 \
-	check_blake2b_24 \
-	check_blake2b_32 \
-	check_blake2b_40 \
-	check_blake2b_48 \
-	check_blake2b_56 \
-	check_blake2b_64 \
-	check_blake2b_72 \
-	check_blake2b_80 \
-	check_blake2b_88 \
-	check_blake2b_96 \
-	check_blake2b_104 \
-	check_blake2b_112 \
-	check_blake2b_120 \
-	check_blake2b_128 \
-	check_blake2b_136 \
-	check_blake2b_144 \
-	check_blake2b_152 \
-	check_blake2b_160 \
-	check_blake2b_168 \
-	check_blake2b_176 \
-	check_blake2b_184 \
-	check_blake2b_192 \
-	check_blake2b_200 \
-	check_blake2b_208 \
-	check_blake2b_216 \
-	check_blake2b_224 \
-	check_blake2b_232 \
-	check_blake2b_240 \
-	check_blake2b_248 \
-	check_blake2b_256 \
-	check_blake2b_264 \
-	check_blake2b_272 \
-	check_blake2b_280 \
-	check_blake2b_288 \
-	check_blake2b_296 \
-	check_blake2b_304 \
-	check_blake2b_312 \
-	check_blake2b_320 \
-	check_blake2b_328 \
-	check_blake2b_336 \
-	check_blake2b_344 \
-	check_blake2b_352 \
-	check_blake2b_360 \
-	check_blake2b_368 \
-	check_blake2b_376 \
-	check_blake2b_384 \
-	check_blake2b_392 \
-	check_blake2b_400 \
-	check_blake2b_408 \
-	check_blake2b_416 \
-	check_blake2b_424 \
-	check_blake2b_432 \
-	check_blake2b_440 \
-	check_blake2b_448 \
-	check_blake2b_456 \
-	check_blake2b_464 \
-	check_blake2b_472 \
-	check_blake2b_480 \
-	check_blake2b_488 \
-	check_blake2b_496 \
-	check_blake2b_504 \
-	check_blake2b_512 \
+	check_blake2s_8 check_blake2s_16 check_blake2s_24 check_blake2s_32 check_blake2s_40 check_blake2s_48 check_blake2s_56 check_blake2s_64 check_blake2s_72 check_blake2s_80 check_blake2s_88 check_blake2s_96 check_blake2s_104 check_blake2s_112 check_blake2s_120 check_blake2s_128 check_blake2s_136 check_blake2s_144 check_blake2s_152 check_blake2s_160 check_blake2s_168 check_blake2s_176 check_blake2s_184 check_blake2s_192 check_blake2s_200 check_blake2s_208 check_blake2s_216 check_blake2s_224 check_blake2s_232 check_blake2s_240 check_blake2s_248 check_blake2s_256 \
+	check_blake2sp_8 check_blake2sp_16 check_blake2sp_24 check_blake2sp_32 check_blake2sp_40 check_blake2sp_48 check_blake2sp_56 check_blake2sp_64 check_blake2sp_72 check_blake2sp_80 check_blake2sp_88 check_blake2sp_96 check_blake2sp_104 check_blake2sp_112 check_blake2sp_120 check_blake2sp_128 check_blake2sp_136 check_blake2sp_144 check_blake2sp_152 check_blake2sp_160 check_blake2sp_168 check_blake2sp_176 check_blake2sp_184 check_blake2sp_192 check_blake2sp_200 check_blake2sp_208 check_blake2sp_216 check_blake2sp_224 check_blake2sp_232 check_blake2sp_240 check_blake2sp_248 check_blake2sp_256 \
+	check_blake2b_8 check_blake2b_16 check_blake2b_24 check_blake2b_32 check_blake2b_40 check_blake2b_48 check_blake2b_56 check_blake2b_64 check_blake2b_72 check_blake2b_80 check_blake2b_88 check_blake2b_96 check_blake2b_104 check_blake2b_112 check_blake2b_120 check_blake2b_128 check_blake2b_136 check_blake2b_144 check_blake2b_152 check_blake2b_160 check_blake2b_168 check_blake2b_176 check_blake2b_184 check_blake2b_192 check_blake2b_200 check_blake2b_208 check_blake2b_216 check_blake2b_224 check_blake2b_232 check_blake2b_240 check_blake2b_248 check_blake2b_256 check_blake2b_264 check_blake2b_272 check_blake2b_280 check_blake2b_288 check_blake2b_296 check_blake2b_304 check_blake2b_312 check_blake2b_320 check_blake2b_328 check_blake2b_336 check_blake2b_344 check_blake2b_352 check_blake2b_360 check_blake2b_368 check_blake2b_376 check_blake2b_384 check_blake2b_392 check_blake2b_400 check_blake2b_408 check_blake2b_416 check_blake2b_424 check_blake2b_432 check_blake2b_440 check_blake2b_448 check_blake2b_456 check_blake2b_464 check_blake2b_472 check_blake2b_480 check_blake2b_488 check_blake2b_496 check_blake2b_504 check_blake2b_512 \
+	check_blake2bp_8 check_blake2bp_16 check_blake2bp_24 check_blake2bp_32 check_blake2bp_40 check_blake2bp_48 check_blake2bp_56 check_blake2bp_64 check_blake2bp_72 check_blake2bp_80 check_blake2bp_88 check_blake2bp_96 check_blake2bp_104 check_blake2bp_112 check_blake2bp_120 check_blake2bp_128 check_blake2bp_136 check_blake2bp_144 check_blake2bp_152 check_blake2bp_160 check_blake2bp_168 check_blake2bp_176 check_blake2bp_184 check_blake2bp_192 check_blake2bp_200 check_blake2bp_208 check_blake2bp_216 check_blake2bp_224 check_blake2bp_232 check_blake2bp_240 check_blake2bp_248 check_blake2bp_256 check_blake2bp_264 check_blake2bp_272 check_blake2bp_280 check_blake2bp_288 check_blake2bp_296 check_blake2bp_304 check_blake2bp_312 check_blake2bp_320 check_blake2bp_328 check_blake2bp_336 check_blake2bp_344 check_blake2bp_352 check_blake2bp_360 check_blake2bp_368 check_blake2bp_376 check_blake2bp_384 check_blake2bp_392 check_blake2bp_400 check_blake2bp_408 check_blake2bp_416 check_blake2bp_424 check_blake2bp_432 check_blake2bp_440 check_blake2bp_448 check_blake2bp_456 check_blake2bp_464 check_blake2bp_472 check_blake2bp_480 check_blake2bp_488 check_blake2bp_496 check_blake2bp_504 check_blake2bp_512 \
 	check_crc32 \
 	check_crc64 \
 	check_edon_r_256 \
@@ -134,17 +70,197 @@ clean:
 check_adler_32: $(INPUT_DEPEND) data/adler_32.txt
 	$(XSUM) -c data/adler_32.txt
 
+check_blake2s_8: $(INPUT_DEPEND) data/blake2s_8.txt
+	$(XSUM) -c data/blake2s_8.txt
+
+check_blake2s_16: $(INPUT_DEPEND) data/blake2s_16.txt
+	$(XSUM) -c data/blake2s_16.txt
+
+check_blake2s_24: $(INPUT_DEPEND) data/blake2s_24.txt
+	$(XSUM) -c data/blake2s_24.txt
+
+check_blake2s_32: $(INPUT_DEPEND) data/blake2s_32.txt
+	$(XSUM) -c data/blake2s_32.txt
+
+check_blake2s_40: $(INPUT_DEPEND) data/blake2s_40.txt
+	$(XSUM) -c data/blake2s_40.txt
+
+check_blake2s_48: $(INPUT_DEPEND) data/blake2s_48.txt
+	$(XSUM) -c data/blake2s_48.txt
+
+check_blake2s_56: $(INPUT_DEPEND) data/blake2s_56.txt
+	$(XSUM) -c data/blake2s_56.txt
+
+check_blake2s_64: $(INPUT_DEPEND) data/blake2s_64.txt
+	$(XSUM) -c data/blake2s_64.txt
+
+check_blake2s_72: $(INPUT_DEPEND) data/blake2s_72.txt
+	$(XSUM) -c data/blake2s_72.txt
+
+check_blake2s_80: $(INPUT_DEPEND) data/blake2s_80.txt
+	$(XSUM) -c data/blake2s_80.txt
+
+check_blake2s_88: $(INPUT_DEPEND) data/blake2s_88.txt
+	$(XSUM) -c data/blake2s_88.txt
+
+check_blake2s_96: $(INPUT_DEPEND) data/blake2s_96.txt
+	$(XSUM) -c data/blake2s_96.txt
+
+check_blake2s_104: $(INPUT_DEPEND) data/blake2s_104.txt
+	$(XSUM) -c data/blake2s_104.txt
+
+check_blake2s_112: $(INPUT_DEPEND) data/blake2s_112.txt
+	$(XSUM) -c data/blake2s_112.txt
+
+check_blake2s_120: $(INPUT_DEPEND) data/blake2s_120.txt
+	$(XSUM) -c data/blake2s_120.txt
+
 check_blake2s_128: $(INPUT_DEPEND) data/blake2s_128.txt
 	$(XSUM) -c data/blake2s_128.txt
+
+check_blake2s_136: $(INPUT_DEPEND) data/blake2s_136.txt
+	$(XSUM) -c data/blake2s_136.txt
+
+check_blake2s_144: $(INPUT_DEPEND) data/blake2s_144.txt
+	$(XSUM) -c data/blake2s_144.txt
+
+check_blake2s_152: $(INPUT_DEPEND) data/blake2s_152.txt
+	$(XSUM) -c data/blake2s_152.txt
 
 check_blake2s_160: $(INPUT_DEPEND) data/blake2s_160.txt
 	$(XSUM) -c data/blake2s_160.txt
 
+check_blake2s_168: $(INPUT_DEPEND) data/blake2s_168.txt
+	$(XSUM) -c data/blake2s_168.txt
+
+check_blake2s_176: $(INPUT_DEPEND) data/blake2s_176.txt
+	$(XSUM) -c data/blake2s_176.txt
+
+check_blake2s_184: $(INPUT_DEPEND) data/blake2s_184.txt
+	$(XSUM) -c data/blake2s_184.txt
+
+check_blake2s_192: $(INPUT_DEPEND) data/blake2s_192.txt
+	$(XSUM) -c data/blake2s_192.txt
+
+check_blake2s_200: $(INPUT_DEPEND) data/blake2s_200.txt
+	$(XSUM) -c data/blake2s_200.txt
+
+check_blake2s_208: $(INPUT_DEPEND) data/blake2s_208.txt
+	$(XSUM) -c data/blake2s_208.txt
+
+check_blake2s_216: $(INPUT_DEPEND) data/blake2s_216.txt
+	$(XSUM) -c data/blake2s_216.txt
+
 check_blake2s_224: $(INPUT_DEPEND) data/blake2s_224.txt
 	$(XSUM) -c data/blake2s_224.txt
 
+check_blake2s_232: $(INPUT_DEPEND) data/blake2s_232.txt
+	$(XSUM) -c data/blake2s_232.txt
+
+check_blake2s_240: $(INPUT_DEPEND) data/blake2s_240.txt
+	$(XSUM) -c data/blake2s_240.txt
+
+check_blake2s_248: $(INPUT_DEPEND) data/blake2s_248.txt
+	$(XSUM) -c data/blake2s_248.txt
+
 check_blake2s_256: $(INPUT_DEPEND) data/blake2s_256.txt
 	$(XSUM) -c data/blake2s_256.txt
+
+check_blake2sp_8: $(INPUT_DEPEND) data/blake2sp_8.txt
+	$(XSUM) -c data/blake2sp_8.txt
+
+check_blake2sp_16: $(INPUT_DEPEND) data/blake2sp_16.txt
+	$(XSUM) -c data/blake2sp_16.txt
+
+check_blake2sp_24: $(INPUT_DEPEND) data/blake2sp_24.txt
+	$(XSUM) -c data/blake2sp_24.txt
+
+check_blake2sp_32: $(INPUT_DEPEND) data/blake2sp_32.txt
+	$(XSUM) -c data/blake2sp_32.txt
+
+check_blake2sp_40: $(INPUT_DEPEND) data/blake2sp_40.txt
+	$(XSUM) -c data/blake2sp_40.txt
+
+check_blake2sp_48: $(INPUT_DEPEND) data/blake2sp_48.txt
+	$(XSUM) -c data/blake2sp_48.txt
+
+check_blake2sp_56: $(INPUT_DEPEND) data/blake2sp_56.txt
+	$(XSUM) -c data/blake2sp_56.txt
+
+check_blake2sp_64: $(INPUT_DEPEND) data/blake2sp_64.txt
+	$(XSUM) -c data/blake2sp_64.txt
+
+check_blake2sp_72: $(INPUT_DEPEND) data/blake2sp_72.txt
+	$(XSUM) -c data/blake2sp_72.txt
+
+check_blake2sp_80: $(INPUT_DEPEND) data/blake2sp_80.txt
+	$(XSUM) -c data/blake2sp_80.txt
+
+check_blake2sp_88: $(INPUT_DEPEND) data/blake2sp_88.txt
+	$(XSUM) -c data/blake2sp_88.txt
+
+check_blake2sp_96: $(INPUT_DEPEND) data/blake2sp_96.txt
+	$(XSUM) -c data/blake2sp_96.txt
+
+check_blake2sp_104: $(INPUT_DEPEND) data/blake2sp_104.txt
+	$(XSUM) -c data/blake2sp_104.txt
+
+check_blake2sp_112: $(INPUT_DEPEND) data/blake2sp_112.txt
+	$(XSUM) -c data/blake2sp_112.txt
+
+check_blake2sp_120: $(INPUT_DEPEND) data/blake2sp_120.txt
+	$(XSUM) -c data/blake2sp_120.txt
+
+check_blake2sp_128: $(INPUT_DEPEND) data/blake2sp_128.txt
+	$(XSUM) -c data/blake2sp_128.txt
+
+check_blake2sp_136: $(INPUT_DEPEND) data/blake2sp_136.txt
+	$(XSUM) -c data/blake2sp_136.txt
+
+check_blake2sp_144: $(INPUT_DEPEND) data/blake2sp_144.txt
+	$(XSUM) -c data/blake2sp_144.txt
+
+check_blake2sp_152: $(INPUT_DEPEND) data/blake2sp_152.txt
+	$(XSUM) -c data/blake2sp_152.txt
+
+check_blake2sp_160: $(INPUT_DEPEND) data/blake2sp_160.txt
+	$(XSUM) -c data/blake2sp_160.txt
+
+check_blake2sp_168: $(INPUT_DEPEND) data/blake2sp_168.txt
+	$(XSUM) -c data/blake2sp_168.txt
+
+check_blake2sp_176: $(INPUT_DEPEND) data/blake2sp_176.txt
+	$(XSUM) -c data/blake2sp_176.txt
+
+check_blake2sp_184: $(INPUT_DEPEND) data/blake2sp_184.txt
+	$(XSUM) -c data/blake2sp_184.txt
+
+check_blake2sp_192: $(INPUT_DEPEND) data/blake2sp_192.txt
+	$(XSUM) -c data/blake2sp_192.txt
+
+check_blake2sp_200: $(INPUT_DEPEND) data/blake2sp_200.txt
+	$(XSUM) -c data/blake2sp_200.txt
+
+check_blake2sp_208: $(INPUT_DEPEND) data/blake2sp_208.txt
+	$(XSUM) -c data/blake2sp_208.txt
+
+check_blake2sp_216: $(INPUT_DEPEND) data/blake2sp_216.txt
+	$(XSUM) -c data/blake2sp_216.txt
+
+check_blake2sp_224: $(INPUT_DEPEND) data/blake2sp_224.txt
+	$(XSUM) -c data/blake2sp_224.txt
+
+check_blake2sp_232: $(INPUT_DEPEND) data/blake2sp_232.txt
+	$(XSUM) -c data/blake2sp_232.txt
+
+check_blake2sp_240: $(INPUT_DEPEND) data/blake2sp_240.txt
+	$(XSUM) -c data/blake2sp_240.txt
+
+check_blake2sp_248: $(INPUT_DEPEND) data/blake2sp_248.txt
+	$(XSUM) -c data/blake2sp_248.txt
+
+check_blake2sp_256: $(INPUT_DEPEND) data/blake2sp_256.txt
+	$(XSUM) -c data/blake2sp_256.txt
 
 check_blake2b_8: $(INPUT_DEPEND) data/blake2b_8.txt
 	$(XSUM) -c data/blake2b_8.txt
@@ -337,6 +453,198 @@ check_blake2b_504: $(INPUT_DEPEND) data/blake2b_504.txt
 
 check_blake2b_512: $(INPUT_DEPEND) data/blake2b_512.txt
 	$(XSUM) -c data/blake2b_512.txt
+
+check_blake2bp_8: $(INPUT_DEPEND) data/blake2bp_8.txt
+	$(XSUM) -c data/blake2bp_8.txt
+
+check_blake2bp_16: $(INPUT_DEPEND) data/blake2bp_16.txt
+	$(XSUM) -c data/blake2bp_16.txt
+
+check_blake2bp_24: $(INPUT_DEPEND) data/blake2bp_24.txt
+	$(XSUM) -c data/blake2bp_24.txt
+
+check_blake2bp_32: $(INPUT_DEPEND) data/blake2bp_32.txt
+	$(XSUM) -c data/blake2bp_32.txt
+
+check_blake2bp_40: $(INPUT_DEPEND) data/blake2bp_40.txt
+	$(XSUM) -c data/blake2bp_40.txt
+
+check_blake2bp_48: $(INPUT_DEPEND) data/blake2bp_48.txt
+	$(XSUM) -c data/blake2bp_48.txt
+
+check_blake2bp_56: $(INPUT_DEPEND) data/blake2bp_56.txt
+	$(XSUM) -c data/blake2bp_56.txt
+
+check_blake2bp_64: $(INPUT_DEPEND) data/blake2bp_64.txt
+	$(XSUM) -c data/blake2bp_64.txt
+
+check_blake2bp_72: $(INPUT_DEPEND) data/blake2bp_72.txt
+	$(XSUM) -c data/blake2bp_72.txt
+
+check_blake2bp_80: $(INPUT_DEPEND) data/blake2bp_80.txt
+	$(XSUM) -c data/blake2bp_80.txt
+
+check_blake2bp_88: $(INPUT_DEPEND) data/blake2bp_88.txt
+	$(XSUM) -c data/blake2bp_88.txt
+
+check_blake2bp_96: $(INPUT_DEPEND) data/blake2bp_96.txt
+	$(XSUM) -c data/blake2bp_96.txt
+
+check_blake2bp_104: $(INPUT_DEPEND) data/blake2bp_104.txt
+	$(XSUM) -c data/blake2bp_104.txt
+
+check_blake2bp_112: $(INPUT_DEPEND) data/blake2bp_112.txt
+	$(XSUM) -c data/blake2bp_112.txt
+
+check_blake2bp_120: $(INPUT_DEPEND) data/blake2bp_120.txt
+	$(XSUM) -c data/blake2bp_120.txt
+
+check_blake2bp_128: $(INPUT_DEPEND) data/blake2bp_128.txt
+	$(XSUM) -c data/blake2bp_128.txt
+
+check_blake2bp_136: $(INPUT_DEPEND) data/blake2bp_136.txt
+	$(XSUM) -c data/blake2bp_136.txt
+
+check_blake2bp_144: $(INPUT_DEPEND) data/blake2bp_144.txt
+	$(XSUM) -c data/blake2bp_144.txt
+
+check_blake2bp_152: $(INPUT_DEPEND) data/blake2bp_152.txt
+	$(XSUM) -c data/blake2bp_152.txt
+
+check_blake2bp_160: $(INPUT_DEPEND) data/blake2bp_160.txt
+	$(XSUM) -c data/blake2bp_160.txt
+
+check_blake2bp_168: $(INPUT_DEPEND) data/blake2bp_168.txt
+	$(XSUM) -c data/blake2bp_168.txt
+
+check_blake2bp_176: $(INPUT_DEPEND) data/blake2bp_176.txt
+	$(XSUM) -c data/blake2bp_176.txt
+
+check_blake2bp_184: $(INPUT_DEPEND) data/blake2bp_184.txt
+	$(XSUM) -c data/blake2bp_184.txt
+
+check_blake2bp_192: $(INPUT_DEPEND) data/blake2bp_192.txt
+	$(XSUM) -c data/blake2bp_192.txt
+
+check_blake2bp_200: $(INPUT_DEPEND) data/blake2bp_200.txt
+	$(XSUM) -c data/blake2bp_200.txt
+
+check_blake2bp_208: $(INPUT_DEPEND) data/blake2bp_208.txt
+	$(XSUM) -c data/blake2bp_208.txt
+
+check_blake2bp_216: $(INPUT_DEPEND) data/blake2bp_216.txt
+	$(XSUM) -c data/blake2bp_216.txt
+
+check_blake2bp_224: $(INPUT_DEPEND) data/blake2bp_224.txt
+	$(XSUM) -c data/blake2bp_224.txt
+
+check_blake2bp_232: $(INPUT_DEPEND) data/blake2bp_232.txt
+	$(XSUM) -c data/blake2bp_232.txt
+
+check_blake2bp_240: $(INPUT_DEPEND) data/blake2bp_240.txt
+	$(XSUM) -c data/blake2bp_240.txt
+
+check_blake2bp_248: $(INPUT_DEPEND) data/blake2bp_248.txt
+	$(XSUM) -c data/blake2bp_248.txt
+
+check_blake2bp_256: $(INPUT_DEPEND) data/blake2bp_256.txt
+	$(XSUM) -c data/blake2bp_256.txt
+
+check_blake2bp_264: $(INPUT_DEPEND) data/blake2bp_264.txt
+	$(XSUM) -c data/blake2bp_264.txt
+
+check_blake2bp_272: $(INPUT_DEPEND) data/blake2bp_272.txt
+	$(XSUM) -c data/blake2bp_272.txt
+
+check_blake2bp_280: $(INPUT_DEPEND) data/blake2bp_280.txt
+	$(XSUM) -c data/blake2bp_280.txt
+
+check_blake2bp_288: $(INPUT_DEPEND) data/blake2bp_288.txt
+	$(XSUM) -c data/blake2bp_288.txt
+
+check_blake2bp_296: $(INPUT_DEPEND) data/blake2bp_296.txt
+	$(XSUM) -c data/blake2bp_296.txt
+
+check_blake2bp_304: $(INPUT_DEPEND) data/blake2bp_304.txt
+	$(XSUM) -c data/blake2bp_304.txt
+
+check_blake2bp_312: $(INPUT_DEPEND) data/blake2bp_312.txt
+	$(XSUM) -c data/blake2bp_312.txt
+
+check_blake2bp_320: $(INPUT_DEPEND) data/blake2bp_320.txt
+	$(XSUM) -c data/blake2bp_320.txt
+
+check_blake2bp_328: $(INPUT_DEPEND) data/blake2bp_328.txt
+	$(XSUM) -c data/blake2bp_328.txt
+
+check_blake2bp_336: $(INPUT_DEPEND) data/blake2bp_336.txt
+	$(XSUM) -c data/blake2bp_336.txt
+
+check_blake2bp_344: $(INPUT_DEPEND) data/blake2bp_344.txt
+	$(XSUM) -c data/blake2bp_344.txt
+
+check_blake2bp_352: $(INPUT_DEPEND) data/blake2bp_352.txt
+	$(XSUM) -c data/blake2bp_352.txt
+
+check_blake2bp_360: $(INPUT_DEPEND) data/blake2bp_360.txt
+	$(XSUM) -c data/blake2bp_360.txt
+
+check_blake2bp_368: $(INPUT_DEPEND) data/blake2bp_368.txt
+	$(XSUM) -c data/blake2bp_368.txt
+
+check_blake2bp_376: $(INPUT_DEPEND) data/blake2bp_376.txt
+	$(XSUM) -c data/blake2bp_376.txt
+
+check_blake2bp_384: $(INPUT_DEPEND) data/blake2bp_384.txt
+	$(XSUM) -c data/blake2bp_384.txt
+
+check_blake2bp_392: $(INPUT_DEPEND) data/blake2bp_392.txt
+	$(XSUM) -c data/blake2bp_392.txt
+
+check_blake2bp_400: $(INPUT_DEPEND) data/blake2bp_400.txt
+	$(XSUM) -c data/blake2bp_400.txt
+
+check_blake2bp_408: $(INPUT_DEPEND) data/blake2bp_408.txt
+	$(XSUM) -c data/blake2bp_408.txt
+
+check_blake2bp_416: $(INPUT_DEPEND) data/blake2bp_416.txt
+	$(XSUM) -c data/blake2bp_416.txt
+
+check_blake2bp_424: $(INPUT_DEPEND) data/blake2bp_424.txt
+	$(XSUM) -c data/blake2bp_424.txt
+
+check_blake2bp_432: $(INPUT_DEPEND) data/blake2bp_432.txt
+	$(XSUM) -c data/blake2bp_432.txt
+
+check_blake2bp_440: $(INPUT_DEPEND) data/blake2bp_440.txt
+	$(XSUM) -c data/blake2bp_440.txt
+
+check_blake2bp_448: $(INPUT_DEPEND) data/blake2bp_448.txt
+	$(XSUM) -c data/blake2bp_448.txt
+
+check_blake2bp_456: $(INPUT_DEPEND) data/blake2bp_456.txt
+	$(XSUM) -c data/blake2bp_456.txt
+
+check_blake2bp_464: $(INPUT_DEPEND) data/blake2bp_464.txt
+	$(XSUM) -c data/blake2bp_464.txt
+
+check_blake2bp_472: $(INPUT_DEPEND) data/blake2bp_472.txt
+	$(XSUM) -c data/blake2bp_472.txt
+
+check_blake2bp_480: $(INPUT_DEPEND) data/blake2bp_480.txt
+	$(XSUM) -c data/blake2bp_480.txt
+
+check_blake2bp_488: $(INPUT_DEPEND) data/blake2bp_488.txt
+	$(XSUM) -c data/blake2bp_488.txt
+
+check_blake2bp_496: $(INPUT_DEPEND) data/blake2bp_496.txt
+	$(XSUM) -c data/blake2bp_496.txt
+
+check_blake2bp_504: $(INPUT_DEPEND) data/blake2bp_504.txt
+	$(XSUM) -c data/blake2bp_504.txt
+
+check_blake2bp_512: $(INPUT_DEPEND) data/blake2bp_512.txt
+	$(XSUM) -c data/blake2bp_512.txt
 
 check_crc32: $(INPUT_DEPEND) data/crc32.txt
 	$(XSUM) -c data/crc32.txt

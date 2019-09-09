@@ -117,6 +117,33 @@
 		return out; \
 	}
 
+// Common template for BLAKE2 using libb2
+// Parameters: xsum-internal-name; BLAKE2 algorithm; hash size
+#define XSUM_TEMPLATE_LIBB2(p_name_xsum, p_name_b2, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		p_name_b2##_state *s = malloc(sizeof(p_name_b2##_state)); \
+		if (s == NULL) { \
+			return NULL; \
+		} \
+		p_name_b2##_init(s, p_size); \
+		return s; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		p_name_b2##_state *s = (p_name_b2##_state*) state; \
+		p_name_b2##_update(s, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		p_name_b2##_state *s = (p_name_b2##_state*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			free(s); \
+			return NULL; \
+		} \
+		p_name_b2##_final(s, out, p_size); \
+		free(s); \
+		return out; \
+	}
+
 // Common template for libgcrypt hashes
 // Parameters: xsum-internal name; libgcrypt constant; hash size
 #define XSUM_TEMPLATE_LIBGCRYPT(p_name_xsum, p_name_gcrypt, p_size) \

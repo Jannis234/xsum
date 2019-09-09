@@ -26,15 +26,18 @@ SRC = src/main.c \
 	src/process.c \
 	src/algos.c \
 	src/algos/adler_32.c \
+	src/algos/blake2s.c \
 	src/algos/blake2s_128.c \
 	src/algos/blake2s_160.c \
 	src/algos/blake2s_224.c \
 	src/algos/blake2s_256.c \
+	src/algos/blake2sp.c \
 	src/algos/blake2b.c \
 	src/algos/blake2b_160.c \
 	src/algos/blake2b_256.c \
 	src/algos/blake2b_384.c \
 	src/algos/blake2b_512.c \
+	src/algos/blake2bp.c \
 	src/algos/crc32.c \
 	src/algos/crc64.c \
 	src/algos/edon_r_256.c \
@@ -116,6 +119,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
 		NETTLE $(WITH_NETTLE) \
+		LIBB2 $(WITH_LIBB2) \
 		LIBGCRYPT $(WITH_LIBGCRYPT) \
 		LIBLZMA $(WITH_LIBLZMA) \
 		LIBSODIUM $(WITH_LIBSODIUM) \

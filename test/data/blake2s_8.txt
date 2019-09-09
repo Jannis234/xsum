@@ -1,0 +1,9 @@
+BLAKE2s-8:29  input/binary1
+BLAKE2s-8:76  input/binary2
+BLAKE2s-8:a1  input/empty
+BLAKE2s-8:1c  input/large1
+BLAKE2s-8:a2  input/large2
+BLAKE2s-8:15  input/random1
+BLAKE2s-8:34  input/random2
+BLAKE2s-8:0d  input/string1
+BLAKE2s-8:38  input/string2

@@ -19,15 +19,18 @@ This is a list of all currently supported checksums and the libraries that are r
 Name | Libraries | Comment
 --- | --- | ---
 Adler-32 | [zlib](https://www.zlib.net/) |
-BLAKE2b-160 | [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2b-256 | [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2b-384 | [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2b-512 | [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2b-X | [libsodium](https://download.libsodium.org/doc/) | Supported sizes are 128, 136, 144, ..., 512. Some are also supported by libgcrypt (see above).
-BLAKE2s-128 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2s-160 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2s-224 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2s-256 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2b-160 | [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2b-256 | [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2b-384 | [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2b-512 | [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2b-X | [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) | Supported sizes are 8, 16, 24, ..., 512. Some are also supported by libgcrypt (see above).
+BLAKE2bp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 512
+BLAKE2s-128 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2s-160 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2s-224 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2s-256 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
+BLAKE2s-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256. Some are also supported by libgcrypt (see above).
+BLAKE2sp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256
 CRC32 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma](https://tukaani.org/xz/) [rhash](http://rhash.sourceforge.net/) [zlib](https://www.zlib.net/) | CRC32 as specified by ISO 3309
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |

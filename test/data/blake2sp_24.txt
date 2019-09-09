@@ -1,0 +1,9 @@
+BLAKE2sp-24:2ea148  input/binary1
+BLAKE2sp-24:0296f1  input/binary2
+BLAKE2sp-24:089f35  input/empty
+BLAKE2sp-24:9e21ae  input/large1
+BLAKE2sp-24:7dd3d3  input/large2
+BLAKE2sp-24:736bef  input/random1
+BLAKE2sp-24:24ce5e  input/random2
+BLAKE2sp-24:9f032d  input/string1
+BLAKE2sp-24:24464b  input/string2

@@ -28,6 +28,11 @@ XSUM_TEMPLATE_LIBGCRYPT(blake2b_384, GCRY_MD_BLAKE2B_384, 48)
 #include <sodium.h>
 XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(blake2b_384, 48)
 
+#elif defined(XSUM_WITH_LIBB2)
+
+#include <blake2.h>
+XSUM_TEMPLATE_LIBB2(blake2b_384, blake2b, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_384, "BLAKE2b-384", 48)

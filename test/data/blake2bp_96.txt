@@ -1,0 +1,9 @@
+BLAKE2bp-96:f2d7b8436061174da7623668  input/binary1
+BLAKE2bp-96:4e715eb52e23d796133dc153  input/binary2
+BLAKE2bp-96:7b027a1fb21da13ab35d26c4  input/empty
+BLAKE2bp-96:23f1aaa8c235dd41ef4c7448  input/large1
+BLAKE2bp-96:227083d44f2ba504fd45124f  input/large2
+BLAKE2bp-96:77cde9ee8c275c8f28506910  input/random1
+BLAKE2bp-96:a577aa91f1930afcc86f3135  input/random2
+BLAKE2bp-96:7d5a965745c0dbb2a396d79e  input/string1
+BLAKE2bp-96:8c7e8cbc0bd3a8518d9e752e  input/string2

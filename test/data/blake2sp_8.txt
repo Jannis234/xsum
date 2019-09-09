@@ -1,0 +1,9 @@
+BLAKE2sp-8:8e  input/binary1
+BLAKE2sp-8:38  input/binary2
+BLAKE2sp-8:90  input/empty
+BLAKE2sp-8:b7  input/large1
+BLAKE2sp-8:94  input/large2
+BLAKE2sp-8:40  input/random1
+BLAKE2sp-8:6a  input/random2
+BLAKE2sp-8:ec  input/string1
+BLAKE2sp-8:e3  input/string2

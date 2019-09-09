@@ -1,0 +1,9 @@
+BLAKE2s-56:3cc1ef26a77c54  input/binary1
+BLAKE2s-56:b7f470c105c570  input/binary2
+BLAKE2s-56:de1931c0881609  input/empty
+BLAKE2s-56:005e124702b521  input/large1
+BLAKE2s-56:d625f0d7ac8ba1  input/large2
+BLAKE2s-56:a23f35a634207e  input/random1
+BLAKE2s-56:f59f6e633571cc  input/random2
+BLAKE2s-56:0ad038724dbeb9  input/string1
+BLAKE2s-56:66463ccc9779da  input/string2

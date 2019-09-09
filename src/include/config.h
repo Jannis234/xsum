@@ -56,6 +56,10 @@
 #endif
 #endif
 
+#if (XSUM_CONFIG_LIBB2 == 1)
+#define XSUM_WITH_LIBB2
+#endif
+
 #if (XSUM_CONFIG_LIBGCRYPT == 1)
 #define XSUM_WITH_LIBGCRYPT
 #include <gcrypt.h>
@@ -91,40 +95,52 @@
 #define XSUM_HAS_ADLER_32
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBB2)
+#define XSUM_HAS_BLAKE2S_FULL
+#endif
+
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2S_128
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2S_160
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2S_224
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2S_256
 #endif
 
-#if defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBB2)
+#define XSUM_HAS_BLAKE2SP_FULL
+#endif
+
+#if defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2B_FULL
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2B_160
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2B_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)  || defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2)  || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2B_384
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2)
 #define XSUM_HAS_BLAKE2B_512
+#endif
+
+#if defined(XSUM_WITH_LIBB2)
+#define XSUM_HAS_BLAKE2BP_FULL
 #endif
 
 #if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_ZLIB) || defined(XSUM_WITH_LIBLZMA) || defined(XSUM_WITH_RHASH)

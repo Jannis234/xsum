@@ -1,0 +1,9 @@
+BLAKE2bp-40:99d89630eb  input/binary1
+BLAKE2bp-40:b8705ba3cf  input/binary2
+BLAKE2bp-40:f85312b451  input/empty
+BLAKE2bp-40:b0c01d8506  input/large1
+BLAKE2bp-40:7dbcd73d63  input/large2
+BLAKE2bp-40:b03324be6a  input/random1
+BLAKE2bp-40:7149190b4b  input/random2
+BLAKE2bp-40:2353b829cf  input/string1
+BLAKE2bp-40:25f8158ab3  input/string2

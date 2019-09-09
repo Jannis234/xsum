@@ -38,6 +38,36 @@ extern xsum_algo_t *xsum_algos[];
 #ifdef XSUM_HAS_ADLER_32
 extern xsum_algo_t xsum_algo_adler_32;
 #endif
+#ifdef XSUM_HAS_BLAKE2S_FULL
+extern xsum_algo_t xsum_algo_blake2s_8;
+extern xsum_algo_t xsum_algo_blake2s_16;
+extern xsum_algo_t xsum_algo_blake2s_24;
+extern xsum_algo_t xsum_algo_blake2s_32;
+extern xsum_algo_t xsum_algo_blake2s_40;
+extern xsum_algo_t xsum_algo_blake2s_48;
+extern xsum_algo_t xsum_algo_blake2s_56;
+extern xsum_algo_t xsum_algo_blake2s_64;
+extern xsum_algo_t xsum_algo_blake2s_72;
+extern xsum_algo_t xsum_algo_blake2s_80;
+extern xsum_algo_t xsum_algo_blake2s_88;
+extern xsum_algo_t xsum_algo_blake2s_96;
+extern xsum_algo_t xsum_algo_blake2s_104;
+extern xsum_algo_t xsum_algo_blake2s_112;
+extern xsum_algo_t xsum_algo_blake2s_120;
+extern xsum_algo_t xsum_algo_blake2s_136;
+extern xsum_algo_t xsum_algo_blake2s_144;
+extern xsum_algo_t xsum_algo_blake2s_152;
+extern xsum_algo_t xsum_algo_blake2s_168;
+extern xsum_algo_t xsum_algo_blake2s_176;
+extern xsum_algo_t xsum_algo_blake2s_184;
+extern xsum_algo_t xsum_algo_blake2s_192;
+extern xsum_algo_t xsum_algo_blake2s_200;
+extern xsum_algo_t xsum_algo_blake2s_208;
+extern xsum_algo_t xsum_algo_blake2s_216;
+extern xsum_algo_t xsum_algo_blake2s_232;
+extern xsum_algo_t xsum_algo_blake2s_240;
+extern xsum_algo_t xsum_algo_blake2s_248;
+#endif
 #ifdef XSUM_HAS_BLAKE2S_128
 extern xsum_algo_t xsum_algo_blake2s_128;
 #endif
@@ -49,6 +79,40 @@ extern xsum_algo_t xsum_algo_blake2s_224;
 #endif
 #ifdef XSUM_HAS_BLAKE2S_256
 extern xsum_algo_t xsum_algo_blake2s_256;
+#endif
+#ifdef XSUM_HAS_BLAKE2SP_FULL
+extern xsum_algo_t xsum_algo_blake2sp_8;
+extern xsum_algo_t xsum_algo_blake2sp_16;
+extern xsum_algo_t xsum_algo_blake2sp_24;
+extern xsum_algo_t xsum_algo_blake2sp_32;
+extern xsum_algo_t xsum_algo_blake2sp_40;
+extern xsum_algo_t xsum_algo_blake2sp_48;
+extern xsum_algo_t xsum_algo_blake2sp_56;
+extern xsum_algo_t xsum_algo_blake2sp_64;
+extern xsum_algo_t xsum_algo_blake2sp_72;
+extern xsum_algo_t xsum_algo_blake2sp_80;
+extern xsum_algo_t xsum_algo_blake2sp_88;
+extern xsum_algo_t xsum_algo_blake2sp_96;
+extern xsum_algo_t xsum_algo_blake2sp_104;
+extern xsum_algo_t xsum_algo_blake2sp_112;
+extern xsum_algo_t xsum_algo_blake2sp_120;
+extern xsum_algo_t xsum_algo_blake2sp_128;
+extern xsum_algo_t xsum_algo_blake2sp_136;
+extern xsum_algo_t xsum_algo_blake2sp_144;
+extern xsum_algo_t xsum_algo_blake2sp_152;
+extern xsum_algo_t xsum_algo_blake2sp_160;
+extern xsum_algo_t xsum_algo_blake2sp_168;
+extern xsum_algo_t xsum_algo_blake2sp_176;
+extern xsum_algo_t xsum_algo_blake2sp_184;
+extern xsum_algo_t xsum_algo_blake2sp_192;
+extern xsum_algo_t xsum_algo_blake2sp_200;
+extern xsum_algo_t xsum_algo_blake2sp_208;
+extern xsum_algo_t xsum_algo_blake2sp_216;
+extern xsum_algo_t xsum_algo_blake2sp_224;
+extern xsum_algo_t xsum_algo_blake2sp_232;
+extern xsum_algo_t xsum_algo_blake2sp_240;
+extern xsum_algo_t xsum_algo_blake2sp_248;
+extern xsum_algo_t xsum_algo_blake2sp_256;
 #endif
 #ifdef XSUM_HAS_BLAKE2B_FULL
 extern xsum_algo_t xsum_algo_blake2b_8;
@@ -123,6 +187,72 @@ extern xsum_algo_t xsum_algo_blake2b_384;
 #endif
 #ifdef XSUM_HAS_BLAKE2B_512
 extern xsum_algo_t xsum_algo_blake2b_512;
+#endif
+#ifdef XSUM_HAS_BLAKE2BP_FULL
+extern xsum_algo_t xsum_algo_blake2bp_8;
+extern xsum_algo_t xsum_algo_blake2bp_16;
+extern xsum_algo_t xsum_algo_blake2bp_24;
+extern xsum_algo_t xsum_algo_blake2bp_32;
+extern xsum_algo_t xsum_algo_blake2bp_40;
+extern xsum_algo_t xsum_algo_blake2bp_48;
+extern xsum_algo_t xsum_algo_blake2bp_56;
+extern xsum_algo_t xsum_algo_blake2bp_64;
+extern xsum_algo_t xsum_algo_blake2bp_72;
+extern xsum_algo_t xsum_algo_blake2bp_80;
+extern xsum_algo_t xsum_algo_blake2bp_88;
+extern xsum_algo_t xsum_algo_blake2bp_96;
+extern xsum_algo_t xsum_algo_blake2bp_104;
+extern xsum_algo_t xsum_algo_blake2bp_112;
+extern xsum_algo_t xsum_algo_blake2bp_120;
+extern xsum_algo_t xsum_algo_blake2bp_128;
+extern xsum_algo_t xsum_algo_blake2bp_136;
+extern xsum_algo_t xsum_algo_blake2bp_144;
+extern xsum_algo_t xsum_algo_blake2bp_152;
+extern xsum_algo_t xsum_algo_blake2bp_160;
+extern xsum_algo_t xsum_algo_blake2bp_168;
+extern xsum_algo_t xsum_algo_blake2bp_176;
+extern xsum_algo_t xsum_algo_blake2bp_184;
+extern xsum_algo_t xsum_algo_blake2bp_192;
+extern xsum_algo_t xsum_algo_blake2bp_200;
+extern xsum_algo_t xsum_algo_blake2bp_208;
+extern xsum_algo_t xsum_algo_blake2bp_216;
+extern xsum_algo_t xsum_algo_blake2bp_224;
+extern xsum_algo_t xsum_algo_blake2bp_232;
+extern xsum_algo_t xsum_algo_blake2bp_240;
+extern xsum_algo_t xsum_algo_blake2bp_248;
+extern xsum_algo_t xsum_algo_blake2bp_256;
+extern xsum_algo_t xsum_algo_blake2bp_264;
+extern xsum_algo_t xsum_algo_blake2bp_272;
+extern xsum_algo_t xsum_algo_blake2bp_280;
+extern xsum_algo_t xsum_algo_blake2bp_288;
+extern xsum_algo_t xsum_algo_blake2bp_296;
+extern xsum_algo_t xsum_algo_blake2bp_304;
+extern xsum_algo_t xsum_algo_blake2bp_312;
+extern xsum_algo_t xsum_algo_blake2bp_320;
+extern xsum_algo_t xsum_algo_blake2bp_328;
+extern xsum_algo_t xsum_algo_blake2bp_336;
+extern xsum_algo_t xsum_algo_blake2bp_344;
+extern xsum_algo_t xsum_algo_blake2bp_352;
+extern xsum_algo_t xsum_algo_blake2bp_360;
+extern xsum_algo_t xsum_algo_blake2bp_368;
+extern xsum_algo_t xsum_algo_blake2bp_376;
+extern xsum_algo_t xsum_algo_blake2bp_384;
+extern xsum_algo_t xsum_algo_blake2bp_392;
+extern xsum_algo_t xsum_algo_blake2bp_400;
+extern xsum_algo_t xsum_algo_blake2bp_408;
+extern xsum_algo_t xsum_algo_blake2bp_416;
+extern xsum_algo_t xsum_algo_blake2bp_424;
+extern xsum_algo_t xsum_algo_blake2bp_432;
+extern xsum_algo_t xsum_algo_blake2bp_440;
+extern xsum_algo_t xsum_algo_blake2bp_448;
+extern xsum_algo_t xsum_algo_blake2bp_456;
+extern xsum_algo_t xsum_algo_blake2bp_464;
+extern xsum_algo_t xsum_algo_blake2bp_472;
+extern xsum_algo_t xsum_algo_blake2bp_480;
+extern xsum_algo_t xsum_algo_blake2bp_488;
+extern xsum_algo_t xsum_algo_blake2bp_496;
+extern xsum_algo_t xsum_algo_blake2bp_504;
+extern xsum_algo_t xsum_algo_blake2bp_512;
 #endif
 #ifdef XSUM_HAS_CRC32
 extern xsum_algo_t xsum_algo_crc32;
