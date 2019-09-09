@@ -23,6 +23,12 @@
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(gost94_cryptopro, RHASH_GOST_CRYPTOPRO, 32)
 
+#elif defined(XSUM_WITH_GNUTLS)
+
+#include <gnutls/gnutls.h>
+#include <gnutls/crypto.h>
+XSUM_TEMPLATE_GNUTLS(gost94_cryptopro, GNUTLS_DIG_GOSTR_94, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(gost94_cryptopro, "GOST94-CryptoPro", 32)

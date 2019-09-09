@@ -319,11 +319,11 @@
 #define XSUM_HAS_EDON_R_512
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH)
 #define XSUM_HAS_GOST94
 #endif
 
-#if defined(XSUM_WITH_RHASH)
+#if defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
 #define XSUM_HAS_GOST94_CRYPTOPRO
 #endif
 

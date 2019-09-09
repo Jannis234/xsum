@@ -32,8 +32,8 @@ CRC32 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma]
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
 EDON-R-512 | [rhash](http://rhash.sourceforge.net/) |
-GOST94 | [gnutls](https://www.gnutls.org/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
-GOST94-CryptoPro | [rhash](http://rhash.sourceforge.net/) | GOST94 with CryptoPro S-box
+GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
+GOST94-CryptoPro | [gnutls](https://www.gnutls.org/) [rhash](http://rhash.sourceforge.net/) | GOST94 with CryptoPro S-box
 HAS160 | [rhash](http://rhash.sourceforge.net/) |
 MD2 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) |
 MD4 | [mbedtls](https://tls.mbed.org/)³ [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
