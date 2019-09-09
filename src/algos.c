@@ -186,11 +186,20 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_CRC64
 	&xsum_algo_crc64,
 #endif
+#ifdef XSUM_HAS_EDON_R_256
+	&xsum_algo_edon_r_256,
+#endif
+#ifdef XSUM_HAS_EDON_R_512
+	&xsum_algo_edon_r_512,
+#endif
 #ifdef XSUM_HAS_GOST94
 	&xsum_algo_gost94,
 #endif
 #ifdef XSUM_HAS_GOST94_CRYPTOPRO
 	&xsum_algo_gost94_cryptopro,
+#endif
+#ifdef XSUM_HAS_HAS160
+	&xsum_algo_has160,
 #endif
 #ifdef XSUM_HAS_MD2
 	&xsum_algo_md2,
@@ -236,6 +245,12 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_SHA3_512
 	&xsum_algo_sha3_512,
+#endif
+#ifdef XSUM_HAS_SNEFRU_128
+	&xsum_algo_snefru_128,
+#endif
+#ifdef XSUM_HAS_SNEFRU_256
+	&xsum_algo_snefru_256,
 #endif
 #ifdef XSUM_HAS_STREEBOG_256
 	&xsum_algo_streebog_256,

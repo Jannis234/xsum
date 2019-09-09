@@ -204,10 +204,10 @@ extern xsum_algo_t xsum_algo_crc32;
 extern xsum_algo_t xsum_algo_crc64;
 #endif
 #ifdef XSUM_HAS_EDON_R_256
-extern xsum_algo_t xsum_algo_edon_r_128;
-#endif
-#ifdef XSUM_HAS_EDON_R_256
 extern xsum_algo_t xsum_algo_edon_r_256;
+#endif
+#ifdef XSUM_HAS_EDON_R_512
+extern xsum_algo_t xsum_algo_edon_r_512;
 #endif
 #ifdef XSUM_HAS_GOST94
 extern xsum_algo_t xsum_algo_gost94;
