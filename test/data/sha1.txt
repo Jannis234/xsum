@@ -1,0 +1,9 @@
+SHA1:4916d6bdb7f78e6803698cab32d1586ea457dfc8  input/binary1
+SHA1:bee4c060ee5e5290ab433d49d1c5676b6e57261e  input/binary2
+SHA1:da39a3ee5e6b4b0d3255bfef95601890afd80709  input/empty
+SHA1:fbcf384f1c96e3d24fb25b749b00241a5cc4690f  input/large1
+SHA1:e2ae0f9088246cd1ee0225e1ccf63f324ba4cf9a  input/large2
+SHA1:653acea42c5ff05cc102ea0ebfe760e698673711  input/random1
+SHA1:9a506cad6712f32e497e2787ac68f1e74df823c5  input/random2
+SHA1:a9993e364706816aba3e25717850c26c9cd0d89d  input/string1
+SHA1:f43b04e4a98aebe3c874514f11a73dbd7d6c150b  input/string2

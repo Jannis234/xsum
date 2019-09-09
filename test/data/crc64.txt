@@ -1,0 +1,9 @@
+CRC64:72414b2f65db3ab0  input/binary1
+CRC64:9310e5cfdd0d55d9  input/binary2
+CRC64:0000000000000000  input/empty
+CRC64:0653a51f2375ff91  input/large1
+CRC64:02f3b2ba514d4294  input/large2
+CRC64:00c79bc34cdc2f88  input/random1
+CRC64:3bca66368ac2a002  input/random2
+CRC64:2cd8094a1a277627  input/string1
+CRC64:90db9ccd9021d2d7  input/string2

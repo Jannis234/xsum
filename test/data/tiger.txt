@@ -1,0 +1,9 @@
+Tiger:a305e7263e62f0df66d65eaece8a02fce2e2238ff7c5c7a6  input/binary1
+Tiger:2b9fef4fa3620ed6c9440f4ae1dd7144a2d0e8e41fd04bfe  input/binary2
+Tiger:3293ac630c13f0245f92bbb1766e16167a4e58492dde73f3  input/empty
+Tiger:8ab107f5172e3791373c873dab159f64cf20b2bcbb561eca  input/large1
+Tiger:df4893a2f456604c2c2d7dc99651a1dc89766093733ae846  input/large2
+Tiger:de6d38133a1148b5e2c35817f62c37146d30d7df0d582349  input/random1
+Tiger:427dec58cb759ff62c2d950d4f276a02dcf104a8ee59466c  input/random2
+Tiger:2aab1484e8c158f2bfb8c5ff41b57a525129131c957b5f93  input/string1
+Tiger:55e3491bbaf23c08018e929033f51b134f7ebedde676a43e  input/string2

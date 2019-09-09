@@ -1,0 +1,9 @@
+Sum:0000000000007f80  input/binary1
+Sum:000000000031ce00  input/binary2
+Sum:0000000000000000  input/empty
+Sum:000000003ca00000  input/large1
+Sum:000000012f200000  input/large2
+Sum:0000000007f97072  input/random1
+Sum:0000000003fce2f5  input/random2
+Sum:0000000000000126  input/string1
+Sum:000000000000150b  input/string2

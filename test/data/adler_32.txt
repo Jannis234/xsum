@@ -1,0 +1,9 @@
+Adler-32:adf67f81  input/binary1
+Adler-32:747fd0e0  input/binary2
+Adler-32:00000001  input/empty
+Adler-32:7bf78d8e  input/large1
+Adler-32:d868c3e0  input/large2
+Adler-32:5624e80a  input/random1
+Adler-32:1aa41ec9  input/random2
+Adler-32:024d0127  input/string1
+Adler-32:df5b150c  input/string2

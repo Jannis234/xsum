@@ -1,0 +1,9 @@
+MD4:298a05bc506e1ecd5a47fd41f874f1d2  input/binary1
+MD4:c59662c6d9318fa44e764425370e80f7  input/binary2
+MD4:31d6cfe0d16ae931b73c59d7e0c089c0  input/empty
+MD4:0296c135bb51dd59bd531875f3394431  input/large1
+MD4:a3debc618f9d7928e45888d054e7ec99  input/large2
+MD4:9c1fe7e5907e133400c3aec709570504  input/random1
+MD4:0aaaa2947fec340c35d7e2bf84fc1c1e  input/random2
+MD4:a448017aaf21d8525fc10ae87aa6729d  input/string1
+MD4:86ef62be22e4f920a6078a9faeef9f04  input/string2

@@ -1,0 +1,9 @@
+CRC32:29058C73  input/binary1
+CRC32:130F4D3B  input/binary2
+CRC32:00000000  input/empty
+CRC32:6BD71CB2  input/large1
+CRC32:0E03AAD6  input/large2
+CRC32:2F710B12  input/random1
+CRC32:3BF13EF8  input/random2
+CRC32:352441C2  input/string1
+CRC32:2DC86EF1  input/string2

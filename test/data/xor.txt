@@ -1,0 +1,9 @@
+XOR:00  input/binary1
+XOR:00  input/binary2
+XOR:00  input/empty
+XOR:00  input/large1
+XOR:00  input/large2
+XOR:1c  input/random1
+XOR:55  input/random2
+XOR:60  input/string1
+XOR:01  input/string2

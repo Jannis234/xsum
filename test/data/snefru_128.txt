@@ -1,0 +1,9 @@
+Snefru-128:87c53c3e307138ffb80f7ebf5ab8b0aa  input/binary1
+Snefru-128:08cc3af47ce7744ad8195d7b8a4bc5c8  input/binary2
+Snefru-128:8617f366566a011837f4fb4ba5bedea2  input/empty
+Snefru-128:f9ab6daa1c7de71134dcbf37d8df5f35  input/large1
+Snefru-128:d177a6ae490d901e54bca6ef94a8ef64  input/large2
+Snefru-128:3865c22a90842d49cddd59ed7910c679  input/random1
+Snefru-128:8a68ca7324f5f86a61d8d2528f5671bb  input/random2
+Snefru-128:553d0648928299a0f22a275a02c83b10  input/string1
+Snefru-128:994fd66a9789b8d6594f16dec1653cb7  input/string2
