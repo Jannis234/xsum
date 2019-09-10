@@ -64,6 +64,11 @@ XSUM_TEMPLATE_LIBLZMA_CRC(32)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(crc32, RHASH_CRC32, 4)
 
+#elif defined(XSUM_WITH_BOTAN_CRC32)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(crc32, "CRC32", 4)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)

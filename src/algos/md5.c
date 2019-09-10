@@ -48,7 +48,12 @@ XSUM_TEMPLATE_GNUTLS(md5, GNUTLS_DIG_MD5, 16)
 
 #include <sechash.h>
 #include <secoidt.h>
-XSUM_TEMPLATE_NSS(md5, SEC_OID_MD5, 16);
+XSUM_TEMPLATE_NSS(md5, SEC_OID_MD5, 16)
+
+#elif defined(XSUM_WITH_BOTAN_MD5)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(md5, "MD5", 16)
 
 #endif
 

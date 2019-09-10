@@ -25,6 +25,7 @@ if [ ! -e src/include/xsum.h ]; then
 	exit 1
 fi
 
+WITH_BOTAN=0
 WITH_GNUTLS=0
 WITH_MBEDTLS=0
 WITH_NETTLE=0
@@ -39,6 +40,7 @@ WITH_ZLIB=0
 run_test() {
 	make clean
 	make -j check \
+		WITH_BOTAN=$WITH_BOTAN \
 		WITH_GNUTLS=$WITH_GNUTLS \
 		WITH_MBEDTLS=$WITH_MBEDTLS \
 		WITH_NETTLE=$WITH_NETTLE \
@@ -51,6 +53,10 @@ run_test() {
 		WITH_ZLIB=$WITH_ZLIB \
 		|| exit 1
 }
+
+WITH_BOTAN=1
+run_test
+WITH_BOTAN=0
 
 WITH_GNUTLS=1
 run_test

@@ -26,6 +26,32 @@
 #define XSUM_TEMPLATE_ALGO(p_name, p_name_string, p_size) \
 	xsum_algo_t xsum_algo_##p_name = { p_name_string, p_size, &xsum_##p_name##_init, &xsum_##p_name##_update, &xsum_##p_name##_final };
 
+// Common template for botan hashes
+// Parameters: xsum-internal name; botan hash name string; hash size
+#define XSUM_TEMPLATE_BOTAN(p_name_xsum, p_name_botan, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		botan_hash_t h; \
+		if (botan_hash_init(&h, p_name_botan, 0) != BOTAN_FFI_SUCCESS) { \
+			return NULL; \
+		} \
+		return h; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		botan_hash_t h = (botan_hash_t) state; \
+		botan_hash_update(h, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		botan_hash_t h = (botan_hash_t) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			botan_hash_destroy(h); \
+			return NULL; \
+		} \
+		botan_hash_final(h, out); \
+		botan_hash_destroy(h); \
+		return out; \
+	}
+
 // Common template for gnutls hashes
 // Parameters: xsum-internal name; gnutls constant; hash size
 #define XSUM_TEMPLATE_GNUTLS(p_name_xsum, p_name_gnutls, p_size) \

@@ -33,6 +33,11 @@ XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(blake2b_384, 48)
 #include <blake2.h>
 XSUM_TEMPLATE_LIBB2(blake2b_384, blake2b, 48)
 
+#elif defined(XSUM_WITH_BOTAN_BLAKE2B)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(blake2b_384, "Blake2b(384)", 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_384, "BLAKE2b-384", 48)

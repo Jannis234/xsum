@@ -1,0 +1,9 @@
+CRC24:5bbd34  input/binary1
+CRC24:37a7a9  input/binary2
+CRC24:b704ce  input/empty
+CRC24:02e216  input/large1
+CRC24:891efd  input/large2
+CRC24:c31fa9  input/random1
+CRC24:a4834d  input/random2
+CRC24:ba1c7b  input/string1
+CRC24:4ffa27  input/string2

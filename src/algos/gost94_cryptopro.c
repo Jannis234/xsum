@@ -29,6 +29,11 @@ XSUM_TEMPLATE_RHASH(gost94_cryptopro, RHASH_GOST_CRYPTOPRO, 32)
 #include <gnutls/crypto.h>
 XSUM_TEMPLATE_GNUTLS(gost94_cryptopro, GNUTLS_DIG_GOSTR_94, 32)
 
+#elif defined(XSUM_WITH_BOTAN_GOST94)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(gost94_cryptopro, "GOST-34.11", 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(gost94_cryptopro, "GOST94-CryptoPro", 32)

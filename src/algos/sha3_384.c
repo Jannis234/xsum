@@ -39,6 +39,11 @@ XSUM_TEMPLATE_RHASH(sha3_384, RHASH_SHA3_384, 48)
 #include <gnutls/crypto.h>
 XSUM_TEMPLATE_GNUTLS(sha3_384, GNUTLS_DIG_SHA3_384, 48)
 
+#elif defined(XSUM_WITH_BOTAN_SHA3)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(sha3_384, "SHA-3(384)", 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha3_384, "SHA3-384", 48)

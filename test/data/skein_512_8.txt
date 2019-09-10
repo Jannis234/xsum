@@ -1,0 +1,9 @@
+Skein-512-8:f3  input/binary1
+Skein-512-8:a8  input/binary2
+Skein-512-8:6d  input/empty
+Skein-512-8:c4  input/large1
+Skein-512-8:49  input/large2
+Skein-512-8:da  input/random1
+Skein-512-8:48  input/random2
+Skein-512-8:f7  input/string1
+Skein-512-8:e8  input/string2

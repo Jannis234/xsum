@@ -55,6 +55,11 @@ XSUM_TEMPLATE_GNUTLS(sha512, GNUTLS_DIG_SHA512, 64)
 #include <secoidt.h>
 XSUM_TEMPLATE_NSS(sha512, SEC_OID_SHA512, 64);
 
+#elif defined(XSUM_WITH_BOTAN_SHA2_512)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(sha512, "SHA-512", 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512, "SHA512", 64)

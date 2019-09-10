@@ -38,6 +38,7 @@ SRC = src/main.c \
 	src/algos/blake2b_384.c \
 	src/algos/blake2b_512.c \
 	src/algos/blake2bp.c \
+	src/algos/crc24.c \
 	src/algos/crc32.c \
 	src/algos/crc64.c \
 	src/algos/edon_r_256.c \
@@ -45,6 +46,10 @@ SRC = src/main.c \
 	src/algos/gost94.c \
 	src/algos/gost94_cryptopro.c \
 	src/algos/has160.c \
+	src/algos/keccak_224.c \
+	src/algos/keccak_256.c \
+	src/algos/keccak_384.c \
+	src/algos/keccak_512.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \
@@ -60,6 +65,8 @@ SRC = src/main.c \
 	src/algos/sha3_256.c \
 	src/algos/sha3_384.c \
 	src/algos/sha3_512.c \
+	src/algos/skein_512.c \
+	src/algos/sm3.c \
 	src/algos/snefru_128.c \
 	src/algos/snefru_256.c \
 	src/algos/streebog_256.c \
@@ -116,6 +123,7 @@ depend.mak: $(SRC:.c=.d)
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
 	sh src/gen_config.sh $(XSUM_VERSION) \
+		BOTAN $(WITH_BOTAN) \
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
 		NETTLE $(WITH_NETTLE) \

@@ -38,6 +38,11 @@ XSUM_TEMPLATE_MBEDTLS(md4, MBEDTLS_MD_MD4, 16)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(md4, RHASH_MD4, 16)
 
+#elif defined(XSUM_WITH_BOTAN_MD4)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(md4, "MD4", 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md4, "MD4", 16)

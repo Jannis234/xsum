@@ -50,6 +50,11 @@ XSUM_TEMPLATE_GNUTLS(sha384, GNUTLS_DIG_SHA384, 48)
 #include <secoidt.h>
 XSUM_TEMPLATE_NSS(sha384, SEC_OID_SHA384, 48);
 
+#elif defined(XSUM_WITH_BOTAN_SHA2_512)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(sha384, "SHA-384", 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha384, "SHA384", 48)

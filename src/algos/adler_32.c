@@ -49,6 +49,11 @@ uint8_t* xsum_adler_32_final(void *state) {
 	
 }
 
+#elif defined(XSUM_WITH_BOTAN_ADLER_32)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(adler_32, "Adler32", 4)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(adler_32, "Adler-32", 4)

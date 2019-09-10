@@ -28,6 +28,11 @@ XSUM_TEMPLATE_LIBGCRYPT(tiger, GCRY_MD_TIGER1, 24)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(tiger, RHASH_TIGER, 24)
 
+#elif defined(XSUM_WITH_BOTAN_TIGER)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(tiger, "Tiger", 24)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(tiger, "Tiger", 24)

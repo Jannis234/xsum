@@ -1,0 +1,9 @@
+Skein-512-16:addc  input/binary1
+Skein-512-16:549a  input/binary2
+Skein-512-16:0c5b  input/empty
+Skein-512-16:df5e  input/large1
+Skein-512-16:a7b9  input/large2
+Skein-512-16:4420  input/random1
+Skein-512-16:9b58  input/random2
+Skein-512-16:44c9  input/string1
+Skein-512-16:13c7  input/string2

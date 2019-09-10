@@ -28,6 +28,11 @@ XSUM_TEMPLATE_LIBGCRYPT(whirlpool, GCRY_MD_WHIRLPOOL, 64)
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(whirlpool, RHASH_WHIRLPOOL, 64)
 
+#elif defined(XSUM_WITH_BOTAN_WHIRLPOOL)
+
+#include <botan/ffi.h>
+XSUM_TEMPLATE_BOTAN(whirlpool, "Whirlpool", 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(whirlpool, "WHIRLPOOL", 64)
