@@ -44,6 +44,12 @@ XSUM_TEMPLATE_RHASH(sha384, RHASH_SHA384, 48)
 #include <gnutls/crypto.h>
 XSUM_TEMPLATE_GNUTLS(sha384, GNUTLS_DIG_SHA384, 48)
 
+#elif defined(XSUM_WITH_NSS)
+
+#include <sechash.h>
+#include <secoidt.h>
+XSUM_TEMPLATE_NSS(sha384, SEC_OID_SHA384, 48);
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha384, "SHA384", 48)

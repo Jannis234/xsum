@@ -56,6 +56,10 @@
 #endif
 #endif
 
+#if (XSUM_CONFIG_NSS == 1)
+#define XSUM_WITH_NSS
+#endif
+
 #if (XSUM_CONFIG_LIBB2 == 1)
 #define XSUM_WITH_LIBB2
 #endif
@@ -171,7 +175,7 @@
 #define XSUM_HAS_HAS160
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_MBEDTLS_MD2)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_MBEDTLS_MD2) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_MD2
 #endif
 
@@ -179,7 +183,7 @@
 #define XSUM_HAS_MD4
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD5) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD5) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_MD5
 #endif
 
@@ -187,23 +191,23 @@
 #define XSUM_HAS_RIPEMD160
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA1) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA1) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_SHA1
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_SHA224
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_SHA256
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_SHA384
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS)
 #define XSUM_HAS_SHA512
 #endif
 

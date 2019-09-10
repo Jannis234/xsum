@@ -44,6 +44,12 @@ XSUM_TEMPLATE_RHASH(md5, RHASH_MD5, 16)
 #include <gnutls/crypto.h>
 XSUM_TEMPLATE_GNUTLS(md5, GNUTLS_DIG_MD5, 16)
 
+#elif defined(XSUM_WITH_NSS)
+
+#include <sechash.h>
+#include <secoidt.h>
+XSUM_TEMPLATE_NSS(md5, SEC_OID_MD5, 16);
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

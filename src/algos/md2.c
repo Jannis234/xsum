@@ -28,6 +28,12 @@ XSUM_TEMPLATE_NETTLE(md2, md2, 16)
 #include <mbedtls/md.h>
 XSUM_TEMPLATE_MBEDTLS(md2, MBEDTLS_MD_MD2, 16)
 
+#elif defined(XSUM_WITH_NSS)
+
+#include <sechash.h>
+#include <secoidt.h>
+XSUM_TEMPLATE_NSS(md2, SEC_OID_MD2, 16);
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md2, "MD2", 16)

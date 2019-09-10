@@ -119,6 +119,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
 		NETTLE $(WITH_NETTLE) \
+		NSS $(WITH_NSS) \
 		LIBB2 $(WITH_LIBB2) \
 		LIBGCRYPT $(WITH_LIBGCRYPT) \
 		LIBLZMA $(WITH_LIBLZMA) \

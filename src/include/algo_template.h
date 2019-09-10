@@ -117,8 +117,36 @@
 		return out; \
 	}
 
+// Common template for NSS hashes
+// Parameters: xsum-internal name; NSS OID tag; hash size
+#define XSUM_TEMPLATE_NSS(p_name_xsum, p_name_nss, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		HASHContext *ctx = HASH_Create(HASH_GetHashTypeByOidTag(p_name_nss)); \
+		if (ctx == NULL) { \
+			return NULL; \
+		} \
+		HASH_Begin(ctx); \
+		return ctx; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		HASHContext *ctx = (HASHContext*) state; \
+		HASH_Update(ctx, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		HASHContext *ctx = (HASHContext*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			HASH_Destroy(ctx); \
+			return NULL; \
+		} \
+		unsigned int len_out; /* Dummy */ \
+		HASH_End(ctx, out, &len_out, p_size); \
+		HASH_Destroy(ctx); \
+		return out; \
+	}
+
 // Common template for BLAKE2 using libb2
-// Parameters: xsum-internal-name; BLAKE2 algorithm; hash size
+// Parameters: xsum-internal name; BLAKE2 algorithm; hash size
 #define XSUM_TEMPLATE_LIBB2(p_name_xsum, p_name_b2, p_size) \
 	void* xsum_##p_name_xsum##_init() { \
 		p_name_b2##_state *s = malloc(sizeof(p_name_b2##_state)); \

@@ -15,6 +15,10 @@
 
 #include "cli.h"
 #include "config.h"
+#include <stddef.h>
+#ifdef XSUM_WITH_NSS
+#include <nss.h>
+#endif
 #ifdef XSUM_WITH_LIBGCRYPT
 #include <gcrypt.h>
 #endif
@@ -22,8 +26,20 @@
 #include <rhash.h>
 #endif
 
+#ifdef XSUM_WITH_NSS
+void xsum_exit_nss() {
+	
+	NSS_Shutdown();
+	
+}
+#endif
+
 int xsum_lib_init() {
 	
+#ifdef XSUM_WITH_NSS
+	NSS_NoDB_Init(NULL);
+	atexit(&xsum_exit_nss);
+#endif
 #ifdef XSUM_WITH_LIBGCRYPT
 	if (!gcry_check_version(XSUM_LIBGCRYPT_MIN_VERSION)) {
 		fprintf(stderr, "The loaded version of libgcrypt is too old!\nPlease install at least version %s or re-compile xsum without libgcrypt support.\n", XSUM_LIBGCRYPT_MIN_VERSION);

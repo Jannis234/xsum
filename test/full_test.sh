@@ -13,10 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with xsum. If not, see <http://www.gnu.org/licenses/>.
 
+# ===================================================================================================
 # Run tests for all possible build configurations/all supported external libraries
 # This will run "make clean" and "make" multiple times
 # Requires all supported libraries to be installed
 # You likely won't need to run this, "make check" is enough to test your current build configuration
+# ===================================================================================================
 
 if [ ! -e src/include/xsum.h ]; then
 	echo "This script needs to run from the top level directory"
@@ -26,6 +28,7 @@ fi
 WITH_GNUTLS=0
 WITH_MBEDTLS=0
 WITH_NETTLE=0
+WITH_NSS=0
 WITH_LIBB2=0
 WITH_LIBGCRYPT=0
 WITH_LIBLZMA=0
@@ -39,6 +42,7 @@ run_test() {
 		WITH_GNUTLS=$WITH_GNUTLS \
 		WITH_MBEDTLS=$WITH_MBEDTLS \
 		WITH_NETTLE=$WITH_NETTLE \
+		WITH_NSS=$WITH_NSS \
 		WITH_LIBB2=$WITH_LIBB2 \
 		WITH_LIBGCRYPT=$WITH_LIBGCRYPT \
 		WITH_LIBLZMA=$WITH_LIBLZMA \
@@ -59,6 +63,10 @@ WITH_MBEDTLS=0
 WITH_NETTLE=1
 run_test
 WITH_NETTLE=0
+
+WITH_NSS=1
+run_test
+WITH_NSS=0
 
 WITH_LIBB2=1
 run_test
