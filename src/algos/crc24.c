@@ -18,7 +18,12 @@
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_BOTAN_CRC24)
+#if defined(XSUM_WITH_LIBGCRYPT)
+
+#include <gcrypt.h>
+XSUM_TEMPLATE_LIBGCRYPT(crc24, GCRY_MD_CRC24_RFC2440, 3)
+
+#elif defined(XSUM_WITH_BOTAN_CRC24)
 
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(crc24, "CRC24", 3)

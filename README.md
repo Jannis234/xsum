@@ -31,7 +31,7 @@ BLAKE2s-224 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.g
 BLAKE2s-256 | [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
 BLAKE2s-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256. Some are also supported by libgcrypt (see above).
 BLAKE2sp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256
-CRC24 | [botan](https://botan.randombit.net/) | CRC24 as used in OpenPGP
+CRC24 | [botan](https://botan.randombit.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | CRC24 as used in OpenPGP
 CRC32 | [botan](https://botan.randombit.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma](https://tukaani.org/xz/) [rhash](http://rhash.sourceforge.net/) [zlib](https://www.zlib.net/) | CRC32 as specified by ISO 3309
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |

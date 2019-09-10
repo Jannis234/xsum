@@ -207,7 +207,7 @@
 #define XSUM_HAS_BLAKE2BP_FULL
 #endif
 
-#if defined(XSUM_WITH_BOTAN_CRC24)
+#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_BOTAN_CRC24)
 #define XSUM_HAS_CRC24
 #endif
 
