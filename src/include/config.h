@@ -148,6 +148,67 @@
 #define XSUM_WITH_LIBSODIUM
 #endif
 
+#if (XSUM_CONFIG_OPENSSL == 1)
+#include <openssl/opensslv.h>
+#include <openssl/evp.h>
+#if !defined(OPENSSL_NO_BLAKE2) && !defined(LIBRESSL_VERSION_NUMBER) && (OPENSSL_VERSION_NUMBER >= 0x1010000)
+#define XSUM_WITH_OPENSSL_BLAKE2
+#endif
+#if !defined(OPENSSL_NO_GOST)
+#if defined(LIBRESSL_VERSION_NUMBER) || (OPENSSL_VERSION_NUMBER < 0x1010000)
+#define XSUM_WITH_OPENSSL_GOST94
+#endif
+#if defined(LIBRESSL_VERSION_NUMBER)
+// Streebog is broken in libressl < 3.0.0
+#if (LIBRESSL_VERSION_NUMBER >= 0x3000000)
+#define XSUM_WITH_OPENSSL_STREEBOG
+#endif
+#endif
+#endif
+#if !defined(OPENSSL_NO_MD2)
+#define XSUM_WITH_OPENSSL_MD2
+#endif
+#if !defined(OPENSSL_NO_MD4)
+#define XSUM_WITH_OPENSSL_MD4
+#endif
+#if !defined(OPENSSL_NO_MD5)
+#define XSUM_WITH_OPENSSL_MD5
+#endif
+#if !defined(OPENSSL_NO_MDC2)
+#define XSUM_WITH_OPENSSL_MDC2
+#endif
+#if !defined(OPENSSL_NO_RIPEMD)
+#define XSUM_WITH_OPENSSL_RIPEMD160
+#endif
+#if !defined(OPENSSL_NO_SHA)
+#define XSUM_WITH_OPENSSL_SHA1
+#endif
+#if !defined(OPENSSL_NO_SHA256)
+#define XSUM_WITH_OPENSSL_SHA256
+#endif
+#if !defined(OPENSSL_NO_SHA512)
+#define XSUM_WITH_OPENSSL_SHA512
+#endif
+#if !defined(LIBRESSL_VERSION_NUMBER) && (OPENSSL_VERSION_NUMBER >= 0x1010100)
+#define XSUM_WITH_OPENSSL_SHA512_256
+#define XSUM_WITH_OPENSSL_SHA3
+#endif
+#if !defined(OPENSSL_NO_SM3)
+#if defined(LIBRESSL_VERSION_NUMBER)
+#if (LIBRESSL_VERSION_NUMBER >= 0x2090000)
+#define XSUM_WITH_OPENSSL_SM3
+#endif
+#else
+#if (OPENSSL_VERSION_NUMBER >= 0x1010100)
+#define XSUM_WITH_OPENSSL_SM3
+#endif
+#endif
+#endif
+#if !defined(OPENSSL_NO_WHIRLPOOL)
+#define XSUM_WITH_OPENSSL_WHIRLPOOL
+#endif
+#endif
+
 #if (XSUM_CONFIG_RHASH == 1)
 #define XSUM_WITH_RHASH
 #endif
@@ -180,7 +241,7 @@
 #define XSUM_HAS_BLAKE2S_224
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBB2) || defined(XSUM_WITH_OPENSSL_BLAKE2)
 #define XSUM_HAS_BLAKE2S_256
 #endif
 
@@ -204,7 +265,7 @@
 #define XSUM_HAS_BLAKE2B_384
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2) || defined(XSUM_WITH_BOTAN_BLAKE2B)
+#if defined(XSUM_WITH_LIBGCRYPT_BLAKE2) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_LIBB2) || defined(XSUM_WITH_BOTAN_BLAKE2B) || defined(XSUM_WITH_OPENSSL_BLAKE2)
 #define XSUM_HAS_BLAKE2B_512
 #endif
 
@@ -236,7 +297,7 @@
 #define XSUM_HAS_GOST94
 #endif
 
-#if defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_GOST94)
+#if defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_GOST94) || defined(XSUM_WITH_OPENSSL_GOST94)
 #define XSUM_HAS_GOST94_CRYPTOPRO
 #endif
 
@@ -260,63 +321,67 @@
 #define XSUM_HAS_KECCAK_512
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_MBEDTLS_MD2) || defined(XSUM_WITH_NSS)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_MBEDTLS_MD2) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_OPENSSL_MD2)
 #define XSUM_HAS_MD2
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD4) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_BOTAN_MD4)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD4) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_BOTAN_MD4) || defined(XSUM_WITH_OPENSSL_MD4)
 #define XSUM_HAS_MD4
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD5) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_MD5)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_MD5) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_MD5) || defined(XSUM_WITH_OPENSSL_MD5)
 #define XSUM_HAS_MD5
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_RIPEMD160) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_BOTAN_RIPEMD160)
+#if defined(XSUM_WITH_OPENSSL_MDC2)
+#define XSUM_HAS_MDC2
+#endif
+
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_RIPEMD160) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_BOTAN_RIPEMD160) || defined(XSUM_WITH_OPENSSL_RIPEMD160)
 #define XSUM_HAS_RIPEMD160
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA1) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA1)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA1) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA1) || defined(XSUM_WITH_OPENSSL_SHA1)
 #define XSUM_HAS_SHA1
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256) || defined(XSUM_WITH_OPENSSL_SHA256)
 #define XSUM_HAS_SHA224
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256) || defined(XSUM_WITH_OPENSSL_SHA256)
 #define XSUM_HAS_SHA256
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_512)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_512) || defined(XSUM_WITH_OPENSSL_SHA512)
 #define XSUM_HAS_SHA384
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_512)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA512) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_512) || defined(XSUM_WITH_OPENSSL_SHA512)
 #define XSUM_HAS_SHA512
 #endif
 
-#if defined(XSUM_WITH_NETTLE)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_OPENSSL_SHA512_256)
 #define XSUM_HAS_SHA512_224
 #endif
 
-#if defined(XSUM_WITH_NETTLE)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_OPENSSL_SHA512_256)
 #define XSUM_HAS_SHA512_256
 #endif
 
-#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3)
+#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3) || defined(XSUM_WITH_OPENSSL_SHA3)
 #define XSUM_HAS_SHA3_224
 #endif
 
-#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3)
+#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3) || defined(XSUM_WITH_OPENSSL_SHA3)
 #define XSUM_HAS_SHA3_256
 #endif
 
-#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3)
+#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3) || defined(XSUM_WITH_OPENSSL_SHA3)
 #define XSUM_HAS_SHA3_384
 #endif
 
-#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3)
+#if defined(XSUM_WITH_NETTLE_SHA3) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_SHA3) || defined(XSUM_WITH_OPENSSL_SHA3)
 #define XSUM_HAS_SHA3_512
 #endif
 
@@ -324,7 +389,7 @@
 #define XSUM_HAS_SKEIN_512
 #endif
 
-#if defined(XSUM_WITH_BOTAN_SM3)
+#if defined(XSUM_WITH_BOTAN_SM3) || defined(XSUM_WITH_OPENSSL_SM3)
 #define XSUM_HAS_SM3
 #endif
 
@@ -336,11 +401,11 @@
 #define XSUM_HAS_SNEFRU_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG)
+#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG) || defined(XSUM_WITH_OPENSSL_STREEBOG)
 #define XSUM_HAS_STREEBOG_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG)
+#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG) || defined(XSUM_WITH_OPENSSL_STREEBOG)
 #define XSUM_HAS_STREEBOG_512
 #endif
 
@@ -352,7 +417,7 @@
 #define XSUM_HAS_TIGER2
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_WHIRLPOOL) || defined(XSUM_WITH_BOTAN_WHIRLPOOL)
+#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_WHIRLPOOL) || defined(XSUM_WITH_BOTAN_WHIRLPOOL) || defined(XSUM_WITH_OPENSSL_WHIRLPOOL)
 #define XSUM_HAS_WHIRLPOOL
 #endif
 

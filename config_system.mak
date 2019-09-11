@@ -81,6 +81,11 @@ CFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
 LIBS += $(shell $(PKG_CONFIG) --libs libsodium)
 endif
 
+ifeq ($(WITH_OPENSSL), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags libcrypto)
+LIBS += $(shell $(PKG_CONFIG) --libs libcrypto)
+endif
+
 ifeq ($(WITH_RHASH), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags librhash)
 LIBS += $(shell $(PKG_CONFIG) --libs librhash)

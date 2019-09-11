@@ -60,6 +60,11 @@ XSUM_TEMPLATE_NSS(sha512, SEC_OID_SHA512, 64);
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(sha512, "SHA-512", 64)
 
+#elif defined(XSUM_WITH_OPENSSL_SHA512)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(sha512, sha512, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512, "SHA512", 64)

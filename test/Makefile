@@ -32,6 +32,7 @@ CHECKS = check_adler_32 \
 	check_md2 \
 	check_md4 \
 	check_md5 \
+	check_mdc2 \
 	check_keccak_224 check_keccak_256 check_keccak_384 check_keccak_512 \
 	check_ripemd160 \
 	check_sha1 \
@@ -680,6 +681,9 @@ check_md4: $(INPUT_DEPEND) data/md4.txt
 
 check_md5: $(INPUT_DEPEND) data/md5.txt
 	$(XSUM) -c data/md5.txt
+
+check_mdc2: $(INPUT_DEPEND) data/mdc2.txt
+	$(XSUM) -c data/mdc2.txt
 
 check_ripemd160: $(INPUT_DEPEND) data/ripemd160.txt
 	$(XSUM) -c data/ripemd160.txt

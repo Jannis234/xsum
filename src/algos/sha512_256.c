@@ -23,6 +23,11 @@
 #include <nettle/sha2.h>
 XSUM_TEMPLATE_NETTLE(sha512_256, sha512_256, 32)
 
+#elif defined(XSUM_WITH_OPENSSL_SHA512_256)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(sha512_256, sha512_256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512_256, "SHA512-256", 32)

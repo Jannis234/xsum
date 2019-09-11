@@ -34,6 +34,11 @@ XSUM_TEMPLATE_GNUTLS(gost94_cryptopro, GNUTLS_DIG_GOSTR_94, 32)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(gost94_cryptopro, "GOST-34.11", 32)
 
+#elif defined(XSUM_WITH_OPENSSL_GOST94)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(gost94_cryptopro, gostr341194, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(gost94_cryptopro, "GOST94-CryptoPro", 32)

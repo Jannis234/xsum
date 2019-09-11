@@ -33,6 +33,11 @@ XSUM_TEMPLATE_RHASH(whirlpool, RHASH_WHIRLPOOL, 64)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(whirlpool, "Whirlpool", 64)
 
+#elif defined(XSUM_WITH_OPENSSL_WHIRLPOOL)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(whirlpool, whirlpool, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(whirlpool, "WHIRLPOOL", 64)

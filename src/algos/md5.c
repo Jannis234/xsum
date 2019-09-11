@@ -55,6 +55,11 @@ XSUM_TEMPLATE_NSS(md5, SEC_OID_MD5, 16)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(md5, "MD5", 16)
 
+#elif defined(XSUM_WITH_OPENSSL_MD5)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(md5, md5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

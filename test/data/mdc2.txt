@@ -1,0 +1,9 @@
+MDC2:8fc6aaca11b903c0deec9b6eac70db3a  input/binary1
+MDC2:68cd1a92d8c8e7e127217953395ba8e0  input/binary2
+MDC2:52525252525252522525252525252525  input/empty
+MDC2:ca60b1b3e151857cb3afc81b46bb48de  input/large1
+MDC2:1e839119cd1f6da1d3a760464ba78e8a  input/large2
+MDC2:93b9a2aa3efe15857b0f3b56a3017dae  input/random1
+MDC2:a426629b391ca94b09da4f8a0b820fbe  input/random2
+MDC2:3ff42120ee863f5d910cf2ee5064f82f  input/string1
+MDC2:74358e1d7d12f7c676d15b53c065d7c0  input/string2

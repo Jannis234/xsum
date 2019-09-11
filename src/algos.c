@@ -294,6 +294,9 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_MD5
 	&xsum_algo_md5,
 #endif
+#ifdef XSUM_HAS_MDC2
+	&xsum_algo_mdc2,
+#endif
 #ifdef XSUM_HAS_RIPEMD160
 	&xsum_algo_ripemd160,
 #endif

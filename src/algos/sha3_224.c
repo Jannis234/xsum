@@ -44,6 +44,11 @@ XSUM_TEMPLATE_GNUTLS(sha3_224, GNUTLS_DIG_SHA3_224, 28)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(sha3_224, "SHA-3(224)", 28)
 
+#elif defined(XSUM_WITH_OPENSSL_SHA3)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(sha3_224, sha3_224, 28)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha3_224, "SHA3-224", 28)

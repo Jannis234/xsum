@@ -23,6 +23,11 @@
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(sm3, "SM3", 32)
 
+#elif defined(XSUM_WITH_OPENSSL_SM3)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(sm3, sm3, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sm3, "SM3", 32)

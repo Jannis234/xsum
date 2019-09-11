@@ -307,6 +307,36 @@
 		return out; \
 	}
 
+// Common template for openssl hashes
+// Parameters: xsum-internal name; openssl EVP name; hash size
+#define XSUM_TEMPLATE_OPENSSL(p_name_xsum, p_name_openssl, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		EVP_MD_CTX *ctx = EVP_MD_CTX_create(); \
+		if (ctx == NULL) { \
+			return NULL; \
+		} \
+		if (EVP_DigestInit_ex(ctx, EVP_##p_name_openssl(), NULL) != 1) { \
+			EVP_MD_CTX_destroy(ctx); \
+			return NULL; \
+		} \
+		return ctx; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		EVP_MD_CTX *ctx = (EVP_MD_CTX*) state; \
+		EVP_DigestUpdate(ctx, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		EVP_MD_CTX *ctx = (EVP_MD_CTX*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			EVP_MD_CTX_destroy(ctx); \
+			return NULL; \
+		} \
+		EVP_DigestFinal_ex(ctx, out, NULL); \
+		EVP_MD_CTX_destroy(ctx); \
+		return out; \
+	}
+
 // Common template for rhash hashes
 // Parameters: xsum-internal name; rhash constant; hash size
 #define XSUM_TEMPLATE_RHASH(p_name_xsum, p_name_rhash, p_size) \

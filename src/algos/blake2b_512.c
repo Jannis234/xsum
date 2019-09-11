@@ -38,6 +38,11 @@ XSUM_TEMPLATE_LIBB2(blake2b_512, blake2b, 64)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(blake2b_512, "Blake2b(512)", 64)
 
+#elif defined(XSUM_WITH_OPENSSL_BLAKE2)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(blake2b_512, blake2b512, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_512, "BLAKE2b-512", 64)

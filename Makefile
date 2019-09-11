@@ -53,6 +53,7 @@ SRC = src/main.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \
+	src/algos/mdc2.c \
 	src/algos/ripemd160.c \
 	src/algos/sha1.c \
 	src/algos/sha224.c \
@@ -132,6 +133,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		LIBGCRYPT $(WITH_LIBGCRYPT) \
 		LIBLZMA $(WITH_LIBLZMA) \
 		LIBSODIUM $(WITH_LIBSODIUM) \
+		OPENSSL $(WITH_OPENSSL) \
 		RHASH $(WITH_RHASH) \
 		ZLIB $(WITH_ZLIB) \
 		> src/include/config_generated.h

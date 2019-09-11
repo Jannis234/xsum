@@ -14,43 +14,17 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_SHA3_512
+#ifdef XSUM_HAS_MDC2
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_NETTLE_SHA3)
-
-#include <nettle/sha3.h>
-XSUM_TEMPLATE_NETTLE(sha3_512, sha3_512, 64)
-
-#elif defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(sha3_512, GCRY_MD_SHA3_512, 64)
-
-#elif defined(XSUM_WITH_RHASH)
-
-#include <rhash.h>
-XSUM_TEMPLATE_RHASH(sha3_512, RHASH_SHA3_512, 64)
-
-#elif defined(XSUM_WITH_GNUTLS)
-
-#include <gnutls/gnutls.h>
-#include <gnutls/crypto.h>
-XSUM_TEMPLATE_GNUTLS(sha3_512, GNUTLS_DIG_SHA3_512, 64)
-
-#elif defined(XSUM_WITH_BOTAN_SHA3)
-
-#include <botan/ffi.h>
-XSUM_TEMPLATE_BOTAN(sha3_512, "SHA-3(512)", 64)
-
-#elif defined(XSUM_WITH_OPENSSL_SHA3)
+#if defined(XSUM_WITH_OPENSSL_MDC2)
 
 #include <openssl/evp.h>
-XSUM_TEMPLATE_OPENSSL(sha3_512, sha3_512, 64)
+XSUM_TEMPLATE_OPENSSL(mdc2, mdc2, 16)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(sha3_512, "SHA3-512", 64)
+XSUM_TEMPLATE_ALGO(mdc2, "MDC2", 16)
 
 #endif

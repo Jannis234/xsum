@@ -299,6 +299,9 @@ extern xsum_algo_t xsum_algo_md4;
 #ifdef XSUM_HAS_MD5
 extern xsum_algo_t xsum_algo_md5;
 #endif
+#ifdef XSUM_HAS_MDC2
+extern xsum_algo_t xsum_algo_mdc2;
+#endif
 #ifdef XSUM_HAS_RIPEMD160
 extern xsum_algo_t xsum_algo_ripemd160;
 #endif

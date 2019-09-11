@@ -34,6 +34,11 @@ XSUM_TEMPLATE_GNUTLS(streebog_256, GNUTLS_DIG_STREEBOG_256, 32)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(streebog_256, "Streebog-256", 32)
 
+#elif defined(XSUM_WITH_OPENSSL_STREEBOG)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(streebog_256, streebog256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(streebog_256, "Streebog-256", 32)

@@ -55,6 +55,11 @@ XSUM_TEMPLATE_NSS(sha1, SEC_OID_SHA1, 20);
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(sha1, "SHA1", 20)
 
+#elif defined(XSUM_WITH_OPENSSL_SHA1)
+
+#include <openssl/evp.h>
+XSUM_TEMPLATE_OPENSSL(sha1, sha1, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha1, "SHA1", 20)
