@@ -21,7 +21,7 @@
 #include <stdint.h>
 #include "config.h"
 
-typedef void* (*xsum_func_init_t)(); // Initialize the inernal state, return a pointer to that state
+typedef void* (*xsum_func_init_t)(); // Initialize the internal state, return a pointer to that state
 typedef void (*xsum_func_update_t)(void* state, uint8_t* buf, size_t len); // Process len bytes from buf
 typedef uint8_t* (*xsum_func_final_t)(void* state); // Finalize calculation, free memory, return the final hash (or NULL on error)
 
