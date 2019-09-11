@@ -18,12 +18,12 @@
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_LIBGCRYPT)
+#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG)
 
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(streebog_256, GCRY_MD_STRIBOG256, 32)
 
-#elif defined(XSUM_WITH_GNUTLS)
+#elif defined(XSUM_WITH_GNUTLS_STREEBOG)
 
 #include <gnutls/gnutls.h>
 #include <gnutls/crypto.h>

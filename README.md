@@ -62,8 +62,8 @@ Skein-512-X | [botan](https://botan.randombit.net/) | Supported sizes are 8, 16,
 SM3 | [botan](https://botan.randombit.net/) |
 Snefru-128 | [rhash](http://rhash.sourceforge.net/) |
 Snefru-256 | [rhash](http://rhash.sourceforge.net/) |
-Streebog-256 | [gnutls](https://www.gnutls.org/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
-Streebog-512 | [gnutls](https://www.gnutls.org/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | GOST R 34.11-2012
+Streebog-256 | [botan](https://botan.randombit.net/) [gnutls](https://www.gnutls.org/)⁴ | GOST R 34.11-2012
+Streebog-512 | [botan](https://botan.randombit.net/) [gnutls](https://www.gnutls.org/)⁴ | GOST R 34.11-2012
 Sum | (Built in) | 64-bit sum of all input bytes
 Tiger | [botan](https://botan.randombit.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
 Tiger2 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) |
@@ -75,6 +75,8 @@ XOR | (Built in) | XOR of all input bytes
 ²) Nettle 3.2 or higher required for SHA-3
 
 ³) mbedtls might not have all possible algorithms compiled in, this is auto-detected at build time
+
+⁴) Streebog is supported with gnutls 3.6.8 or higher as previous versions produce incorrect hashes
 
 ## Usage examples
 

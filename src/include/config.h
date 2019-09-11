@@ -66,9 +66,7 @@
 #define XSUM_WITH_BOTAN_SKEIN
 #endif
 #ifdef BOTAN_HAS_STREEBOG
-// Leave this commented out as botan's streebog implementation seems to produce broken output for larger files
-// "make check" reports failure on test cases "large1" and "large2"
-//#define XSUM_WITH_BOTAN_STREEBOG
+#define XSUM_WITH_BOTAN_STREEBOG
 #endif
 #ifdef BOTAN_HAS_TIGER
 #define XSUM_WITH_BOTAN_TIGER
@@ -80,6 +78,11 @@
 
 #if (XSUM_CONFIG_GNUTLS == 1)
 #define XSUM_WITH_GNUTLS
+#include <gnutls/gnutls.h>
+// Streebog is broken in gnutls < 3.6.8
+#if (GNUTLS_VERSION_NUMBER >= 0x030608)
+#define XSUM_WITH_GNUTLS_STREEBOG
+#endif
 #endif
 
 #if (XSUM_CONFIG_MBEDTLS == 1)
@@ -133,6 +136,8 @@
 #else
 #define XSUM_LIBGCRYPT_MIN_VERSION "1.7.0"
 #endif
+// libgcrypt currently produces incorrect streebog hashes (tested with 1.8.5)
+//#define XSUM_WITH_LIBGCRYPT_STREEBOG
 #endif
 
 #if (XSUM_CONFIG_LIBLZMA == 1)
@@ -331,11 +336,11 @@
 #define XSUM_HAS_SNEFRU_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_STREEBOG)
+#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG)
 #define XSUM_HAS_STREEBOG_256
 #endif
 
-#if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_BOTAN_STREEBOG)
+#if defined(XSUM_WITH_LIBGCRYPT_STREEBOG) || defined(XSUM_WITH_GNUTLS_STREEBOG) || defined(XSUM_WITH_BOTAN_STREEBOG)
 #define XSUM_HAS_STREEBOG_512
 #endif
 
