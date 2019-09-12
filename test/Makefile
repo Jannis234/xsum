@@ -29,12 +29,13 @@ CHECKS = check_adler_32 \
 	check_edon_r_256 check_edon_r_512 \
 	check_gost94 check_gost94_cryptopro \
 	check_has160 \
+	check_haval_128 check_haval_160 check_haval_192 check_haval_224 check_haval_256 \
 	check_md2 \
 	check_md4 \
 	check_md5 \
 	check_mdc2 \
 	check_keccak_224 check_keccak_256 check_keccak_384 check_keccak_512 \
-	check_ripemd160 \
+	check_ripemd128 check_ripemd160 check_ripemd256 check_ripemd320 \
 	check_sha1 \
 	check_sha224 check_sha256 check_sha384 check_sha512 check_sha512_224 check_sha512_256 \
 	check_sha3_224 check_sha3_256 check_sha3_384 check_sha3_512 \
@@ -661,6 +662,21 @@ check_gost94_cryptopro: $(INPUT_DEPEND) data/gost94_cryptopro.txt
 check_has160: $(INPUT_DEPEND) data/has160.txt
 	$(XSUM) -c data/has160.txt
 
+check_haval_128: $(INPUT_DEPEND) data/haval_128.txt
+	$(XSUM) -c data/haval_128.txt
+
+check_haval_160: $(INPUT_DEPEND) data/haval_160.txt
+	$(XSUM) -c data/haval_160.txt
+
+check_haval_192: $(INPUT_DEPEND) data/haval_192.txt
+	$(XSUM) -c data/haval_192.txt
+
+check_haval_224: $(INPUT_DEPEND) data/haval_224.txt
+	$(XSUM) -c data/haval_224.txt
+
+check_haval_256: $(INPUT_DEPEND) data/haval_256.txt
+	$(XSUM) -c data/haval_256.txt
+
 check_keccak_224: $(INPUT_DEPEND) data/keccak_224.txt
 	$(XSUM) -c data/keccak_224.txt
 
@@ -685,8 +701,17 @@ check_md5: $(INPUT_DEPEND) data/md5.txt
 check_mdc2: $(INPUT_DEPEND) data/mdc2.txt
 	$(XSUM) -c data/mdc2.txt
 
+check_ripemd128: $(INPUT_DEPEND) data/ripemd128.txt
+	$(XSUM) -c data/ripemd128.txt
+
 check_ripemd160: $(INPUT_DEPEND) data/ripemd160.txt
 	$(XSUM) -c data/ripemd160.txt
+
+check_ripemd256: $(INPUT_DEPEND) data/ripemd256.txt
+	$(XSUM) -c data/ripemd256.txt
+
+check_ripemd320: $(INPUT_DEPEND) data/ripemd320.txt
+	$(XSUM) -c data/ripemd320.txt
 
 check_sha1: $(INPUT_DEPEND) data/sha1.txt
 	$(XSUM) -c data/sha1.txt

@@ -1,0 +1,9 @@
+HAVAL-128:2ee51c0e6390ee86e186eb2c31018973  input/binary1
+HAVAL-128:d98e18a57b419cae7c46eb59908e74b0  input/binary2
+HAVAL-128:c68f39913f901f3ddf44c707357a7d70  input/empty
+HAVAL-128:1b5484b3ee25c6f0056e8af95b682a12  input/large1
+HAVAL-128:2f37f5bee58ffe50637a4ff66da9f5bb  input/large2
+HAVAL-128:9b5739b3dfcb8b87a8930909e6543a66  input/random1
+HAVAL-128:d6806a258356d139297f72102c8c25fe  input/random2
+HAVAL-128:9e40ed883fb63e985d299b40cda2b8f2  input/string1
+HAVAL-128:c3c238a50bb4b49a15ecd463f08ccc29  input/string2

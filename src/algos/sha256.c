@@ -65,6 +65,11 @@ XSUM_TEMPLATE_BOTAN(sha256, "SHA-256", 32)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(sha256, sha256, 32)
 
+#elif defined(XSUM_WITH_MHASH_SHA256)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(sha256, MHASH_SHA256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha256, "SHA256", 32)

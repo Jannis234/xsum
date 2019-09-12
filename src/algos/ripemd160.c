@@ -48,6 +48,11 @@ XSUM_TEMPLATE_BOTAN(ripemd160, "RIPEMD160", 20)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(ripemd160, ripemd160, 20)
 
+#elif defined(XSUM_WITH_MHASH_RIPEMD)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(ripemd160, MHASH_RIPEMD160, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(ripemd160, "RIPEMD160", 20)

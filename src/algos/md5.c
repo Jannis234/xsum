@@ -60,6 +60,11 @@ XSUM_TEMPLATE_BOTAN(md5, "MD5", 16)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(md5, md5, 16)
 
+#elif defined(XSUM_WITH_MHASH_MD5)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(md5, MHASH_MD5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

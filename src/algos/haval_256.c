@@ -14,47 +14,17 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_MD4
+#ifdef XSUM_HAS_HAVAL_256
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_NETTLE)
-
-#include <nettle/md4.h>
-XSUM_TEMPLATE_NETTLE(md4, md4, 16)
-
-#elif defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(md4, GCRY_MD_MD4, 16)
-
-#elif defined(XSUM_WITH_MBEDTLS)
-
-#include <mbedtls/md.h>
-XSUM_TEMPLATE_MBEDTLS(md4, MBEDTLS_MD_MD4, 16)
-
-#elif defined(XSUM_WITH_RHASH)
-
-#include <rhash.h>
-XSUM_TEMPLATE_RHASH(md4, RHASH_MD4, 16)
-
-#elif defined(XSUM_WITH_BOTAN_MD4)
-
-#include <botan/ffi.h>
-XSUM_TEMPLATE_BOTAN(md4, "MD4", 16)
-
-#elif defined(XSUM_WITH_OPENSSL_MD4)
-
-#include <openssl/evp.h>
-XSUM_TEMPLATE_OPENSSL(md4, md4, 16)
-
-#elif defined(XSUM_WITH_MHASH_MD4)
+#if defined(XSUM_WITH_MHASH_HAVAL)
 
 #include <mhash.h>
-XSUM_TEMPLATE_MHASH(md4, MHASH_MD4, 16)
+XSUM_TEMPLATE_MHASH(haval_256, MHASH_HAVAL256, 32)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(md4, "MD4", 16)
+XSUM_TEMPLATE_ALGO(haval_256, "HAVAL-256", 32)
 
 #endif

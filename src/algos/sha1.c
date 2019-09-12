@@ -60,6 +60,11 @@ XSUM_TEMPLATE_BOTAN(sha1, "SHA1", 20)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(sha1, sha1, 20)
 
+#elif defined(XSUM_WITH_MHASH_SHA1)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(sha1, MHASH_SHA1, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha1, "SHA1", 20)

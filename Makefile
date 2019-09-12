@@ -26,52 +26,28 @@ SRC = src/main.c \
 	src/process.c \
 	src/algos.c \
 	src/algos/adler_32.c \
-	src/algos/blake2s.c \
-	src/algos/blake2s_128.c \
-	src/algos/blake2s_160.c \
-	src/algos/blake2s_224.c \
-	src/algos/blake2s_256.c \
+	src/algos/blake2s.c src/algos/blake2s_128.c src/algos/blake2s_160.c src/algos/blake2s_224.c src/algos/blake2s_256.c \
 	src/algos/blake2sp.c \
-	src/algos/blake2b.c \
-	src/algos/blake2b_160.c \
-	src/algos/blake2b_256.c \
-	src/algos/blake2b_384.c \
-	src/algos/blake2b_512.c \
+	src/algos/blake2b.c src/algos/blake2b_160.c src/algos/blake2b_256.c src/algos/blake2b_384.c src/algos/blake2b_512.c \
 	src/algos/blake2bp.c \
-	src/algos/crc24.c \
-	src/algos/crc32.c \
-	src/algos/crc64.c \
-	src/algos/edon_r_256.c \
-	src/algos/edon_r_512.c \
-	src/algos/gost94.c \
-	src/algos/gost94_cryptopro.c \
+	src/algos/crc24.c src/algos/crc32.c src/algos/crc64.c \
+	src/algos/edon_r_256.c src/algos/edon_r_512.c \
+	src/algos/gost94.c src/algos/gost94_cryptopro.c \
 	src/algos/has160.c \
-	src/algos/keccak_224.c \
-	src/algos/keccak_256.c \
-	src/algos/keccak_384.c \
-	src/algos/keccak_512.c \
+	src/algos/haval_128.c src/algos/haval_160.c src/algos/haval_192.c src/algos/haval_224.c src/algos/haval_256.c \
+	src/algos/keccak_224.c src/algos/keccak_256.c src/algos/keccak_384.c src/algos/keccak_512.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \
 	src/algos/mdc2.c \
-	src/algos/ripemd160.c \
+	src/algos/ripemd128.c src/algos/ripemd160.c src/algos/ripemd256.c src/algos/ripemd320.c \
 	src/algos/sha1.c \
-	src/algos/sha224.c \
-	src/algos/sha256.c \
-	src/algos/sha384.c \
-	src/algos/sha512.c \
-	src/algos/sha512_224.c \
-	src/algos/sha512_256.c \
-	src/algos/sha3_224.c \
-	src/algos/sha3_256.c \
-	src/algos/sha3_384.c \
-	src/algos/sha3_512.c \
+	src/algos/sha224.c src/algos/sha256.c src/algos/sha384.c src/algos/sha512.c src/algos/sha512_224.c src/algos/sha512_256.c \
+	src/algos/sha3_224.c src/algos/sha3_256.c src/algos/sha3_384.c src/algos/sha3_512.c \
 	src/algos/skein_512.c \
 	src/algos/sm3.c \
-	src/algos/snefru_128.c \
-	src/algos/snefru_256.c \
-	src/algos/streebog_256.c \
-	src/algos/streebog_512.c \
+	src/algos/snefru_128.c src/algos/snefru_256.c \
+	src/algos/streebog_256.c src/algos/streebog_512.c \
 	src/algos/sum.c \
 	src/algos/tiger.c \
 	src/algos/tiger2.c \
@@ -127,6 +103,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		BOTAN $(WITH_BOTAN) \
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
+		MHASH $(WITH_MHASH) \
 		NETTLE $(WITH_NETTLE) \
 		NSS $(WITH_NSS) \
 		LIBB2 $(WITH_LIBB2) \

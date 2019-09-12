@@ -116,6 +116,31 @@
 		return out; \
 	}
 
+// Common template for mhash hashes
+// Parameters: xsum-internal name; mhash constant; hash size
+#define XSUM_TEMPLATE_MHASH(p_name_xsum, p_name_mhash, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		MHASH ctx = mhash_init(p_name_mhash); \
+		if (ctx == MHASH_FAILED) { \
+			return NULL; \
+		} \
+		return ctx; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		MHASH ctx = (MHASH) state; \
+		mhash(ctx, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		MHASH ctx = (MHASH) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			mhash_deinit(ctx, NULL); \
+			return NULL; \
+		} \
+		mhash_deinit(ctx, out); \
+		return out; \
+	}
+
 // Common template for nettle hashes
 // Parameters: xsum-internal name; nettle-internal name; hash size
 #define XSUM_TEMPLATE_NETTLE(p_name_xsum, p_name_nettle, p_size) \

@@ -1,0 +1,9 @@
+RIPEMD128:afca668bb766607f8081c2126ad9fd5c  input/binary1
+RIPEMD128:a5eb1644c9b1bb8d1eb727c1f5e6f912  input/binary2
+RIPEMD128:cdf26213a150dc3ecb610f18f6b38b46  input/empty
+RIPEMD128:219e52e023315798ab8959206feec367  input/large1
+RIPEMD128:ad92f2f07aca8e824bfdc7e76423273f  input/large2
+RIPEMD128:ea2d184e2b153698a326db2c092105d4  input/random1
+RIPEMD128:be14661dc7fbc941ed3a0aebf6cf5755  input/random2
+RIPEMD128:c14a12199c66e4ba84636b0f69144c77  input/string1
+RIPEMD128:601ab34c07a83be57fdc67611af179ee  input/string2

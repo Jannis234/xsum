@@ -33,6 +33,11 @@ XSUM_TEMPLATE_RHASH(tiger, RHASH_TIGER, 24)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(tiger, "Tiger", 24)
 
+#elif defined(XSUM_WITH_MHASH_TIGER)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(tiger, MHASH_TIGER192, 24)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(tiger, "Tiger", 24)

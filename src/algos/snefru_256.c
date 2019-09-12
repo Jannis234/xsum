@@ -23,6 +23,11 @@
 #include <rhash.h>
 XSUM_TEMPLATE_RHASH(snefru_256, RHASH_SNEFRU256, 32)
 
+#elif defined(XSUM_WITH_MHASH_SNEFRU)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(snefru_256, MHASH_SNEFRU256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(snefru_256, "Snefru-256", 32)

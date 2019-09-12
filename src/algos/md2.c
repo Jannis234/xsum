@@ -39,6 +39,11 @@ XSUM_TEMPLATE_NSS(md2, SEC_OID_MD2, 16);
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(md2, md2, 16)
 
+#elif defined(XSUM_WITH_MHASH_MD2)
+
+#include <mhash.h>
+XSUM_TEMPLATE_MHASH(md2, MHASH_MD2, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md2, "MD2", 16)

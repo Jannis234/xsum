@@ -69,6 +69,45 @@ XSUM_TEMPLATE_RHASH(crc32, RHASH_CRC32, 4)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(crc32, "CRC32", 4)
 
+#elif defined(XSUM_WITH_MHASH_CRC32)
+
+#include <mhash.h>
+
+void* xsum_crc32_init() {
+	
+	MHASH ctx = mhash_init(MHASH_CRC32B);
+	if (ctx == MHASH_FAILED) {
+		return NULL;
+	}
+	return ctx;
+	
+}
+
+void xsum_crc32_update(void *state, uint8_t *buf, size_t len) {
+	
+	MHASH ctx = (MHASH) state;
+	mhash(ctx, buf, len);
+	
+}
+
+uint8_t* xsum_crc32_final(void *state) {
+	
+	MHASH ctx = (MHASH) state;
+	uint8_t *out = malloc(4);
+	if (out == NULL) {
+		mhash_deinit(ctx, NULL);
+		return NULL;
+	}
+	uint8_t tmp[4];
+	mhash_deinit(ctx, tmp);
+	
+	for (int i = 0; i < 4; i++) { // mhash always returns little endian, need to reverse it
+		out[i] = tmp[3 - i];
+	}
+	return out;
+	
+}
+
 #endif
 
 XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)

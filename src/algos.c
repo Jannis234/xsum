@@ -260,6 +260,21 @@ extern xsum_algo_t xsum_algo_gost94_cryptopro;
 #ifdef XSUM_HAS_HAS160
 extern xsum_algo_t xsum_algo_has160;
 #endif
+#ifdef XSUM_HAS_HAVAL_128
+extern xsum_algo_t xsum_algo_haval_128;
+#endif
+#ifdef XSUM_HAS_HAVAL_160
+extern xsum_algo_t xsum_algo_haval_160;
+#endif
+#ifdef XSUM_HAS_HAVAL_192
+extern xsum_algo_t xsum_algo_haval_192;
+#endif
+#ifdef XSUM_HAS_HAVAL_224
+extern xsum_algo_t xsum_algo_haval_224;
+#endif
+#ifdef XSUM_HAS_HAVAL_256
+extern xsum_algo_t xsum_algo_haval_256;
+#endif
 #ifdef XSUM_HAS_KECCAK_224
 extern xsum_algo_t xsum_algo_keccak_224;
 #endif
@@ -284,8 +299,17 @@ extern xsum_algo_t xsum_algo_md5;
 #ifdef XSUM_HAS_MDC2
 extern xsum_algo_t xsum_algo_mdc2;
 #endif
+#ifdef XSUM_HAS_RIPEMD128
+extern xsum_algo_t xsum_algo_ripemd128;
+#endif
 #ifdef XSUM_HAS_RIPEMD160
 extern xsum_algo_t xsum_algo_ripemd160;
+#endif
+#ifdef XSUM_HAS_RIPEMD256
+extern xsum_algo_t xsum_algo_ripemd256;
+#endif
+#ifdef XSUM_HAS_RIPEMD320
+extern xsum_algo_t xsum_algo_ripemd320;
 #endif
 #ifdef XSUM_HAS_SHA1
 extern xsum_algo_t xsum_algo_sha1;
@@ -673,6 +697,21 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_HAS160
 	&xsum_algo_has160,
 #endif
+#ifdef XSUM_HAS_HAVAL_128
+	&xsum_algo_haval_128,
+#endif
+#ifdef XSUM_HAS_HAVAL_160
+	&xsum_algo_haval_160,
+#endif
+#ifdef XSUM_HAS_HAVAL_192
+	&xsum_algo_haval_192,
+#endif
+#ifdef XSUM_HAS_HAVAL_224
+	&xsum_algo_haval_224,
+#endif
+#ifdef XSUM_HAS_HAVAL_256
+	&xsum_algo_haval_256,
+#endif
 #ifdef XSUM_HAS_KECCAK_224
 	&xsum_algo_keccak_224,
 #endif
@@ -697,8 +736,17 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_MDC2
 	&xsum_algo_mdc2,
 #endif
+#ifdef XSUM_HAS_RIPEMD128
+	&xsum_algo_ripemd128,
+#endif
 #ifdef XSUM_HAS_RIPEMD160
 	&xsum_algo_ripemd160,
+#endif
+#ifdef XSUM_HAS_RIPEMD256
+	&xsum_algo_ripemd256,
+#endif
+#ifdef XSUM_HAS_RIPEMD320
+	&xsum_algo_ripemd320,
 #endif
 #ifdef XSUM_HAS_SHA1
 	&xsum_algo_sha1,
