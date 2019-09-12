@@ -148,7 +148,8 @@ int main(int argc, char **argv) {
 		{ "version", 'v', false, false, NULL },
 		{ "check", 'c', false, false, NULL },
 		{ "quiet", 'q', false, false, NULL },
-		{ "algo", 'a', true, false, NULL },
+		{ "algos", 'a', true, false, NULL },
+		{ "exclude-algos", 'e', true, false, NULL },
 		{ "ignore-unknown", 0, false, false, NULL },
 		{ "ignore-missing", 0, false, false, NULL },
 		{ "list-algos", 0, false, false, NULL }
@@ -181,6 +182,17 @@ int main(int argc, char **argv) {
 		}
 		return RETURN_OK;
 	}
+	int option_algos = xsum_find_option(options, options_count, false, "a");
+	int option_exclude = xsum_find_option(options, options_count, false, "e");
+	int option_check = xsum_find_option(options, options_count, false, "c");
+	if (options[option_algos].found && options[option_exclude].found) {
+		fprintf(stderr, "Can not use --algos and --exclude-algos at the same time\n");
+		return RETURN_ERROR;
+	}
+	if ((options[option_algos].found || options[option_exclude].found) && options[option_check].found) {
+		fprintf(stderr, "Can not use --check and --algos/--exclude-algos at the same time\n");
+		return RETURN_ERROR;
+	}
 	
 	xsum_algo_result_t *results = malloc(sizeof(xsum_algo_result_t) * algos_count);
 	if (results == NULL) {
@@ -188,16 +200,11 @@ int main(int argc, char **argv) {
 		return RETURN_ERROR;
 	}
 	
-	int option_algos = xsum_find_option(options, options_count, false, "a");
-	if (options[option_algos].found) {
-		if (options[xsum_find_option(options, options_count, false, "c")].found) {
-			fprintf(stderr, "Can not use --check and --algo at the same time\n");
-			return RETURN_ERROR;
-		}
+	if (options[option_algos].found || options[option_exclude].found) {
 		for (int i = 0; i < algos_count; i++) {
-			results[i].enabled = false;
+			results[i].enabled = options[option_exclude].found; // Default everything to enabled with --exclude-algos, disabled with --algos
 		}
-		char *arg_out = options[option_algos].arg_out;
+		char *arg_out = (options[option_algos].found) ? options[option_algos].arg_out : options[option_exclude].arg_out;
 		size_t arg_len = strlen(arg_out);
 		size_t item_start = 0;
 		size_t item_end = 0;
@@ -219,9 +226,10 @@ int main(int argc, char **argv) {
 					fputc(arg_out[i], stderr);
 				}
 				fprintf(stderr, "\"\n");
+				free(results);
 				return RETURN_ERROR;
 			}
-			results[algo_index].enabled = true;
+			results[algo_index].enabled = options[option_algos].found; // Enable with --algos, disable with --exclude-algos
 			item_end++;
 			item_start = item_end;
 		}
@@ -239,7 +247,7 @@ int main(int argc, char **argv) {
 	}
 	bool ignore_missing = options[xsum_find_option(options, options_count, true, "ignore-missing")].found;
 	ret = RETURN_OK;
-	if (options[xsum_find_option(options, options_count, false, "c")].found) {
+	if (options[option_check].found) {
 		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		bool quiet = options[xsum_find_option(options, options_count, false, "q")].found;
 		if (files_count == 0) {
