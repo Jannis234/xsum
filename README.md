@@ -78,6 +78,8 @@ Tiger | [botan](https://botan.randombit.net/) [mhash](http://mhash.sourceforge.n
 Tiger2 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) |
 WHIRLPOOL | [botan](https://botan.randombit.net/) [mhash](http://mhash.sourceforge.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵⁶ |
 XOR | (Built in) | XOR of all input bytes
+xxHash32 | [xxhash](http://www.xxhash.com/) |
+xxHash64 | [xxhash](http://www.xxhash.com/) |
 
 ¹) libgcrypt 1.8.0 or higher required for BLAKE2
 

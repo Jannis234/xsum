@@ -52,7 +52,8 @@ SRC = src/main.c \
 	src/algos/tiger.c \
 	src/algos/tiger2.c \
 	src/algos/whirlpool.c \
-	src/algos/xor.c
+	src/algos/xor.c \
+	src/algos/xxhash32.c src/algos/xxhash64.c
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall check
 
@@ -112,6 +113,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		LIBSODIUM $(WITH_LIBSODIUM) \
 		OPENSSL $(WITH_OPENSSL) \
 		RHASH $(WITH_RHASH) \
+		XXHASH $(WITH_XXHASH) \
 		ZLIB $(WITH_ZLIB) \
 		> src/include/config_generated.h
 

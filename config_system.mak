@@ -95,6 +95,10 @@ CFLAGS += $(shell $(PKG_CONFIG) --cflags librhash)
 LIBS += $(shell $(PKG_CONFIG) --libs librhash)
 endif
 
+ifeq ($(WITH_XXHASH), 1)
+LIBS += -lxxhash
+endif
+
 ifeq ($(WITH_ZLIB), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags zlib)
 LIBS += $(shell $(PKG_CONFIG) --libs zlib)

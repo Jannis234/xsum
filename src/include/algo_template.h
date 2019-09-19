@@ -388,4 +388,34 @@
 		return out; \
 	}
 
+// Template for xxhash
+// Parameters: hash size in bits
+#define XSUM_TEMPLATE_XXHASH(p_size) \
+	void* xsum_xxhash##p_size##_init() { \
+		XXH##p_size##_state_t *s = XXH##p_size##_createState(); \
+		if (s == NULL) { \
+			return NULL; \
+		} \
+		XXH##p_size##_reset(s, 0); \
+		return s; \
+	} \
+	void xsum_xxhash##p_size##_update(void *state, uint8_t *buf, size_t len) { \
+		XXH##p_size##_state_t *s = (XXH##p_size##_state_t*) state; \
+		XXH##p_size##_update(s, buf, len); \
+	} \
+	uint8_t* xsum_xxhash##p_size##_final(void *state) { \
+		XXH##p_size##_state_t *s = (XXH##p_size##_state_t*) state; \
+		uint8_t *out = malloc(p_size / 8); \
+		if (out == NULL) { \
+			XXH##p_size##_freeState(s); \
+			return NULL; \
+		} \
+		XXH##p_size##_hash_t hash = XXH##p_size##_digest(s); \
+		XXH##p_size##_canonical_t hash_canonical; \
+		XXH##p_size##_canonicalFromHash(&hash_canonical, hash); \
+		memcpy(out, hash_canonical.digest, p_size / 8); \
+		XXH##p_size##_freeState(s); \
+		return out; \
+	}
+
 #endif

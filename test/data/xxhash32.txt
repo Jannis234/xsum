@@ -1,0 +1,9 @@
+xxHash32:59441253  input/binary1
+xxHash32:4dfb3fd0  input/binary2
+xxHash32:02cc5d05  input/empty
+xxHash32:92fd7343  input/large1
+xxHash32:67942d3b  input/large2
+xxHash32:448dc0d7  input/random1
+xxHash32:4828bdc4  input/random2
+xxHash32:32d153ff  input/string1
+xxHash32:794b91c3  input/string2

@@ -42,7 +42,10 @@ CHECKS = check_adler_32 \
 	check_skein_512_8 check_skein_512_16 check_skein_512_24 check_skein_512_32 check_skein_512_40 check_skein_512_48 check_skein_512_56 check_skein_512_64 check_skein_512_72 check_skein_512_80 check_skein_512_88 check_skein_512_96 check_skein_512_104 check_skein_512_112 check_skein_512_120 check_skein_512_128 check_skein_512_136 check_skein_512_144 check_skein_512_152 check_skein_512_160 check_skein_512_168 check_skein_512_176 check_skein_512_184 check_skein_512_192 check_skein_512_200 check_skein_512_208 check_skein_512_216 check_skein_512_224 check_skein_512_232 check_skein_512_240 check_skein_512_248 check_skein_512_256 check_skein_512_264 check_skein_512_272 check_skein_512_280 check_skein_512_288 check_skein_512_296 check_skein_512_304 check_skein_512_312 check_skein_512_320 check_skein_512_328 check_skein_512_336 check_skein_512_344 check_skein_512_352 check_skein_512_360 check_skein_512_368 check_skein_512_376 check_skein_512_384 check_skein_512_392 check_skein_512_400 check_skein_512_408 check_skein_512_416 check_skein_512_424 check_skein_512_432 check_skein_512_440 check_skein_512_448 check_skein_512_456 check_skein_512_464 check_skein_512_472 check_skein_512_480 check_skein_512_488 check_skein_512_496 check_skein_512_504 check_skein_512_512 \
 	check_sm3 \
 	check_snefru_128 check_snefru_256 \
-	check_streebog_256 check_streebog_512
+	check_streebog_256 check_streebog_512 \
+	check_sum \
+	check_xor \
+	check_xxhash32 check_xxhash64
 
 .PHONY: check clean $(CHECKS)
 
@@ -967,3 +970,9 @@ check_whirlpool: $(INPUT_DEPEND) data/whirlpool.txt
 
 check_xor: $(INPUT_DEPEND) data/xor.txt
 	$(XSUM) -c data/xor.txt
+
+check_xxhash32: $(INPUT_DEPEND) data/xxhash32.txt
+	$(XSUM) -c data/xxhash32.txt
+
+check_xxhash64: $(INPUT_DEPEND) data/xxhash64.txt
+	$(XSUM) -c data/xxhash64.txt

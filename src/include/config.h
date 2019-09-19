@@ -256,6 +256,10 @@
 	#define XSUM_WITH_RHASH
 #endif
 
+#if (XSUM_CONFIG_XXHASH == 1)
+	#define XSUM_WITH_XXHASH
+#endif
+
 #if (XSUM_CONFIG_ZLIB == 1)
 	#define XSUM_WITH_ZLIB
 #endif
@@ -494,6 +498,14 @@
 
 #if defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_WHIRLPOOL) || defined(XSUM_WITH_BOTAN_WHIRLPOOL) || defined(XSUM_WITH_OPENSSL_WHIRLPOOL) || defined(XSUM_WITH_MHASH_WHIRLPOOL)
 	#define XSUM_HAS_WHIRLPOOL
+#endif
+
+#if defined(XSUM_WITH_XXHASH)
+	#define XSUM_HAS_XXHASH32
+#endif
+
+#if defined(XSUM_WITH_XXHASH)
+	#define XSUM_HAS_XXHASH64
 #endif
 
 #endif

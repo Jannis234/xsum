@@ -440,6 +440,12 @@ extern xsum_algo_t xsum_algo_whirlpool;
 #ifdef XSUM_HAS_XOR
 extern xsum_algo_t xsum_algo_xor;
 #endif
+#ifdef XSUM_HAS_XXHASH32
+extern xsum_algo_t xsum_algo_xxhash32;
+#endif
+#ifdef XSUM_HAS_XXHASH64
+extern xsum_algo_t xsum_algo_xxhash64;
+#endif
 
 xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_ADLER_32
@@ -876,6 +882,12 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_XOR
 	&xsum_algo_xor,
+#endif
+#ifdef XSUM_HAS_XXHASH32
+	&xsum_algo_xxhash32,
+#endif
+#ifdef XSUM_HAS_XXHASH64
+	&xsum_algo_xxhash64,
 #endif
 	NULL // End of array indicator
 };
