@@ -51,6 +51,13 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 		return RETURN_FILE_ERROR;
 	}
 	
+	uint8_t *buf = malloc(BUFSIZE);
+	if (buf == NULL) {
+		fprintf(stderr, "%s: Out of memory\n", filename);
+		fclose(fd);
+		return RETURN_FILE_ERROR;
+	}
+	
 	for (int i = 0; i < algos_count; i++) {
 		if (results[i].enabled) {
 			results[i].state = xsum_algos[i]->func_init();
@@ -65,16 +72,10 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 					}
 				}
 				fclose(fd);
+				free(buf);
 				return RETURN_FILE_ERROR;
 			}
 		}
-	}
-	
-	uint8_t *buf = malloc(BUFSIZE);
-	if (buf == NULL) {
-		fprintf(stderr, "%s: Out of memory\n", filename);
-		fclose(fd);
-		return RETURN_FILE_ERROR;
 	}
 	
 	size_t bytes_read = 0;
