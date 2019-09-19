@@ -26,6 +26,11 @@
 
 #define BUFSIZE (1024 * 100)
 
+#ifdef XSUM_WITH_OPENMP
+#include <omp.h>
+uint32_t xsum_threads;
+#endif
+
 int print_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing) {
 	
 	int ret = xsum_process(filename, results, algos_count, ignore_missing);
@@ -152,7 +157,10 @@ int main(int argc, char **argv) {
 		{ "exclude-algos", 'e', true, false, NULL },
 		{ "ignore-unknown", 0, false, false, NULL },
 		{ "ignore-missing", 0, false, false, NULL },
-		{ "list-algos", 0, false, false, NULL }
+		{ "list-algos", 0, false, false, NULL },
+#ifdef XSUM_WITH_OPENMP
+		{ "threads", 't', true, false, NULL },
+#endif
 	};
 	size_t options_count = sizeof(options) / sizeof(xsum_argparse_t);
 	bool *argv_filenames = malloc(sizeof(bool) * (argc + 1));
@@ -193,6 +201,27 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "Can not use --check and --algos/--exclude-algos at the same time\n");
 		return RETURN_ERROR;
 	}
+#ifdef XSUM_WITH_OPENMP
+	xsum_threads = 0;
+	int option_threads = xsum_find_option(options, options_count, false, "t");
+	if (options[option_threads].found) {
+		char *endptr;
+		xsum_threads = strtol(options[option_threads].arg_out, &endptr, 10);
+		if (*endptr != 0) {
+			fprintf(stderr, "Invalid argument for --threads\n");
+			free(argv_filenames);
+			return RETURN_ERROR;
+		}
+		if (xsum_threads > omp_get_thread_limit()) {
+			fprintf(stderr, "Invalid number of threads\n");
+			free(argv_filenames);
+			return RETURN_ERROR;
+		}
+		if (xsum_threads != 0) {
+			omp_set_num_threads(xsum_threads);
+		}
+	}
+#endif
 	
 	xsum_algo_result_t *results = malloc(sizeof(xsum_algo_result_t) * algos_count);
 	if (results == NULL) {

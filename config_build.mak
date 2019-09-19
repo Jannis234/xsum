@@ -15,6 +15,8 @@
 
 XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
+WITH_OPENMP = 1
+
 WITH_BOTAN = 1
 WITH_GNUTLS = 1
 WITH_MBEDTLS = 1

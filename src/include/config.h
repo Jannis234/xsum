@@ -18,6 +18,10 @@
 
 #include "config_generated.h"
 
+#if (XSUM_CONFIG_OPENMP == 1)
+	#define XSUM_WITH_OPENMP
+#endif
+
 #if (XSUM_CONFIG_BOTAN == 1)
 	#include <botan/build.h>
 	#ifdef BOTAN_HAS_ADLER32

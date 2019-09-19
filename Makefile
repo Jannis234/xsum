@@ -101,6 +101,7 @@ depend.mak: $(SRC:.c=.d)
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
 	sh src/gen_config.sh $(XSUM_VERSION) \
+		OPENMP $(WITH_OPENMP) \
 		BOTAN $(WITH_BOTAN) \
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \

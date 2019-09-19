@@ -37,6 +37,11 @@ LDFLAGS =
 LIBS = 
 EXEEXT = 
 
+ifeq ($(WITH_OPENMP), 1)
+CFLAGS += -fopenmp
+LDFLAGS += -fopenmp
+endif
+
 ifeq ($(WITH_BOTAN), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags botan-2)
 LIBS += $(shell $(PKG_CONFIG) --libs botan-2)

@@ -15,6 +15,7 @@
 
 #include <errno.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,6 +24,11 @@
 #include "xsum.h"
 
 #define BUFSIZE (1024 * 1024)
+
+#ifdef XSUM_WITH_OPENMP
+#define BUFSIZE_MAX (1024 * 1024 * 128) // Maximum amount of memory with openmp enabled (no significant performance benefit from using more)
+extern uint32_t xsum_threads;
+#endif
 
 int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing) {
 	
@@ -79,15 +85,30 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 	}
 	
 	size_t bytes_read = 0;
+	size_t bufsize = BUFSIZE;
 	do {
-		bytes_read = fread(buf, 1, BUFSIZE, fd);
+		bytes_read = fread(buf, 1, bufsize, fd);
 		if (bytes_read > 0) {
+#ifdef XSUM_WITH_OPENMP
+			#pragma omp parallel for
+#endif
 			for (int i = 0; i < algos_count; i++) {
 				if (results[i].enabled) {
 					xsum_algos[i]->func_update(results[i].state, buf, bytes_read);
 				}
 			}
 		}
+#ifdef XSUM_WITH_OPENMP
+		if (xsum_threads != 1) {
+			if (bufsize < BUFSIZE_MAX) { // With a small buffer, we get bottlenecked by the slowest algorithm(s), slowly grow it when processing a large file
+				uint8_t *newbuf = realloc(buf, bufsize * 2);
+				if (newbuf != NULL) {
+					buf = newbuf;
+					bufsize *= 2;
+				}
+			}
+		}
+#endif
 	} while (bytes_read > 0);
 	free(buf);
 	if (!feof(fd)) {
