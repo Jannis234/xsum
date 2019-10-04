@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 	FILE *fd;
 	
 	// Simple ASCII-only string
-	fd = fopen("input/string1", "w");
+	fd = fopen("input/string1", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
 	}
 	fclose(fd);
 	string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	fd = fopen("input/string2", "w");
+	fd = fopen("input/string2", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 	fclose(fd);
 	
 	// Simple binary file
-	fd = fopen("input/binary1", "w");
+	fd = fopen("input/binary1", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 	fclose(fd);
-	fd = fopen("input/binary2", "w");
+	fd = fopen("input/binary2", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
 	fclose(fd);
 	
 	// Large file (10 + 50MiB)
-	fd = fopen("input/large1", "w");
+	fd = fopen("input/large1", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
 		size--;
 	}
 	fclose(fd);
-	fd = fopen("input/large2", "w");
+	fd = fopen("input/large2", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -122,7 +122,7 @@ int main(int argc, char **argv) {
 	fclose(fd);
 	
 	// Pseudorandom data (1 MiB + 512 KiB)
-	fd = fopen("input/random1", "w");
+	fd = fopen("input/random1", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -138,7 +138,7 @@ int main(int argc, char **argv) {
 		size--;
 	}
 	fclose(fd);
-	fd = fopen("input/random2", "w");
+	fd = fopen("input/random2", "wb");
 	if (fd == NULL) {
 		return 1;
 	}
@@ -156,7 +156,7 @@ int main(int argc, char **argv) {
 	fclose(fd);
 	
 	// Empty input
-	fd = fopen("input/empty", "w");
+	fd = fopen("input/empty", "wb");
 	if (fd == NULL) {
 		return 1;
 	}

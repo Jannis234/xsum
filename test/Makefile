@@ -15,7 +15,7 @@
 
 CFLAGS = $(CCFLAGS) -std=c99 -Wall
 # --ignore-unknown to skip algorithms that are not compiled in
-XSUM = ../xsum --ignore-unknown
+XSUM = ../xsum$(EXEEXT) --ignore-unknown
 
 # Depend on the last file that make_input creates (in case it aborts early)
 INPUT_DEPEND = input/empty

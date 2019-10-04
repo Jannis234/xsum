@@ -57,6 +57,29 @@ run_test() {
 		WITH_RHASH=$WITH_RHASH \
 		WITH_XXHASH=$WITH_XXHASH \
 		WITH_ZLIB=$WITH_ZLIB \
+		WITH_WINDOWS_CNG=0 \
+		|| exit 1
+}
+
+run_test_windows() {
+	make clean
+	make BUILD=x86_64-pc-mingw32- EXEEXT=.exe XSUM="wine ../xsum.exe --ignore-unknown" -j check \
+		WITH_OPENMP=0 \
+		WITH_BOTAN=0 \
+		WITH_GNUTLS=0 \
+		WITH_MBEDTLS=0 \
+		WITH_MHASH=0 \
+		WITH_NETTLE=0 \
+		WITH_NSS=0 \
+		WITH_LIBB2=0 \
+		WITH_LIBGCRYPT=0 \
+		WITH_LIBLZMA=0 \
+		WITH_LIBSODIUM=0 \
+		WITH_OPENSSL=0 \
+		WITH_RHASH=0 \
+		WITH_XXHASH=0 \
+		WITH_ZLIB=0 \
+		WITH_WINDOWS_CNG=1 \
 		|| exit 1
 }
 
@@ -116,4 +139,5 @@ WITH_ZLIB=1
 run_test
 WITH_ZLIB=0
 
-make clean
+run_test_windows
+make EXEEXT=.exe clean
