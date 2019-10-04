@@ -84,6 +84,32 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 		}
 	}
 	
+#if defined(XSUM_WITH_OPENMP) && defined(XSUM_WITH_LIBB2)
+	// libb2 uses OpenMP for BLAKE2sp/BLAKE2bp and produces incorrect output when called from a thread that also uses OpenMP
+	// Remember what is enabled now and run it from a regular (single-threaded) loop later
+	bool blake2sp_enabled[32];
+	bool blake2bp_enabled[64];
+	int blake2sp_offset = 0;
+	int blake2bp_offset = 0;
+	for (int i = 0; i < algos_count; i++) {
+		if (strcmp(xsum_algos[i]->name, "BLAKE2sp-8") == 0) {
+			blake2sp_offset = i;
+			i += 32;
+		} else if (strcmp(xsum_algos[i]->name, "BLAKE2bp-8") == 0) {
+			blake2bp_offset = i;
+			i += 64;
+		}
+	}
+	for (int i = 0; i < 32; i++) {
+		blake2sp_enabled[i] = results[blake2sp_offset + i].enabled;
+		results[blake2sp_offset + i].enabled = false;
+	}
+	for (int i = 0; i < 64; i++) {
+		blake2bp_enabled[i] = results[blake2bp_offset + i].enabled;
+		results[blake2bp_offset + i].enabled = false;
+	}
+#endif
+	
 	size_t bytes_read = 0;
 	size_t bufsize = BUFSIZE;
 	do {
@@ -97,6 +123,18 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 					xsum_algos[i]->func_update(results[i].state, buf, bytes_read);
 				}
 			}
+#if defined(XSUM_WITH_OPENMP) && defined(XSUM_WITH_LIBB2)
+			for (int i = 0; i < 32; i++) {
+				if (blake2sp_enabled[i]) {
+					xsum_algos[blake2sp_offset + i]->func_update(results[blake2sp_offset + i].state, buf, bytes_read);
+				}
+			}
+			for (int i = 0; i < 64; i++) {
+				if (blake2bp_enabled[i]) {
+					xsum_algos[blake2bp_offset + i]->func_update(results[blake2bp_offset + i].state, buf, bytes_read);
+				}
+			}
+#endif
 		}
 #ifdef XSUM_WITH_OPENMP
 		if (xsum_threads != 1) {
@@ -110,6 +148,14 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 		}
 #endif
 	} while (bytes_read > 0);
+#if defined(XSUM_WITH_OPENMP) && defined(XSUM_WITH_LIBB2)
+	for (int i = 0; i < 32; i++) {
+		results[blake2sp_offset + i].enabled = blake2sp_enabled[i];
+	}
+	for (int i = 0; i < 64; i++) {
+		results[blake2bp_offset + i].enabled = blake2bp_enabled[i];
+	}
+#endif
 	free(buf);
 	if (!feof(fd)) {
 		fprintf(stderr, "%s: Unable to read file\n", filename);
