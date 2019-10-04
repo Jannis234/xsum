@@ -418,4 +418,64 @@
 		return out; \
 	}
 
+// Template for windows CNG hashes
+// Parameters: xsum-internal name; CNG constant; hash size
+#define XSUM_TEMPLATE_WIN_CNG(p_name_xsum, p_name_bcrypt, p_size) \
+	typedef struct { \
+		BCRYPT_ALG_HANDLE algo; \
+		BCRYPT_HASH_HANDLE hash; \
+		void *object; \
+	} xsum_win_cng_state_t; \
+	void* xsum_##p_name_xsum##_init() { \
+		xsum_win_cng_state_t *state = malloc(sizeof(xsum_win_cng_state_t)); \
+		if (state == NULL) { \
+			return NULL; \
+		} \
+		if (BCryptOpenAlgorithmProvider(&state->algo, p_name_bcrypt, NULL, 0) != STATUS_SUCCESS) { \
+			free(state); \
+			return NULL; \
+		} \
+		size_t object_size = 0; \
+		unsigned long dummy; \
+		if (BCryptGetProperty(state->algo, BCRYPT_OBJECT_LENGTH, (uint8_t*) object_size, sizeof(size_t), &dummy, 0) != STATUS_SUCCESS) { \
+			BCryptCloseAlgorithmProvider(state->algo, 0); \
+			free(state); \
+			return NULL; \
+		} \
+		state->object = malloc(object_size); \
+		if (state->object == NULL) { \
+			BCryptCloseAlgorithmProvider(state->algo, 0); \
+			free(state); \
+			return NULL; \
+		} \
+		if (BCryptCreateHash(state->algo, &state->hash, state->object, object_size, NULL, 0, 0) != STATUS_SUCCESS) { \
+			BCryptCloseAlgorithmProvider(state->algo, 0); \
+			free(state->object); \
+			free(state); \
+			return NULL; \
+		} \
+		return state; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		xsum_win_cng_state_t *s = (xsum_win_cng_state_t*) state; \
+		BCryptHashData(s->hash, buf, len, 0); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		xsum_win_cng_state_t *s = (xsum_win_cng_state_t*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			BCryptDestroyHash(s->hash); \
+			BCryptCloseAlgorithmProvider(s->algo, 0); \
+			free(s->object); \
+			free(s); \
+			return NULL; \
+		} \
+		BCryptFinishHash(s->hash, out, p_size, 0); \
+		BCryptDestroyHash(s->hash); \
+		BCryptCloseAlgorithmProvider(s->algo, 0); \
+		free(s->object); \
+		free(s); \
+		return out; \
+	}
+
 #endif

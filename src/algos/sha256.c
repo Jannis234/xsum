@@ -70,6 +70,13 @@ XSUM_TEMPLATE_OPENSSL(sha256, sha256, 32)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(sha256, MHASH_SHA256, 32)
 
+#elif defined(XSUM_WITH_WIN_CNG)
+
+#include <windows.h>
+#include <bcrypt.h>
+#include <ntstatus.h>
+XSUM_TEMPLATE_WIN_CNG(sha256, BCRYPT_SHA256_ALGORITHM, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha256, "SHA256", 32)

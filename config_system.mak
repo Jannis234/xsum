@@ -108,3 +108,7 @@ ifeq ($(WITH_ZLIB), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags zlib)
 LIBS += $(shell $(PKG_CONFIG) --libs zlib)
 endif
+
+ifeq ($(WITH_WINDOWS_CNG), 1)
+LIBS += -lbcrypt
+endif

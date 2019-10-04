@@ -65,6 +65,13 @@ XSUM_TEMPLATE_OPENSSL(sha1, sha1, 20)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(sha1, MHASH_SHA1, 20)
 
+#elif defined(XSUM_WITH_WIN_CNG)
+
+#include <windows.h>
+#include <bcrypt.h>
+#include <ntstatus.h>
+XSUM_TEMPLATE_WIN_CNG(sha1, BCRYPT_SHA1_ALGORITHM, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha1, "SHA1", 20)

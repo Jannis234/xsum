@@ -116,6 +116,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		RHASH $(WITH_RHASH) \
 		XXHASH $(WITH_XXHASH) \
 		ZLIB $(WITH_ZLIB) \
+		WIN_CNG $(WITH_WINDOWS_CNG) \
 		> src/include/config_generated.h
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h

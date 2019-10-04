@@ -44,6 +44,13 @@ XSUM_TEMPLATE_OPENSSL(md2, md2, 16)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(md2, MHASH_MD2, 16)
 
+#elif defined(XSUM_WITH_WIN_CNG)
+
+#include <windows.h>
+#include <bcrypt.h>
+#include <ntstatus.h>
+XSUM_TEMPLATE_WIN_CNG(md2, BCRYPT_MD2_ALGORITHM, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md2, "MD2", 16)

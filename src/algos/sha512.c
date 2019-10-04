@@ -70,6 +70,13 @@ XSUM_TEMPLATE_OPENSSL(sha512, sha512, 64)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(sha512, MHASH_SHA512, 64)
 
+#elif defined(XSUM_WITH_WIN_CNG)
+
+#include <windows.h>
+#include <bcrypt.h>
+#include <ntstatus.h>
+XSUM_TEMPLATE_WIN_CNG(sha512, BCRYPT_SHA512_ALGORITHM, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512, "SHA512", 64)
