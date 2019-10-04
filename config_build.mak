@@ -15,8 +15,10 @@
 
 XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
+# Enable multithreading on a compiler that supports OpenMP
 WITH_OPENMP = 1
 
+# External libraries containing that actual hashes
 WITH_BOTAN = 1
 WITH_GNUTLS = 1
 WITH_MBEDTLS = 1
@@ -27,9 +29,10 @@ WITH_LIBB2 = 1
 WITH_LIBGCRYPT = 1
 WITH_LIBLZMA = 1
 WITH_LIBSODIUM = 1
-WITH_OPENSSL = 0
+WITH_OPENSSL = 0 # Potential license conflict, see README.md
 WITH_RHASH = 1
 WITH_XXHASH = 1
 WITH_ZLIB = 1
 
+# Enable on windows to use the windows API for hashing
 WITH_WINDOWS_CNG = 0
