@@ -73,7 +73,7 @@ install-cli: cli
 	$(INSTALL) xsum$(EXEEXT) $(BINDIR)
 
 install-man: man
-	mkdir -p $(MANDIR)
+	mkdir -p $(MANDIR)/man1
 	$(INSTALL) -m 644 xsum.1 $(MANDIR)/man1
 
 uninstall:
