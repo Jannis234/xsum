@@ -18,6 +18,13 @@
 
 #include "config_generated.h"
 
+#include <unistd.h>
+#ifdef _POSIX_MAPPED_FILES
+	#if (_POSIX_MAPPED_FILES > 0)
+		#define XSUM_WITH_MMAP
+	#endif
+#endif
+
 #if (XSUM_CONFIG_OPENMP == 1)
 	#define XSUM_WITH_OPENMP
 #endif

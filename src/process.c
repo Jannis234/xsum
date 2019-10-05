@@ -21,7 +21,12 @@
 #include <string.h>
 #include "algos.h"
 #include "cli.h"
+#include "config.h"
 #include "xsum.h"
+#ifdef XSUM_WITH_MMAP
+#include <sys/mman.h>
+#include <sys/stat.h>
+#endif
 
 #define BUFSIZE (1024 * 1024)
 
@@ -57,11 +62,30 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 		return RETURN_FILE_ERROR;
 	}
 	
-	uint8_t *buf = malloc(BUFSIZE);
-	if (buf == NULL) {
-		fprintf(stderr, "%s: Out of memory\n", filename);
-		fclose(fd);
-		return RETURN_FILE_ERROR;
+	bool use_mmap = false;
+	uint8_t *buf = NULL;
+	size_t bytes_read = 0;
+#ifdef XSUM_WITH_MMAP
+	if (fd != stdin) {
+		int fd2 = fileno(fd);
+		struct stat s;
+		if (fstat(fd2, &s) == 0) {
+			buf = mmap(NULL, s.st_size, PROT_READ, MAP_SHARED, fd2, 0);
+			if (buf != MAP_FAILED) {
+				use_mmap = true;
+				bytes_read = s.st_size;
+			}
+		}
+	}
+#endif
+	
+	if (!use_mmap) {
+		buf = malloc(BUFSIZE);
+		if (buf == NULL) {
+			fprintf(stderr, "%s: Out of memory\n", filename);
+			fclose(fd);
+			return RETURN_FILE_ERROR;
+		}
 	}
 	
 	for (int i = 0; i < algos_count; i++) {
@@ -110,10 +134,11 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 	}
 #endif
 	
-	size_t bytes_read = 0;
 	size_t bufsize = BUFSIZE;
 	do {
-		bytes_read = fread(buf, 1, bufsize, fd);
+		if (!use_mmap) {
+			bytes_read = fread(buf, 1, bufsize, fd);
+		}
 		if (bytes_read > 0) {
 #ifdef XSUM_WITH_OPENMP
 			#pragma omp parallel for
@@ -137,7 +162,7 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 #endif
 		}
 #ifdef XSUM_WITH_OPENMP
-		if (xsum_threads != 1) {
+		if (xsum_threads != 1 && !use_mmap) {
 			if (bufsize < BUFSIZE_MAX) { // With a small buffer, we get bottlenecked by the slowest algorithm(s), slowly grow it when processing a large file
 				uint8_t *newbuf = realloc(buf, bufsize * 2);
 				if (newbuf != NULL) {
@@ -145,6 +170,9 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 					bufsize *= 2;
 				}
 			}
+		}
+		if (use_mmap) {
+			break; // Only do a single loop iteration with mmap
 		}
 #endif
 	} while (bytes_read > 0);
@@ -156,12 +184,19 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 		results[blake2bp_offset + i].enabled = blake2bp_enabled[i];
 	}
 #endif
-	free(buf);
-	if (!feof(fd)) {
-		fprintf(stderr, "%s: Unable to read file\n", filename);
-		fclose(fd);
-		return RETURN_FILE_ERROR;
+	if (!use_mmap) {
+		free(buf);
+		if (!feof(fd)) {
+			fprintf(stderr, "%s: Unable to read file\n", filename);
+			fclose(fd);
+			return RETURN_FILE_ERROR;
+		}
 	}
+#ifdef XSUM_WITH_MMAP
+	if (use_mmap) {
+		munmap(buf, bytes_read);
+	}
+#endif
 	fclose(fd);
 	
 	bool error_memory = false;
