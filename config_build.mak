@@ -29,7 +29,8 @@ WITH_LIBB2 = 1
 WITH_LIBGCRYPT = 1
 WITH_LIBLZMA = 1
 WITH_LIBSODIUM = 1
-WITH_OPENSSL = 0 # Potential license conflict, see README.md
+# Potential license conflict, see README.md
+WITH_OPENSSL = 0
 WITH_RHASH = 1
 WITH_XXHASH = 1
 WITH_ZLIB = 1
