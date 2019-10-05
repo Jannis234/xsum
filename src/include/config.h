@@ -31,6 +31,7 @@
 
 #if (XSUM_CONFIG_BOTAN == 1)
 	#include <botan/build.h>
+	#define XSUM_WITH_BOTAN
 	#ifdef BOTAN_HAS_ADLER32
 		#define XSUM_WITH_BOTAN_ADLER_32
 	#endif
@@ -124,6 +125,7 @@
 
 #if (XSUM_CONFIG_MHASH == 1)
 	#include <mhash.h>
+	#define XSUM_WITH_MHASH
 	#ifdef ENABLE_ADLER32
 		#define XSUM_WITH_MHASH_ADLER32
 	#endif
@@ -205,6 +207,7 @@
 #if (XSUM_CONFIG_OPENSSL == 1)
 	#include <openssl/opensslv.h>
 	#include <openssl/evp.h>
+	#define XSUM_WITH_OPENSSL
 	#if !defined(OPENSSL_NO_BLAKE2) && !defined(LIBRESSL_VERSION_NUMBER) && (OPENSSL_VERSION_NUMBER >= 0x1010000)
 		#define XSUM_WITH_OPENSSL_BLAKE2
 	#endif

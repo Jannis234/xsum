@@ -22,8 +22,6 @@ void xsum_print_help() {
 	printf("\n");
 	printf("If no file is specified, data is read from standard input\n");
 	printf("\n");
-	printf("  -h, --help:          Show this message and exit\n");
-	printf("  -v, --version:       Show xsum's version number and exit\n");
 	printf("  -c, --check:         Read checksums from FILE(S) and verify them\n");
 	printf("  -q, --quiet:         Don't print status information while checking\n");
 	printf("  --ignore-unknown:    Don't report an error after encountering unknown\n");
@@ -36,6 +34,9 @@ void xsum_print_help() {
 	printf("  -t, --threads:       Set the amount of threads that xsum should use\n");
 	printf("                       Set this to 0 to use all processors (default)\n");
 #endif
+	printf("  -h, --help:          Show this message and exit\n");
+	printf("  -v, --version:       Show xsum's version number and exit\n");
+	printf("  --debug:             Show information about this build of xsum and exit\n");
 	 
 }
 

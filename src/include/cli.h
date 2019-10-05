@@ -45,5 +45,6 @@ int xsum_lib_init();
 
 void xsum_print_help();
 void xsum_print_version();
+void xsum_build_info();
 
 #endif

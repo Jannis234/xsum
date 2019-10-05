@@ -151,6 +151,7 @@ int main(int argc, char **argv) {
 	xsum_argparse_t options[] = {
 		{ "help", 'h', false, false, NULL },
 		{ "version", 'v', false, false, NULL },
+		{ "debug", 0, false, false, NULL },
 		{ "check", 'c', false, false, NULL },
 		{ "quiet", 'q', false, false, NULL },
 		{ "algos", 'a', true, false, NULL },
@@ -169,6 +170,7 @@ int main(int argc, char **argv) {
 		return RETURN_ERROR;
 	}
 	if (!xsum_argparse(options, options_count, argv, argc, argv_filenames)) {
+		free(argv_filenames);
 		return RETURN_ERROR;
 	}
 	
@@ -179,15 +181,22 @@ int main(int argc, char **argv) {
 	
 	if (options[xsum_find_option(options, options_count, false, "h")].found) {
 		xsum_print_help();
+		free(argv_filenames);
 		return RETURN_OK;
 	} else if (options[xsum_find_option(options, options_count, false, "v")].found) {
 		xsum_print_version();
+		free(argv_filenames);
+		return RETURN_OK;
+	} else if (options[xsum_find_option(options, options_count, true, "debug")].found) {
+		xsum_build_info();
+		free(argv_filenames);
 		return RETURN_OK;
 	} else if (options[xsum_find_option(options, options_count, true, "list-algos")].found) {
 		printf("Supported algorithms:\n");
 		for (int i = 0; i < algos_count; i++) {
 			printf("  %s\n", xsum_algos[i]->name);
 		}
+		free(argv_filenames);
 		return RETURN_OK;
 	}
 	int option_algos = xsum_find_option(options, options_count, false, "a");
@@ -195,10 +204,12 @@ int main(int argc, char **argv) {
 	int option_check = xsum_find_option(options, options_count, false, "c");
 	if (options[option_algos].found && options[option_exclude].found) {
 		fprintf(stderr, "Can not use --algos and --exclude-algos at the same time\n");
+		free(argv_filenames);
 		return RETURN_ERROR;
 	}
 	if ((options[option_algos].found || options[option_exclude].found) && options[option_check].found) {
 		fprintf(stderr, "Can not use --check and --algos/--exclude-algos at the same time\n");
+		free(argv_filenames);
 		return RETURN_ERROR;
 	}
 #ifdef XSUM_WITH_OPENMP
