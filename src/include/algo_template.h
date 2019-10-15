@@ -52,6 +52,33 @@
 		return out; \
 	}
 
+// Common template for glib hashes
+// Parameters: xsum-internal name; glib constant; hash size
+#define XSUM_TEMPLATE_GLIB(p_name_xsum, p_name_glib, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		GChecksum *gc = g_checksum_new(p_name_glib); \
+		if (gc == NULL) { \
+			return NULL; \
+		} \
+		return gc; \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		GChecksum *gc = (GChecksum*) state; \
+		g_checksum_update(gc, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		GChecksum *gc = (GChecksum*) state; \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			g_checksum_free(gc); \
+			return NULL; \
+		} \
+		gsize len = p_size; \
+		g_checksum_get_digest(gc, out, &len); \
+		g_checksum_free(gc); \
+		return out; \
+	}
+
 // Common template for gnutls hashes
 // Parameters: xsum-internal name; gnutls constant; hash size
 #define XSUM_TEMPLATE_GNUTLS(p_name_xsum, p_name_gnutls, p_size) \

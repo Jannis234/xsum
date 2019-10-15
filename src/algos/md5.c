@@ -72,6 +72,11 @@ XSUM_TEMPLATE_MHASH(md5, MHASH_MD5, 16)
 #include <ntstatus.h>
 XSUM_TEMPLATE_WIN_CNG(md5, BCRYPT_MD5_ALGORITHM, 16)
 
+#elif defined(XSUM_WITH_GLIB)
+
+#include <glib.h>
+XSUM_TEMPLATE_GLIB(md5, G_CHECKSUM_MD5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

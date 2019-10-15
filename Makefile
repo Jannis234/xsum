@@ -104,6 +104,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 	sh src/gen_config.sh $(XSUM_VERSION) \
 		OPENMP $(WITH_OPENMP) \
 		BOTAN $(WITH_BOTAN) \
+		GLIB $(WITH_GLIB) \
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
 		MHASH $(WITH_MHASH) \

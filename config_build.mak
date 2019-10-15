@@ -13,14 +13,14 @@
 # You should have received a copy of the GNU General Public License
 # along with xsum. If not, see <http://www.gnu.org/licenses/>.
 
-XSUM_VERSION = 1.0.1
-#XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
+XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
 # Enable multithreading on a compiler that supports OpenMP
 WITH_OPENMP = 1
 
 # External libraries containing that actual hashes
 WITH_BOTAN = 1
+WITH_GLIB = 1
 WITH_GNUTLS = 1
 WITH_MBEDTLS = 1
 WITH_MHASH = 1

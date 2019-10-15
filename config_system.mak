@@ -47,6 +47,11 @@ CFLAGS += $(shell $(PKG_CONFIG) --cflags botan-2)
 LIBS += $(shell $(PKG_CONFIG) --libs botan-2)
 endif
 
+ifeq ($(WITH_GLIB), 1)
+CFLAGS += $(shell $(PKG_CONFIG) --cflags glib-2.0)
+LIBS += $(shell $(PKG_CONFIG) --libs glib-2.0)
+endif
+
 ifeq ($(WITH_GNUTLS), 1)
 CFLAGS += $(shell $(PKG_CONFIG) --cflags gnutls)
 LIBS += $(shell $(PKG_CONFIG) --libs gnutls)
