@@ -13,6 +13,8 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
+#define _XOPEN_SOURCE 700 // This file uses some POSIX stuff when mmap() is available
+#include "config.h"
 #include <errno.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -21,7 +23,6 @@
 #include <string.h>
 #include "algos.h"
 #include "cli.h"
-#include "config.h"
 #include "xsum.h"
 #ifdef XSUM_WITH_MMAP
 #include <sys/mman.h>
@@ -171,10 +172,10 @@ int xsum_process(char *filename, xsum_algo_result_t *results, int algos_count, b
 				}
 			}
 		}
+#endif
 		if (use_mmap) {
 			break; // Only do a single loop iteration with mmap
 		}
-#endif
 	} while (bytes_read > 0);
 #if defined(XSUM_WITH_OPENMP) && defined(XSUM_WITH_LIBB2)
 	for (int i = 0; i < 32; i++) {
