@@ -25,6 +25,7 @@ ICONDIR = $(PREFIX)/share/icons
 
 BUILD = 
 CC = $(BUILD)gcc
+CXX = $(BUILD)g++
 CCLD = $(CC)
 AR = $(BUILD)ar
 RANLIB = $(BUILD)ranlib
@@ -33,6 +34,7 @@ HELP2MAN = help2man
 INSTALL = install
 
 CCFLAGS = -O2 -pipe -ggdb
+CCXXCFLAGS = $(CCFLAGS)
 LDFLAGS = 
 LIBS = 
 EXEEXT = 
@@ -43,17 +45,23 @@ LDFLAGS += -fopenmp
 endif
 
 ifeq ($(WITH_BOTAN), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags botan-2)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags botan-2)
 LIBS += $(shell $(PKG_CONFIG) --libs botan-2)
 endif
 
+ifeq ($(WITH_CRYPTOPP), 1)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags libcryptopp)
+LIBS += $(shell $(PKG_CONFIG) --libs libcryptopp)
+CCLD = $(CXX)
+endif
+
 ifeq ($(WITH_GLIB), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags glib-2.0)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags glib-2.0)
 LIBS += $(shell $(PKG_CONFIG) --libs glib-2.0)
 endif
 
 ifeq ($(WITH_GNUTLS), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags gnutls)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags gnutls)
 LIBS += $(shell $(PKG_CONFIG) --libs gnutls)
 endif
 
@@ -66,42 +74,42 @@ LIBS += -lmhash
 endif
 
 ifeq ($(WITH_NETTLE), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags nettle)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags nettle)
 LIBS += $(shell $(PKG_CONFIG) --libs nettle)
 endif
 
 ifeq ($(WITH_NSS), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags nss)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags nss)
 LIBS += $(shell $(PKG_CONFIG) --libs nss)
 endif
 
 ifeq ($(WITH_LIBB2), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags libb2)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags libb2)
 LIBS += $(shell $(PKG_CONFIG) --libs libb2)
 endif
 
 ifeq ($(WITH_LIBGCRYPT), 1)
-CFLAGS += $(shell $(BUILD)libgcrypt-config --cflags)
+LIBFLAGS += $(shell $(BUILD)libgcrypt-config --cflags)
 LIBS += $(shell $(BUILD)libgcrypt-config --libs)
 endif
 
 ifeq ($(WITH_LIBLZMA), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags liblzma)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags liblzma)
 LIBS += $(shell $(PKG_CONFIG) --libs liblzma)
 endif
 
 ifeq ($(WITH_LIBSODIUM), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags libsodium)
 LIBS += $(shell $(PKG_CONFIG) --libs libsodium)
 endif
 
 ifeq ($(WITH_OPENSSL), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags libcrypto)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags libcrypto)
 LIBS += $(shell $(PKG_CONFIG) --libs libcrypto)
 endif
 
 ifeq ($(WITH_RHASH), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags librhash)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags librhash)
 LIBS += $(shell $(PKG_CONFIG) --libs librhash)
 endif
 
@@ -110,10 +118,13 @@ LIBS += -lxxhash
 endif
 
 ifeq ($(WITH_ZLIB), 1)
-CFLAGS += $(shell $(PKG_CONFIG) --cflags zlib)
+LIBFLAGS += $(shell $(PKG_CONFIG) --cflags zlib)
 LIBS += $(shell $(PKG_CONFIG) --libs zlib)
 endif
 
 ifeq ($(WITH_WINDOWS_CNG), 1)
 LIBS += -lbcrypt
 endif
+
+CFLAGS += $(LIBFLAGS)
+CXXFLAGS += $(LIBFLAGS)

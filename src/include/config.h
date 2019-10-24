@@ -88,6 +88,10 @@
 	#endif
 #endif
 
+#if (XSUM_CONFIG_CRYPTOPP == 1)
+	#define XSUM_WITH_CRYPTOPP
+#endif
+
 #if (XSUM_CONFIG_GLIB == 1)
 	#include <glib.h>
 	#define XSUM_WITH_GLIB
@@ -457,7 +461,7 @@
 	#define XSUM_HAS_SHA224
 #endif
 
-#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256) || defined(XSUM_WITH_OPENSSL_SHA256) || defined(XSUM_WITH_MHASH_SHA256) || defined(XSUM_WITH_WIN_CNG) || defined(XSUM_WITH_GLIB)
+#if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_MBEDTLS_SHA256) || defined(XSUM_WITH_LIBSODIUM) || defined(XSUM_WITH_RHASH) || defined(XSUM_WITH_GNUTLS) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_BOTAN_SHA2_256) || defined(XSUM_WITH_OPENSSL_SHA256) || defined(XSUM_WITH_MHASH_SHA256) || defined(XSUM_WITH_WIN_CNG) || defined(XSUM_WITH_GLIB) || defined(XSUM_WITH_CRYPTOPP)
 	#define XSUM_HAS_SHA256
 #endif
 

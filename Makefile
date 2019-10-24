@@ -16,6 +16,7 @@
 include config_system.mak
 
 CFLAGS += $(CCFLAGS) -Wall -std=c99 -Isrc/include
+CXXFLAGS += $(CCXXFLAGS) -Wall -Isrc/include
 
 SRC = src/main.c \
 	src/argparse.c \
@@ -55,6 +56,11 @@ SRC = src/main.c \
 	src/algos/whirlpool.c \
 	src/algos/xor.c \
 	src/algos/xxhash32.c src/algos/xxhash64.c
+# Keep this empty so we can compile without a C++ compiler when no libraries need it
+SRC_CPP = 
+ifeq ($(WITH_CRYPTOPP), 1)
+SRC_CPP += src/cpp/cryptopp_wrapper.cpp
+endif
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall check
 
@@ -81,7 +87,7 @@ uninstall:
 	rm -f $(MANDIR)/man1/xsum.1
 
 clean:
-	rm -f $(SRC:.c=.o) $(SRC:.c=.d)
+	rm -f $(SRC:.c=.o) $(SRC_CPP:.cpp=.o) $(SRC:.c=.d) $(SRC_CPP:.cpp=.o)
 	rm -f xsum$(EXEEXT)
 	rm -f xsum.1
 	rm -f depend.mak
@@ -89,21 +95,22 @@ clean:
 	+make -C test clean
 
 check: xsum$(EXEEXT)
-	+make -C test check CC="$(CC)" EXEEXT="$(EXEEXT)" CCFLAGS="$(CCFLAGS)"
+	+make -C test check CC="$(CC)" CXX="$(CXX)" EXEEXT="$(EXEEXT)" CCFLAGS="$(CCFLAGS)" CCXXFLAGS="$(CCXXFLAGS)"
 
-xsum$(EXEEXT): $(SRC:.c=.o)
-	$(CCLD) $(LDFLAGS) -o xsum$(EXEEXT) $(SRC:.c=.o) $(LIBS)
+xsum$(EXEEXT): $(SRC:.c=.o) $(SRC_CPP:.cpp=.o)
+	$(CCLD) $(LDFLAGS) -o xsum$(EXEEXT) $(SRC:.c=.o) $(SRC_CPP:.cpp=.o) $(LIBS)
 
 xsum.1: xsum$(EXEEXT)
 	$(HELP2MAN) -N ./xsum$(EXEEXT) -o xsum.1
 
-depend.mak: $(SRC:.c=.d)
-	cat $(SRC:.c=.d) > depend.mak
+depend.mak: $(SRC:.c=.d) $(SRC_CPP:.cpp=.d)
+	cat $(SRC:.c=.d) $(SRC_CPP:.cpp=.d) > depend.mak
 
 src/include/config_generated.h: config_build.mak src/gen_config.sh
 	sh src/gen_config.sh $(XSUM_VERSION) \
 		OPENMP $(WITH_OPENMP) \
 		BOTAN $(WITH_BOTAN) \
+		CRYPTOPP $(WITH_CRYPTOPP) \
 		GLIB $(WITH_GLIB) \
 		GNUTLS $(WITH_GNUTLS) \
 		MBEDTLS $(WITH_MBEDTLS) \
@@ -120,6 +127,12 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 		ZLIB $(WITH_ZLIB) \
 		WIN_CNG $(WITH_WINDOWS_CNG) \
 		> src/include/config_generated.h
+
+src/cpp/%.d: src/cpp/%.cpp config_build.mak config_system.mak src/include/config_generated.h
+	$(CXX) $(CXXFLAGS) -M -MT $(<:.cpp=.o) -o $@ $<
+
+src/cpp/%.o: src/cpp/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 %.d: %.c config_build.mak config_system.mak src/include/config_generated.h
 	$(CC) $(CFLAGS) -M -MT $(<:.c=.o) -o $@ $<

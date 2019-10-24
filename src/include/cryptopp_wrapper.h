@@ -13,42 +13,26 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#include "config.h"
-#ifdef XSUM_HAS_SUM
+#ifndef __CRYPTOPP_WRAPPER_H__
+#define __CRYPTOPP_WRAPPER_H__
 
-#include "algo_template.h"
-#include "endian.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void* xsum_sum_init() {
-	
-	uint64_t *sum = malloc(8);
-	if (sum == NULL) {
-		return NULL;
-	}
-	*sum = 0;
-	return sum;
-	
+#include <stddef.h>
+#include <stdint.h>
+
+#define XSUM_CRYPTOPP_WRAPPER_H(name) \
+	void* xsum_cryptopp_##name##_new(); \
+	void xsum_cryptopp_##name##_update(void* state, uint8_t *data, size_t len); \
+	void xsum_cryptopp_##name##_final(void* state, uint8_t *out); \
+	void xsum_cryptopp_##name##_free(void* state);
+
+XSUM_CRYPTOPP_WRAPPER_H(SHA256)
+
+#ifdef __cplusplus
 }
-
-void xsum_sum_update(void *state, uint8_t *buf, size_t len) {
-	
-	uint64_t *sum = (uint64_t*) state;
-	while (len > 0) {
-		*sum += *buf;
-		buf++;
-		len--;
-	}
-	
-}
-
-uint8_t* xsum_sum_final(void *state) {
-	
-	uint64_t *sum = (uint64_t*) state;
-	*sum = xsum_endian64(*sum);
-	return (uint8_t*) sum;
-	
-}
-
-XSUM_TEMPLATE_ALGO(sum, "Sum", 8)
+#endif
 
 #endif

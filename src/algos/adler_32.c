@@ -17,7 +17,7 @@
 #ifdef XSUM_HAS_ADLER_32
 
 #include "algo_template.h"
-#include "byteswap.h"
+#include "endian.h"
 
 #ifdef XSUM_WITH_ZLIB
 

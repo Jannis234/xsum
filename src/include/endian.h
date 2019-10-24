@@ -13,8 +13,8 @@
  * You should have received a copy of the GNU General Public License
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
-#ifndef __XSUM_BYTESWAP_H__
-#define __XSUM_BYTESWAP_H__
+#ifndef __XSUM_ENDIAN_H__
+#define __XSUM_ENDIAN_H__
 
 #include <stdint.h>
 

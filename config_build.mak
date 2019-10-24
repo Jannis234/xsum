@@ -20,6 +20,7 @@ WITH_OPENMP = 1
 
 # External libraries containing that actual hashes
 WITH_BOTAN = 1
+WITH_CRYPTOPP = 1
 WITH_GLIB = 1
 WITH_GNUTLS = 1
 WITH_MBEDTLS = 1
@@ -31,7 +32,7 @@ WITH_LIBGCRYPT = 1
 WITH_LIBLZMA = 1
 WITH_LIBSODIUM = 1
 # Potential license conflict, see README.md
-WITH_OPENSSL = 0
+WITH_OPENSSL = 1
 WITH_RHASH = 1
 WITH_XXHASH = 1
 WITH_ZLIB = 1
