@@ -77,6 +77,11 @@ XSUM_TEMPLATE_WIN_CNG(md5, BCRYPT_MD5_ALGORITHM, 16)
 #include <glib.h>
 XSUM_TEMPLATE_GLIB(md5, G_CHECKSUM_MD5, 16)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(md5, MD5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

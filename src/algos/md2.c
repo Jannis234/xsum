@@ -51,6 +51,11 @@ XSUM_TEMPLATE_MHASH(md2, MHASH_MD2, 16)
 #include <ntstatus.h>
 XSUM_TEMPLATE_WIN_CNG(md2, BCRYPT_MD2_ALGORITHM, 16)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(md2, MD2, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md2, "MD2", 16)

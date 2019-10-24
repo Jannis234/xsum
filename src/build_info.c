@@ -23,6 +23,10 @@
 #include <botan/build.h>
 #include <botan/ffi.h>
 #endif
+#ifdef XSUM_WITH_CRYPTOPP
+#define XSUM_HAS_EXTLIB
+#include "cryptopp_wrapper.h"
+#endif
 #ifdef XSUM_WITH_GLIB
 #define XSUM_HAS_EXTLIB
 #include <glib.h>
@@ -106,6 +110,9 @@ void xsum_build_info() {
 	printf("\nExternal libraries (build / runtime):\n");
 #ifdef XSUM_WITH_BOTAN
 	printf("  Botan: %d.%d.%d / %d.%d.%d\n", BOTAN_VERSION_MAJOR, BOTAN_VERSION_MINOR, BOTAN_VERSION_PATCH, botan_version_major(), botan_version_minor(), botan_version_patch());
+#endif
+#ifdef XSUM_WITH_CRYPTOPP
+	printf("  crypto++: %d / %d\n", xsum_cryptopp_version_build(), xsum_cryptopp_version_runtime());
 #endif
 #ifdef XSUM_WITH_GLIB
 	printf("  glib: %d.%d.%d / %d.%d.%d\n", GLIB_MAJOR_VERSION, GLIB_MINOR_VERSION, GLIB_MICRO_VERSION, glib_major_version, glib_minor_version, glib_micro_version);

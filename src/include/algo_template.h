@@ -72,6 +72,26 @@
 		return out; \
 	}
 
+// Template for crypto++ hashes that need a size parameter
+// Parameters: xsum-internal name, crypto++ class name, hash size
+#define XSUM_TEMPLATE_CRYPTOPP_SIZE(p_name_xsum, p_name_cryptopp, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		return xsum_cryptopp_##p_name_cryptopp##_new(p_size); \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		xsum_cryptopp_##p_name_cryptopp##_update(state, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			xsum_cryptopp_##p_name_cryptopp##_free(state); \
+			return NULL; \
+		} \
+		xsum_cryptopp_##p_name_cryptopp##_final(state, out); \
+		xsum_cryptopp_##p_name_cryptopp##_free(state); \
+		return out; \
+	}
+
 // Common template for glib hashes
 // Parameters: xsum-internal name; glib constant; hash size
 #define XSUM_TEMPLATE_GLIB(p_name_xsum, p_name_glib, p_size) \

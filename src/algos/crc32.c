@@ -108,6 +108,40 @@ uint8_t* xsum_crc32_final(void *state) {
 	
 }
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+
+void* xsum_crc32_init() {
+	
+	return xsum_cryptopp_CRC32_new();
+	
+}
+
+void xsum_crc32_update(void *state, uint8_t *buf, size_t len) {
+	
+	xsum_cryptopp_CRC32_update(state, buf, len);
+	
+}
+
+uint8_t* xsum_crc32_final(void *state) {
+	
+	uint8_t *out = malloc(4);
+	if (out == NULL) {
+		xsum_cryptopp_CRC32_free(state);
+		return NULL;
+	}
+	uint32_t tmp;
+	xsum_cryptopp_CRC32_final(state, (uint8_t*) &tmp);
+	xsum_cryptopp_CRC32_free(state);
+	
+	tmp = xsum_endian32(tmp);
+	memcpy(out, (uint8_t*) &tmp, 4);
+	
+	return out;
+	
+}
+
 #endif
 
 XSUM_TEMPLATE_ALGO(crc32, "CRC32", 4)

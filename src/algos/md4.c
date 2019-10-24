@@ -60,6 +60,11 @@ XSUM_TEMPLATE_MHASH(md4, MHASH_MD4, 16)
 #include <ntstatus.h>
 XSUM_TEMPLATE_WIN_CNG(md4, BCRYPT_MD4_ALGORITHM, 16)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(md4, MD4, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md4, "MD4", 16)

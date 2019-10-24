@@ -43,6 +43,11 @@ XSUM_TEMPLATE_BOTAN(blake2b_512, "Blake2b(512)", 64)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(blake2b_512, blake2b512, 64)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2b_512, BLAKE2b, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_512, "BLAKE2b-512", 64)

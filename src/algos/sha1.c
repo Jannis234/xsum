@@ -77,6 +77,11 @@ XSUM_TEMPLATE_WIN_CNG(sha1, BCRYPT_SHA1_ALGORITHM, 20)
 #include <glib.h>
 XSUM_TEMPLATE_GLIB(sha1, G_CHECKSUM_SHA1, 20)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(sha1, SHA1, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha1, "SHA1", 20)

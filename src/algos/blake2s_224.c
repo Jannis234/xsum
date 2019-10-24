@@ -28,6 +28,11 @@ XSUM_TEMPLATE_LIBGCRYPT(blake2s_224, GCRY_MD_BLAKE2S_224, 28)
 #include <blake2.h>
 XSUM_TEMPLATE_LIBB2(blake2s_224, blake2s, 28)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2s_224, BLAKE2s, 28)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2s_224, "BLAKE2s-224", 28)

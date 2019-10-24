@@ -23,6 +23,11 @@
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(ripemd256, MHASH_RIPEMD256, 32)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(ripemd256, RIPEMD256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(ripemd256, "RIPEMD256", 32)

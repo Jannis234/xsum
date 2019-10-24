@@ -38,6 +38,11 @@ XSUM_TEMPLATE_BOTAN(tiger, "Tiger", 24)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(tiger, MHASH_TIGER192, 24)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(tiger, Tiger, 24)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(tiger, "Tiger", 24)

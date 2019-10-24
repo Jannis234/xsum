@@ -65,6 +65,11 @@ XSUM_TEMPLATE_OPENSSL(sha224, sha224, 28)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(sha224, MHASH_SHA224, 28)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(sha224, SHA224, 28)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha224, "SHA224", 28)

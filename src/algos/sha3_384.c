@@ -49,6 +49,11 @@ XSUM_TEMPLATE_BOTAN(sha3_384, "SHA-3(384)", 48)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(sha3_384, sha3_384, 48)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(sha3_384, SHA3_384, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha3_384, "SHA3-384", 48)

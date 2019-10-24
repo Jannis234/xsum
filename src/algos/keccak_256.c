@@ -23,6 +23,11 @@
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(keccak_256, "Keccak-1600(256)", 32)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(keccak_256, Keccak_256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(keccak_256, "Keccak-256", 32)

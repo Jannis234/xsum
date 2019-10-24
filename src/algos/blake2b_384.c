@@ -38,6 +38,11 @@ XSUM_TEMPLATE_LIBB2(blake2b_384, blake2b, 48)
 #include <botan/ffi.h>
 XSUM_TEMPLATE_BOTAN(blake2b_384, "Blake2b(384)", 48)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2b_384, BLAKE2b, 48)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_384, "BLAKE2b-384", 48)

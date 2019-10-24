@@ -53,6 +53,11 @@ XSUM_TEMPLATE_OPENSSL(ripemd160, ripemd160, 20)
 #include <mhash.h>
 XSUM_TEMPLATE_MHASH(ripemd160, MHASH_RIPEMD160, 20)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP(ripemd160, RIPEMD160, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(ripemd160, "RIPEMD160", 20)

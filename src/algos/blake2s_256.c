@@ -33,6 +33,11 @@ XSUM_TEMPLATE_LIBB2(blake2s_256, blake2s, 32)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(blake2s_256, blake2s256, 32)
 
+#elif defined(XSUM_WITH_CRYPTOPP)
+
+#include "cryptopp_wrapper.h"
+XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2s_256, BLAKE2s, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2s_256, "BLAKE2s-256", 32)
