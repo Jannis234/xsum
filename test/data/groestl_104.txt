@@ -1,0 +1,9 @@
+Groestl-104:f19b7c55e9f3bf9ed713f689da  input/binary1
+Groestl-104:c2a5e24cb2abc735352050e143  input/binary2
+Groestl-104:c4b5268db3f5154a2d7f2e7716  input/empty
+Groestl-104:61788aa3f470dbd9ea312e401a  input/large1
+Groestl-104:d3fad450f4d75852126523d7ce  input/large2
+Groestl-104:b29a220035e57e7f13e33b9c1f  input/random1
+Groestl-104:0e7f7701631fd2ecad49bcff9a  input/random2
+Groestl-104:1708f6d3ad3004bb0b69d043e3  input/string1
+Groestl-104:6fb8a19925016b8c24f2e76e4d  input/string2

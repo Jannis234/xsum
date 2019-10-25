@@ -1,0 +1,9 @@
+Skein-256-48:e281b33d180d  input/binary1
+Skein-256-48:1e8ecc342019  input/binary2
+Skein-256-48:04760dd7af8b  input/empty
+Skein-256-48:c457a09c5590  input/large1
+Skein-256-48:b38f91d53a23  input/large2
+Skein-256-48:1e316b815991  input/random1
+Skein-256-48:2ffe15ac67c4  input/random2
+Skein-256-48:79f74ba0915b  input/string1
+Skein-256-48:e3a6cac66e81  input/string2

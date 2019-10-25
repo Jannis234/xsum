@@ -1,0 +1,9 @@
+Skein-1024-64:c20ff871184e7138  input/binary1
+Skein-1024-64:1bc448c39846cfe7  input/binary2
+Skein-1024-64:831f75ee17f5d412  input/empty
+Skein-1024-64:819938d7e568248f  input/large1
+Skein-1024-64:e954c3d4f1ba6c45  input/large2
+Skein-1024-64:9a0621b2e70998a6  input/random1
+Skein-1024-64:fc90bb1775f479a8  input/random2
+Skein-1024-64:1de31e2bb142d9fb  input/string1
+Skein-1024-64:dc704c1481de3a8c  input/string2

@@ -1,0 +1,9 @@
+Skein-1024-16:f6a2  input/binary1
+Skein-1024-16:5283  input/binary2
+Skein-1024-16:eaba  input/empty
+Skein-1024-16:8eb0  input/large1
+Skein-1024-16:8ff6  input/large2
+Skein-1024-16:fa3d  input/random1
+Skein-1024-16:7c98  input/random2
+Skein-1024-16:6402  input/string1
+Skein-1024-16:043a  input/string2

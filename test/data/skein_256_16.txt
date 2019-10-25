@@ -1,0 +1,9 @@
+Skein-256-16:756c  input/binary1
+Skein-256-16:4344  input/binary2
+Skein-256-16:f527  input/empty
+Skein-256-16:5927  input/large1
+Skein-256-16:08ae  input/large2
+Skein-256-16:493c  input/random1
+Skein-256-16:c486  input/random2
+Skein-256-16:ea70  input/string1
+Skein-256-16:894d  input/string2

@@ -1,0 +1,9 @@
+Groestl-16:d4d8  input/binary1
+Groestl-16:6757  input/binary2
+Groestl-16:686c  input/empty
+Groestl-16:d6e1  input/large1
+Groestl-16:d8d9  input/large2
+Groestl-16:553f  input/random1
+Groestl-16:e38d  input/random2
+Groestl-16:6769  input/string1
+Groestl-16:61dc  input/string2

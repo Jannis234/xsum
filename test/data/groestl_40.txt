@@ -1,0 +1,9 @@
+Groestl-40:fc33edfd35  input/binary1
+Groestl-40:262e363f40  input/binary2
+Groestl-40:3e97264c22  input/empty
+Groestl-40:41bd2c6880  input/large1
+Groestl-40:73628b2980  input/large2
+Groestl-40:b1fbdded7e  input/random1
+Groestl-40:f178fd7f26  input/random2
+Groestl-40:f10b23c120  input/string1
+Groestl-40:a58a5fc8db  input/string2

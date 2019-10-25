@@ -1,0 +1,9 @@
+Skein-256-32:6c1b1bfa  input/binary1
+Skein-256-32:ff67f440  input/binary2
+Skein-256-32:209b4219  input/empty
+Skein-256-32:89517254  input/large1
+Skein-256-32:938a93ed  input/large2
+Skein-256-32:7c5d56ff  input/random1
+Skein-256-32:e48d18e1  input/random2
+Skein-256-32:702c1466  input/string1
+Skein-256-32:7d88cfbc  input/string2

@@ -1,0 +1,9 @@
+Skein-1024-128:0d509b8f4be3031267ddbc3ccde307dd  input/binary1
+Skein-1024-128:781b6e3124c7b6cac31f3d26f47112f4  input/binary2
+Skein-1024-128:2fc46d275d56653fc3c65f1fbeca0c17  input/empty
+Skein-1024-128:02da1aecc766b109f6bc3b651e0e9818  input/large1
+Skein-1024-128:34f4201231511d45625911541f8bc04b  input/large2
+Skein-1024-128:9aac1b2c2b54bde089ea989652626585  input/random1
+Skein-1024-128:18e2095226ba811401a983dadf8e162a  input/random2
+Skein-1024-128:e032528865c41b8ce4ae7484dfa24454  input/string1
+Skein-1024-128:7dbabb67890a77cd05102ca518f0d5b7  input/string2

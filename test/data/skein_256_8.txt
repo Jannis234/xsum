@@ -1,0 +1,9 @@
+Skein-256-8:3f  input/binary1
+Skein-256-8:71  input/binary2
+Skein-256-8:34  input/empty
+Skein-256-8:26  input/large1
+Skein-256-8:d5  input/large2
+Skein-256-8:11  input/random1
+Skein-256-8:df  input/random2
+Skein-256-8:a5  input/string1
+Skein-256-8:48  input/string2

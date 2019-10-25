@@ -1,0 +1,9 @@
+Groestl-56:6a7f2eda91f658  input/binary1
+Groestl-56:1743efb4d143b2  input/binary2
+Groestl-56:8fe8ee15a2af16  input/empty
+Groestl-56:2270e791e4710e  input/large1
+Groestl-56:66b2302b75c248  input/large2
+Groestl-56:ee14b0b769b682  input/random1
+Groestl-56:1f3d7687121417  input/random2
+Groestl-56:3fd823661e317a  input/string1
+Groestl-56:0dea7f1c13c1b9  input/string2

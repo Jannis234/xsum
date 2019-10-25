@@ -1,0 +1,9 @@
+Skein-256-80:1229cfc756697e52c390  input/binary1
+Skein-256-80:2370691843dac5f0c190  input/binary2
+Skein-256-80:e57670ddf4fe6048fd3e  input/empty
+Skein-256-80:f309f8ac76d150a15cd0  input/large1
+Skein-256-80:0cfc91d5b99fd64f7932  input/large2
+Skein-256-80:0a026d55f32dc92e17fd  input/random1
+Skein-256-80:eee13279925f93209ded  input/random2
+Skein-256-80:283cc0d0dd5a8f135a03  input/string1
+Skein-256-80:d93814d72710bc6c302b  input/string2

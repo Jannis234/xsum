@@ -1,0 +1,9 @@
+Groestl-8:eb  input/binary1
+Groestl-8:6a  input/binary2
+Groestl-8:ef  input/empty
+Groestl-8:47  input/large1
+Groestl-8:44  input/large2
+Groestl-8:43  input/random1
+Groestl-8:29  input/random2
+Groestl-8:c4  input/string1
+Groestl-8:6f  input/string2
