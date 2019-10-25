@@ -1,0 +1,92 @@
+/* This file is part of xsum.
+ *
+ * xsum is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * xsum is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
+
+#include "config.h"
+#ifdef XSUM_HAS_SKEIN_256
+
+#include "algo_template.h"
+
+#if defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_8, skein256, 1)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_16, skein256, 2)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_24, skein256, 3)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_32, skein256, 4)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_40, skein256, 5)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_48, skein256, 6)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_56, skein256, 7)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_64, skein256, 8)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_72, skein256, 9)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_80, skein256, 10)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_88, skein256, 11)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_96, skein256, 12)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_104, skein256, 13)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_112, skein256, 14)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_120, skein256, 15)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_128, skein256, 16)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_136, skein256, 17)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_144, skein256, 18)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_152, skein256, 19)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_160, skein256, 20)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_168, skein256, 21)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_176, skein256, 22)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_184, skein256, 23)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_192, skein256, 24)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_200, skein256, 25)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_208, skein256, 26)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_216, skein256, 27)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_224, skein256, 28)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_232, skein256, 29)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_240, skein256, 30)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_248, skein256, 31)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(skein_256_256, skein256, 32)
+
+#endif
+
+XSUM_TEMPLATE_ALGO(skein_256_8, "Skein-256-8", 1)
+XSUM_TEMPLATE_ALGO(skein_256_16, "Skein-256-16", 2)
+XSUM_TEMPLATE_ALGO(skein_256_24, "Skein-256-24", 3)
+XSUM_TEMPLATE_ALGO(skein_256_32, "Skein-256-32", 4)
+XSUM_TEMPLATE_ALGO(skein_256_40, "Skein-256-40", 5)
+XSUM_TEMPLATE_ALGO(skein_256_48, "Skein-256-48", 6)
+XSUM_TEMPLATE_ALGO(skein_256_56, "Skein-256-56", 7)
+XSUM_TEMPLATE_ALGO(skein_256_64, "Skein-256-64", 8)
+XSUM_TEMPLATE_ALGO(skein_256_72, "Skein-256-72", 9)
+XSUM_TEMPLATE_ALGO(skein_256_80, "Skein-256-80", 10)
+XSUM_TEMPLATE_ALGO(skein_256_88, "Skein-256-88", 11)
+XSUM_TEMPLATE_ALGO(skein_256_96, "Skein-256-96", 12)
+XSUM_TEMPLATE_ALGO(skein_256_104, "Skein-256-104", 13)
+XSUM_TEMPLATE_ALGO(skein_256_112, "Skein-256-112", 14)
+XSUM_TEMPLATE_ALGO(skein_256_120, "Skein-256-120", 15)
+XSUM_TEMPLATE_ALGO(skein_256_128, "Skein-256-128", 16)
+XSUM_TEMPLATE_ALGO(skein_256_136, "Skein-256-136", 17)
+XSUM_TEMPLATE_ALGO(skein_256_144, "Skein-256-144", 18)
+XSUM_TEMPLATE_ALGO(skein_256_152, "Skein-256-152", 19)
+XSUM_TEMPLATE_ALGO(skein_256_160, "Skein-256-160", 20)
+XSUM_TEMPLATE_ALGO(skein_256_168, "Skein-256-168", 21)
+XSUM_TEMPLATE_ALGO(skein_256_176, "Skein-256-176", 22)
+XSUM_TEMPLATE_ALGO(skein_256_184, "Skein-256-184", 23)
+XSUM_TEMPLATE_ALGO(skein_256_192, "Skein-256-192", 24)
+XSUM_TEMPLATE_ALGO(skein_256_200, "Skein-256-200", 25)
+XSUM_TEMPLATE_ALGO(skein_256_208, "Skein-256-208", 26)
+XSUM_TEMPLATE_ALGO(skein_256_216, "Skein-256-216", 27)
+XSUM_TEMPLATE_ALGO(skein_256_224, "Skein-256-224", 28)
+XSUM_TEMPLATE_ALGO(skein_256_232, "Skein-256-232", 29)
+XSUM_TEMPLATE_ALGO(skein_256_240, "Skein-256-240", 30)
+XSUM_TEMPLATE_ALGO(skein_256_248, "Skein-256-248", 31)
+XSUM_TEMPLATE_ALGO(skein_256_256, "Skein-256-256", 32)
+
+#endif

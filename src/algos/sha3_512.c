@@ -54,6 +54,11 @@ XSUM_TEMPLATE_OPENSSL(sha3_512, sha3_512, 64)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(sha3_512, SHA3_512, 64)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(sha3_512, sha3, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha3_512, "SHA3-512", 64)

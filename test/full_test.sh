@@ -26,6 +26,7 @@ if [ ! -e src/include/xsum.h ]; then
 fi
 
 WITH_BOTAN=0
+WITH_CPPCRYPTO=0
 WITH_CRYPTOPP=0
 WITH_GLIB=0
 WITH_GNUTLS=0
@@ -46,6 +47,7 @@ run_test() {
 	make clean
 	make -j check \
 		WITH_BOTAN=$WITH_BOTAN \
+		WITH_CPPCRYPTO=$WITH_CPPCRYPTO \
 		WITH_CRYPTOPP=$WITH_CRYPTOPP \
 		WITH_GLIB=$WITH_GLIB \
 		WITH_GNUTLS=$WITH_GNUTLS \
@@ -70,6 +72,7 @@ run_test_windows() {
 	make BUILD=x86_64-pc-mingw32- EXEEXT=.exe XSUM="wine ../xsum.exe --ignore-unknown" -j check \
 		WITH_OPENMP=0 \
 		WITH_BOTAN=0 \
+		WITH_CPPCRYPTO=0 \
 		WITH_CRYPTOPP=0 \
 		WITH_GLIB=0 \
 		WITH_GNUTLS=0 \
@@ -92,6 +95,10 @@ run_test_windows() {
 WITH_BOTAN=1
 run_test
 WITH_BOTAN=0
+
+WITH_CPPCRYPTO=1
+run_test
+WITH_CPPCRYPTO=0
 
 WITH_CRYPTOPP=1
 run_test

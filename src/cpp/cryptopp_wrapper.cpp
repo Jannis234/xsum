@@ -41,15 +41,15 @@
 		return new(std::nothrow) ns::name(); \
 	} \
 	void xsum_cryptopp_##name##_update(void* state, uint8_t *data, size_t len) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		s->Update(data, len); \
 	} \
 	void xsum_cryptopp_##name##_final(void* state, uint8_t *out) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		s->Final(out); \
 	} \
 	void xsum_cryptopp_##name##_free(void *state) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		delete s; \
 	}
 #define XSUM_CRYPTOPP_WRAPPER_SIZE(ns, name) \
@@ -57,15 +57,15 @@
 		return new(std::nothrow) ns::name(size); \
 	} \
 	void xsum_cryptopp_##name##_update(void* state, uint8_t *data, size_t len) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		s->Update(data, len); \
 	} \
 	void xsum_cryptopp_##name##_final(void* state, uint8_t *out) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		s->Final(out); \
 	} \
 	void xsum_cryptopp_##name##_free(void *state) { \
-		ns::name* s = static_cast<ns::name*>(state); \
+		ns::name *s = static_cast<ns::name*>(state); \
 		delete s; \
 	}
 

@@ -23,6 +23,9 @@
 #include <botan/build.h>
 #include <botan/ffi.h>
 #endif
+#ifdef XSUM_WITH_CPPCRYPTO
+#define XSUM_HAS_EXTLIB
+#endif
 #ifdef XSUM_WITH_CRYPTOPP
 #define XSUM_HAS_EXTLIB
 #include "cryptopp_wrapper.h"
@@ -110,6 +113,9 @@ void xsum_build_info() {
 	printf("\nExternal libraries (build / runtime):\n");
 #ifdef XSUM_WITH_BOTAN
 	printf("  Botan: %d.%d.%d / %d.%d.%d\n", BOTAN_VERSION_MAJOR, BOTAN_VERSION_MINOR, BOTAN_VERSION_PATCH, botan_version_major(), botan_version_minor(), botan_version_patch());
+#endif
+#ifdef XSUM_WITH_CPPCRYPTO
+	printf("  cppcrypto: /\n");
 #endif
 #ifdef XSUM_WITH_CRYPTOPP
 	printf("  crypto++: %d / %d\n", xsum_cryptopp_version_build(), xsum_cryptopp_version_runtime());

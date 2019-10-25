@@ -82,6 +82,11 @@ XSUM_TEMPLATE_GLIB(md5, G_CHECKSUM_MD5, 16)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(md5, MD5, 16)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO(md5, md5, 16)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(md5, "MD5", 16)

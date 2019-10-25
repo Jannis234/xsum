@@ -20,6 +20,7 @@ WITH_OPENMP = 1
 
 # External libraries containing that actual hashes
 WITH_BOTAN = 1
+WITH_CPPCRYPTO = 1
 WITH_CRYPTOPP = 1
 WITH_GLIB = 1
 WITH_GNUTLS = 1

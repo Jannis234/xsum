@@ -28,6 +28,11 @@ XSUM_TEMPLATE_NETTLE(sha512_224, sha512_224, 28)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(sha512_224, sha512_224, 28)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(sha512_224, sha512, 28)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512_224, "SHA512-224", 28)

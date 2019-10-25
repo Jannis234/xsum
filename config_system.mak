@@ -49,6 +49,11 @@ LIBFLAGS += $(shell $(PKG_CONFIG) --cflags botan-2)
 LIBS += $(shell $(PKG_CONFIG) --libs botan-2)
 endif
 
+ifeq ($(WITH_CPPCRYPTO), 1)
+LIBS += -lcppcrypto
+CCLD = $(CXX)
+endif
+
 ifeq ($(WITH_CRYPTOPP), 1)
 LIBFLAGS += $(shell $(PKG_CONFIG) --cflags libcryptopp)
 LIBS += $(shell $(PKG_CONFIG) --libs libcryptopp)

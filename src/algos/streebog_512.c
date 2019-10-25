@@ -39,6 +39,11 @@ XSUM_TEMPLATE_BOTAN(streebog_512, "Streebog-512", 64)
 #include <openssl/evp.h>
 XSUM_TEMPLATE_OPENSSL(streebog_512, streebog512, 64)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(streebog_512, streebog, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(streebog_512, "Streebog-512", 64)

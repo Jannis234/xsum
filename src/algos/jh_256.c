@@ -14,32 +14,17 @@
  * along with xsum. If not, see <http://www.gnu.org/licenses/>. */
 
 #include "config.h"
-#ifdef XSUM_HAS_BLAKE2S_128
+#ifdef XSUM_HAS_JH_256
 
 #include "algo_template.h"
 
-#if defined(XSUM_WITH_LIBGCRYPT)
-
-#include <gcrypt.h>
-XSUM_TEMPLATE_LIBGCRYPT(blake2s_128, GCRY_MD_BLAKE2S_128, 16)
-
-#elif defined(XSUM_WITH_LIBB2)
-
-#include <blake2.h>
-XSUM_TEMPLATE_LIBB2(blake2s_128, blake2s, 16)
-
-#elif defined(XSUM_WITH_CRYPTOPP)
-
-#include "cryptopp_wrapper.h"
-XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2s_128, BLAKE2s, 16)
-
-#elif defined(XSUM_WITH_CPPCRYPTO)
+#if defined(XSUM_WITH_CPPCRYPTO)
 
 #include "cppcrypto_wrapper.h"
-XSUM_TEMPLATE_CPPCRYPTO_SIZE(blake2s_128, blake2s, 16)
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(jh_256, jh, 32)
 
 #endif
 
-XSUM_TEMPLATE_ALGO(blake2s_128, "BLAKE2s-128", 16)
+XSUM_TEMPLATE_ALGO(jh_256, "JH-256", 32)
 
 #endif

@@ -52,8 +52,48 @@
 		return out; \
 	}
 
+// Common template for cppcrypto hashes using the C wrapper
+// Parameters: xsum-internal name; cppcrypto class name; hash size
+#define XSUM_TEMPLATE_CPPCRYPTO(p_name_xsum, p_name_cppcrypto, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		return xsum_cppcrypto_##p_name_cppcrypto##_init(); \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		xsum_cppcrypto_##p_name_cppcrypto##_update(state, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			xsum_cppcrypto_##p_name_cppcrypto##_free(state); \
+			return NULL; \
+		} \
+		xsum_cppcrypto_##p_name_cppcrypto##_final(state, out); \
+		xsum_cppcrypto_##p_name_cppcrypto##_free(state); \
+		return out; \
+	}
+
+// Template for cppcrypto hashes that need a size parameter
+// Parameters: xsum-internal name; cppcrypto class name; hash size
+#define XSUM_TEMPLATE_CPPCRYPTO_SIZE(p_name_xsum, p_name_cppcrypto, p_size) \
+	void* xsum_##p_name_xsum##_init() { \
+		return xsum_cppcrypto_##p_name_cppcrypto##_init(p_size * 8); \
+	} \
+	void xsum_##p_name_xsum##_update(void *state, uint8_t *buf, size_t len) { \
+		xsum_cppcrypto_##p_name_cppcrypto##_update(state, buf, len); \
+	} \
+	uint8_t* xsum_##p_name_xsum##_final(void *state) { \
+		uint8_t *out = malloc(p_size); \
+		if (out == NULL) { \
+			xsum_cppcrypto_##p_name_cppcrypto##_free(state); \
+			return NULL; \
+		} \
+		xsum_cppcrypto_##p_name_cppcrypto##_final(state, out); \
+		xsum_cppcrypto_##p_name_cppcrypto##_free(state); \
+		return out; \
+	}
+
 // Common template for crypto++ hashes using the C wrapper
-// Parameters: xsum-internal name, crypto++ class name, hash size
+// Parameters: xsum-internal name; crypto++ class name; hash size
 #define XSUM_TEMPLATE_CRYPTOPP(p_name_xsum, p_name_cryptopp, p_size) \
 	void* xsum_##p_name_xsum##_init() { \
 		return xsum_cryptopp_##p_name_cryptopp##_new(); \
@@ -73,7 +113,7 @@
 	}
 
 // Template for crypto++ hashes that need a size parameter
-// Parameters: xsum-internal name, crypto++ class name, hash size
+// Parameters: xsum-internal name; crypto++ class name, hash size
 #define XSUM_TEMPLATE_CRYPTOPP_SIZE(p_name_xsum, p_name_cryptopp, p_size) \
 	void* xsum_##p_name_xsum##_init() { \
 		return xsum_cryptopp_##p_name_cryptopp##_new(p_size); \

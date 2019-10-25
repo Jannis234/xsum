@@ -48,6 +48,11 @@ XSUM_TEMPLATE_MHASH(whirlpool, MHASH_WHIRLPOOL, 64)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(whirlpool, Whirlpool, 64)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO(whirlpool, whirlpool, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(whirlpool, "WHIRLPOOL", 64)

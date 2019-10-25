@@ -33,6 +33,11 @@ XSUM_TEMPLATE_LIBB2(blake2s_224, blake2s, 28)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2s_224, BLAKE2s, 28)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(blake2s_224, blake2s, 28)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2s_224, "BLAKE2s-224", 28)

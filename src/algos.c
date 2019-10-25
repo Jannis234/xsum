@@ -20,6 +20,18 @@
 #ifdef XSUM_HAS_ADLER_32
 extern xsum_algo_t xsum_algo_adler_32;
 #endif
+#ifdef XSUM_HAS_BLAKE_224
+extern xsum_algo_t xsum_algo_blake_224;
+#endif
+#ifdef XSUM_HAS_BLAKE_256
+extern xsum_algo_t xsum_algo_blake_256;
+#endif
+#ifdef XSUM_HAS_BLAKE_384
+extern xsum_algo_t xsum_algo_blake_384;
+#endif
+#ifdef XSUM_HAS_BLAKE_512
+extern xsum_algo_t xsum_algo_blake_512;
+#endif
 #ifdef XSUM_HAS_BLAKE2S_FULL
 extern xsum_algo_t xsum_algo_blake2s_8;
 extern xsum_algo_t xsum_algo_blake2s_16;
@@ -257,6 +269,72 @@ extern xsum_algo_t xsum_algo_gost94;
 #ifdef XSUM_HAS_GOST94_CRYPTOPRO
 extern xsum_algo_t xsum_algo_gost94_cryptopro;
 #endif
+#ifdef XSUM_HAS_GROESTL_FULL
+extern xsum_algo_t xsum_algo_groestl_8;
+extern xsum_algo_t xsum_algo_groestl_16;
+extern xsum_algo_t xsum_algo_groestl_24;
+extern xsum_algo_t xsum_algo_groestl_32;
+extern xsum_algo_t xsum_algo_groestl_40;
+extern xsum_algo_t xsum_algo_groestl_48;
+extern xsum_algo_t xsum_algo_groestl_56;
+extern xsum_algo_t xsum_algo_groestl_64;
+extern xsum_algo_t xsum_algo_groestl_72;
+extern xsum_algo_t xsum_algo_groestl_80;
+extern xsum_algo_t xsum_algo_groestl_88;
+extern xsum_algo_t xsum_algo_groestl_96;
+extern xsum_algo_t xsum_algo_groestl_104;
+extern xsum_algo_t xsum_algo_groestl_112;
+extern xsum_algo_t xsum_algo_groestl_120;
+extern xsum_algo_t xsum_algo_groestl_128;
+extern xsum_algo_t xsum_algo_groestl_136;
+extern xsum_algo_t xsum_algo_groestl_144;
+extern xsum_algo_t xsum_algo_groestl_152;
+extern xsum_algo_t xsum_algo_groestl_160;
+extern xsum_algo_t xsum_algo_groestl_168;
+extern xsum_algo_t xsum_algo_groestl_176;
+extern xsum_algo_t xsum_algo_groestl_184;
+extern xsum_algo_t xsum_algo_groestl_192;
+extern xsum_algo_t xsum_algo_groestl_200;
+extern xsum_algo_t xsum_algo_groestl_208;
+extern xsum_algo_t xsum_algo_groestl_216;
+extern xsum_algo_t xsum_algo_groestl_224;
+extern xsum_algo_t xsum_algo_groestl_232;
+extern xsum_algo_t xsum_algo_groestl_240;
+extern xsum_algo_t xsum_algo_groestl_248;
+extern xsum_algo_t xsum_algo_groestl_256;
+extern xsum_algo_t xsum_algo_groestl_264;
+extern xsum_algo_t xsum_algo_groestl_272;
+extern xsum_algo_t xsum_algo_groestl_280;
+extern xsum_algo_t xsum_algo_groestl_288;
+extern xsum_algo_t xsum_algo_groestl_296;
+extern xsum_algo_t xsum_algo_groestl_304;
+extern xsum_algo_t xsum_algo_groestl_312;
+extern xsum_algo_t xsum_algo_groestl_320;
+extern xsum_algo_t xsum_algo_groestl_328;
+extern xsum_algo_t xsum_algo_groestl_336;
+extern xsum_algo_t xsum_algo_groestl_344;
+extern xsum_algo_t xsum_algo_groestl_352;
+extern xsum_algo_t xsum_algo_groestl_360;
+extern xsum_algo_t xsum_algo_groestl_368;
+extern xsum_algo_t xsum_algo_groestl_376;
+extern xsum_algo_t xsum_algo_groestl_384;
+extern xsum_algo_t xsum_algo_groestl_392;
+extern xsum_algo_t xsum_algo_groestl_400;
+extern xsum_algo_t xsum_algo_groestl_408;
+extern xsum_algo_t xsum_algo_groestl_416;
+extern xsum_algo_t xsum_algo_groestl_424;
+extern xsum_algo_t xsum_algo_groestl_432;
+extern xsum_algo_t xsum_algo_groestl_440;
+extern xsum_algo_t xsum_algo_groestl_448;
+extern xsum_algo_t xsum_algo_groestl_456;
+extern xsum_algo_t xsum_algo_groestl_464;
+extern xsum_algo_t xsum_algo_groestl_472;
+extern xsum_algo_t xsum_algo_groestl_480;
+extern xsum_algo_t xsum_algo_groestl_488;
+extern xsum_algo_t xsum_algo_groestl_496;
+extern xsum_algo_t xsum_algo_groestl_504;
+extern xsum_algo_t xsum_algo_groestl_512;
+#endif
 #ifdef XSUM_HAS_HAS160
 extern xsum_algo_t xsum_algo_has160;
 #endif
@@ -275,6 +353,18 @@ extern xsum_algo_t xsum_algo_haval_224;
 #ifdef XSUM_HAS_HAVAL_256
 extern xsum_algo_t xsum_algo_haval_256;
 #endif
+#ifdef XSUM_HAS_JH_224
+extern xsum_algo_t xsum_algo_jh_224;
+#endif
+#ifdef XSUM_HAS_JH_256
+extern xsum_algo_t xsum_algo_jh_256;
+#endif
+#ifdef XSUM_HAS_JH_384
+extern xsum_algo_t xsum_algo_jh_384;
+#endif
+#ifdef XSUM_HAS_JH_512
+extern xsum_algo_t xsum_algo_jh_512;
+#endif
 #ifdef XSUM_HAS_KECCAK_224
 extern xsum_algo_t xsum_algo_keccak_224;
 #endif
@@ -286,6 +376,12 @@ extern xsum_algo_t xsum_algo_keccak_384;
 #endif
 #ifdef XSUM_HAS_KECCAK_512
 extern xsum_algo_t xsum_algo_keccak_512;
+#endif
+#ifdef XSUM_HAS_KUPYNA_256
+extern xsum_algo_t xsum_algo_kupyna_256;
+#endif
+#ifdef XSUM_HAS_KUPYNA_512
+extern xsum_algo_t xsum_algo_kupyna_512;
 #endif
 #ifdef XSUM_HAS_MD2
 extern xsum_algo_t xsum_algo_md2;
@@ -343,6 +439,40 @@ extern xsum_algo_t xsum_algo_sha3_384;
 #endif
 #ifdef XSUM_HAS_SHA3_512
 extern xsum_algo_t xsum_algo_sha3_512;
+#endif
+#ifdef XSUM_HAS_SKEIN_256
+extern xsum_algo_t xsum_algo_skein_256_8;
+extern xsum_algo_t xsum_algo_skein_256_16;
+extern xsum_algo_t xsum_algo_skein_256_24;
+extern xsum_algo_t xsum_algo_skein_256_32;
+extern xsum_algo_t xsum_algo_skein_256_40;
+extern xsum_algo_t xsum_algo_skein_256_48;
+extern xsum_algo_t xsum_algo_skein_256_56;
+extern xsum_algo_t xsum_algo_skein_256_64;
+extern xsum_algo_t xsum_algo_skein_256_72;
+extern xsum_algo_t xsum_algo_skein_256_80;
+extern xsum_algo_t xsum_algo_skein_256_88;
+extern xsum_algo_t xsum_algo_skein_256_96;
+extern xsum_algo_t xsum_algo_skein_256_104;
+extern xsum_algo_t xsum_algo_skein_256_112;
+extern xsum_algo_t xsum_algo_skein_256_120;
+extern xsum_algo_t xsum_algo_skein_256_128;
+extern xsum_algo_t xsum_algo_skein_256_136;
+extern xsum_algo_t xsum_algo_skein_256_144;
+extern xsum_algo_t xsum_algo_skein_256_152;
+extern xsum_algo_t xsum_algo_skein_256_160;
+extern xsum_algo_t xsum_algo_skein_256_168;
+extern xsum_algo_t xsum_algo_skein_256_176;
+extern xsum_algo_t xsum_algo_skein_256_184;
+extern xsum_algo_t xsum_algo_skein_256_192;
+extern xsum_algo_t xsum_algo_skein_256_200;
+extern xsum_algo_t xsum_algo_skein_256_208;
+extern xsum_algo_t xsum_algo_skein_256_216;
+extern xsum_algo_t xsum_algo_skein_256_224;
+extern xsum_algo_t xsum_algo_skein_256_232;
+extern xsum_algo_t xsum_algo_skein_256_240;
+extern xsum_algo_t xsum_algo_skein_256_248;
+extern xsum_algo_t xsum_algo_skein_256_256;
 #endif
 #ifdef XSUM_HAS_SKEIN_512
 extern xsum_algo_t xsum_algo_skein_512_8;
@@ -410,6 +540,136 @@ extern xsum_algo_t xsum_algo_skein_512_496;
 extern xsum_algo_t xsum_algo_skein_512_504;
 extern xsum_algo_t xsum_algo_skein_512_512;
 #endif
+#ifdef XSUM_HAS_SKEIN_1024
+extern xsum_algo_t xsum_algo_skein_1024_8;
+extern xsum_algo_t xsum_algo_skein_1024_16;
+extern xsum_algo_t xsum_algo_skein_1024_24;
+extern xsum_algo_t xsum_algo_skein_1024_32;
+extern xsum_algo_t xsum_algo_skein_1024_40;
+extern xsum_algo_t xsum_algo_skein_1024_48;
+extern xsum_algo_t xsum_algo_skein_1024_56;
+extern xsum_algo_t xsum_algo_skein_1024_64;
+extern xsum_algo_t xsum_algo_skein_1024_72;
+extern xsum_algo_t xsum_algo_skein_1024_80;
+extern xsum_algo_t xsum_algo_skein_1024_88;
+extern xsum_algo_t xsum_algo_skein_1024_96;
+extern xsum_algo_t xsum_algo_skein_1024_104;
+extern xsum_algo_t xsum_algo_skein_1024_112;
+extern xsum_algo_t xsum_algo_skein_1024_120;
+extern xsum_algo_t xsum_algo_skein_1024_128;
+extern xsum_algo_t xsum_algo_skein_1024_136;
+extern xsum_algo_t xsum_algo_skein_1024_144;
+extern xsum_algo_t xsum_algo_skein_1024_152;
+extern xsum_algo_t xsum_algo_skein_1024_160;
+extern xsum_algo_t xsum_algo_skein_1024_168;
+extern xsum_algo_t xsum_algo_skein_1024_176;
+extern xsum_algo_t xsum_algo_skein_1024_184;
+extern xsum_algo_t xsum_algo_skein_1024_192;
+extern xsum_algo_t xsum_algo_skein_1024_200;
+extern xsum_algo_t xsum_algo_skein_1024_208;
+extern xsum_algo_t xsum_algo_skein_1024_216;
+extern xsum_algo_t xsum_algo_skein_1024_224;
+extern xsum_algo_t xsum_algo_skein_1024_232;
+extern xsum_algo_t xsum_algo_skein_1024_240;
+extern xsum_algo_t xsum_algo_skein_1024_248;
+extern xsum_algo_t xsum_algo_skein_1024_256;
+extern xsum_algo_t xsum_algo_skein_1024_264;
+extern xsum_algo_t xsum_algo_skein_1024_272;
+extern xsum_algo_t xsum_algo_skein_1024_280;
+extern xsum_algo_t xsum_algo_skein_1024_288;
+extern xsum_algo_t xsum_algo_skein_1024_296;
+extern xsum_algo_t xsum_algo_skein_1024_304;
+extern xsum_algo_t xsum_algo_skein_1024_312;
+extern xsum_algo_t xsum_algo_skein_1024_320;
+extern xsum_algo_t xsum_algo_skein_1024_328;
+extern xsum_algo_t xsum_algo_skein_1024_336;
+extern xsum_algo_t xsum_algo_skein_1024_344;
+extern xsum_algo_t xsum_algo_skein_1024_352;
+extern xsum_algo_t xsum_algo_skein_1024_360;
+extern xsum_algo_t xsum_algo_skein_1024_368;
+extern xsum_algo_t xsum_algo_skein_1024_376;
+extern xsum_algo_t xsum_algo_skein_1024_384;
+extern xsum_algo_t xsum_algo_skein_1024_392;
+extern xsum_algo_t xsum_algo_skein_1024_400;
+extern xsum_algo_t xsum_algo_skein_1024_408;
+extern xsum_algo_t xsum_algo_skein_1024_416;
+extern xsum_algo_t xsum_algo_skein_1024_424;
+extern xsum_algo_t xsum_algo_skein_1024_432;
+extern xsum_algo_t xsum_algo_skein_1024_440;
+extern xsum_algo_t xsum_algo_skein_1024_448;
+extern xsum_algo_t xsum_algo_skein_1024_456;
+extern xsum_algo_t xsum_algo_skein_1024_464;
+extern xsum_algo_t xsum_algo_skein_1024_472;
+extern xsum_algo_t xsum_algo_skein_1024_480;
+extern xsum_algo_t xsum_algo_skein_1024_488;
+extern xsum_algo_t xsum_algo_skein_1024_496;
+extern xsum_algo_t xsum_algo_skein_1024_504;
+extern xsum_algo_t xsum_algo_skein_1024_512;
+extern xsum_algo_t xsum_algo_skein_1024_520;
+extern xsum_algo_t xsum_algo_skein_1024_528;
+extern xsum_algo_t xsum_algo_skein_1024_536;
+extern xsum_algo_t xsum_algo_skein_1024_544;
+extern xsum_algo_t xsum_algo_skein_1024_552;
+extern xsum_algo_t xsum_algo_skein_1024_560;
+extern xsum_algo_t xsum_algo_skein_1024_568;
+extern xsum_algo_t xsum_algo_skein_1024_576;
+extern xsum_algo_t xsum_algo_skein_1024_584;
+extern xsum_algo_t xsum_algo_skein_1024_592;
+extern xsum_algo_t xsum_algo_skein_1024_600;
+extern xsum_algo_t xsum_algo_skein_1024_608;
+extern xsum_algo_t xsum_algo_skein_1024_616;
+extern xsum_algo_t xsum_algo_skein_1024_624;
+extern xsum_algo_t xsum_algo_skein_1024_632;
+extern xsum_algo_t xsum_algo_skein_1024_640;
+extern xsum_algo_t xsum_algo_skein_1024_648;
+extern xsum_algo_t xsum_algo_skein_1024_656;
+extern xsum_algo_t xsum_algo_skein_1024_664;
+extern xsum_algo_t xsum_algo_skein_1024_672;
+extern xsum_algo_t xsum_algo_skein_1024_680;
+extern xsum_algo_t xsum_algo_skein_1024_688;
+extern xsum_algo_t xsum_algo_skein_1024_696;
+extern xsum_algo_t xsum_algo_skein_1024_704;
+extern xsum_algo_t xsum_algo_skein_1024_712;
+extern xsum_algo_t xsum_algo_skein_1024_720;
+extern xsum_algo_t xsum_algo_skein_1024_728;
+extern xsum_algo_t xsum_algo_skein_1024_736;
+extern xsum_algo_t xsum_algo_skein_1024_744;
+extern xsum_algo_t xsum_algo_skein_1024_752;
+extern xsum_algo_t xsum_algo_skein_1024_760;
+extern xsum_algo_t xsum_algo_skein_1024_768;
+extern xsum_algo_t xsum_algo_skein_1024_776;
+extern xsum_algo_t xsum_algo_skein_1024_784;
+extern xsum_algo_t xsum_algo_skein_1024_792;
+extern xsum_algo_t xsum_algo_skein_1024_800;
+extern xsum_algo_t xsum_algo_skein_1024_808;
+extern xsum_algo_t xsum_algo_skein_1024_816;
+extern xsum_algo_t xsum_algo_skein_1024_824;
+extern xsum_algo_t xsum_algo_skein_1024_832;
+extern xsum_algo_t xsum_algo_skein_1024_840;
+extern xsum_algo_t xsum_algo_skein_1024_848;
+extern xsum_algo_t xsum_algo_skein_1024_856;
+extern xsum_algo_t xsum_algo_skein_1024_864;
+extern xsum_algo_t xsum_algo_skein_1024_872;
+extern xsum_algo_t xsum_algo_skein_1024_880;
+extern xsum_algo_t xsum_algo_skein_1024_888;
+extern xsum_algo_t xsum_algo_skein_1024_896;
+extern xsum_algo_t xsum_algo_skein_1024_904;
+extern xsum_algo_t xsum_algo_skein_1024_912;
+extern xsum_algo_t xsum_algo_skein_1024_920;
+extern xsum_algo_t xsum_algo_skein_1024_928;
+extern xsum_algo_t xsum_algo_skein_1024_936;
+extern xsum_algo_t xsum_algo_skein_1024_944;
+extern xsum_algo_t xsum_algo_skein_1024_952;
+extern xsum_algo_t xsum_algo_skein_1024_960;
+extern xsum_algo_t xsum_algo_skein_1024_968;
+extern xsum_algo_t xsum_algo_skein_1024_976;
+extern xsum_algo_t xsum_algo_skein_1024_984;
+extern xsum_algo_t xsum_algo_skein_1024_992;
+extern xsum_algo_t xsum_algo_skein_1024_1000;
+extern xsum_algo_t xsum_algo_skein_1024_1008;
+extern xsum_algo_t xsum_algo_skein_1024_1016;
+extern xsum_algo_t xsum_algo_skein_1024_1024;
+#endif
 #ifdef XSUM_HAS_SM3
 extern xsum_algo_t xsum_algo_sm3;
 #endif
@@ -450,6 +710,18 @@ extern xsum_algo_t xsum_algo_xxhash64;
 xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_ADLER_32
 	&xsum_algo_adler_32,
+#endif
+#ifdef XSUM_HAS_BLAKE_224
+	&xsum_algo_blake_224,
+#endif
+#ifdef XSUM_HAS_BLAKE_256
+	&xsum_algo_blake_256,
+#endif
+#ifdef XSUM_HAS_BLAKE_384
+	&xsum_algo_blake_384,
+#endif
+#ifdef XSUM_HAS_BLAKE_512
+	&xsum_algo_blake_512,
 #endif
 #ifdef XSUM_HAS_BLAKE2S_FULL
 	&xsum_algo_blake2s_8,
@@ -700,6 +972,72 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_GOST94_CRYPTOPRO
 	&xsum_algo_gost94_cryptopro,
 #endif
+#ifdef XSUM_HAS_GROESTL_FULL
+	&xsum_algo_groestl_8,
+	&xsum_algo_groestl_16,
+	&xsum_algo_groestl_24,
+	&xsum_algo_groestl_32,
+	&xsum_algo_groestl_40,
+	&xsum_algo_groestl_48,
+	&xsum_algo_groestl_56,
+	&xsum_algo_groestl_64,
+	&xsum_algo_groestl_72,
+	&xsum_algo_groestl_80,
+	&xsum_algo_groestl_88,
+	&xsum_algo_groestl_96,
+	&xsum_algo_groestl_104,
+	&xsum_algo_groestl_112,
+	&xsum_algo_groestl_120,
+	&xsum_algo_groestl_128,
+	&xsum_algo_groestl_136,
+	&xsum_algo_groestl_144,
+	&xsum_algo_groestl_152,
+	&xsum_algo_groestl_160,
+	&xsum_algo_groestl_168,
+	&xsum_algo_groestl_176,
+	&xsum_algo_groestl_184,
+	&xsum_algo_groestl_192,
+	&xsum_algo_groestl_200,
+	&xsum_algo_groestl_208,
+	&xsum_algo_groestl_216,
+	&xsum_algo_groestl_224,
+	&xsum_algo_groestl_232,
+	&xsum_algo_groestl_240,
+	&xsum_algo_groestl_248,
+	&xsum_algo_groestl_256,
+	&xsum_algo_groestl_264,
+	&xsum_algo_groestl_272,
+	&xsum_algo_groestl_280,
+	&xsum_algo_groestl_288,
+	&xsum_algo_groestl_296,
+	&xsum_algo_groestl_304,
+	&xsum_algo_groestl_312,
+	&xsum_algo_groestl_320,
+	&xsum_algo_groestl_328,
+	&xsum_algo_groestl_336,
+	&xsum_algo_groestl_344,
+	&xsum_algo_groestl_352,
+	&xsum_algo_groestl_360,
+	&xsum_algo_groestl_368,
+	&xsum_algo_groestl_376,
+	&xsum_algo_groestl_384,
+	&xsum_algo_groestl_392,
+	&xsum_algo_groestl_400,
+	&xsum_algo_groestl_408,
+	&xsum_algo_groestl_416,
+	&xsum_algo_groestl_424,
+	&xsum_algo_groestl_432,
+	&xsum_algo_groestl_440,
+	&xsum_algo_groestl_448,
+	&xsum_algo_groestl_456,
+	&xsum_algo_groestl_464,
+	&xsum_algo_groestl_472,
+	&xsum_algo_groestl_480,
+	&xsum_algo_groestl_488,
+	&xsum_algo_groestl_496,
+	&xsum_algo_groestl_504,
+	&xsum_algo_groestl_512,
+#endif
 #ifdef XSUM_HAS_HAS160
 	&xsum_algo_has160,
 #endif
@@ -718,6 +1056,18 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_HAVAL_256
 	&xsum_algo_haval_256,
 #endif
+#ifdef XSUM_HAS_JH_224
+	&xsum_algo_jh_224,
+#endif
+#ifdef XSUM_HAS_JH_256
+	&xsum_algo_jh_256,
+#endif
+#ifdef XSUM_HAS_JH_384
+	&xsum_algo_jh_384,
+#endif
+#ifdef XSUM_HAS_JH_512
+	&xsum_algo_jh_512,
+#endif
 #ifdef XSUM_HAS_KECCAK_224
 	&xsum_algo_keccak_224,
 #endif
@@ -729,6 +1079,12 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_KECCAK_512
 	&xsum_algo_keccak_512,
+#endif
+#ifdef XSUM_HAS_KUPYNA_256
+	&xsum_algo_kupyna_256,
+#endif
+#ifdef XSUM_HAS_KUPYNA_512
+	&xsum_algo_kupyna_512,
 #endif
 #ifdef XSUM_HAS_MD2
 	&xsum_algo_md2,
@@ -786,6 +1142,40 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_SHA3_512
 	&xsum_algo_sha3_512,
+#endif
+#ifdef XSUM_HAS_SKEIN_256
+	&xsum_algo_skein_256_8,
+	&xsum_algo_skein_256_16,
+	&xsum_algo_skein_256_24,
+	&xsum_algo_skein_256_32,
+	&xsum_algo_skein_256_40,
+	&xsum_algo_skein_256_48,
+	&xsum_algo_skein_256_56,
+	&xsum_algo_skein_256_64,
+	&xsum_algo_skein_256_72,
+	&xsum_algo_skein_256_80,
+	&xsum_algo_skein_256_88,
+	&xsum_algo_skein_256_96,
+	&xsum_algo_skein_256_104,
+	&xsum_algo_skein_256_112,
+	&xsum_algo_skein_256_120,
+	&xsum_algo_skein_256_128,
+	&xsum_algo_skein_256_136,
+	&xsum_algo_skein_256_144,
+	&xsum_algo_skein_256_152,
+	&xsum_algo_skein_256_160,
+	&xsum_algo_skein_256_168,
+	&xsum_algo_skein_256_176,
+	&xsum_algo_skein_256_184,
+	&xsum_algo_skein_256_192,
+	&xsum_algo_skein_256_200,
+	&xsum_algo_skein_256_208,
+	&xsum_algo_skein_256_216,
+	&xsum_algo_skein_256_224,
+	&xsum_algo_skein_256_232,
+	&xsum_algo_skein_256_240,
+	&xsum_algo_skein_256_248,
+	&xsum_algo_skein_256_256,
 #endif
 #ifdef XSUM_HAS_SKEIN_512
 	&xsum_algo_skein_512_8,
@@ -852,6 +1242,136 @@ xsum_algo_t *xsum_algos[] = {
 	&xsum_algo_skein_512_496,
 	&xsum_algo_skein_512_504,
 	&xsum_algo_skein_512_512,
+#endif
+#ifdef XSUM_HAS_SKEIN_1024
+	&xsum_algo_skein_1024_8,
+	&xsum_algo_skein_1024_16,
+	&xsum_algo_skein_1024_24,
+	&xsum_algo_skein_1024_32,
+	&xsum_algo_skein_1024_40,
+	&xsum_algo_skein_1024_48,
+	&xsum_algo_skein_1024_56,
+	&xsum_algo_skein_1024_64,
+	&xsum_algo_skein_1024_72,
+	&xsum_algo_skein_1024_80,
+	&xsum_algo_skein_1024_88,
+	&xsum_algo_skein_1024_96,
+	&xsum_algo_skein_1024_104,
+	&xsum_algo_skein_1024_112,
+	&xsum_algo_skein_1024_120,
+	&xsum_algo_skein_1024_128,
+	&xsum_algo_skein_1024_136,
+	&xsum_algo_skein_1024_144,
+	&xsum_algo_skein_1024_152,
+	&xsum_algo_skein_1024_160,
+	&xsum_algo_skein_1024_168,
+	&xsum_algo_skein_1024_176,
+	&xsum_algo_skein_1024_184,
+	&xsum_algo_skein_1024_192,
+	&xsum_algo_skein_1024_200,
+	&xsum_algo_skein_1024_208,
+	&xsum_algo_skein_1024_216,
+	&xsum_algo_skein_1024_224,
+	&xsum_algo_skein_1024_232,
+	&xsum_algo_skein_1024_240,
+	&xsum_algo_skein_1024_248,
+	&xsum_algo_skein_1024_256,
+	&xsum_algo_skein_1024_264,
+	&xsum_algo_skein_1024_272,
+	&xsum_algo_skein_1024_280,
+	&xsum_algo_skein_1024_288,
+	&xsum_algo_skein_1024_296,
+	&xsum_algo_skein_1024_304,
+	&xsum_algo_skein_1024_312,
+	&xsum_algo_skein_1024_320,
+	&xsum_algo_skein_1024_328,
+	&xsum_algo_skein_1024_336,
+	&xsum_algo_skein_1024_344,
+	&xsum_algo_skein_1024_352,
+	&xsum_algo_skein_1024_360,
+	&xsum_algo_skein_1024_368,
+	&xsum_algo_skein_1024_376,
+	&xsum_algo_skein_1024_384,
+	&xsum_algo_skein_1024_392,
+	&xsum_algo_skein_1024_400,
+	&xsum_algo_skein_1024_408,
+	&xsum_algo_skein_1024_416,
+	&xsum_algo_skein_1024_424,
+	&xsum_algo_skein_1024_432,
+	&xsum_algo_skein_1024_440,
+	&xsum_algo_skein_1024_448,
+	&xsum_algo_skein_1024_456,
+	&xsum_algo_skein_1024_464,
+	&xsum_algo_skein_1024_472,
+	&xsum_algo_skein_1024_480,
+	&xsum_algo_skein_1024_488,
+	&xsum_algo_skein_1024_496,
+	&xsum_algo_skein_1024_504,
+	&xsum_algo_skein_1024_512,
+	&xsum_algo_skein_1024_520,
+	&xsum_algo_skein_1024_528,
+	&xsum_algo_skein_1024_536,
+	&xsum_algo_skein_1024_544,
+	&xsum_algo_skein_1024_552,
+	&xsum_algo_skein_1024_560,
+	&xsum_algo_skein_1024_568,
+	&xsum_algo_skein_1024_576,
+	&xsum_algo_skein_1024_584,
+	&xsum_algo_skein_1024_592,
+	&xsum_algo_skein_1024_600,
+	&xsum_algo_skein_1024_608,
+	&xsum_algo_skein_1024_616,
+	&xsum_algo_skein_1024_624,
+	&xsum_algo_skein_1024_632,
+	&xsum_algo_skein_1024_640,
+	&xsum_algo_skein_1024_648,
+	&xsum_algo_skein_1024_656,
+	&xsum_algo_skein_1024_664,
+	&xsum_algo_skein_1024_672,
+	&xsum_algo_skein_1024_680,
+	&xsum_algo_skein_1024_688,
+	&xsum_algo_skein_1024_696,
+	&xsum_algo_skein_1024_704,
+	&xsum_algo_skein_1024_712,
+	&xsum_algo_skein_1024_720,
+	&xsum_algo_skein_1024_728,
+	&xsum_algo_skein_1024_736,
+	&xsum_algo_skein_1024_744,
+	&xsum_algo_skein_1024_752,
+	&xsum_algo_skein_1024_760,
+	&xsum_algo_skein_1024_768,
+	&xsum_algo_skein_1024_776,
+	&xsum_algo_skein_1024_784,
+	&xsum_algo_skein_1024_792,
+	&xsum_algo_skein_1024_800,
+	&xsum_algo_skein_1024_808,
+	&xsum_algo_skein_1024_816,
+	&xsum_algo_skein_1024_824,
+	&xsum_algo_skein_1024_832,
+	&xsum_algo_skein_1024_840,
+	&xsum_algo_skein_1024_848,
+	&xsum_algo_skein_1024_856,
+	&xsum_algo_skein_1024_864,
+	&xsum_algo_skein_1024_872,
+	&xsum_algo_skein_1024_880,
+	&xsum_algo_skein_1024_888,
+	&xsum_algo_skein_1024_896,
+	&xsum_algo_skein_1024_904,
+	&xsum_algo_skein_1024_912,
+	&xsum_algo_skein_1024_920,
+	&xsum_algo_skein_1024_928,
+	&xsum_algo_skein_1024_936,
+	&xsum_algo_skein_1024_944,
+	&xsum_algo_skein_1024_952,
+	&xsum_algo_skein_1024_960,
+	&xsum_algo_skein_1024_968,
+	&xsum_algo_skein_1024_976,
+	&xsum_algo_skein_1024_984,
+	&xsum_algo_skein_1024_992,
+	&xsum_algo_skein_1024_1000,
+	&xsum_algo_skein_1024_1008,
+	&xsum_algo_skein_1024_1016,
+	&xsum_algo_skein_1024_1024,
 #endif
 #ifdef XSUM_HAS_SM3
 	&xsum_algo_sm3,

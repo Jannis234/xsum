@@ -28,6 +28,7 @@ SRC = src/main.c \
 	src/process.c \
 	src/algos.c \
 	src/algos/adler_32.c \
+	src/algos/blake_224.c src/algos/blake_256.c src/algos/blake_384.c src/algos/blake_512.c \
 	src/algos/blake2s.c src/algos/blake2s_128.c src/algos/blake2s_160.c src/algos/blake2s_224.c src/algos/blake2s_256.c \
 	src/algos/blake2sp.c \
 	src/algos/blake2b.c src/algos/blake2b_160.c src/algos/blake2b_256.c src/algos/blake2b_384.c src/algos/blake2b_512.c \
@@ -35,9 +36,12 @@ SRC = src/main.c \
 	src/algos/crc24.c src/algos/crc32.c src/algos/crc64.c \
 	src/algos/edon_r_256.c src/algos/edon_r_512.c \
 	src/algos/gost94.c src/algos/gost94_cryptopro.c \
+	src/algos/groestl.c \
 	src/algos/has160.c \
 	src/algos/haval_128.c src/algos/haval_160.c src/algos/haval_192.c src/algos/haval_224.c src/algos/haval_256.c \
+	src/algos/jh_224.c src/algos/jh_256.c src/algos/jh_384.c src/algos/jh_512.c \
 	src/algos/keccak_224.c src/algos/keccak_256.c src/algos/keccak_384.c src/algos/keccak_512.c \
+	src/algos/kupyna_256.c src/algos/kupyna_512.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \
@@ -46,7 +50,7 @@ SRC = src/main.c \
 	src/algos/sha1.c \
 	src/algos/sha224.c src/algos/sha256.c src/algos/sha384.c src/algos/sha512.c src/algos/sha512_224.c src/algos/sha512_256.c \
 	src/algos/sha3_224.c src/algos/sha3_256.c src/algos/sha3_384.c src/algos/sha3_512.c \
-	src/algos/skein_512.c \
+	src/algos/skein_256.c src/algos/skein_512.c src/algos/skein_1024.c \
 	src/algos/sm3.c \
 	src/algos/snefru_128.c src/algos/snefru_256.c \
 	src/algos/streebog_256.c src/algos/streebog_512.c \
@@ -60,6 +64,9 @@ SRC = src/main.c \
 SRC_CPP = 
 ifeq ($(WITH_CRYPTOPP), 1)
 SRC_CPP += src/cpp/cryptopp_wrapper.cpp
+endif
+ifeq ($(WITH_CPPCRYPTO), 1)
+SRC_CPP += src/cpp/cppcrypto_wrapper.cpp
 endif
 
 .PHONY: all depend clean cli man install install-cli install-man uninstall check
@@ -110,6 +117,7 @@ src/include/config_generated.h: config_build.mak src/gen_config.sh
 	sh src/gen_config.sh $(XSUM_VERSION) \
 		OPENMP $(WITH_OPENMP) \
 		BOTAN $(WITH_BOTAN) \
+		CPPCRYPTO $(WITH_CPPCRYPTO) \
 		CRYPTOPP $(WITH_CRYPTOPP) \
 		GLIB $(WITH_GLIB) \
 		GNUTLS $(WITH_GNUTLS) \

@@ -33,6 +33,11 @@ XSUM_TEMPLATE_OPENSSL(sm3, sm3, 32)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(sm3, SM3, 32)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO(sm3, sm3, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sm3, "SM3", 32)

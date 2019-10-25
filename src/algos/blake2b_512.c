@@ -48,6 +48,11 @@ XSUM_TEMPLATE_OPENSSL(blake2b_512, blake2b512, 64)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2b_512, BLAKE2b, 64)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(blake2b_512, blake2b, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_512, "BLAKE2b-512", 64)

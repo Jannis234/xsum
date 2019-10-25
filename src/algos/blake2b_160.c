@@ -43,6 +43,11 @@ XSUM_TEMPLATE_BOTAN(blake2b_160, "Blake2b(160)", 20)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP_SIZE(blake2b_160, BLAKE2b, 20)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(blake2b_160, blake2b, 20)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(blake2b_160, "BLAKE2b-160", 20)

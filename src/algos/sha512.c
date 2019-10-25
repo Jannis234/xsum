@@ -87,6 +87,11 @@ XSUM_TEMPLATE_GLIB(sha512, G_CHECKSUM_SHA512, 64)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(sha512, SHA512, 64)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO_SIZE(sha512, sha512, 64)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha512, "SHA512", 64)

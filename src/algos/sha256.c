@@ -87,6 +87,11 @@ XSUM_TEMPLATE_GLIB(sha256, G_CHECKSUM_SHA256, 32)
 #include "cryptopp_wrapper.h"
 XSUM_TEMPLATE_CRYPTOPP(sha256, SHA256, 32)
 
+#elif defined(XSUM_WITH_CPPCRYPTO)
+
+#include "cppcrypto_wrapper.h"
+XSUM_TEMPLATE_CPPCRYPTO(sha256, sha256, 32)
+
 #endif
 
 XSUM_TEMPLATE_ALGO(sha256, "SHA256", 32)
