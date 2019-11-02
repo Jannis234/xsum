@@ -26,6 +26,7 @@ SRC = src/main.c \
 	src/lib_init.c \
 	src/parse.c \
 	src/process.c \
+	src/compress.c \
 	src/algos.c \
 	src/algos/adler_32.c \
 	src/algos/blake_224.c src/algos/blake_256.c src/algos/blake_384.c src/algos/blake_512.c \

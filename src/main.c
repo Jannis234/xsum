@@ -21,6 +21,7 @@
 #include <string.h>
 #include "algos.h"
 #include "cli.h"
+#include "compress.h"
 #include "config.h"
 #include "xsum.h"
 
@@ -112,6 +113,23 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count, boo
 		return RETURN_FILE_ERROR;
 	}
 	fclose(fd);
+	
+	if (buf[0] == 0x1F && buf[1] == 0x8B) {
+#ifdef XSUM_WITH_ZLIB
+		uint64_t pos2;
+		uint8_t *buf2 = xsum_decompress_file(filename, buf, pos, &pos2);
+		free(buf);
+		if (buf2 == NULL) {
+			return RETURN_FILE_ERROR;
+		}
+		buf = buf2;
+		pos = pos2;
+#else
+		fprintf(stderr, "%s: Compressed file (not supported by this build of xsum)\n", filename);
+		free(buf);
+		return RETURN_FILE_ERROR;
+#endif
+	}
 	
 	int ret = xsum_parse(filename, buf, pos, results, algos_count, ignore_unknown, ignore_missing, quiet);
 	free(buf);
