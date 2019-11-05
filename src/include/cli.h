@@ -36,6 +36,8 @@ typedef struct {
 	char *arg_out; // If this option takes an argument, xsum_argparse sets this to that argument (pointer into argv)
 } xsum_argparse_t;
 
+#define XSUM_ARGPARSE_ENTRY(name_long, name_short, arg_required) {name_long, name_short, arg_required, false, NULL},
+
 // Somewhat similar to getopt_long; remebers which arguments are input filenames
 bool xsum_argparse(xsum_argparse_t *options, size_t options_count, char **argv, int argc, bool *filenames);
 // Find an option by name and return its index

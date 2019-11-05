@@ -167,18 +167,18 @@ int main(int argc, char **argv) {
 	}
 	
 	xsum_argparse_t options[] = {
-		{ "help", 'h', false, false, NULL },
-		{ "version", 'v', false, false, NULL },
-		{ "debug", 0, false, false, NULL },
-		{ "check", 'c', false, false, NULL },
-		{ "quiet", 'q', false, false, NULL },
-		{ "algos", 'a', true, false, NULL },
-		{ "exclude-algos", 'e', true, false, NULL },
-		{ "ignore-unknown", 0, false, false, NULL },
-		{ "ignore-missing", 0, false, false, NULL },
-		{ "list-algos", 0, false, false, NULL },
+		XSUM_ARGPARSE_ENTRY("help", 'h', false)
+		XSUM_ARGPARSE_ENTRY("version", 'v', false)
+		XSUM_ARGPARSE_ENTRY("debug", 0, false)
+		XSUM_ARGPARSE_ENTRY("check", 'c', false)
+		XSUM_ARGPARSE_ENTRY("quiet", 'q', false)
+		XSUM_ARGPARSE_ENTRY("algos", 'a', true)
+		XSUM_ARGPARSE_ENTRY("exclude-algos", 'e', true)
+		XSUM_ARGPARSE_ENTRY("ignore-unknown", 0, false)
+		XSUM_ARGPARSE_ENTRY("ignore-missing", 0, false)
+		XSUM_ARGPARSE_ENTRY("list-algos", 0, false)
 #ifdef XSUM_WITH_OPENMP
-		{ "threads", 't', true, false, NULL },
+		XSUM_ARGPARSE_ENTRY("threads", 't', true)
 #endif
 	};
 	size_t options_count = sizeof(options) / sizeof(xsum_argparse_t);
