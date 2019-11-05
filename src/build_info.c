@@ -91,6 +91,12 @@ void xsum_build_info() {
 	printf("xsum %s\n\n", XSUM_VERSION_STRING);
 	
 	printf("Optional features:\n");
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+	char *opt_compress = "Yes";
+#else
+	char *opt_compress = "No";
+#endif
+	printf("  Compression: %s\n", opt_compress);
 #ifdef XSUM_WITH_OPENMP
 	char *opt_omp = "Yes";
 #else

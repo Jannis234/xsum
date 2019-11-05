@@ -32,31 +32,48 @@
 uint32_t xsum_threads;
 #endif
 
-int print_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing) {
+char* output_string(char *filename, xsum_algo_result_t *results, int algos_count) {
 	
-	int ret = xsum_process(filename, results, algos_count, ignore_missing);
-	if (ret == -1) { // File not found with ignore_missing = true
-		return RETURN_OK;
-	} else if (ret != RETURN_OK) {
-		return ret;
+	if (filename == NULL) {
+		filename = "-";
 	}
+	size_t len = 0;
 	for (int i = 0; i < algos_count; i++) {
 		if (results[i].enabled) {
-			printf("%s:", xsum_algos[i]->name);
-			for (int j = 0; j < xsum_algos[i]->length; j++) {
-				printf("%02x", results[i].hash[j]);
-			}
-			printf(" ");
-			free(results[i].hash);
-			results[i].hash = NULL; // Reset for the next file
+			len += strlen(xsum_algos[i]->name);
+			len += xsum_algos[i]->length * 2;
+			len += 2; // Space and colon
 		}
 	}
-	if (filename == NULL) {
-		printf(" -\n");
-	} else {
-		printf(" %s\n", filename);
+	len += strlen(filename);
+	len++; // NULL terminator
+	
+	char *res = malloc(len);
+	if (res == NULL) {
+		return NULL;
 	}
-	return ret;
+	char *buf = res;
+	char *hex_chars = "0123456789abcdef";
+	for (int i = 0; i < algos_count; i++) {
+		if (results[i].enabled) {
+			strcpy(buf, xsum_algos[i]->name);
+			buf += strlen(xsum_algos[i]->name);
+			*buf = ':';
+			buf++;
+			for (int j = 0; j < xsum_algos[i]->length; j++) {
+				*buf = hex_chars[results[i].hash[j] / 16];
+				buf++;
+				*buf = hex_chars[results[i].hash[j] % 16];
+				buf++;
+			}
+			free(results[i].hash);
+			results[i].hash = NULL; // Reset for the next file
+			*buf = ' ';
+			buf++;
+		}
+	}
+	strcpy(buf, filename);
+	return res;
 	
 }
 
@@ -180,6 +197,9 @@ int main(int argc, char **argv) {
 #ifdef XSUM_WITH_OPENMP
 		XSUM_ARGPARSE_ENTRY("threads", 't', true)
 #endif
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+		XSUM_ARGPARSE_ENTRY("compress", 'z', false)
+#endif
 	};
 	size_t options_count = sizeof(options) / sizeof(xsum_argparse_t);
 	bool *argv_filenames = malloc(sizeof(bool) * (argc + 1));
@@ -230,6 +250,14 @@ int main(int argc, char **argv) {
 		free(argv_filenames);
 		return RETURN_ERROR;
 	}
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+	int option_compress = xsum_find_option(options, options_count, false, "z");
+	if (options[option_check].found && options[option_compress].found) {
+		fprintf(stderr, "Can not use --check and --compress at the same time\n");
+		free(argv_filenames);
+		return RETURN_ERROR;
+	}
+#endif
 #ifdef XSUM_WITH_OPENMP
 	xsum_threads = 0;
 	int option_threads = xsum_find_option(options, options_count, false, "t");
@@ -297,45 +325,67 @@ int main(int argc, char **argv) {
 		}
 	}
 	
-	int files_count = 0;
-	for (int i = 1; i < argc; i++) {
-		if (argv_filenames[i]) {
-			files_count++;
-		}
-	}
 	bool ignore_missing = options[xsum_find_option(options, options_count, true, "ignore-missing")].found;
 	ret = RETURN_OK;
 	if (options[option_check].found) {
 		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		bool quiet = options[xsum_find_option(options, options_count, false, "q")].found;
-		if (files_count == 0) {
-			ret = check_file(NULL, results, algos_count, ignore_unknown, ignore_missing, quiet);
-		} else {
-			for (int i = 1; i < argc; i++) {
-				if (argv_filenames[i]) {
-					int ret2 = check_file(argv[i], results, algos_count, ignore_unknown, ignore_missing, quiet);
-					if (ret2 > ret) {
-						ret = ret2;
-					}
+		for (int i = 1; i < argc; i++) {
+			if (argv_filenames[i]) {
+				int ret2 = check_file(argv[i], results, algos_count, ignore_unknown, ignore_missing, quiet);
+				if (ret2 > ret) {
+					ret = ret2;
 				}
 			}
 		}
 	} else {
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+		void *compress_state = NULL;
+		if (options[option_compress].found) {
+			compress_state = xsum_compress_init();
+			if (compress_state == NULL) {
+				fprintf(stderr, "Out of memory\n");
+				free(argv_filenames);
+				free(results);
+				return RETURN_FILE_ERROR;
+			}
+		}
+#endif
 		for (int i = 0; i < algos_count; i++) {
 			results[i].hash = NULL;
 		}
-		if (files_count == 0) {
-			ret = print_file(NULL, results, algos_count, ignore_missing);
-		} else {
-			for (int i = 1; i < argc; i++) {
-				if (argv_filenames[i]) {
-					int ret2 = print_file(argv[i], results, algos_count, ignore_missing);
-					if (ret2 > ret) {
-						ret = ret2;
+		for (int i = 1; i < argc; i++) {
+			if (argv_filenames[i]) {
+				int ret2 = xsum_process(argv[i], results, algos_count, ignore_missing);
+				if (ret2 == -1) { // File not found with ignore_missing = true
+					ret2 = RETURN_OK;
+				} else {
+					char *str = output_string(argv[i], results, algos_count);
+					if (str == NULL) {
+						ret2 = RETURN_FILE_ERROR;
+					} else {
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+						if (options[option_compress].found) {
+							xsum_compress_string(compress_state, str);
+						} else {
+#endif
+							printf("%s\n", str);
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+						}
+#endif
+						free(str);
 					}
+				}
+				if (ret2 > ret) {
+					ret = ret2;
 				}
 			}
 		}
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+		if (options[option_compress].found) {
+			xsum_compress_end(compress_state);
+		}
+#endif
 	}
 	
 	free(argv_filenames);

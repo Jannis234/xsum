@@ -17,11 +17,24 @@
 
 #ifdef XSUM_WITH_ZLIB_COMPRESS
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 #include <zlib.h>
+
+#define OUTBUFSIZE 1024
+
+typedef struct {
+	z_stream strm;
+	gz_header gzhead;
+	uint8_t outbuf[OUTBUFSIZE];
+} xsum_compress_state_t;
+
+char *gzip_comment = "xsum "XSUM_VERSION_STRING;
 
 uint8_t* xsum_decompress_file(char *filename, uint8_t *buf, uint64_t len, uint64_t *len_out) {
 	
@@ -41,7 +54,7 @@ uint8_t* xsum_decompress_file(char *filename, uint8_t *buf, uint64_t len, uint64
 	strm.next_out = res;
 	strm.avail_out = res_len;
 	
-	if (inflateInit2(&strm, 15 + 16) != Z_OK) {
+	if (inflateInit2(&strm, 15 + 16) != Z_OK) { // windowBits + 16 for gzip instead of raw deflate
 		fprintf(stderr, "%s: Out of memory\n", filename);
 		free(res);
 		return NULL;
@@ -79,6 +92,75 @@ uint8_t* xsum_decompress_file(char *filename, uint8_t *buf, uint64_t len, uint64
 		free(res);
 		return NULL;
 	}
+	
+}
+
+void* xsum_compress_init() {
+	
+	xsum_compress_state_t *state = malloc(sizeof(xsum_compress_state_t));
+	if (state == NULL) {
+		return NULL;
+	}
+	state->strm.zalloc = (alloc_func) Z_NULL;
+	state->strm.zfree = (free_func) Z_NULL;
+	state->strm.opaque = NULL;
+	if (deflateInit2(&state->strm, Z_DEFAULT_COMPRESSION, Z_DEFLATED, 15 + 16, 8, Z_DEFAULT_STRATEGY) != Z_OK) { // windowBits + 16 for gzip instead of raw deflate
+		free(state);
+		return NULL;
+	}
+	state->strm.next_out = state->outbuf;
+	state->strm.avail_out = OUTBUFSIZE;
+	
+	state->gzhead.text = true;
+	state->gzhead.time = time(NULL);
+	state->gzhead.os = 0xFF; // "Unknown"
+	state->gzhead.extra = Z_NULL;
+	state->gzhead.name = Z_NULL;
+	state->gzhead.comment = (Bytef*) gzip_comment;
+	state->gzhead.hcrc = false;
+	deflateSetHeader(&state->strm, &state->gzhead);
+	
+	return state;
+	
+}
+
+void xsum_compress_end(void *state) {
+	
+	xsum_compress_state_t *s = (xsum_compress_state_t*) state;
+	s->strm.avail_in = 0;
+	
+	int ret;
+	do {
+		ret = deflate(&s->strm, Z_FINISH);
+		if (s->strm.avail_out != OUTBUFSIZE) {
+			fwrite(s->outbuf, 1, OUTBUFSIZE - s->strm.avail_out, stdout);
+			s->strm.next_out = s->outbuf;
+			s->strm.avail_out = OUTBUFSIZE;
+		}
+	} while (ret != Z_STREAM_END);
+	
+	deflateEnd(&s->strm);
+	free(s);
+	
+}
+
+void xsum_compress_string(void *state, char *str) {
+	
+	xsum_compress_state_t *s = (xsum_compress_state_t*) state;
+	size_t len = strlen(str);
+	str[len] = '\n'; // Re-use the NULL terminator for a newline
+	
+	s->strm.next_in = (uint8_t*) str;
+	s->strm.avail_in = len + 1;
+	int ret;
+	do {
+		ret = deflate(&s->strm, Z_NO_FLUSH);
+		if (s->strm.avail_out == 0) {
+			fwrite(s->outbuf, 1, OUTBUFSIZE, stdout);
+			s->strm.next_out = s->outbuf;
+			s->strm.avail_out = OUTBUFSIZE;
+		}
+	} while (ret == Z_OK);
 	
 }
 

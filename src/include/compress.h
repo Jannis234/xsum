@@ -23,6 +23,9 @@
 #include <stdint.h>
 
 uint8_t* xsum_decompress_file(char *filename, uint8_t *buf, uint64_t len, uint64_t *len_out);
+void* xsum_compress_init();
+void xsum_compress_end(void *state);
+void xsum_compress_string(void *state, char *str);
 
 #endif
 

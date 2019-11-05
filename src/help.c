@@ -30,6 +30,9 @@ void xsum_print_help() {
 	printf("  -a, --algos:         Select checksums to calculate (comma-separated)\n");
 	printf("  -e, --exclude-algos: Select checksums to exclude (comma-separated)\n");
 	printf("  --list-algos:        List all supported checksums and exit\n");
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+	printf("  -z, --compress:      Produce gzip compressed output\n");
+#endif
 #ifdef XSUM_WITH_OPENMP
 	printf("  -t, --threads:       Set the amount of threads that xsum should use\n");
 	printf("                       Set this to 0 to use all processors (default)\n");
