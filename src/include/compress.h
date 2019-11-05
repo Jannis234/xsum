@@ -18,7 +18,7 @@
 
 #include "config.h"
 
-#ifdef XSUM_WITH_ZLIB
+#ifdef XSUM_WITH_ZLIB_COMPRESS
 
 #include <stdint.h>
 

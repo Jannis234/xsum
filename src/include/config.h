@@ -295,6 +295,7 @@
 
 #if (XSUM_CONFIG_ZLIB == 1)
 	#define XSUM_WITH_ZLIB
+	#define XSUM_WITH_ZLIB_COMPRESS
 #endif
 
 #if (XSUM_CONFIG_WIN_CNG == 1)

@@ -115,7 +115,7 @@ int check_file(char *filename, xsum_algo_result_t *results, int algos_count, boo
 	fclose(fd);
 	
 	if (buf[0] == 0x1F && buf[1] == 0x8B) {
-#ifdef XSUM_WITH_ZLIB
+#ifdef XSUM_WITH_ZLIB_COMPRESS
 		uint64_t pos2;
 		uint8_t *buf2 = xsum_decompress_file(filename, buf, pos, &pos2);
 		free(buf);
