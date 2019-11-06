@@ -17,7 +17,7 @@
 #ifdef XSUM_HAS_CRC64
 
 #include "algo_template.h"
-#include "byteswap.h"
+#include "endian.h"
 
 #if defined(XSUM_WITH_LIBLZMA)
 
