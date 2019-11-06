@@ -1,3 +1,10 @@
+Version 1.1:
+	- Support for hashes using glib
+	- Support for hashes using crypto++
+	- Support for hashes using cppcrypto
+	- Support for gzip compressed files using zlib
+	- Fix xsum hanging when compiled with mmap() available and OpenMP disabled
+
 Version 1.0.1:
 	- Fix manpage installation
 
