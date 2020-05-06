@@ -77,6 +77,32 @@ char* output_string(char *filename, xsum_algo_result_t *results, int algos_count
 	
 }
 
+int process_input(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_missing, void *compress_state, bool compress) {
+	
+	int ret = xsum_process(filename, results, algos_count, ignore_missing);
+	if (ret == -1) { // File not found with ignore_missing = true
+		return RETURN_OK;
+	} else if (ret == RETURN_OK) {
+		char *str = output_string(filename, results, algos_count);
+		if (str == NULL) {
+			ret = RETURN_FILE_ERROR;
+		} else {
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+			if (compress) {
+				xsum_compress_string(compress_state, str);
+			} else {
+#endif
+				printf("%s\n", str);
+#ifdef XSUM_WITH_ZLIB_COMPRESS
+			}
+#endif
+			free(str);
+		}
+	}
+	return ret;
+	
+}
+
 int check_file(char *filename, xsum_algo_result_t *results, int algos_count, bool ignore_unknown, bool ignore_missing, bool quiet) {
 	
 	FILE *fd = stdin;
@@ -330,18 +356,26 @@ int main(int argc, char **argv) {
 	if (options[option_check].found) {
 		bool ignore_unknown = options[xsum_find_option(options, options_count, true, "ignore-unknown")].found;
 		bool quiet = options[xsum_find_option(options, options_count, false, "q")].found;
+		bool filename_found = false;
 		for (int i = 1; i < argc; i++) {
 			if (argv_filenames[i]) {
+				filename_found = true;
 				int ret2 = check_file(argv[i], results, algos_count, ignore_unknown, ignore_missing, quiet);
 				if (ret2 > ret) {
 					ret = ret2;
 				}
 			}
 		}
+		if (!filename_found) {
+			fprintf(stderr, "No file(s) to check specified\n");
+			ret = RETURN_ERROR;
+		}
 	} else {
-#ifdef XSUM_WITH_ZLIB_COMPRESS
 		void *compress_state = NULL;
+		bool compress = false;
+#ifdef XSUM_WITH_ZLIB_COMPRESS
 		if (options[option_compress].found) {
+			compress = true;
 			compress_state = xsum_compress_init();
 			if (compress_state == NULL) {
 				fprintf(stderr, "Out of memory\n");
@@ -354,31 +388,20 @@ int main(int argc, char **argv) {
 		for (int i = 0; i < algos_count; i++) {
 			results[i].hash = NULL;
 		}
+		bool filename_found = false;
 		for (int i = 1; i < argc; i++) {
 			if (argv_filenames[i]) {
-				int ret2 = xsum_process(argv[i], results, algos_count, ignore_missing);
-				if (ret2 == -1) { // File not found with ignore_missing = true
-					ret2 = RETURN_OK;
-				} else if (ret2 == RETURN_OK) {
-					char *str = output_string(argv[i], results, algos_count);
-					if (str == NULL) {
-						ret2 = RETURN_FILE_ERROR;
-					} else {
-#ifdef XSUM_WITH_ZLIB_COMPRESS
-						if (options[option_compress].found) {
-							xsum_compress_string(compress_state, str);
-						} else {
-#endif
-							printf("%s\n", str);
-#ifdef XSUM_WITH_ZLIB_COMPRESS
-						}
-#endif
-						free(str);
-					}
-				}
+				filename_found = true;
+				int ret2 = process_input(argv[i], results, algos_count, ignore_missing, compress_state, compress);
 				if (ret2 > ret) {
 					ret = ret2;
 				}
+			}
+		}
+		if (!filename_found) {
+			int ret2 = process_input(NULL, results, algos_count, ignore_missing, compress_state, compress);
+			if (ret2 > ret) {
+				ret = ret2;
 			}
 		}
 #ifdef XSUM_WITH_ZLIB_COMPRESS
