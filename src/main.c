@@ -359,7 +359,7 @@ int main(int argc, char **argv) {
 				int ret2 = xsum_process(argv[i], results, algos_count, ignore_missing);
 				if (ret2 == -1) { // File not found with ignore_missing = true
 					ret2 = RETURN_OK;
-				} else {
+				} else if (ret2 == RETURN_OK) {
 					char *str = output_string(argv[i], results, algos_count);
 					if (str == NULL) {
 						ret2 = RETURN_FILE_ERROR;
