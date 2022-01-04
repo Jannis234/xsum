@@ -1,0 +1,9 @@
+xxHash3-128:f1f8a93f50849ac39408a4433b952d71  input/binary1
+xxHash3-128:6fdbcb494a285b4898276b6025d637ae  input/binary2
+xxHash3-128:99aa06d3014798d86001c324468d497f  input/empty
+xxHash3-128:b387c0da6496abc49763f6a9bf048186  input/large1
+xxHash3-128:2c06f61dc183c6fdc2c35b61610ddaa8  input/large2
+xxHash3-128:d7917b9cabda1e3c7f5195d01dadddf0  input/random1
+xxHash3-128:3a3bd105e9b38d85c50a09040414630d  input/random2
+xxHash3-128:06b05ab6733a618578af5f94892f3950  input/string1
+xxHash3-128:4a6e84a6633affa7a28a8c7e138b847a  input/string2

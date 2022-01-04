@@ -51,7 +51,7 @@ CHECKS = check_adler_32 \
 	check_streebog_256 check_streebog_512 \
 	check_sum \
 	check_xor \
-	check_xxhash32 check_xxhash64
+	check_xxhash32 check_xxhash64 check_xxhash3_64 check_xxhash3_128
 
 .PHONY: check clean $(CHECKS)
 
@@ -1684,3 +1684,9 @@ check_xxhash32: $(INPUT_DEPEND) data/xxhash32.txt
 
 check_xxhash64: $(INPUT_DEPEND) data/xxhash64.txt
 	$(XSUM) -c data/xxhash64.txt
+
+check_xxhash3_64: $(INPUT_DEPEND) data/xxhash3_64.txt
+	$(XSUM) -c data/xxhash3_64.txt
+
+check_xxhash3_128: $(INPUT_DEPEND) data/xxhash3_128.txt
+	$(XSUM) -c data/xxhash3_128.txt

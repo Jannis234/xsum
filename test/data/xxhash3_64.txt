@@ -1,0 +1,9 @@
+xxHash3-64:9408a4433b952d71  input/binary1
+xxHash3-64:98276b6025d637ae  input/binary2
+xxHash3-64:2d06800538d394c2  input/empty
+xxHash3-64:9763f6a9bf048186  input/large1
+xxHash3-64:c2c35b61610ddaa8  input/large2
+xxHash3-64:7f5195d01dadddf0  input/random1
+xxHash3-64:c50a09040414630d  input/random2
+xxHash3-64:78af5f94892f3950  input/string1
+xxHash3-64:1d95e38bc19d34aa  input/string2
