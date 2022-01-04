@@ -1,3 +1,6 @@
+Version 1.2:
+	- Support for xxHash3
+
 Version 1.1.1:
 	- Correctly handle invocation without any filname(s) on the command line
 	- Fix a crash after an error when opening an input file

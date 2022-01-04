@@ -93,6 +93,8 @@ WHIRLPOOL | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.s
 XOR | (Built in) | XOR of all input bytes
 xxHash32 | [xxhash](http://www.xxhash.com/) |
 xxHash64 | [xxhash](http://www.xxhash.com/) |
+xxHash3-64 | [xxhash](http://www.xxhash.com/)¹⁰ |
+xxHash3-128 | [xxhash](http://www.xxhash.com/) ¹⁰ |
 
 ¹) libgcrypt 1.8.0 or higher required for BLAKE2
 
@@ -111,6 +113,8 @@ xxHash64 | [xxhash](http://www.xxhash.com/) |
 ⁸) xsum supports the Windows CNG API on Windows Vista/Server 2008 or later (build xsum using [MinGW](http://mingw.org/))
 
 ⁹) SHA512 required glib 2.36 or newer, SHA384 requires glib 2.51 or newer
+
+¹⁰) xxHash 0.8.0 or higher required for xxHash3
 
 ## Usage examples
 
