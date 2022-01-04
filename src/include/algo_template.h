@@ -525,6 +525,36 @@
 		return out; \
 	}
 
+// Template for xxhash3
+// Parameters: hash size in bits
+#define XSUM_TEMPLATE_XXHASH3(p_size) \
+	void* xsum_xxhash3_##p_size##_init() { \
+		XXH3_state_t *s = XXH3_createState(); \
+		if (s == NULL) { \
+			return NULL; \
+		} \
+		XXH3_##p_size##bits_reset(s); \
+		return s; \
+	} \
+	void xsum_xxhash3_##p_size##_update(void *state, uint8_t *buf, size_t len) { \
+		XXH3_state_t *s = (XXH3_state_t*) state; \
+		XXH3_##p_size##bits_update(s, buf, len); \
+	} \
+	uint8_t* xsum_xxhash3_##p_size##_final(void *state) { \
+		XXH3_state_t *s = (XXH3_state_t*) state; \
+		uint8_t *out = malloc(p_size / 8); \
+		if (out == NULL) { \
+			XXH3_freeState(s); \
+			return NULL; \
+		} \
+		XXH##p_size##_hash_t hash = XXH3_##p_size##bits_digest(s); \
+		XXH##p_size##_canonical_t hash_canonical; \
+		XXH##p_size##_canonicalFromHash(&hash_canonical, hash); \
+		memcpy(out, hash_canonical.digest, p_size / 8); \
+		XXH3_freeState(s); \
+		return out; \
+	}
+
 // Template for windows CNG hashes
 // Parameters: xsum-internal name; CNG constant; hash size
 #define XSUM_TEMPLATE_WIN_CNG(p_name_xsum, p_name_bcrypt, p_size) \

@@ -290,7 +290,11 @@
 #endif
 
 #if (XSUM_CONFIG_XXHASH == 1)
+	#include <xxhash.h>
 	#define XSUM_WITH_XXHASH
+	#if (XXH_VERSION_NUMBER >= 800)
+		#define XSUM_WITH_XXHASH3
+	#endif
 #endif
 
 #if (XSUM_CONFIG_ZLIB == 1)
@@ -596,6 +600,14 @@
 
 #if defined(XSUM_WITH_XXHASH)
 	#define XSUM_HAS_XXHASH64
+#endif
+
+#if defined(XSUM_WITH_XXHASH3)
+	#define XSUM_HAS_XXHASH3_64
+#endif
+
+#if defined(XSUM_WITH_XXHASH3)
+	#define XSUM_HAS_XXHASH3_128
 #endif
 
 #endif

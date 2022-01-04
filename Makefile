@@ -60,7 +60,7 @@ SRC = src/main.c \
 	src/algos/tiger2.c \
 	src/algos/whirlpool.c \
 	src/algos/xor.c \
-	src/algos/xxhash32.c src/algos/xxhash64.c
+	src/algos/xxhash32.c src/algos/xxhash64.c src/algos/xxhash3_64.c src/algos/xxhash3_128.c
 # Keep this empty so we can compile without a C++ compiler when no libraries need it
 SRC_CPP = 
 ifeq ($(WITH_CRYPTOPP), 1)

@@ -706,6 +706,12 @@ extern xsum_algo_t xsum_algo_xxhash32;
 #ifdef XSUM_HAS_XXHASH64
 extern xsum_algo_t xsum_algo_xxhash64;
 #endif
+#ifdef XSUM_HAS_XXHASH3_64
+extern xsum_algo_t xsum_algo_xxhash3_64;
+#endif
+#ifdef XSUM_HAS_XXHASH3_128
+extern xsum_algo_t xsum_algo_xxhash3_128;
+#endif
 
 xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_ADLER_32
@@ -1408,6 +1414,12 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_XXHASH64
 	&xsum_algo_xxhash64,
+#endif
+#ifdef XSUM_HAS_XXHASH3_64
+	&xsum_algo_xxhash3_64,
+#endif
+#ifdef XSUM_HAS_XXHASH3_128
+	&xsum_algo_xxhash3_128,
 #endif
 	NULL // End of array indicator
 };
