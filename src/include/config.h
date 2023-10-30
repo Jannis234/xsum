@@ -396,12 +396,24 @@
 	#define XSUM_HAS_CRC64
 #endif
 
+#if defined(XSUM_WITH_CPPCRYPTO)
+	#define XSUM_HAS_ECHO_FULL
+#endif
+
 #if defined(XSUM_WITH_RHASH)
 	#define XSUM_HAS_EDON_R_256
 #endif
 
 #if defined(XSUM_WITH_RHASH)
 	#define XSUM_HAS_EDON_R_512
+#endif
+
+#if defined(XSUM_WITH_CPPCRYPTO)
+	#define XSUM_HAS_ESCH_256
+#endif
+
+#if defined(XSUM_WITH_CPPCRYPTO)
+	#define XSUM_HAS_ESCH_384
 #endif
 
 #if defined(XSUM_WITH_RHASH)

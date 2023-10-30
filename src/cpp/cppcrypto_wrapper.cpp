@@ -21,6 +21,8 @@
 #include <stdint.h>
 #include <cppcrypto/blake.h>
 #include <cppcrypto/blake2.h>
+#include <cppcrypto/echo.h>
+#include <cppcrypto/esch.h>
 #include <cppcrypto/groestl.h>
 #include <cppcrypto/jh.h>
 #include <cppcrypto/kupyna.h>
@@ -81,6 +83,8 @@
 XSUM_CPPCRYPTO_WRAPPER_SIZE(blake)
 XSUM_CPPCRYPTO_WRAPPER_SIZE(blake2b)
 XSUM_CPPCRYPTO_WRAPPER_SIZE(blake2s)
+XSUM_CPPCRYPTO_WRAPPER_SIZE(echo)
+XSUM_CPPCRYPTO_WRAPPER_SIZE(esch)
 XSUM_CPPCRYPTO_WRAPPER_SIZE(groestl)
 XSUM_CPPCRYPTO_WRAPPER_SIZE(jh)
 XSUM_CPPCRYPTO_WRAPPER_SIZE(kupyna)

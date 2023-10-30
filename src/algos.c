@@ -257,11 +257,83 @@ extern xsum_algo_t xsum_algo_crc32;
 #ifdef XSUM_HAS_CRC64
 extern xsum_algo_t xsum_algo_crc64;
 #endif
+#ifdef XSUM_HAS_ECHO_FULL
+extern xsum_algo_t xsum_algo_echo_8;
+extern xsum_algo_t xsum_algo_echo_16;
+extern xsum_algo_t xsum_algo_echo_24;
+extern xsum_algo_t xsum_algo_echo_32;
+extern xsum_algo_t xsum_algo_echo_40;
+extern xsum_algo_t xsum_algo_echo_48;
+extern xsum_algo_t xsum_algo_echo_56;
+extern xsum_algo_t xsum_algo_echo_64;
+extern xsum_algo_t xsum_algo_echo_72;
+extern xsum_algo_t xsum_algo_echo_80;
+extern xsum_algo_t xsum_algo_echo_88;
+extern xsum_algo_t xsum_algo_echo_96;
+extern xsum_algo_t xsum_algo_echo_104;
+extern xsum_algo_t xsum_algo_echo_112;
+extern xsum_algo_t xsum_algo_echo_120;
+extern xsum_algo_t xsum_algo_echo_128;
+extern xsum_algo_t xsum_algo_echo_136;
+extern xsum_algo_t xsum_algo_echo_144;
+extern xsum_algo_t xsum_algo_echo_152;
+extern xsum_algo_t xsum_algo_echo_160;
+extern xsum_algo_t xsum_algo_echo_168;
+extern xsum_algo_t xsum_algo_echo_176;
+extern xsum_algo_t xsum_algo_echo_184;
+extern xsum_algo_t xsum_algo_echo_192;
+extern xsum_algo_t xsum_algo_echo_200;
+extern xsum_algo_t xsum_algo_echo_208;
+extern xsum_algo_t xsum_algo_echo_216;
+extern xsum_algo_t xsum_algo_echo_224;
+extern xsum_algo_t xsum_algo_echo_232;
+extern xsum_algo_t xsum_algo_echo_240;
+extern xsum_algo_t xsum_algo_echo_248;
+extern xsum_algo_t xsum_algo_echo_256;
+extern xsum_algo_t xsum_algo_echo_264;
+extern xsum_algo_t xsum_algo_echo_272;
+extern xsum_algo_t xsum_algo_echo_280;
+extern xsum_algo_t xsum_algo_echo_288;
+extern xsum_algo_t xsum_algo_echo_296;
+extern xsum_algo_t xsum_algo_echo_304;
+extern xsum_algo_t xsum_algo_echo_312;
+extern xsum_algo_t xsum_algo_echo_320;
+extern xsum_algo_t xsum_algo_echo_328;
+extern xsum_algo_t xsum_algo_echo_336;
+extern xsum_algo_t xsum_algo_echo_344;
+extern xsum_algo_t xsum_algo_echo_352;
+extern xsum_algo_t xsum_algo_echo_360;
+extern xsum_algo_t xsum_algo_echo_368;
+extern xsum_algo_t xsum_algo_echo_376;
+extern xsum_algo_t xsum_algo_echo_384;
+extern xsum_algo_t xsum_algo_echo_392;
+extern xsum_algo_t xsum_algo_echo_400;
+extern xsum_algo_t xsum_algo_echo_408;
+extern xsum_algo_t xsum_algo_echo_416;
+extern xsum_algo_t xsum_algo_echo_424;
+extern xsum_algo_t xsum_algo_echo_432;
+extern xsum_algo_t xsum_algo_echo_440;
+extern xsum_algo_t xsum_algo_echo_448;
+extern xsum_algo_t xsum_algo_echo_456;
+extern xsum_algo_t xsum_algo_echo_464;
+extern xsum_algo_t xsum_algo_echo_472;
+extern xsum_algo_t xsum_algo_echo_480;
+extern xsum_algo_t xsum_algo_echo_488;
+extern xsum_algo_t xsum_algo_echo_496;
+extern xsum_algo_t xsum_algo_echo_504;
+extern xsum_algo_t xsum_algo_echo_512;
+#endif
 #ifdef XSUM_HAS_EDON_R_256
 extern xsum_algo_t xsum_algo_edon_r_256;
 #endif
 #ifdef XSUM_HAS_EDON_R_512
 extern xsum_algo_t xsum_algo_edon_r_512;
+#endif
+#ifdef XSUM_HAS_ESCH_256
+extern xsum_algo_t xsum_algo_esch_256;
+#endif
+#ifdef XSUM_HAS_ESCH_384
+extern xsum_algo_t xsum_algo_esch_384;
 #endif
 #ifdef XSUM_HAS_GOST12_256
 extern xsum_algo_t xsum_algo_gost12_256;
@@ -972,11 +1044,83 @@ xsum_algo_t *xsum_algos[] = {
 #ifdef XSUM_HAS_CRC64
 	&xsum_algo_crc64,
 #endif
+#ifdef XSUM_HAS_ECHO_FULL
+	&xsum_algo_echo_8,
+	&xsum_algo_echo_16,
+	&xsum_algo_echo_24,
+	&xsum_algo_echo_32,
+	&xsum_algo_echo_40,
+	&xsum_algo_echo_48,
+	&xsum_algo_echo_56,
+	&xsum_algo_echo_64,
+	&xsum_algo_echo_72,
+	&xsum_algo_echo_80,
+	&xsum_algo_echo_88,
+	&xsum_algo_echo_96,
+	&xsum_algo_echo_104,
+	&xsum_algo_echo_112,
+	&xsum_algo_echo_120,
+	&xsum_algo_echo_128,
+	&xsum_algo_echo_136,
+	&xsum_algo_echo_144,
+	&xsum_algo_echo_152,
+	&xsum_algo_echo_160,
+	&xsum_algo_echo_168,
+	&xsum_algo_echo_176,
+	&xsum_algo_echo_184,
+	&xsum_algo_echo_192,
+	&xsum_algo_echo_200,
+	&xsum_algo_echo_208,
+	&xsum_algo_echo_216,
+	&xsum_algo_echo_224,
+	&xsum_algo_echo_232,
+	&xsum_algo_echo_240,
+	&xsum_algo_echo_248,
+	&xsum_algo_echo_256,
+	&xsum_algo_echo_264,
+	&xsum_algo_echo_272,
+	&xsum_algo_echo_280,
+	&xsum_algo_echo_288,
+	&xsum_algo_echo_296,
+	&xsum_algo_echo_304,
+	&xsum_algo_echo_312,
+	&xsum_algo_echo_320,
+	&xsum_algo_echo_328,
+	&xsum_algo_echo_336,
+	&xsum_algo_echo_344,
+	&xsum_algo_echo_352,
+	&xsum_algo_echo_360,
+	&xsum_algo_echo_368,
+	&xsum_algo_echo_376,
+	&xsum_algo_echo_384,
+	&xsum_algo_echo_392,
+	&xsum_algo_echo_400,
+	&xsum_algo_echo_408,
+	&xsum_algo_echo_416,
+	&xsum_algo_echo_424,
+	&xsum_algo_echo_432,
+	&xsum_algo_echo_440,
+	&xsum_algo_echo_448,
+	&xsum_algo_echo_456,
+	&xsum_algo_echo_464,
+	&xsum_algo_echo_472,
+	&xsum_algo_echo_480,
+	&xsum_algo_echo_488,
+	&xsum_algo_echo_496,
+	&xsum_algo_echo_504,
+	&xsum_algo_echo_512,
+#endif
 #ifdef XSUM_HAS_EDON_R_256
 	&xsum_algo_edon_r_256,
 #endif
 #ifdef XSUM_HAS_EDON_R_512
 	&xsum_algo_edon_r_512,
+#endif
+#ifdef XSUM_HAS_ESCH_256
+	&xsum_algo_esch_256,
+#endif
+#ifdef XSUM_HAS_ESCH_384
+	&xsum_algo_esch_384,
 #endif
 #ifdef XSUM_HAS_GOST12_256
 	&xsum_algo_gost12_256,

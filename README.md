@@ -38,8 +38,11 @@ BLAKE2sp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 1
 CRC24 | [botan2](https://botan.randombit.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | CRC24 as used in OpenPGP
 CRC32 | [botan2](https://botan.randombit.net/) [crypto++](https://www.cryptopp.com/) [mhash](http://mhash.sourceforge.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma](https://tukaani.org/xz/) [rhash](http://rhash.sourceforge.net/) [zlib](https://www.zlib.net/) | CRC32 as specified by ISO 3309
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
+ECHO-X | [cppcrypto](http://cppcrypto.sourceforge.net/) | Supported sizes are 8, 16, 24, ..., 512
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
 EDON-R-512 | [rhash](http://rhash.sourceforge.net/)¹¹ |
+Esch-256 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
+Esch-384 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
 GOST12-256 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
 GOST12-512 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
 GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94

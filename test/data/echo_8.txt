@@ -1,0 +1,9 @@
+ECHO-8:e8  input/binary1
+ECHO-8:a4  input/binary2
+ECHO-8:e2  input/empty
+ECHO-8:e6  input/large1
+ECHO-8:80  input/large2
+ECHO-8:6d  input/random1
+ECHO-8:f6  input/random2
+ECHO-8:ce  input/string1
+ECHO-8:ef  input/string2

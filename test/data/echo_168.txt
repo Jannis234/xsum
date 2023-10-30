@@ -1,0 +1,9 @@
+ECHO-168:426cd9dc9c75cc630afa5290e777b331240eac69c7  input/binary1
+ECHO-168:3f372fcebe04eaf46ec31cb02d17d17b8af2cd2e48  input/binary2
+ECHO-168:6273c013f328f0f81fb93c8018f2d0763d2387b99b  input/empty
+ECHO-168:71b6cfe44a4d143fbe4e020f56f0a5dd383e834c19  input/large1
+ECHO-168:1f64abc724d80c970a378ee8c978af20154c19da1f  input/large2
+ECHO-168:e2ea0bab8ea0477664d900de6f0cdafb7bc117751e  input/random1
+ECHO-168:4b3fdb111b498c604ab3bf162de3eae92a8e9fed5b  input/random2
+ECHO-168:5aea1bec2a4e6312cf1d9e2bd79db4e21ff0e814ea  input/string1
+ECHO-168:8596ffdf019021fb2dc3a1a08dfb593465b9d4ebdf  input/string2

@@ -1,0 +1,9 @@
+ECHO-56:63ac1586919409  input/binary1
+ECHO-56:445aad5a7f3378  input/binary2
+ECHO-56:5c6c8a40fc4612  input/empty
+ECHO-56:4db6234d669a5d  input/large1
+ECHO-56:c3258b45b4a959  input/large2
+ECHO-56:a85e241f06fdae  input/random1
+ECHO-56:fec44eea22eb05  input/random2
+ECHO-56:2a560f2260e594  input/string1
+ECHO-56:43c2a8e2771f26  input/string2

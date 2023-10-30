@@ -27,7 +27,9 @@ CHECKS = check_adler_32 \
 	check_blake2b_8 check_blake2b_16 check_blake2b_24 check_blake2b_32 check_blake2b_40 check_blake2b_48 check_blake2b_56 check_blake2b_64 check_blake2b_72 check_blake2b_80 check_blake2b_88 check_blake2b_96 check_blake2b_104 check_blake2b_112 check_blake2b_120 check_blake2b_128 check_blake2b_136 check_blake2b_144 check_blake2b_152 check_blake2b_160 check_blake2b_168 check_blake2b_176 check_blake2b_184 check_blake2b_192 check_blake2b_200 check_blake2b_208 check_blake2b_216 check_blake2b_224 check_blake2b_232 check_blake2b_240 check_blake2b_248 check_blake2b_256 check_blake2b_264 check_blake2b_272 check_blake2b_280 check_blake2b_288 check_blake2b_296 check_blake2b_304 check_blake2b_312 check_blake2b_320 check_blake2b_328 check_blake2b_336 check_blake2b_344 check_blake2b_352 check_blake2b_360 check_blake2b_368 check_blake2b_376 check_blake2b_384 check_blake2b_392 check_blake2b_400 check_blake2b_408 check_blake2b_416 check_blake2b_424 check_blake2b_432 check_blake2b_440 check_blake2b_448 check_blake2b_456 check_blake2b_464 check_blake2b_472 check_blake2b_480 check_blake2b_488 check_blake2b_496 check_blake2b_504 check_blake2b_512 \
 	check_blake2bp_8 check_blake2bp_16 check_blake2bp_24 check_blake2bp_32 check_blake2bp_40 check_blake2bp_48 check_blake2bp_56 check_blake2bp_64 check_blake2bp_72 check_blake2bp_80 check_blake2bp_88 check_blake2bp_96 check_blake2bp_104 check_blake2bp_112 check_blake2bp_120 check_blake2bp_128 check_blake2bp_136 check_blake2bp_144 check_blake2bp_152 check_blake2bp_160 check_blake2bp_168 check_blake2bp_176 check_blake2bp_184 check_blake2bp_192 check_blake2bp_200 check_blake2bp_208 check_blake2bp_216 check_blake2bp_224 check_blake2bp_232 check_blake2bp_240 check_blake2bp_248 check_blake2bp_256 check_blake2bp_264 check_blake2bp_272 check_blake2bp_280 check_blake2bp_288 check_blake2bp_296 check_blake2bp_304 check_blake2bp_312 check_blake2bp_320 check_blake2bp_328 check_blake2bp_336 check_blake2bp_344 check_blake2bp_352 check_blake2bp_360 check_blake2bp_368 check_blake2bp_376 check_blake2bp_384 check_blake2bp_392 check_blake2bp_400 check_blake2bp_408 check_blake2bp_416 check_blake2bp_424 check_blake2bp_432 check_blake2bp_440 check_blake2bp_448 check_blake2bp_456 check_blake2bp_464 check_blake2bp_472 check_blake2bp_480 check_blake2bp_488 check_blake2bp_496 check_blake2bp_504 check_blake2bp_512 \
 	check_crc24 check_crc32 check_crc64 \
+	check_echo_8 check_echo_16 check_echo_24 check_echo_32 check_echo_40 check_echo_48 check_echo_56 check_echo_64 check_echo_72 check_echo_80 check_echo_88 check_echo_96 check_echo_104 check_echo_112 check_echo_120 check_echo_128 check_echo_136 check_echo_144 check_echo_152 check_echo_160 check_echo_168 check_echo_176 check_echo_184 check_echo_192 check_echo_200 check_echo_208 check_echo_216 check_echo_224 check_echo_232 check_echo_240 check_echo_248 check_echo_256 check_echo_264 check_echo_272 check_echo_280 check_echo_288 check_echo_296 check_echo_304 check_echo_312 check_echo_320 check_echo_328 check_echo_336 check_echo_344 check_echo_352 check_echo_360 check_echo_368 check_echo_376 check_echo_384 check_echo_392 check_echo_400 check_echo_408 check_echo_416 check_echo_424 check_echo_432 check_echo_440 check_echo_448 check_echo_456 check_echo_464 check_echo_472 check_echo_480 check_echo_488 check_echo_496 check_echo_504 check_echo_512 \
 	check_edon_r_256 check_edon_r_512 \
+	check_esch_256 check_esch_384 \
 	check_gost12_256 check_gost12_512 \
 	check_gost94 check_gost94_cryptopro \
 	check_groestl_8 check_groestl_16 check_groestl_24 check_groestl_32 check_groestl_40 check_groestl_48 check_groestl_56 check_groestl_64 check_groestl_72 check_groestl_80 check_groestl_88 check_groestl_96 check_groestl_104 check_groestl_112 check_groestl_120 check_groestl_128 check_groestl_136 check_groestl_144 check_groestl_152 check_groestl_160 check_groestl_168 check_groestl_176 check_groestl_184 check_groestl_192 check_groestl_200 check_groestl_208 check_groestl_216 check_groestl_224 check_groestl_232 check_groestl_240 check_groestl_248 check_groestl_256 check_groestl_264 check_groestl_272 check_groestl_280 check_groestl_288 check_groestl_296 check_groestl_304 check_groestl_312 check_groestl_320 check_groestl_328 check_groestl_336 check_groestl_344 check_groestl_352 check_groestl_360 check_groestl_368 check_groestl_376 check_groestl_384 check_groestl_392 check_groestl_400 check_groestl_408 check_groestl_416 check_groestl_424 check_groestl_432 check_groestl_440 check_groestl_448 check_groestl_456 check_groestl_464 check_groestl_472 check_groestl_480 check_groestl_488 check_groestl_496 check_groestl_504 check_groestl_512 \
@@ -669,11 +671,209 @@ check_crc32: $(INPUT_DEPEND) data/crc32.txt
 check_crc64: $(INPUT_DEPEND) data/crc64.txt
 	$(XSUM) -c data/crc64.txt
 
+check_echo_8: $(INPUT_DEPEND) data/echo_8.txt
+	$(XSUM) -c data/echo_8.txt
+
+check_echo_16: $(INPUT_DEPEND) data/echo_16.txt
+	$(XSUM) -c data/echo_16.txt
+
+check_echo_24: $(INPUT_DEPEND) data/echo_24.txt
+	$(XSUM) -c data/echo_24.txt
+
+check_echo_32: $(INPUT_DEPEND) data/echo_32.txt
+	$(XSUM) -c data/echo_32.txt
+
+check_echo_40: $(INPUT_DEPEND) data/echo_40.txt
+	$(XSUM) -c data/echo_40.txt
+
+check_echo_48: $(INPUT_DEPEND) data/echo_48.txt
+	$(XSUM) -c data/echo_48.txt
+
+check_echo_56: $(INPUT_DEPEND) data/echo_56.txt
+	$(XSUM) -c data/echo_56.txt
+
+check_echo_64: $(INPUT_DEPEND) data/echo_64.txt
+	$(XSUM) -c data/echo_64.txt
+
+check_echo_72: $(INPUT_DEPEND) data/echo_72.txt
+	$(XSUM) -c data/echo_72.txt
+
+check_echo_80: $(INPUT_DEPEND) data/echo_80.txt
+	$(XSUM) -c data/echo_80.txt
+
+check_echo_88: $(INPUT_DEPEND) data/echo_88.txt
+	$(XSUM) -c data/echo_88.txt
+
+check_echo_96: $(INPUT_DEPEND) data/echo_96.txt
+	$(XSUM) -c data/echo_96.txt
+
+check_echo_104: $(INPUT_DEPEND) data/echo_104.txt
+	$(XSUM) -c data/echo_104.txt
+
+check_echo_112: $(INPUT_DEPEND) data/echo_112.txt
+	$(XSUM) -c data/echo_112.txt
+
+check_echo_120: $(INPUT_DEPEND) data/echo_120.txt
+	$(XSUM) -c data/echo_120.txt
+
+check_echo_128: $(INPUT_DEPEND) data/echo_128.txt
+	$(XSUM) -c data/echo_128.txt
+
+check_echo_136: $(INPUT_DEPEND) data/echo_136.txt
+	$(XSUM) -c data/echo_136.txt
+
+check_echo_144: $(INPUT_DEPEND) data/echo_144.txt
+	$(XSUM) -c data/echo_144.txt
+
+check_echo_152: $(INPUT_DEPEND) data/echo_152.txt
+	$(XSUM) -c data/echo_152.txt
+
+check_echo_160: $(INPUT_DEPEND) data/echo_160.txt
+	$(XSUM) -c data/echo_160.txt
+
+check_echo_168: $(INPUT_DEPEND) data/echo_168.txt
+	$(XSUM) -c data/echo_168.txt
+
+check_echo_176: $(INPUT_DEPEND) data/echo_176.txt
+	$(XSUM) -c data/echo_176.txt
+
+check_echo_184: $(INPUT_DEPEND) data/echo_184.txt
+	$(XSUM) -c data/echo_184.txt
+
+check_echo_192: $(INPUT_DEPEND) data/echo_192.txt
+	$(XSUM) -c data/echo_192.txt
+
+check_echo_200: $(INPUT_DEPEND) data/echo_200.txt
+	$(XSUM) -c data/echo_200.txt
+
+check_echo_208: $(INPUT_DEPEND) data/echo_208.txt
+	$(XSUM) -c data/echo_208.txt
+
+check_echo_216: $(INPUT_DEPEND) data/echo_216.txt
+	$(XSUM) -c data/echo_216.txt
+
+check_echo_224: $(INPUT_DEPEND) data/echo_224.txt
+	$(XSUM) -c data/echo_224.txt
+
+check_echo_232: $(INPUT_DEPEND) data/echo_232.txt
+	$(XSUM) -c data/echo_232.txt
+
+check_echo_240: $(INPUT_DEPEND) data/echo_240.txt
+	$(XSUM) -c data/echo_240.txt
+
+check_echo_248: $(INPUT_DEPEND) data/echo_248.txt
+	$(XSUM) -c data/echo_248.txt
+
+check_echo_256: $(INPUT_DEPEND) data/echo_256.txt
+	$(XSUM) -c data/echo_256.txt
+
+check_echo_264: $(INPUT_DEPEND) data/echo_264.txt
+	$(XSUM) -c data/echo_264.txt
+
+check_echo_272: $(INPUT_DEPEND) data/echo_272.txt
+	$(XSUM) -c data/echo_272.txt
+
+check_echo_280: $(INPUT_DEPEND) data/echo_280.txt
+	$(XSUM) -c data/echo_280.txt
+
+check_echo_288: $(INPUT_DEPEND) data/echo_288.txt
+	$(XSUM) -c data/echo_288.txt
+
+check_echo_296: $(INPUT_DEPEND) data/echo_296.txt
+	$(XSUM) -c data/echo_296.txt
+
+check_echo_304: $(INPUT_DEPEND) data/echo_304.txt
+	$(XSUM) -c data/echo_304.txt
+
+check_echo_312: $(INPUT_DEPEND) data/echo_312.txt
+	$(XSUM) -c data/echo_312.txt
+
+check_echo_320: $(INPUT_DEPEND) data/echo_320.txt
+	$(XSUM) -c data/echo_320.txt
+
+check_echo_328: $(INPUT_DEPEND) data/echo_328.txt
+	$(XSUM) -c data/echo_328.txt
+
+check_echo_336: $(INPUT_DEPEND) data/echo_336.txt
+	$(XSUM) -c data/echo_336.txt
+
+check_echo_344: $(INPUT_DEPEND) data/echo_344.txt
+	$(XSUM) -c data/echo_344.txt
+
+check_echo_352: $(INPUT_DEPEND) data/echo_352.txt
+	$(XSUM) -c data/echo_352.txt
+
+check_echo_360: $(INPUT_DEPEND) data/echo_360.txt
+	$(XSUM) -c data/echo_360.txt
+
+check_echo_368: $(INPUT_DEPEND) data/echo_368.txt
+	$(XSUM) -c data/echo_368.txt
+
+check_echo_376: $(INPUT_DEPEND) data/echo_376.txt
+	$(XSUM) -c data/echo_376.txt
+
+check_echo_384: $(INPUT_DEPEND) data/echo_384.txt
+	$(XSUM) -c data/echo_384.txt
+
+check_echo_392: $(INPUT_DEPEND) data/echo_392.txt
+	$(XSUM) -c data/echo_392.txt
+
+check_echo_400: $(INPUT_DEPEND) data/echo_400.txt
+	$(XSUM) -c data/echo_400.txt
+
+check_echo_408: $(INPUT_DEPEND) data/echo_408.txt
+	$(XSUM) -c data/echo_408.txt
+
+check_echo_416: $(INPUT_DEPEND) data/echo_416.txt
+	$(XSUM) -c data/echo_416.txt
+
+check_echo_424: $(INPUT_DEPEND) data/echo_424.txt
+	$(XSUM) -c data/echo_424.txt
+
+check_echo_432: $(INPUT_DEPEND) data/echo_432.txt
+	$(XSUM) -c data/echo_432.txt
+
+check_echo_440: $(INPUT_DEPEND) data/echo_440.txt
+	$(XSUM) -c data/echo_440.txt
+
+check_echo_448: $(INPUT_DEPEND) data/echo_448.txt
+	$(XSUM) -c data/echo_448.txt
+
+check_echo_456: $(INPUT_DEPEND) data/echo_456.txt
+	$(XSUM) -c data/echo_456.txt
+
+check_echo_464: $(INPUT_DEPEND) data/echo_464.txt
+	$(XSUM) -c data/echo_464.txt
+
+check_echo_472: $(INPUT_DEPEND) data/echo_472.txt
+	$(XSUM) -c data/echo_472.txt
+
+check_echo_480: $(INPUT_DEPEND) data/echo_480.txt
+	$(XSUM) -c data/echo_480.txt
+
+check_echo_488: $(INPUT_DEPEND) data/echo_488.txt
+	$(XSUM) -c data/echo_488.txt
+
+check_echo_496: $(INPUT_DEPEND) data/echo_496.txt
+	$(XSUM) -c data/echo_496.txt
+
+check_echo_504: $(INPUT_DEPEND) data/echo_504.txt
+	$(XSUM) -c data/echo_504.txt
+
+check_echo_512: $(INPUT_DEPEND) data/echo_512.txt
+	$(XSUM) -c data/echo_512.txt
+
 check_edon_r_256: $(INPUT_DEPEND) data/edon_r_256.txt
 	$(XSUM) -c data/edon_r_256.txt
 
 check_edon_r_512: $(INPUT_DEPEND) data/edon_r_512.txt
 	$(XSUM) -c data/edon_r_512.txt
+
+check_esch_256: $(INPUT_DEPEND) data/esch_256.txt
+	$(XSUM) -c data/esch_256.txt
+
+check_esch_384: $(INPUT_DEPEND) data/esch_384.txt
+	$(XSUM) -c data/esch_384.txt
 
 check_gost12_256: $(INPUT_DEPEND) data/gost12_256.txt
 	$(XSUM) -c data/gost12_256.txt

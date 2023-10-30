@@ -1,0 +1,9 @@
+ECHO-16:e216  input/binary1
+ECHO-16:158c  input/binary2
+ECHO-16:838e  input/empty
+ECHO-16:4d51  input/large1
+ECHO-16:3cd1  input/large2
+ECHO-16:f32d  input/random1
+ECHO-16:760b  input/random2
+ECHO-16:61ed  input/string1
+ECHO-16:d32a  input/string2

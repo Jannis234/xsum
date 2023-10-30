@@ -1,0 +1,9 @@
+ECHO-32:88f19d4d  input/binary1
+ECHO-32:c4c5353e  input/binary2
+ECHO-32:65bea6a0  input/empty
+ECHO-32:063e611e  input/large1
+ECHO-32:6174d276  input/large2
+ECHO-32:ea2ca8fc  input/random1
+ECHO-32:24caa882  input/random2
+ECHO-32:83e64ee8  input/string1
+ECHO-32:bf4d9e53  input/string2

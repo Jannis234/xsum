@@ -1,0 +1,9 @@
+ECHO-88:2d04815001eb0e4e982e37  input/binary1
+ECHO-88:daa91945c1f998ea22a17d  input/binary2
+ECHO-88:c7dcaee528f89937e9ddb0  input/empty
+ECHO-88:0b10cc789273a9e9fdb4e1  input/large1
+ECHO-88:693e6a398a7e0be5bbc460  input/large2
+ECHO-88:67bebfdeb9fd0cade903aa  input/random1
+ECHO-88:c54b536ba3c26800a1f8c8  input/random2
+ECHO-88:11fec08858c844a7f5c096  input/string1
+ECHO-88:440aec1b5f6917f0b79f3d  input/string2
