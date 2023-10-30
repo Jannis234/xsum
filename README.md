@@ -26,20 +26,20 @@ BLAKE-512 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
 BLAKE2b-160 | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
 BLAKE2b-256 | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
 BLAKE2b-384 | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2b-512 | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ [openssl](https://www.openssl.org/)⁵⁶⁷ |
+BLAKE2b-512 | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ [openssl](https://www.openssl.org/)⁵⁶⁷ [rhash](http://rhash.sourceforge.net/) |
 BLAKE2b-X | [botan](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libsodium](https://download.libsodium.org/doc/) | Supported sizes are 8, 16, 24, ..., 512. Some are also supported by libgcrypt or openssl (see above).
 BLAKE2bp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 512
 BLAKE2s-128 | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
 BLAKE2s-160 | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
 BLAKE2s-224 | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ |
-BLAKE2s-256 | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ [openssl](https://www.openssl.org/)⁵⁶⁷ |
+BLAKE2s-256 | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹ [openssl](https://www.openssl.org/)⁵⁶⁷ [rhash](http://rhash.sourceforge.net/) |
 BLAKE2s-X | [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256. Some are also supported by libgcrypt or openssl (see above).
 BLAKE2sp-X | [libb2](https://github.com/BLAKE2/libb2) | Supported sizes are 8, 16, 24, ..., 256
 CRC24 | [botan](https://botan.randombit.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) | CRC24 as used in OpenPGP
 CRC32 | [botan](https://botan.randombit.net/) [crypto++](https://www.cryptopp.com/) [mhash](http://mhash.sourceforge.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [liblzma](https://tukaani.org/xz/) [rhash](http://rhash.sourceforge.net/) [zlib](https://www.zlib.net/) | CRC32 as specified by ISO 3309
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
-EDON-R-512 | [rhash](http://rhash.sourceforge.net/) |
+EDON-R-512 | [rhash](http://rhash.sourceforge.net/)¹¹ |
 GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
 GOST94-CryptoPro | [botan](https://botan.randombit.net/) [gnutls](https://www.gnutls.org/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵⁶⁷ | GOST94 with CryptoPro S-box
 Groestl-X | [cppcrypto](http://cppcrypto.sourceforge.net/) | Supported sizes are 8, 16, 24, ..., 512
@@ -115,6 +115,8 @@ xxHash3-128 | [xxhash](http://www.xxhash.com/) ¹⁰ |
 ⁹) SHA512 required glib 2.36 or newer, SHA384 requires glib 2.51 or newer
 
 ¹⁰) xxHash 0.8.0 or higher required for xxHash3
+
+¹¹) rhash version 1.4.0 sometimes produced incorrect EDON-R-512 hashes. xsum 1.3 and higher use a different name (EDON-R-512_) internally, causing hashes produced by older versions to be ignored.
 
 ## Usage examples
 

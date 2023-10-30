@@ -33,6 +33,11 @@ XSUM_TEMPLATE_LIBSODIUM_BLAKE2B(blake2b_512, 64)
 #include <blake2.h>
 XSUM_TEMPLATE_LIBB2(blake2b_512, blake2b, 64)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(blake2b_512, RHASH_BLAKE2B, 64)
+
 #elif defined(XSUM_WITH_BOTAN_BLAKE2B)
 
 #include <botan/ffi.h>

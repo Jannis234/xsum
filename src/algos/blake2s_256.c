@@ -28,6 +28,11 @@ XSUM_TEMPLATE_LIBGCRYPT(blake2s_256, GCRY_MD_BLAKE2S_256, 32)
 #include <blake2.h>
 XSUM_TEMPLATE_LIBB2(blake2s_256, blake2s, 32)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(blake2s_256, RHASH_BLAKE2S, 32)
+
 #elif defined(XSUM_WITH_OPENSSL_BLAKE2)
 
 #include <openssl/evp.h>
