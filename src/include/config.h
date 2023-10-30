@@ -227,6 +227,12 @@
 	#include <openssl/opensslv.h>
 	#include <openssl/evp.h>
 	#define XSUM_WITH_OPENSSL
+	
+	#if (OPENSSL_VERSION_NUMBER < 0x10100000)
+		#define EVP_MD_CTX_new EVP_MD_CTX_create
+		#define EVP_MD_CTX_free EVP_MD_CTX_destroy
+	#endif
+	
 	#if !defined(OPENSSL_NO_BLAKE2) && !defined(LIBRESSL_VERSION_NUMBER) && (OPENSSL_VERSION_NUMBER >= 0x1010000)
 		#define XSUM_WITH_OPENSSL_BLAKE2
 	#endif

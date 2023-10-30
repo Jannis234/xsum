@@ -13,8 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with xsum. If not, see <http://www.gnu.org/licenses/>.
 
-#XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
-XSUM_VERSION = 1.2
+XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
 # Enable multithreading on a compiler that supports OpenMP
 WITH_OPENMP = 1
@@ -33,8 +32,7 @@ WITH_LIBB2 = 1
 WITH_LIBGCRYPT = 1
 WITH_LIBLZMA = 1
 WITH_LIBSODIUM = 1
-# Potential license conflict, see README.md
-WITH_OPENSSL = 0
+WITH_OPENSSL = 1
 WITH_RHASH = 1
 WITH_XXHASH = 1
 WITH_ZLIB = 1

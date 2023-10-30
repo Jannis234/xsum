@@ -106,7 +106,7 @@ xxHash3-128 | [xxhash](http://www.xxhash.com/) ¹⁰ |
 
 ⁵) [libressl](https://www.libressl.org/) is also supported
 
-⁶) Note that the OpenSSL license is incompatible with xsum's GPLv3. Because of this, it might not be legal to distribute the xsum binary if OpenSSL support (off by default) is compiled in.
+⁶) Note that before version 3.0, the OpenSSL license was incompatible with xsum's GPLv3.
 
 ⁷) BLAKE2 requires OpenSSL 1.1.0 or newer; GOST94 requires OpenSSL before 1.1.0 or LibreSSL; MDC2 is not supported by LibreSSL; SHA512-224, SHA512-256 and SHA3 require OpenSSL 1.1.1 or newer; SM3 requires OpenSSL 1.1.1, LibreSSL 2.9.0 or newer
 

@@ -443,12 +443,12 @@
 // Parameters: xsum-internal name; openssl EVP name; hash size
 #define XSUM_TEMPLATE_OPENSSL(p_name_xsum, p_name_openssl, p_size) \
 	void* xsum_##p_name_xsum##_init() { \
-		EVP_MD_CTX *ctx = EVP_MD_CTX_create(); \
+		EVP_MD_CTX *ctx = EVP_MD_CTX_new(); \
 		if (ctx == NULL) { \
 			return NULL; \
 		} \
 		if (EVP_DigestInit_ex(ctx, EVP_##p_name_openssl(), NULL) != 1) { \
-			EVP_MD_CTX_destroy(ctx); \
+			EVP_MD_CTX_free(ctx); \
 			return NULL; \
 		} \
 		return ctx; \
@@ -461,11 +461,11 @@
 		EVP_MD_CTX *ctx = (EVP_MD_CTX*) state; \
 		uint8_t *out = malloc(p_size); \
 		if (out == NULL) { \
-			EVP_MD_CTX_destroy(ctx); \
+			EVP_MD_CTX_free(ctx); \
 			return NULL; \
 		} \
 		EVP_DigestFinal_ex(ctx, out, NULL); \
-		EVP_MD_CTX_destroy(ctx); \
+		EVP_MD_CTX_free(ctx); \
 		return out; \
 	}
 
