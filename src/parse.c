@@ -118,8 +118,14 @@ int parse_line(char *filename, uint8_t *buf, uint64_t len, xsum_algo_result_t *r
 			uint64_t hash_name_length = hash_sep - hash_start;
 			int algo_index = -1;
 			for (int i = 0; i < algos_count; i++) {
-				if (hash_name_length == strlen(xsum_algos[i]->name)) {
-					if (strncmp((char*) (buf + hash_start), xsum_algos[i]->name, hash_name_length) == 0) {
+				char *name = xsum_algos[i]->name;
+				// EDON-R-512 workaround (see output_string() in main.c)
+				if (strcmp(name, "EDON-R-512") == 0) {
+					name = "EDON-R-512_";
+				}
+				
+				if (hash_name_length == strlen(name)) {
+					if (strncmp((char*) (buf + hash_start), name, hash_name_length) == 0) {
 						algo_index = i;
 						break;
 					}

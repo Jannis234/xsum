@@ -41,6 +41,9 @@ char* output_string(char *filename, xsum_algo_result_t *results, int algos_count
 	for (int i = 0; i < algos_count; i++) {
 		if (results[i].enabled) {
 			len += strlen(xsum_algos[i]->name);
+			if (strcmp(xsum_algos[i]->name, "EDON-R-512") == 0) {
+				len++; // Include space for the underscore
+			}
 			len += xsum_algos[i]->length * 2;
 			len += 2; // Space and colon
 		}
@@ -56,8 +59,15 @@ char* output_string(char *filename, xsum_algo_result_t *results, int algos_count
 	char *hex_chars = "0123456789abcdef";
 	for (int i = 0; i < algos_count; i++) {
 		if (results[i].enabled) {
-			strcpy(buf, xsum_algos[i]->name);
-			buf += strlen(xsum_algos[i]->name);
+			char *name = xsum_algos[i]->name;
+			// Workaround to rename EDON-R-512 produced by older versions of xsum (which might have been using a broken version of rhash)
+			// By doing this here, the CLI will still accept the regular name (no underscore) to maintain compatibility and avoid confusion
+			if (strcmp(name, "EDON-R-512") == 0) {
+				name = "EDON-R-512_";
+			}
+			
+			strcpy(buf, name);
+			buf += strlen(name);
 			*buf = ':';
 			buf++;
 			for (int j = 0; j < xsum_algos[i]->length; j++) {
