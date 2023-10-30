@@ -455,6 +455,21 @@ extern xsum_algo_t xsum_algo_kupyna_256;
 #ifdef XSUM_HAS_KUPYNA_512
 extern xsum_algo_t xsum_algo_kupyna_512;
 #endif
+#ifdef XSUM_HAS_LSH_256
+extern xsum_algo_t xsum_algo_lsh_256;
+#endif
+#ifdef XSUM_HAS_LSH_256_224
+extern xsum_algo_t xsum_algo_lsh_256_224;
+#endif
+#ifdef XSUM_HAS_LSH_512
+extern xsum_algo_t xsum_algo_lsh_512;
+#endif
+#ifdef XSUM_HAS_LSH_512_256
+extern xsum_algo_t xsum_algo_lsh_512_256;
+#endif
+#ifdef XSUM_HAS_LSH_512_384
+extern xsum_algo_t xsum_algo_lsh_512_384;
+#endif
 #ifdef XSUM_HAS_MD2
 extern xsum_algo_t xsum_algo_md2;
 #endif
@@ -1235,6 +1250,21 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_KUPYNA_512
 	&xsum_algo_kupyna_512,
+#endif
+#ifdef XSUM_HAS_LSH_256
+	&xsum_algo_lsh_256,
+#endif
+#ifdef XSUM_HAS_LSH_256_224
+	&xsum_algo_lsh_256_224,
+#endif
+#ifdef XSUM_HAS_LSH_512
+	&xsum_algo_lsh_512,
+#endif
+#ifdef XSUM_HAS_LSH_512_256
+	&xsum_algo_lsh_512_256,
+#endif
+#ifdef XSUM_HAS_LSH_512_384
+	&xsum_algo_lsh_512_384,
 #endif
 #ifdef XSUM_HAS_MD2
 	&xsum_algo_md2,

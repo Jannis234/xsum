@@ -45,6 +45,7 @@ SRC = src/main.c \
 	src/algos/jh_224.c src/algos/jh_256.c src/algos/jh_384.c src/algos/jh_512.c \
 	src/algos/keccak_224.c src/algos/keccak_256.c src/algos/keccak_384.c src/algos/keccak_512.c \
 	src/algos/kupyna_256.c src/algos/kupyna_512.c \
+	src/algos/lsh_256_224.c src/algos/lsh_256.c src/algos/lsh_512_256.c src/algos/lsh_512_384.c src/algos/lsh_512.c \
 	src/algos/md2.c \
 	src/algos/md4.c \
 	src/algos/md5.c \

@@ -25,6 +25,7 @@
 #include <cryptopp/blake2.h>
 #include <cryptopp/crc.h>
 #include <cryptopp/keccak.h>
+#include <cryptopp/lsh.h>
 #include <cryptopp/md2.h>
 #include <cryptopp/md4.h>
 #include <cryptopp/md5.h>
@@ -77,6 +78,11 @@ XSUM_CRYPTOPP_WRAPPER(CryptoPP, Keccak_224)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP, Keccak_256)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP, Keccak_384)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP, Keccak_512)
+XSUM_CRYPTOPP_WRAPPER(CryptoPP, LSH224)
+XSUM_CRYPTOPP_WRAPPER(CryptoPP, LSH256)
+XSUM_CRYPTOPP_WRAPPER(CryptoPP, LSH384)
+XSUM_CRYPTOPP_WRAPPER(CryptoPP, LSH512)
+XSUM_CRYPTOPP_WRAPPER(CryptoPP, LSH512_256)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP::Weak, MD2)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP::Weak, MD4)
 XSUM_CRYPTOPP_WRAPPER(CryptoPP::Weak, MD5)

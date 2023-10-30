@@ -62,6 +62,11 @@ Keccak-384 | [botan2](https://botan.randombit.net/) [crypto++](https://www.crypt
 Keccak-512 | [botan2](https://botan.randombit.net/) [crypto++](https://www.cryptopp.com/) | Keccak-f[1600] \(older variant of SHA-3\)
 Kupyna-256 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
 Kupyna-512 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
+LSH-256 | [crypto++](https://www.cryptopp.com/) |
+LSH-256-224 | [crypto++](https://www.cryptopp.com/) |
+LSH-512 | [crypto++](https://www.cryptopp.com/) |
+LSH-512-256 | [crypto++](https://www.cryptopp.com/) |
+LSH-512-384 | [crypto++](https://www.cryptopp.com/) |
 MD2 | [crypto++](https://www.cryptopp.com/) [mbedtls](https://tls.mbed.org/)³ [mhash](http://mhash.sourceforge.net/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [nss](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS) [openssl](https://www.openssl.org/)⁵ ⁶ Windows⁸ |
 MD4 | [botan2](https://botan.randombit.net/) [crypto++](https://www.cryptopp.com/) [mbedtls](https://tls.mbed.org/)³ [mhash](http://mhash.sourceforge.net/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵ ⁶ Windows⁸ |
 MD5 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [glib](https://www.gtk.org/) [gnutls](https://www.gnutls.org/) [mbedtls](https://tls.mbed.org/)³ [mhash](http://mhash.sourceforge.net/) [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [nss](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵ ⁶ Windows⁸ |

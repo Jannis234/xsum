@@ -494,6 +494,26 @@
 	#define XSUM_HAS_KUPYNA_512
 #endif
 
+#if defined(XSUM_WITH_CRYPTOPP)
+	#define XSUM_HAS_LSH_256_224
+#endif
+
+#if defined(XSUM_WITH_CRYPTOPP)
+	#define XSUM_HAS_LSH_256
+#endif
+
+#if defined(XSUM_WITH_CRYPTOPP)
+	#define XSUM_HAS_LSH_512_256
+#endif
+
+#if defined(XSUM_WITH_CRYPTOPP)
+	#define XSUM_HAS_LSH_512_384
+#endif
+
+#if defined(XSUM_WITH_CRYPTOPP)
+	#define XSUM_HAS_LSH_512
+#endif
+
 #if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_MBEDTLS_MD2) || defined(XSUM_WITH_NSS) || defined(XSUM_WITH_OPENSSL_MD2) || defined(XSUM_WITH_MHASH_MD2) || defined(XSUM_WITH_WIN_CNG) || defined(XSUM_WITH_CRYPTOPP)
 	#define XSUM_HAS_MD2
 #endif

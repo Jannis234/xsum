@@ -35,12 +35,13 @@ CHECKS = check_adler_32 \
 	check_has160 \
 	check_haval_128 check_haval_160 check_haval_192 check_haval_224 check_haval_256 \
 	check_jh_224 check_jh_256 check_jh_384 check_jh_512 \
+	check_keccak_224 check_keccak_256 check_keccak_384 check_keccak_512 \
+	check_kupyna_256 check_kupyna_512 \
+	check_lsh_256 check_lsh_256_224 check_lsh_512 check_lsh_512_256 check_lsh_512_384 \
 	check_md2 \
 	check_md4 \
 	check_md5 \
 	check_mdc2 \
-	check_keccak_224 check_keccak_256 check_keccak_384 check_keccak_512 \
-	check_kupyna_256 check_kupyna_512 \
 	check_ripemd128 check_ripemd160 check_ripemd256 check_ripemd320 \
 	check_sha1 \
 	check_sha224 check_sha256 check_sha384 check_sha512 check_sha512_224 check_sha512_256 \
@@ -1119,6 +1120,21 @@ check_kupyna_256: $(INPUT_DEPEND) data/kupyna_256.txt
 
 check_kupyna_512: $(INPUT_DEPEND) data/kupyna_512.txt
 	$(XSUM) -c data/kupyna_512.txt
+
+check_lsh_256: $(INPUT_DEPEND) data/lsh_256.txt
+	$(XSUM) -c data/lsh_256.txt
+
+check_lsh_256_224: $(INPUT_DEPEND) data/lsh_256_224.txt
+	$(XSUM) -c data/lsh_256_224.txt
+
+check_lsh_512: $(INPUT_DEPEND) data/lsh_512.txt
+	$(XSUM) -c data/lsh_512.txt
+
+check_lsh_512_256: $(INPUT_DEPEND) data/lsh_512_256.txt
+	$(XSUM) -c data/lsh_512_256.txt
+
+check_lsh_512_384: $(INPUT_DEPEND) data/lsh_512_384.txt
+	$(XSUM) -c data/lsh_512_384.txt
 
 check_md2: $(INPUT_DEPEND) data/md2.txt
 	$(XSUM) -c data/md2.txt
