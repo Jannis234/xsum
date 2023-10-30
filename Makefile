@@ -38,7 +38,6 @@ SRC = src/main.c \
 	src/algos/echo.c \
 	src/algos/edon_r_256.c src/algos/edon_r_512.c \
 	src/algos/esch_256.c src/algos/esch_384.c \
-	src/algos/gost12_256.c src/algos/gost12_512.c \
 	src/algos/gost94.c src/algos/gost94_cryptopro.c \
 	src/algos/groestl.c \
 	src/algos/has160.c \

@@ -30,7 +30,6 @@ CHECKS = check_adler_32 \
 	check_echo_8 check_echo_16 check_echo_24 check_echo_32 check_echo_40 check_echo_48 check_echo_56 check_echo_64 check_echo_72 check_echo_80 check_echo_88 check_echo_96 check_echo_104 check_echo_112 check_echo_120 check_echo_128 check_echo_136 check_echo_144 check_echo_152 check_echo_160 check_echo_168 check_echo_176 check_echo_184 check_echo_192 check_echo_200 check_echo_208 check_echo_216 check_echo_224 check_echo_232 check_echo_240 check_echo_248 check_echo_256 check_echo_264 check_echo_272 check_echo_280 check_echo_288 check_echo_296 check_echo_304 check_echo_312 check_echo_320 check_echo_328 check_echo_336 check_echo_344 check_echo_352 check_echo_360 check_echo_368 check_echo_376 check_echo_384 check_echo_392 check_echo_400 check_echo_408 check_echo_416 check_echo_424 check_echo_432 check_echo_440 check_echo_448 check_echo_456 check_echo_464 check_echo_472 check_echo_480 check_echo_488 check_echo_496 check_echo_504 check_echo_512 \
 	check_edon_r_256 check_edon_r_512 \
 	check_esch_256 check_esch_384 \
-	check_gost12_256 check_gost12_512 \
 	check_gost94 check_gost94_cryptopro \
 	check_groestl_8 check_groestl_16 check_groestl_24 check_groestl_32 check_groestl_40 check_groestl_48 check_groestl_56 check_groestl_64 check_groestl_72 check_groestl_80 check_groestl_88 check_groestl_96 check_groestl_104 check_groestl_112 check_groestl_120 check_groestl_128 check_groestl_136 check_groestl_144 check_groestl_152 check_groestl_160 check_groestl_168 check_groestl_176 check_groestl_184 check_groestl_192 check_groestl_200 check_groestl_208 check_groestl_216 check_groestl_224 check_groestl_232 check_groestl_240 check_groestl_248 check_groestl_256 check_groestl_264 check_groestl_272 check_groestl_280 check_groestl_288 check_groestl_296 check_groestl_304 check_groestl_312 check_groestl_320 check_groestl_328 check_groestl_336 check_groestl_344 check_groestl_352 check_groestl_360 check_groestl_368 check_groestl_376 check_groestl_384 check_groestl_392 check_groestl_400 check_groestl_408 check_groestl_416 check_groestl_424 check_groestl_432 check_groestl_440 check_groestl_448 check_groestl_456 check_groestl_464 check_groestl_472 check_groestl_480 check_groestl_488 check_groestl_496 check_groestl_504 check_groestl_512 \
 	check_has160 \
@@ -874,12 +873,6 @@ check_esch_256: $(INPUT_DEPEND) data/esch_256.txt
 
 check_esch_384: $(INPUT_DEPEND) data/esch_384.txt
 	$(XSUM) -c data/esch_384.txt
-
-check_gost12_256: $(INPUT_DEPEND) data/gost12_256.txt
-	$(XSUM) -c data/gost12_256.txt
-
-check_gost12_512: $(INPUT_DEPEND) data/gost12_512.txt
-	$(XSUM) -c data/gost12_512.txt
 
 check_gost94: $(INPUT_DEPEND) data/gost94.txt
 	$(XSUM) -c data/gost94.txt

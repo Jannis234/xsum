@@ -23,6 +23,11 @@
 #include <gcrypt.h>
 XSUM_TEMPLATE_LIBGCRYPT(streebog_256, GCRY_MD_STRIBOG256, 32)
 
+#elif defined(XSUM_WITH_RHASH)
+
+#include <rhash.h>
+XSUM_TEMPLATE_RHASH(streebog_256, RHASH_GOST12_256, 32)
+
 #elif defined(XSUM_WITH_GNUTLS_STREEBOG)
 
 #include <gnutls/gnutls.h>

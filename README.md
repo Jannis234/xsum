@@ -43,8 +43,6 @@ EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
 EDON-R-512 | [rhash](http://rhash.sourceforge.net/)¹¹ |
 Esch-256 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
 Esch-384 | [cppcrypto](http://cppcrypto.sourceforge.net/) |
-GOST12-256 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
-GOST12-512 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
 GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
 GOST94-CryptoPro | [botan2](https://botan.randombit.net/) [gnutls](https://www.gnutls.org/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵ ⁶ ⁷ | GOST94 with CryptoPro S-box
 Groestl-X | [cppcrypto](http://cppcrypto.sourceforge.net/) | Supported sizes are 8, 16, 24, ..., 512
@@ -89,8 +87,8 @@ Skein-1024-X | [cppcrypto](http://cppcrypto.sourceforge.net/) | Supported sizes 
 SM3 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [crypto++](https://www.cryptopp.com/) [openssl](https://www.openssl.org/)⁵ ⁶ ⁷ |
 Snefru-128 | [mhash](http://mhash.sourceforge.net/) [rhash](http://rhash.sourceforge.net/) |
 Snefru-256 | [mhash](http://mhash.sourceforge.net/) [rhash](http://rhash.sourceforge.net/) |
-Streebog-256 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [gnutls](https://www.gnutls.org/)⁴ [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹² [openssl](https://www.openssl.org/)⁵ ⁶ | GOST R 34.11-2012
-Streebog-512 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [gnutls](https://www.gnutls.org/)⁴ [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹² [openssl](https://www.openssl.org/)⁵ ⁶ | GOST R 34.11-2012
+Streebog-256 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [gnutls](https://www.gnutls.org/)⁴ [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹² [openssl](https://www.openssl.org/)⁵ ⁶ [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-2012
+Streebog-512 | [botan2](https://botan.randombit.net/) [cppcrypto](http://cppcrypto.sourceforge.net/) [gnutls](https://www.gnutls.org/)⁴ [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/)¹² [openssl](https://www.openssl.org/)⁵ ⁶ [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-2012
 Sum | (Built in) | 64-bit sum of all input bytes
 Tiger | [botan2](https://botan.randombit.net/) [crypto++](https://www.cryptopp.com/) [mhash](http://mhash.sourceforge.net/) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) |
 Tiger2 | [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) |
