@@ -36,6 +36,7 @@ SRC = src/main.c \
 	src/algos/blake2bp.c \
 	src/algos/crc24.c src/algos/crc32.c src/algos/crc64.c \
 	src/algos/edon_r_256.c src/algos/edon_r_512.c \
+	src/algos/gost12_256.c src/algos/gost12_512.c \
 	src/algos/gost94.c src/algos/gost94_cryptopro.c \
 	src/algos/groestl.c \
 	src/algos/has160.c \

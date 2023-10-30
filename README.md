@@ -40,6 +40,8 @@ CRC32 | [botan2](https://botan.randombit.net/) [crypto++](https://www.cryptopp.c
 CRC64 | [liblzma](https://tukaani.org/xz/) | CRC64 as specified by ECMA-182
 EDON-R-256 | [rhash](http://rhash.sourceforge.net/) |
 EDON-R-512 | [rhash](http://rhash.sourceforge.net/)¹¹ |
+GOST12-256 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
+GOST12-512 | [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-12
 GOST94 | [nettle](https://www.lysator.liu.se/~nisse/nettle/nettle.html) [libgcrypt](https://www.gnupg.org/related_software/libgcrypt/) [rhash](http://rhash.sourceforge.net/) | GOST R 34.11-94
 GOST94-CryptoPro | [botan2](https://botan.randombit.net/) [gnutls](https://www.gnutls.org/) [rhash](http://rhash.sourceforge.net/) [openssl](https://www.openssl.org/)⁵⁶⁷ | GOST94 with CryptoPro S-box
 Groestl-X | [cppcrypto](http://cppcrypto.sourceforge.net/) | Supported sizes are 8, 16, 24, ..., 512

@@ -263,6 +263,12 @@ extern xsum_algo_t xsum_algo_edon_r_256;
 #ifdef XSUM_HAS_EDON_R_512
 extern xsum_algo_t xsum_algo_edon_r_512;
 #endif
+#ifdef XSUM_HAS_GOST12_256
+extern xsum_algo_t xsum_algo_gost12_256;
+#endif
+#ifdef XSUM_HAS_GOST12_512
+extern xsum_algo_t xsum_algo_gost12_512;
+#endif
 #ifdef XSUM_HAS_GOST94
 extern xsum_algo_t xsum_algo_gost94;
 #endif
@@ -971,6 +977,12 @@ xsum_algo_t *xsum_algos[] = {
 #endif
 #ifdef XSUM_HAS_EDON_R_512
 	&xsum_algo_edon_r_512,
+#endif
+#ifdef XSUM_HAS_GOST12_256
+	&xsum_algo_gost12_256,
+#endif
+#ifdef XSUM_HAS_GOST12_512
+	&xsum_algo_gost12_512,
 #endif
 #ifdef XSUM_HAS_GOST94
 	&xsum_algo_gost94,

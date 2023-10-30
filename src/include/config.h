@@ -404,6 +404,14 @@
 	#define XSUM_HAS_EDON_R_512
 #endif
 
+#if defined(XSUM_WITH_RHASH)
+	#define XSUM_HAS_GOST12_256
+#endif
+
+#if defined(XSUM_WITH_RHASH)
+	#define XSUM_HAS_GOST12_512
+#endif
+
 #if defined(XSUM_WITH_NETTLE) || defined(XSUM_WITH_LIBGCRYPT) || defined(XSUM_WITH_RHASH)
 	#define XSUM_HAS_GOST94
 #endif
