@@ -211,8 +211,10 @@
 	#else
 		#define XSUM_LIBGCRYPT_MIN_VERSION "1.7.0"
 	#endif
-	// libgcrypt currently produces incorrect streebog hashes (tested with 1.8.5)
-	//#define XSUM_WITH_LIBGCRYPT_STREEBOG
+	// Older versions of libgcrypt produced incorrect streebog hashes
+	#if (GCRYPT_VERSION_NUMBER >= 0x010900)
+		#define XSUM_WITH_LIBGCRYPT_STREEBOG
+	#endif
 #endif
 
 #if (XSUM_CONFIG_LIBLZMA == 1)
