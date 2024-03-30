@@ -13,8 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with xsum. If not, see <http://www.gnu.org/licenses/>.
 
-XSUM_VERSION = 1.3
-#XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
+XSUM_VERSION = git-$(shell git rev-parse --short HEAD)
 
 # Enable multithreading on a compiler that supports OpenMP
 WITH_OPENMP = 1

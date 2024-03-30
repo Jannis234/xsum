@@ -1,0 +1,34 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Because many libraries implement the same algorithms, we use one job per library to make sure all code paths in xsum are tested
+        library: [botan2, cryptopp, glib, gnutls, mbedtls, mhash, nettle, nss, libb2, libgcrypt, liblzma, libsodium, openssl, rhash, xxhash, zlib]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential help2man
+          sudo apt-get install -y --no-install-recommends libbotan-2-dev libcrypto++-dev libglib2.0-dev libgnutls28-dev libmbedtls-dev libmhash-dev nettle-dev libnss3-dev libb2-dev libgcrypt20-dev liblzma-dev libsodium-dev libssl-dev librhash-dev libxxhash-dev zlib1g-dev
+      - name: Generate build configuration
+        run: |
+          cd ${{github.workspace}}
+          ./.github/make_config.sh ${{matrix.library}} > config_build.mak
+          sed -i "s/libcryptopp/libcrypto++/g" config_system.mak
+      - name: Build
+        run: |
+          cd ${{github.workspace}}
+          make
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xsum-debug-${{matrix.library}}
+          path: |
+            ${{github.workspace}}/xsum
+      - name: Run testsuite
+        run: |
+          cd ${{github.workspace}}
+          make check
