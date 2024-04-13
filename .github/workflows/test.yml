@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      CPPCRYPTO_VERSION: 0.20
+      CPPCRYPTO_VERSION: "0.20"
     strategy:
       matrix:
         # Because many libraries implement the same algorithms, we use one job per library to make sure all code paths in xsum are tested
