@@ -1,0 +1,78 @@
+name: Build release package
+on: push
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    env:
+      CPPCRYPTO_VERSION: "0.20"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential yasm help2man unzip
+          sudo apt-get install -y --no-install-recommends libcrypto++-dev libmhash-dev libb2-dev libgcrypt20-dev libgpg-error-dev liblzma-dev librhash-dev libxxhash-dev zlib1g-dev
+      - name: Install cppcrypto
+        run: |
+          sudo mkdir /cppcrypto_build
+          sudo chown $(whoami) /cppcrypto_build
+          cd /cppcrypto_build
+          wget https://sourceforge.net/projects/cppcrypto/files/cppcrypto-${{env.CPPCRYPTO_VERSION}}-src.zip
+          unzip cppcrypto-${{env.CPPCRYPTO_VERSION}}-src.zip
+          cd cppcrypto-${{env.CPPCRYPTO_VERSION}}-src/cppcrypto
+          make
+          sudo make install LIBDIR=/usr/lib/x86_64-linux-gnu
+      - name: Configure
+        # Use a minmal set of dependencies that enabled all supported algorithms
+        # Disable any that only provide algorithms that are already supported through another library
+        # OpenSSL could be added to provide MDC2, but that break when linking statically
+        run: |
+          cd ${{github.workspace}}
+          sed -i "s/WITH_BOTAN = 1/WITH_BOTAN = 0/g" config_build.mak
+          sed -i "s/WITH_GLIB = 1/WITH_GLIB = 0/g" config_build.mak
+          sed -i "s/WITH_GNUTLS = 1/WITH_GNUTLS = 0/g" config_build.mak
+          sed -i "s/WITH_MBEDTLS = 1/WITH_MBEDTLS = 0/g" config_build.mak
+          sed -i "s/WITH_NETTLE = 1/WITH_NETTLE = 0/g" config_build.mak
+          sed -i "s/WITH_NSS = 1/WITH_NSS = 0/g" config_build.mak
+          sed -i "s/WITH_LIBSODIUM = 1/WITH_LIBSODIUM = 0/g" config_build.mak
+          sed -i "s/WITH_OPENSSL = 1/WITH_OPENSSL = 0/g" config_build.mak
+          sed -i "s/libcryptopp/libcrypto++/g" config_system.mak
+          sed -i "s|-lcppcrypto|/usr/lib/x86_64-linux-gnu/libcppcrypto.a|g" config_system.mak
+          sed -i "s|\$(shell \$(PKG_CONFIG) --libs libcrypto++)|/usr/lib/x86_64-linux-gnu/libcrypto++.a|g" config_system.mak
+          sed -i "s|-lmhash|/usr/lib/x86_64-linux-gnu/libmhash.a|g" config_system.mak
+          sed -i "s|\$(shell \$(PKG_CONFIG) --libs libb2)|/usr/lib/x86_64-linux-gnu/libb2.a|g" config_system.mak
+          sed -i "s|\$(shell \$(BUILD)libgcrypt-config --libs)|/usr/lib/x86_64-linux-gnu/libgcrypt.a /usr/lib/x86_64-linux-gnu/libgpg-error.a|g" config_system.mak
+          sed -i "s|\$(shell \$(PKG_CONFIG) --libs liblzma)|/usr/lib/x86_64-linux-gnu/liblzma.a|g" config_system.mak
+          sed -i "s|\$(shell \$(PKG_CONFIG) --libs librhash)|/usr/lib/x86_64-linux-gnu/librhash.a|g" config_system.mak
+          sed -i "s|-lxxhash|/usr/lib/x86_64-linux-gnu/libxxhash.a|g" config_system.mak
+          sed -i "s|\$(shell \$(PKG_CONFIG) --libs zlib)|/usr/lib/x86_64-linux-gnu/libz.a|g" config_system.mak
+      - name: Build
+        run: |
+          cd ${{github.workspace}}
+          make
+          strip xsum
+      - name: Create package
+        run: |
+          cd ${{github.workspace}}
+          mkdir xsum-${{github.ref_name}}
+          cp xsum xsum-${{github.ref_name}}
+          cp README.md CHANGELOG COPYING .github/COPYING.3rdparty xsum-${{github.ref_name}}
+          mkdir xsum-${{github.ref_name}}/license
+          cd xsum-${{github.ref_name}}/license
+          chmod -x /cppcrypto_build/cppcrypto-${{env.CPPCRYPTO_VERSION}}-src/cppcrypto/license.txt
+          cp /cppcrypto_build/cppcrypto-${{env.CPPCRYPTO_VERSION}}-src/cppcrypto/license.txt cppcrypto
+          cp /usr/share/doc/libcrypto++-dev/copyright crypto++
+          cp /usr/share/doc/libmhash-dev/copyright mhash
+          cp /usr/share/doc/libb2-dev/copyright libb2
+          cp /usr/share/doc/libgcrypt20-dev/copyright libgcrypt
+          cp /usr/share/doc/libgpg-error-dev/copyright libgpg-error
+          cp /usr/share/doc/librhash-dev/copyright rhash
+          cp /usr/share/doc/libxxhash-dev/copyright xxhash
+          cp /usr/share/doc/liblzma-dev/copyright xz-utils
+          cp /usr/share/doc/zlib1g-dev/copyright zlib
+          cd ${{github.workspace}}
+          tar -c xsum-${{github.ref_name}} | xz -9 > xsum-${{github.ref_name}}-linux-x86_64.tar.xz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xsum-${{github.ref_name}}-linux-x86_64.tar.xz
+          path: ${{github.workspace}}/xsum-${{github.ref_name}}-linux-x86_64.tar.xz

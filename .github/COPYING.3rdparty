@@ -1,0 +1,14 @@
+The following third party libraries are bundled by linking them into the
+xsum executable:
+* cppcrypto - https://cppcrypto.sourceforge.net/
+* Crypto++ - https://www.cryptopp.com/
+* libb2 - https://www.blake2.net/
+* libgcrypt - https://gnupg.org/software/libgcrypt/
+* libgpg-error - https://www.gnupg.org/related_software/libgpg-error/
+* mhash - https://mhash.sourceforge.net/
+* RHash - https://rhash.sourceforge.io/
+* xxHash - https://xxhash.com/
+* xz-utils - https://tukaani.org/xz/
+* zlib - https://zlib.net/
+The directory "license" contains files with detailed copyright and license
+information for each library.
